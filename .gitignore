@@ -27,6 +27,8 @@ bld/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+.artifacts/
+.vs/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -52,3 +54,20 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Node
+node_modules/
+
+
+output
+.mcp-state/
+.playwright
+.playwright-cli
+
+.codex-obj
+CanDoItAll.Mcp.ProjectStructure.settings.local.json
+playwright-report/
+test-results/
+TestResults/
+coverage/
+screenshots/

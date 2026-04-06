@@ -1,0 +1,103 @@
+:root {
+    color-scheme: light;
+    --page-bg: #f2efe7;
+    --panel-bg: rgba(255, 255, 255, 0.82);
+    --panel-border: rgba(36, 42, 56, 0.12);
+    --text-main: #1f2433;
+    --text-muted: #596173;
+    --accent: #145a74;
+    --accent-soft: #d6ecf2;
+    --shadow-soft: 0 24px 60px rgba(24, 37, 56, 0.12);
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(20, 90, 116, 0.16), transparent 32%),
+        linear-gradient(180deg, #fcfaf5 0%, var(--page-bg) 100%);
+    color: var(--text-main);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+code {
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.page-shell {
+    display: grid;
+    gap: 2rem;
+}
+
+.hero {
+    padding: 2.4rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 28px;
+    background: var(--panel-bg);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(14px);
+}
+
+.hero h1 {
+    margin: 0.35rem 0 0.9rem;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 0.95;
+}
+
+.hero p {
+    max-width: 44rem;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.eyebrow {
+    display: inline-flex;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.status-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.status-card {
+    padding: 1.3rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 12px 30px rgba(24, 37, 56, 0.08);
+}
+
+.status-card h2 {
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    font-size: 1.1rem;
+}
+
+.status-card p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .hero {
+        padding: 1.5rem;
+        border-radius: 22px;
+    }
+}

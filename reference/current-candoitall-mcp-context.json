@@ -1,0 +1,39 @@
+{
+  "hostRepoName": "CanDoItAll",
+  "sdkVersion": "10.0.200",
+  "rollForward": "latestPatch",
+  "solutionFile": "CanDoItAll.slnx",
+  "targetFramework": "net10.0",
+  "environmentVariablePrefix": "CanDoItAllMcp_",
+  "currentMcpProjects": [
+    "CanDoItAll.Mcp.Components",
+    "CanDoItAll.Mcp.Core",
+    "CanDoItAll.Mcp.DotNetWatch",
+    "CanDoItAll.Mcp.LocalRuntime",
+    "CanDoItAll.Mcp.ProjectStructure",
+    "CanDoItAll.Mcp.SshOps"
+  ],
+  "currentServerIds": [
+    "candoitall_dotnetwatch",
+    "candoitall_sshops",
+    "candoitall_components",
+    "candoitall_projectstructure"
+  ],
+  "coreFiles": [
+    "src/CanDoItAll.Mcp.Core/Contracts/McpToolEnvelope.cs",
+    "src/CanDoItAll.Mcp.Core/Identity/IdentifierFactories.cs",
+    "src/CanDoItAll.Mcp.Core/Operations/OperationPrimitives.cs"
+  ],
+  "futureDriver": {
+    "project": "CanDoItAll.Mcp.CodeAnalytics",
+    "toolPrefix": "code_analytics_",
+    "expectedTouchPoints": [
+      "src/CanDoItAll.Mcp.CodeAnalytics/*",
+      "tests/CanDoItAll.Mcp.CodeAnalytics.Tests/*",
+      ".vscode/mcp.json",
+      "CanDoItAll.Mcp.CodeAnalytics.settings.example.json",
+      "tools/Reinstall-CanDoItAllMcps.ps1",
+      "codex/README.md"
+    ]
+  }
+}

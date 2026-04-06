@@ -1,0 +1,18 @@
+{
+  "Server": {
+    "Name": "CanDoItAll.Mcp.CodeAnalytics",
+    "WorkspaceRoot": ".",
+    "DefaultSolutionPath": "CanDoItAll.CodeAnalsis.slnx"
+  },
+  "Analysis": {
+    "DefaultSolutionPath": "CanDoItAll.CodeAnalsis.slnx",
+    "IncludeXmlDocumentation": true,
+    "IncludeDependencyGraphs": true
+  },
+  "Storage": {
+    "SnapshotRoot": ".mcp-state/code-analytics"
+  },
+  "Exports": {
+    "OutputRoot": "output/code-analytics"
+  }
+}

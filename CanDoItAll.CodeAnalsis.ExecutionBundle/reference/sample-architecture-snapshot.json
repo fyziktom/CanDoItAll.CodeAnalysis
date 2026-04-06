@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "0.1.0",
+  "snapshotId": "sample-20260406-001",
+  "createdUtc": "2026-04-06T10:00:00Z",
+  "request": {
+    "solutionPath": "/repo/SampleSolution/SampleSolution.slnx",
+    "scopeProjectNames": [],
+    "scopeNamespacePrefixes": [],
+    "includeDi": true,
+    "includePersistence": true,
+    "includeRisks": true,
+    "includeXmlDocs": true,
+    "includeMermaidExports": true
+  },
+  "facts": {
+    "solution": {
+      "name": "SampleSolution",
+      "path": "/repo/SampleSolution/SampleSolution.slnx",
+      "projectCount": 3
+    },
+    "projects": [
+      {
+        "projectId": "proj-web",
+        "name": "SampleSolution.Web",
+        "path": "/repo/SampleSolution/src/SampleSolution.Web/SampleSolution.Web.csproj",
+        "targetFrameworks": [
+          "net8.0"
+        ],
+        "projectReferences": [
+          "proj-app"
+        ],
+        "packageReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      {
+        "projectId": "proj-app",
+        "name": "SampleSolution.Application",
+        "path": "/repo/SampleSolution/src/SampleSolution.Application/SampleSolution.Application.csproj",
+        "targetFrameworks": [
+          "net8.0"
+        ],
+        "projectReferences": [
+          "proj-infra"
+        ],
+        "packageReferences": []
+      },
+      {
+        "projectId": "proj-infra",
+        "name": "SampleSolution.Infrastructure",
+        "path": "/repo/SampleSolution/src/SampleSolution.Infrastructure/SampleSolution.Infrastructure.csproj",
+        "targetFrameworks": [
+          "net8.0"
+        ],
+        "projectReferences": [],
+        "packageReferences": [
+          "Microsoft.EntityFrameworkCore"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "moduleId": "mod-web",
+        "projectId": "proj-web",
+        "name": "SampleSolution.Web",
+        "namespacePrefix": "SampleSolution.Web"
+      },
+      {
+        "moduleId": "mod-app",
+        "projectId": "proj-app",
+        "name": "SampleSolution.Application",
+        "namespacePrefix": "SampleSolution.Application"
+      },
+      {
+        "moduleId": "mod-infra",
+        "projectId": "proj-infra",
+        "name": "SampleSolution.Infrastructure",
+        "namespacePrefix": "SampleSolution.Infrastructure"
+      }
+    ],
+    "types": [
+      {
+        "typeId": "type-order-service",
+        "projectId": "proj-app",
+        "moduleId": "mod-app",
+        "displayName": "SampleSolution.Application.Orders.OrderService",
+        "kind": "Class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "SampleSolution.Application.Orders.IOrderService"
+        ],
+        "xmlSummary": "Coordinates order operations.",
+        "source": {
+          "path": "src/SampleSolution.Application/Orders/OrderService.cs",
+          "line": 10,
+          "column": 14
+        }
+      },
+      {
+        "typeId": "type-appdbcontext",
+        "projectId": "proj-infra",
+        "moduleId": "mod-infra",
+        "displayName": "SampleSolution.Infrastructure.Persistence.AppDbContext",
+        "kind": "Class",
+        "baseTypeDisplayName": "DbContext",
+        "interfaceDisplayNames": [],
+        "xmlSummary": "Primary EF Core database context.",
+        "source": {
+          "path": "src/SampleSolution.Infrastructure/Persistence/AppDbContext.cs",
+          "line": 8,
+          "column": 14
+        }
+      }
+    ],
+    "serviceRegistrations": [
+      {
+        "serviceRegistrationId": "svc-001",
+        "lifetime": "Scoped",
+        "serviceTypeDisplayName": "SampleSolution.Application.Orders.IOrderService",
+        "implementationTypeDisplayName": "SampleSolution.Application.Orders.OrderService",
+        "registrationMethod": "AddScoped",
+        "source": {
+          "path": "src/SampleSolution.Web/Program.cs",
+          "line": 18,
+          "column": 1
+        }
+      }
+    ],
+    "dbContexts": [
+      {
+        "dbContextId": "dbctx-001",
+        "typeId": "type-appdbcontext",
+        "displayName": "AppDbContext",
+        "entityTypeIds": [
+          "ent-order",
+          "ent-customer"
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entityId": "ent-order",
+        "typeId": "type-order",
+        "displayName": "Order",
+        "tableName": "Orders",
+        "relationshipTargets": [
+          "ent-customer"
+        ]
+      },
+      {
+        "entityId": "ent-customer",
+        "typeId": "type-customer",
+        "displayName": "Customer",
+        "tableName": "Customers",
+        "relationshipTargets": []
+      }
+    ],
+    "dependencies": [
+      {
+        "edgeId": "dep-001",
+        "kind": "ProjectReference",
+        "fromId": "proj-web",
+        "toId": "proj-app",
+        "weight": 1
+      },
+      {
+        "edgeId": "dep-002",
+        "kind": "ProjectReference",
+        "fromId": "proj-app",
+        "toId": "proj-infra",
+        "weight": 1
+      }
+    ]
+  },
+  "insights": {
+    "summary": {
+      "projectCount": 3,
+      "typeCount": 2,
+      "serviceRegistrationCount": 1,
+      "entityCount": 2,
+      "findingCount": 1
+    },
+    "cycles": [],
+    "hotspots": [
+      {
+        "nodeId": "type-order-service",
+        "kind": "Type",
+        "score": 0.76,
+        "reason": "High fan-in combined with service-layer coordination responsibilities."
+      }
+    ],
+    "findings": [
+      {
+        "findingId": "finding-001",
+        "ruleId": "LAYERING-001",
+        "severity": "Warning",
+        "title": "Application depends on Infrastructure",
+        "description": "The sample graph suggests that the Application project directly references Infrastructure.",
+        "relatedIds": [
+          "proj-app",
+          "proj-infra"
+        ],
+        "source": {
+          "path": "src/SampleSolution.Application/SampleSolution.Application.csproj",
+          "line": null,
+          "column": null
+        }
+      }
+    ]
+  },
+  "exports": {
+    "markdownSummaryPath": "exports/summary.md",
+    "mermaidProjectGraphPath": "exports/project-graph.mmd",
+    "mermaidClassDiagramPath": "exports/class-diagram.mmd",
+    "mermaidErDiagramPath": "exports/er-diagram.mmd"
+  },
+  "diagnostics": [
+    {
+      "code": "DI0001",
+      "severity": "Info",
+      "message": "Only conventional IServiceCollection registrations were interpreted in the sample.",
+      "source": {
+        "path": "src/SampleSolution.Web/Program.cs",
+        "line": 1,
+        "column": 1
+      }
+    }
+  ]
+}

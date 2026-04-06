@@ -1,0 +1,50 @@
+{
+  "driverProject": "CanDoItAll.Mcp.CodeAnalytics",
+  "toolPrefix": "code_analytics_",
+  "tools": [
+    {
+      "name": "code_analytics_snapshot_build",
+      "applicationOperation": "BuildSnapshot",
+      "readOnly": false,
+      "notes": "Builds or refreshes a snapshot for the requested solution/scope."
+    },
+    {
+      "name": "code_analytics_summary_get",
+      "applicationOperation": "GetSummary",
+      "readOnly": true,
+      "notes": "Returns executive or section-specific summaries for an existing snapshot."
+    },
+    {
+      "name": "code_analytics_diagram_get",
+      "applicationOperation": "GetDiagram",
+      "readOnly": true,
+      "notes": "Returns diagram metadata and export references for Mermaid outputs."
+    },
+    {
+      "name": "code_analytics_query",
+      "applicationOperation": "QuerySnapshot",
+      "readOnly": true,
+      "notes": "Returns focused data such as modules, services, entities, or findings."
+    },
+    {
+      "name": "code_analytics_export_get",
+      "applicationOperation": "GetExport",
+      "readOnly": true,
+      "notes": "Enumerates or fetches export assets for a snapshot."
+    },
+    {
+      "name": "code_analytics_recent_list",
+      "applicationOperation": "ListRecentSnapshots",
+      "readOnly": true,
+      "notes": "Lists recent snapshots from local storage."
+    }
+  ],
+  "futureHostRepoTouchPoints": [
+    "src/CanDoItAll.Mcp.CodeAnalytics/*",
+    "tests/CanDoItAll.Mcp.CodeAnalytics.Tests/*",
+    ".vscode/mcp.json",
+    "CanDoItAll.Mcp.CodeAnalytics.settings.example.json",
+    "tools/Reinstall-CanDoItAllMcps.ps1",
+    "codex/README.md"
+  ]
+}

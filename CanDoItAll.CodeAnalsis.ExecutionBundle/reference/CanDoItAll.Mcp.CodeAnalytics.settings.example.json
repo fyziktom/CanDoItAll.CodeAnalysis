@@ -1,0 +1,15 @@
+{
+  "Server": {
+    "Name": "CanDoItAll.Mcp.CodeAnalytics",
+    "WorkspaceRoot": ".",
+    "DefaultSolutionPath": "CanDoItAll.CodeAnalsis.slnx",
+    "SnapshotRoot": ".mcp-state/code-analytics",
+    "TimeoutSeconds": 60
+  },
+  "Features": {
+    "EnablePersistence": true,
+    "EnableDiAnalysis": true,
+    "EnableEfCoreAnalysis": true,
+    "EnableMermaidExports": true
+  }
+}

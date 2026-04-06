@@ -1,0 +1,7 @@
+classDiagram
+    class IOrderService
+    class OrderService
+    class OrderController
+
+    IOrderService <|.. OrderService
+    OrderController --> IOrderService : uses

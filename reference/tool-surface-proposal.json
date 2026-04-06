@@ -1,0 +1,36 @@
+{
+  "driverProject": "CanDoItAll.Mcp.CodeAnalytics",
+  "toolPrefix": "code_analytics_",
+  "tools": [
+    {
+      "name": "code_analytics_snapshot_build",
+      "applicationOperation": "BuildSnapshot",
+      "readOnly": false
+    },
+    {
+      "name": "code_analytics_summary_get",
+      "applicationOperation": "GetSummary",
+      "readOnly": true
+    },
+    {
+      "name": "code_analytics_diagram_get",
+      "applicationOperation": "GetDiagram",
+      "readOnly": true
+    },
+    {
+      "name": "code_analytics_query",
+      "applicationOperation": "QuerySnapshot",
+      "readOnly": true
+    },
+    {
+      "name": "code_analytics_export_get",
+      "applicationOperation": "GetExport",
+      "readOnly": true
+    },
+    {
+      "name": "code_analytics_recent_list",
+      "applicationOperation": "ListRecentSnapshots",
+      "readOnly": true
+    }
+  ]
+}

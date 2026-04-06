@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+</PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Abstractions\CanDoItAll.CodeAnalytics.Abstractions.csproj" />
+    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Analysis\CanDoItAll.CodeAnalytics.Analysis.csproj" />
+    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj" />
+    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Rendering\CanDoItAll.CodeAnalytics.Rendering.csproj" />
+    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Storage\CanDoItAll.CodeAnalytics.Storage.csproj" />
+    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Workspace\CanDoItAll.CodeAnalytics.Workspace.csproj" />
+  </ItemGroup>
+
+</Project>
