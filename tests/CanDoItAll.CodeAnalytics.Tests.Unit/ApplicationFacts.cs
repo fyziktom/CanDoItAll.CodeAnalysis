@@ -39,4 +39,28 @@ public sealed class ApplicationFacts {
             response.Snapshot.Facts.Types,
             type => Assert.Equal(response.Snapshot.Facts.Projects[0].ProjectId, type.ProjectId));
     }
+
+    [Fact]
+    public async Task Application_filters_types_by_project_and_can_expand_methods() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetTypesAsync(
+            new TypeSearchQuery(
+                build.Snapshot.SnapshotId,
+                ProjectName: "Fixture.Shop.Application",
+                MemberSearchText: "PlaceOrderAsync",
+                IncludeMembers: true,
+                MethodsOnly: true));
+
+        Assert.NotNull(response);
+        Assert.NotEmpty(response!.Types);
+        Assert.All(response.Types, item => Assert.Equal("Fixture.Shop.Application", item.ProjectName));
+        Assert.Contains(
+            response.Types.SelectMany(item => item.Members),
+            member => member.Kind == CanDoItAll.CodeAnalytics.Domain.Facts.MemberKind.Method &&
+                member.DisplayName.Contains("PlaceOrderAsync", StringComparison.Ordinal));
+    }
 }

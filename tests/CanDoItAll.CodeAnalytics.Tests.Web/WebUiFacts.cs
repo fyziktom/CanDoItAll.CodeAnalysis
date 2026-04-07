@@ -67,11 +67,14 @@ public sealed class WebUiFacts {
         var dependencies = await client.GetStringAsync($"/snapshots/{snapshotId}/dependencies");
         var services = await client.GetStringAsync($"/snapshots/{snapshotId}/services");
         var persistence = await client.GetStringAsync($"/snapshots/{snapshotId}/persistence");
+        var types = await client.GetStringAsync($"/snapshots/{snapshotId}/types?project=Fixture.Shop.Application&memberSearch=PlaceOrderAsync&includeMembers=true&methodsOnly=true");
         var findings = await client.GetStringAsync($"/snapshots/{snapshotId}/findings");
 
         Assert.Contains("Dependencies", dependencies, StringComparison.Ordinal);
         Assert.Contains("Services", services, StringComparison.Ordinal);
         Assert.Contains("Persistence", persistence, StringComparison.Ordinal);
+        Assert.Contains("Type Explorer", types, StringComparison.Ordinal);
+        Assert.Contains("PlaceOrderAsync", types, StringComparison.Ordinal);
         Assert.Contains("Findings", findings, StringComparison.Ordinal);
     }
 

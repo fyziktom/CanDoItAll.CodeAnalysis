@@ -32,6 +32,10 @@ public interface ICodeAnalyticsApplicationService {
         SnapshotQuery query,
         CancellationToken cancellationToken = default);
 
+    Task<TypesViewResponse?> GetTypesAsync(
+        TypeSearchQuery query,
+        CancellationToken cancellationToken = default);
+
     Task<ExportsViewResponse?> GetExportsAsync(
         string snapshotId,
         CancellationToken cancellationToken = default);

@@ -23,22 +23,59 @@ else
 
         <section class="panel">
             <h2>DbContexts</h2>
-            <ul class="detail-list">
-                @foreach (var dbContext in _response.DbContexts)
-                {
-                    <li>@dbContext.DisplayName (@dbContext.EntityTypeIds.Count entities)</li>
-                }
-            </ul>
+            @if (_response.DbContexts.Count == 0)
+            {
+                <p class="empty-state">No DbContexts matched the current filter.</p>
+            }
+            else
+            {
+                <div class="type-browser-grid">
+                    @foreach (var dbContext in _response.DbContexts)
+                    {
+                        <article class="type-browser-card">
+                            <div class="type-browser-header">
+                                <h3>@dbContext.DisplayName</h3>
+                                <span class="severity-pill severity-info">@dbContext.EntityTypeIds.Count entities</span>
+                            </div>
+                            <p class="field-help">@dbContext.Source.Path:@dbContext.Source.Line</p>
+                            <div class="metadata-row">
+                                @foreach (var entityName in GetEntityNames(dbContext.EntityTypeIds))
+                                {
+                                    <span>@entityName</span>
+                                }
+                            </div>
+                        </article>
+                    }
+                </div>
+            }
         </section>
 
         <section class="panel">
             <h2>Entities</h2>
-            <ul class="detail-list">
-                @foreach (var entity in _response.Entities)
-                {
-                    <li>@entity.DisplayName -> table @entity.TableName</li>
-                }
-            </ul>
+            @if (_response.Entities.Count == 0)
+            {
+                <p class="empty-state">No entities matched the current filter.</p>
+            }
+            else
+            {
+                <div class="type-browser-grid">
+                    @foreach (var entity in _response.Entities)
+                    {
+                        <article class="type-browser-card">
+                            <div class="type-browser-header">
+                                <h3>@entity.DisplayName</h3>
+                                <span class="severity-pill severity-info">entity</span>
+                            </div>
+                            <div class="metadata-row">
+                                <span><strong>Table</strong> @GetStoreObjectName(entity)</span>
+                                <span><strong>Keys</strong> @FormatKeys(entity)</span>
+                                <span><strong>Relations</strong> @entity.RelationshipTargets.Count</span>
+                                <span><strong>Source</strong> @entity.Source.Path</span>
+                            </div>
+                        </article>
+                    }
+                </div>
+            }
         </section>
 
         <section class="panel">
@@ -72,9 +109,42 @@ else
     private ICodeAnalyticsApplicationService ApplicationService { get; set; } = null!;
 
     private PersistenceViewResponse? _response;
+    private Dictionary<string, string> _entityNamesById = [];
 
     protected override async Task OnParametersSetAsync()
     {
         _response = await ApplicationService.GetPersistenceAsync(new SnapshotQuery(SnapshotId, Search));
+        _entityNamesById = _response?.Entities.ToDictionary(entity => entity.EntityId, entity => entity.DisplayName, StringComparer.Ordinal) ?? [];
+    }
+
+    private IEnumerable<string> GetEntityNames(IReadOnlyList<string> entityIds)
+    {
+        return entityIds
+            .Select(entityId => _entityNamesById.TryGetValue(entityId, out var entityName) ? entityName : entityId)
+            .OrderBy(entityName => entityName, StringComparer.Ordinal);
+    }
+
+    private static string FormatKeys(EntityFact entity)
+    {
+        return entity.KeyPropertyNames.Count == 0
+            ? "None detected"
+            : string.Join(", ", entity.KeyPropertyNames);
+    }
+
+    private static string GetStoreObjectName(EntityFact entity)
+    {
+        if (!string.IsNullOrWhiteSpace(entity.TableName) && !string.IsNullOrWhiteSpace(entity.Schema)) {
+            return $"{entity.Schema}.{entity.TableName}";
+        }
+
+        if (!string.IsNullOrWhiteSpace(entity.TableName)) {
+            return entity.TableName;
+        }
+
+        if (!string.IsNullOrWhiteSpace(entity.Schema)) {
+            return $"schema {entity.Schema}";
+        }
+
+        return "Convention or unresolved";
     }
 }

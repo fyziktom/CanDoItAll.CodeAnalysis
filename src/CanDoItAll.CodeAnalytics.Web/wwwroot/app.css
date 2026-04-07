@@ -159,6 +159,15 @@ input[type="text"] {
     color: var(--text-main);
 }
 
+select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(22, 31, 44, 0.14);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--text-main);
+}
+
 .path-picker,
 .action-row,
 .progress-meta {
@@ -257,6 +266,58 @@ input[type="text"] {
     display: grid;
     gap: 0.8rem;
     padding-left: 1.1rem;
+}
+
+.type-search-form {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: center;
+}
+
+.search-toggle {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    min-height: 100%;
+}
+
+.type-browser-grid,
+.member-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.type-browser-card,
+.member-card {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.type-browser-header {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.type-browser-header h3,
+.member-section h4 {
+    margin: 0;
+}
+
+.metadata-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.member-section {
+    display: grid;
+    gap: 0.75rem;
 }
 
 .recent-card,
@@ -376,7 +437,8 @@ input[type="text"] {
 
     .path-picker,
     .action-row,
-    .progress-meta {
+    .progress-meta,
+    .type-browser-header {
         flex-direction: column;
         align-items: stretch;
     }

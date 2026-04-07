@@ -1,0 +1,167 @@
+@page "/snapshots/{SnapshotId}/types"
+
+<PageTitle>Types</PageTitle>
+
+@if (_response is null)
+{
+    <div class="panel">
+        <h1>Types</h1>
+        <p class="empty-state">The requested snapshot could not be loaded.</p>
+    </div>
+}
+else
+{
+    <div class="page-shell">
+        <header class="panel">
+            <h1>Types</h1>
+            <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="types" />
+            <form method="get" class="search-form type-search-form">
+                <input type="text" name="search" value="@Search" placeholder="Filter types, namespaces, or summaries" />
+                <select name="project">
+                    <option value="">All projects</option>
+                    @foreach (var projectName in _response.AvailableProjects)
+                    {
+                        <option value="@projectName" selected="@IsSelectedProject(projectName)">@projectName</option>
+                    }
+                </select>
+                <input type="text" name="memberSearch" value="@MemberSearch" placeholder="Optional function/member search" />
+                <label class="search-toggle">
+                    <input type="checkbox" name="includeMembers" value="true" checked="@IncludeMembers" />
+                    <span>Show members</span>
+                </label>
+                <label class="search-toggle">
+                    <input type="checkbox" name="methodsOnly" value="true" checked="@MethodsOnly" />
+                    <span>Methods only</span>
+                </label>
+                <button type="submit">Filter</button>
+            </form>
+        </header>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <h2>Type Explorer</h2>
+                <p>Search the snapshot by project, type name, namespace, and optional function/member signature text.</p>
+            </div>
+
+            @if (_response.Types.Count == 0)
+            {
+                <p class="empty-state">No types matched the current filters.</p>
+            }
+            else
+            {
+                <div class="type-browser-grid">
+                    @foreach (var item in _response.Types)
+                    {
+                        <article class="type-browser-card">
+                            <div class="type-browser-header">
+                                <div>
+                                    <h3>@GetShortTypeName(item.Type.DisplayName)</h3>
+                                    <p class="path-text">@item.Type.DisplayName</p>
+                                </div>
+                                <span class="severity-pill severity-info">@item.Type.Kind</span>
+                            </div>
+
+                            <div class="metadata-row">
+                                <span><strong>Project</strong> @item.ProjectName</span>
+                                <span><strong>Module</strong> @item.ModuleName</span>
+                                <span><strong>Namespace</strong> @item.NamespaceName</span>
+                                <span><strong>Source</strong> @item.Type.Source.Path</span>
+                            </div>
+
+                            @if (!string.IsNullOrWhiteSpace(item.Type.XmlSummary))
+                            {
+                                <p>@item.Type.XmlSummary</p>
+                            }
+
+                            @if (_response.IncludeMembers)
+                            {
+                                <div class="member-section">
+                                    <h4>Functions and members</h4>
+                                    @if (item.Members.Count == 0)
+                                    {
+                                        <p class="empty-state">No members matched the current member filter.</p>
+                                    }
+                                    else
+                                    {
+                                        <div class="member-list">
+                                            @foreach (var member in item.Members)
+                                            {
+                                                <article class="member-card">
+                                                    <div class="progress-meta">
+                                                        <span class="severity-pill severity-info">@member.Kind</span>
+                                                        <strong>@member.DisplayName</strong>
+                                                    </div>
+                                                    <p>@member.ReturnTypeDisplayName</p>
+                                                    @if (member.ParameterDisplayNames.Count > 0)
+                                                    {
+                                                        <p>Parameters: @string.Join(", ", member.ParameterDisplayNames)</p>
+                                                    }
+                                                    <p class="field-help">@member.Source.Path:@member.Source.Line</p>
+                                                </article>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </article>
+                    }
+                </div>
+            }
+        </section>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string SnapshotId { get; set; } = string.Empty;
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "search")]
+    public string? Search { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "project")]
+    public string? Project { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "memberSearch")]
+    public string? MemberSearch { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "includeMembers")]
+    public bool IncludeMembers { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "methodsOnly")]
+    public bool MethodsOnly { get; set; }
+
+    [Inject]
+    private ICodeAnalyticsApplicationService ApplicationService { get; set; } = null!;
+
+    private TypesViewResponse? _response;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _response = await ApplicationService.GetTypesAsync(
+            new TypeSearchQuery(
+                SnapshotId,
+                Search,
+                Project,
+                MemberSearch,
+                IncludeMembers,
+                MethodsOnly));
+    }
+
+    private bool IsSelectedProject(string projectName)
+    {
+        return string.Equals(projectName, Project, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static string GetShortTypeName(string displayName)
+    {
+        var lastDotIndex = displayName.LastIndexOf('.');
+        return lastDotIndex >= 0 && lastDotIndex < displayName.Length - 1
+            ? displayName[(lastDotIndex + 1)..]
+            : displayName;
+    }
+}
