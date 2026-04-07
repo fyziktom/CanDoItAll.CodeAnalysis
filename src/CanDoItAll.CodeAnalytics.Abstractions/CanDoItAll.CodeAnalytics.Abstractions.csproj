@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

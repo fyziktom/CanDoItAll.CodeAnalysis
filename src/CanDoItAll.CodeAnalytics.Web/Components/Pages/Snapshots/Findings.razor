@@ -1,0 +1,70 @@
+@page "/snapshots/{SnapshotId}/findings"
+
+<PageTitle>Findings</PageTitle>
+
+@if (_response is null)
+{
+    <div class="panel">
+        <h1>Findings</h1>
+        <p class="empty-state">The requested snapshot could not be loaded.</p>
+    </div>
+}
+else
+{
+    <div class="page-shell">
+        <header class="panel">
+            <h1>Findings</h1>
+            <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="findings" />
+            <form method="get" class="search-form">
+                <input type="text" name="search" value="@Search" placeholder="Filter findings" />
+                <button type="submit">Filter</button>
+            </form>
+        </header>
+
+        <section class="panel">
+            <h2>Findings</h2>
+            <ul class="detail-list">
+                @foreach (var finding in _response.Findings)
+                {
+                    <li><strong>@finding.RuleId</strong> @finding.Title: @finding.Description</li>
+                }
+            </ul>
+        </section>
+
+        <section class="panel">
+            <h2>Open Questions</h2>
+            @if (_response.OpenQuestions.Count == 0)
+            {
+                <p class="empty-state">No open questions were produced.</p>
+            }
+            else
+            {
+                <ul class="detail-list">
+                    @foreach (var question in _response.OpenQuestions)
+                    {
+                        <li>@question.Description</li>
+                    }
+                </ul>
+            }
+        </section>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string SnapshotId { get; set; } = string.Empty;
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "search")]
+    public string? Search { get; set; }
+
+    [Inject]
+    private ICodeAnalyticsApplicationService ApplicationService { get; set; } = null!;
+
+    private FindingsViewResponse? _response;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _response = await ApplicationService.GetFindingsAsync(new SnapshotQuery(SnapshotId, Search));
+    }
+}

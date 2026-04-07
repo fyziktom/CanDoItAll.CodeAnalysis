@@ -3,11 +3,9 @@ using CanDoItAll.CodeAnalytics.Tests.Support;
 
 namespace CanDoItAll.CodeAnalytics.Tests.Architecture;
 
-public sealed class CompatibilityContractFacts
-{
+public sealed class CompatibilityContractFacts {
     [Fact]
-    public void Compatibility_naming_map_stays_frozen()
-    {
+    public void Compatibility_naming_map_stays_frozen() {
         var repoRoot = RepositoryRootLocator.FindRepositoryRoot();
         var sourceProjects = Directory.GetFiles(Path.Combine(repoRoot, "src"), "*.csproj", SearchOption.AllDirectories)
             .Select(Path.GetFileNameWithoutExtension)
@@ -15,8 +13,7 @@ public sealed class CompatibilityContractFacts
             .ToArray();
 
         Assert.True(File.Exists(Path.Combine(repoRoot, "CanDoItAll.CodeAnalsis.slnx")));
-        Assert.All(sourceProjects, static name =>
-        {
+        Assert.All(sourceProjects, static name => {
             Assert.NotNull(name);
             Assert.StartsWith("CanDoItAll.CodeAnalytics.", name);
             Assert.DoesNotContain("CodeAnalsis", name);
@@ -24,8 +21,7 @@ public sealed class CompatibilityContractFacts
     }
 
     [Fact]
-    public void Compatibility_reference_artifacts_exist()
-    {
+    public void Compatibility_reference_artifacts_exist() {
         var repoRoot = RepositoryRootLocator.FindRepositoryRoot();
         var requiredFiles = new[]
         {
@@ -42,8 +38,7 @@ public sealed class CompatibilityContractFacts
     }
 
     [Fact]
-    public void Compatibility_tool_surface_uses_the_code_analytics_prefix()
-    {
+    public void Compatibility_tool_surface_uses_the_code_analytics_prefix() {
         var repoRoot = RepositoryRootLocator.FindRepositoryRoot();
         var toolSurfacePath = Path.Combine(repoRoot, "reference", "tool-surface-proposal.json");
         var settingsPath = Path.Combine(repoRoot, "reference", "CanDoItAll.Mcp.CodeAnalytics.settings.example.json");
@@ -60,8 +55,7 @@ public sealed class CompatibilityContractFacts
             .Select(static tool => tool.GetProperty("name").GetString())
             .ToArray();
 
-        Assert.All(toolNames, static toolName =>
-        {
+        Assert.All(toolNames, static toolName => {
             Assert.NotNull(toolName);
             Assert.StartsWith("code_analytics_", toolName);
         });

@@ -1,16 +1,12 @@
 namespace CanDoItAll.CodeAnalytics.Tests.Support;
 
-public static class RepositoryRootLocator
-{
-    public static string FindRepositoryRoot()
-    {
+public static class RepositoryRootLocator {
+    public static string FindRepositoryRoot() {
         DirectoryInfo? current = new(AppContext.BaseDirectory);
 
-        while (current is not null)
-        {
+        while (current is not null) {
             var solutionPath = Path.Combine(current.FullName, "CanDoItAll.CodeAnalsis.slnx");
-            if (File.Exists(solutionPath))
-            {
+            if (File.Exists(solutionPath)) {
                 return current.FullName;
             }
 

@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Fixture.Shop.Application/Fixture.Shop.Application.csproj" />
+    <Project Path="src/Fixture.Shop.Contracts/Fixture.Shop.Contracts.csproj" />
+    <Project Path="src/Fixture.Shop.Infrastructure/Fixture.Shop.Infrastructure.csproj" />
+    <Project Path="src/Fixture.Shop.Web/Fixture.Shop.Web.csproj" />
+  </Folder>
+</Solution>

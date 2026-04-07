@@ -1,0 +1,282 @@
+{
+  "schemaVersion": "1.1.0",
+  "generatorVersion": "0.1.0",
+  "snapshotId": "snap-fixture-001",
+  "createdUtc": "2026-04-07T12:00:00+00:00",
+  "request": {
+    "solutionPath": "/repo/Fixture.Shop/Fixture.Shop.slnx",
+    "scopeProjectNames": [],
+    "scopeNamespacePrefixes": [],
+    "includeDi": true,
+    "includePersistence": true,
+    "includeRisks": true,
+    "includeXmlDocs": true,
+    "includeMermaidExports": true
+  },
+  "facts": {
+    "solution": {
+      "name": "Fixture.Shop",
+      "path": "/repo/Fixture.Shop/Fixture.Shop.slnx",
+      "projectCount": 2,
+      "documentCount": 3
+    },
+    "projects": [
+      {
+        "projectId": "proj-app",
+        "name": "Fixture.Shop.Application",
+        "path": "src/Fixture.Shop.Application/Fixture.Shop.Application.csproj",
+        "targetFrameworks": [
+          "net10.0"
+        ],
+        "projectReferences": [
+          "proj-infra"
+        ],
+        "packageReferences": [],
+        "documentCount": 2
+      },
+      {
+        "projectId": "proj-infra",
+        "name": "Fixture.Shop.Infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Fixture.Shop.Infrastructure.csproj",
+        "targetFrameworks": [
+          "net10.0"
+        ],
+        "projectReferences": [],
+        "packageReferences": [
+          "Microsoft.EntityFrameworkCore"
+        ],
+        "documentCount": 1
+      }
+    ],
+    "documents": [
+      {
+        "documentId": "doc-1",
+        "projectId": "proj-app",
+        "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+        "name": "OrderService.cs",
+        "lineCount": 42
+      }
+    ],
+    "modules": [
+      {
+        "moduleId": "mod-orders",
+        "projectId": "proj-app",
+        "name": "Fixture.Shop.Application.Orders",
+        "namespacePrefix": "Fixture.Shop.Application.Orders",
+        "namespaceIds": [
+          "ns-orders"
+        ],
+        "typeIds": [
+          "type-order-service"
+        ]
+      }
+    ],
+    "namespaces": [
+      {
+        "namespaceId": "ns-orders",
+        "projectId": "proj-app",
+        "moduleId": "mod-orders",
+        "name": "Fixture.Shop.Application.Orders",
+        "typeIds": [
+          "type-order-service"
+        ]
+      }
+    ],
+    "types": [
+      {
+        "typeId": "type-order-service",
+        "projectId": "proj-app",
+        "moduleId": "mod-orders",
+        "namespaceId": "ns-orders",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "Fixture.Shop.Contracts.Orders.IOrderService"
+        ],
+        "memberIds": [
+          "member-order-ctor",
+          "member-order-method"
+        ],
+        "xmlSummary": "Places orders against the shop database.",
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 8,
+          "column": 21
+        }
+      }
+    ],
+    "members": [
+      {
+        "memberId": "member-order-ctor",
+        "typeId": "type-order-service",
+        "displayName": "OrderService.OrderService()",
+        "kind": "constructor",
+        "returnTypeDisplayName": "OrderService",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 12,
+          "column": 12
+        }
+      },
+      {
+        "memberId": "member-order-method",
+        "typeId": "type-order-service",
+        "displayName": "PlaceOrderAsync",
+        "kind": "method",
+        "returnTypeDisplayName": "Task\u003COrderReceipt\u003E",
+        "parameterDisplayNames": [
+          "PlaceOrderCommand"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 20,
+          "column": 18
+        }
+      }
+    ],
+    "serviceRegistrations": [
+      {
+        "serviceRegistrationId": "svc-order",
+        "projectId": "proj-app",
+        "moduleId": "mod-orders",
+        "lifetime": "scoped",
+        "serviceTypeDisplayName": "Fixture.Shop.Contracts.Orders.IOrderService",
+        "implementationTypeDisplayName": "Fixture.Shop.Application.Orders.OrderService",
+        "registrationMethod": "AddScoped",
+        "usesFactory": false,
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 10,
+          "column": 1
+        }
+      }
+    ],
+    "dbContexts": [
+      {
+        "dbContextId": "dbctx-shop",
+        "typeId": "type-shop-dbcontext",
+        "projectId": "proj-infra",
+        "moduleId": "mod-persistence",
+        "displayName": "ShopDbContext",
+        "entityTypeIds": [
+          "ent-order"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 8,
+          "column": 21
+        }
+      }
+    ],
+    "entities": [
+      {
+        "entityId": "ent-order",
+        "typeId": "type-order",
+        "projectId": "proj-infra",
+        "moduleId": "mod-persistence",
+        "displayName": "Order",
+        "tableName": "Orders",
+        "schema": "sales",
+        "keyPropertyNames": [
+          "Id"
+        ],
+        "relationshipTargets": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 3,
+          "column": 21
+        }
+      }
+    ],
+    "dependencies": [
+      {
+        "edgeId": "dep-project",
+        "kind": "projectReference",
+        "fromId": "proj-app",
+        "toId": "proj-infra",
+        "weight": 1,
+        "source": null
+      }
+    ]
+  },
+  "insights": {
+    "summary": {
+      "projectCount": 2,
+      "typeCount": 1,
+      "memberCount": 2,
+      "serviceRegistrationCount": 1,
+      "entityCount": 1,
+      "findingCount": 1,
+      "openQuestionCount": 1,
+      "diagnosticCount": 1
+    },
+    "cycles": [],
+    "hotspots": [
+      {
+        "nodeId": "type-order-service",
+        "kind": "Type",
+        "score": 0.72,
+        "reason": "fan-in=2, members=2"
+      }
+    ],
+    "findings": [
+      {
+        "findingId": "finding-layering",
+        "ruleId": "LAYERING-001",
+        "severity": "warning",
+        "category": "layering",
+        "title": "Application depends on Infrastructure",
+        "description": "Fixture.Shop.Application references infrastructure.",
+        "rationale": "This couples orchestration to persistence details.",
+        "confidence": 0.92,
+        "relatedIds": [
+          "proj-app",
+          "proj-infra"
+        ],
+        "source": null
+      }
+    ],
+    "openQuestions": [
+      {
+        "questionId": "question-di",
+        "title": "Collector ambiguity remains",
+        "description": "Factory registration is only partially interpreted.",
+        "confidence": 0.55,
+        "relatedIds": [],
+        "source": null
+      }
+    ]
+  },
+  "exports": {
+    "artifacts": [
+      {
+        "kind": "snapshotJson",
+        "relativePath": "snapshot.json",
+        "title": "Snapshot JSON",
+        "description": "Canonical architecture snapshot.",
+        "sizeInBytes": null
+      },
+      {
+        "kind": "markdownSummary",
+        "relativePath": "exports/summary.md",
+        "title": "Markdown summary",
+        "description": "High-level architecture summary.",
+        "sizeInBytes": 128
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "code": "DI0001",
+      "severity": "info",
+      "message": "Factory registration is only partially interpreted.",
+      "source": {
+        "path": "src/Fixture.Shop.Web/Program.cs",
+        "line": 14,
+        "column": 1
+      }
+    }
+  ]
+}

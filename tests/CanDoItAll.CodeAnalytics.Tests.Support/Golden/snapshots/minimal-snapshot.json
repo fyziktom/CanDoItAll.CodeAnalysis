@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.1.0",
+  "generatorVersion": "0.1.0",
+  "snapshotId": "snap-minimal",
+  "createdUtc": "2026-04-07T00:00:00+00:00",
+  "request": {
+    "solutionPath": "/repo/minimal.slnx",
+    "scopeProjectNames": [],
+    "scopeNamespacePrefixes": [],
+    "includeDi": false,
+    "includePersistence": false,
+    "includeRisks": false,
+    "includeXmlDocs": false,
+    "includeMermaidExports": false
+  },
+  "facts": {
+    "solution": {
+      "name": "Minimal",
+      "path": "/repo/minimal.slnx",
+      "projectCount": 0,
+      "documentCount": 0
+    },
+    "projects": [],
+    "documents": [],
+    "modules": [],
+    "namespaces": [],
+    "types": [],
+    "members": [],
+    "serviceRegistrations": [],
+    "dbContexts": [],
+    "entities": [],
+    "dependencies": []
+  },
+  "insights": {
+    "summary": {
+      "projectCount": 0,
+      "typeCount": 0,
+      "memberCount": 0,
+      "serviceRegistrationCount": 0,
+      "entityCount": 0,
+      "findingCount": 0,
+      "openQuestionCount": 0,
+      "diagnosticCount": 0
+    },
+    "cycles": [],
+    "hotspots": [],
+    "findings": [],
+    "openQuestions": []
+  },
+  "exports": {
+    "artifacts": [
+      {
+        "kind": "snapshotJson",
+        "relativePath": "snapshot.json",
+        "title": "Snapshot JSON",
+        "description": "Canonical architecture snapshot.",
+        "sizeInBytes": null
+      }
+    ]
+  },
+  "diagnostics": []
+}

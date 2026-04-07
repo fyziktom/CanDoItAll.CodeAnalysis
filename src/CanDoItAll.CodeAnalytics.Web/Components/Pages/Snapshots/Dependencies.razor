@@ -1,0 +1,70 @@
+@page "/snapshots/{SnapshotId}/dependencies"
+
+<PageTitle>Dependencies</PageTitle>
+
+@if (_response is null)
+{
+    <div class="panel">
+        <h1>Dependencies</h1>
+        <p class="empty-state">The requested snapshot could not be loaded.</p>
+    </div>
+}
+else
+{
+    <div class="page-shell">
+        <header class="panel">
+            <h1>Dependencies</h1>
+            <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="dependencies" />
+            <form method="get" class="search-form">
+                <input type="text" name="search" value="@Search" placeholder="Filter modules" />
+                <button type="submit">Filter</button>
+            </form>
+        </header>
+
+        <section class="panel">
+            <h2>Modules</h2>
+            <ul class="detail-list">
+                @foreach (var module in _response.Modules)
+                {
+                    <li>@module.Name (@module.TypeIds.Count types)</li>
+                }
+            </ul>
+        </section>
+
+        <section class="panel">
+            <h2>Cycles</h2>
+            @if (_response.Cycles.Count == 0)
+            {
+                <p class="empty-state">No cycles were detected.</p>
+            }
+            else
+            {
+                <ul class="detail-list">
+                    @foreach (var cycle in _response.Cycles)
+                    {
+                        <li>@cycle.Level: @string.Join(" -> ", cycle.NodeIds)</li>
+                    }
+                </ul>
+            }
+        </section>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string SnapshotId { get; set; } = string.Empty;
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "search")]
+    public string? Search { get; set; }
+
+    [Inject]
+    private ICodeAnalyticsApplicationService ApplicationService { get; set; } = null!;
+
+    private DependencyViewResponse? _response;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _response = await ApplicationService.GetDependenciesAsync(new SnapshotQuery(SnapshotId, Search));
+    }
+}

@@ -1,4 +1,4 @@
-﻿@page "/"
+@page "/"
 
 <PageTitle>CanDoItAll Code Analytics</PageTitle>
 
@@ -12,18 +12,70 @@
         </p>
     </header>
 
-    <section class="status-grid" aria-label="Bootstrap goals">
-        <article class="status-card">
-            <h2>Engine-first</h2>
-            <p>The reusable libraries stay transport-agnostic so the future MCP driver only adds host wiring.</p>
-        </article>
-        <article class="status-card">
-            <h2>Deterministic outputs</h2>
-            <p>Snapshot storage, Markdown summaries, and Mermaid exports are planned around stable ordering.</p>
-        </article>
-        <article class="status-card">
-            <h2>SSR-first UI</h2>
-            <p>The first web surface is intentionally small, server-rendered, and focused on inspection rather than UI chrome.</p>
-        </article>
+    <section class="panel">
+        <div class="panel-heading">
+            <h2>Run Analysis</h2>
+            <p>Keep the expensive collectors explicit and build one deterministic snapshot at a time.</p>
+        </div>
+
+        <form class="analysis-form" method="post" action="/analyze">
+            <label class="field">
+                <span>Solution path</span>
+                <input type="text" name="solutionPath" value="@_defaultSolutionPath" />
+            </label>
+
+            <div class="toggle-grid">
+                <label><input type="checkbox" name="includeDi" checked /> Include DI</label>
+                <label><input type="checkbox" name="includePersistence" checked /> Include persistence</label>
+                <label><input type="checkbox" name="includeRisks" checked /> Include risk rules</label>
+                <label><input type="checkbox" name="includeXmlDocs" checked /> Include XML docs</label>
+                <label><input type="checkbox" name="includeMermaidExports" checked /> Include Mermaid exports</label>
+                <label><input type="checkbox" name="forceRefresh" /> Force refresh</label>
+            </div>
+
+            <button class="primary-button" type="submit">Build snapshot</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <div class="panel-heading">
+            <h2>Recent Snapshots</h2>
+            <p>The recent index is file-based and deterministic.</p>
+        </div>
+
+        @if (_recentSnapshots.Count == 0)
+        {
+            <p class="empty-state">No snapshots have been stored yet.</p>
+        }
+        else
+        {
+            <div class="recent-list">
+                @foreach (var item in _recentSnapshots)
+                {
+                    <a class="recent-card" href="@($"/snapshots/{item.SnapshotId}")">
+                        <strong>@item.SolutionName</strong>
+                        <span>@item.CreatedUtc.ToString("u")</span>
+                        <span>@item.FindingCount findings / @item.DiagnosticCount diagnostics</span>
+                    </a>
+                }
+            </div>
+        }
     </section>
 </div>
+
+@code {
+    [Inject]
+    private ICodeAnalyticsApplicationService ApplicationService { get; set; } = null!;
+
+    [Inject]
+    private CodeAnalyticsWebSettings WebSettings { get; set; } = null!;
+
+    private string _defaultSolutionPath = string.Empty;
+    private IReadOnlyList<RecentSnapshotItem> _recentSnapshots = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _defaultSolutionPath = WebSettings.DefaultSolutionPath;
+        _recentSnapshots = await ApplicationService.ListRecentSnapshotsAsync(10);
+    }
+}

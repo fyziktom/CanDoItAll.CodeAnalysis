@@ -3,15 +3,12 @@ using CanDoItAll.CodeAnalytics.Tests.Support;
 
 namespace CanDoItAll.CodeAnalytics.Tests.Architecture;
 
-public sealed class SolutionStructureFacts
-{
+public sealed class SolutionStructureFacts {
     [Fact]
-    public void Production_projects_follow_the_bootstrap_reference_map()
-    {
+    public void Production_projects_follow_the_bootstrap_reference_map() {
         var repoRoot = RepositoryRootLocator.FindRepositoryRoot();
-        var expectedGraph = new Dictionary<string, string[]>(StringComparer.Ordinal)
-        {
-            ["CanDoItAll.CodeAnalytics.Abstractions"] = [],
+        var expectedGraph = new Dictionary<string, string[]>(StringComparer.Ordinal) {
+            ["CanDoItAll.CodeAnalytics.Abstractions"] = ["CanDoItAll.CodeAnalytics.Domain"],
             ["CanDoItAll.CodeAnalytics.Analysis"] = ["CanDoItAll.CodeAnalytics.Domain", "CanDoItAll.CodeAnalytics.Facts"],
             ["CanDoItAll.CodeAnalytics.Application"] =
             [
@@ -31,8 +28,7 @@ public sealed class SolutionStructureFacts
             ["CanDoItAll.CodeAnalytics.Workspace"] = ["CanDoItAll.CodeAnalytics.Domain"]
         };
 
-        foreach (var project in expectedGraph.OrderBy(static pair => pair.Key, StringComparer.Ordinal))
-        {
+        foreach (var project in expectedGraph.OrderBy(static pair => pair.Key, StringComparer.Ordinal)) {
             var projectPath = Path.Combine(repoRoot, "src", project.Key, $"{project.Key}.csproj");
             var references = ReadProjectReferences(projectPath);
 
@@ -41,8 +37,7 @@ public sealed class SolutionStructureFacts
     }
 
     [Fact]
-    public void Canonical_solution_contains_the_expected_project_set()
-    {
+    public void Canonical_solution_contains_the_expected_project_set() {
         var repoRoot = RepositoryRootLocator.FindRepositoryRoot();
         var solutionPath = Path.Combine(repoRoot, "CanDoItAll.CodeAnalsis.slnx");
         var expectedProjects = new[]
@@ -76,22 +71,19 @@ public sealed class SolutionStructureFacts
     }
 
     [Fact]
-    public void Source_projects_do_not_reference_host_mcp_core()
-    {
+    public void Source_projects_do_not_reference_host_mcp_core() {
         var repoRoot = RepositoryRootLocator.FindRepositoryRoot();
         var projectFiles = Directory.GetFiles(Path.Combine(repoRoot, "src"), "*.csproj", SearchOption.AllDirectories)
             .OrderBy(static path => path, StringComparer.Ordinal)
             .ToArray();
 
-        foreach (var projectFile in projectFiles)
-        {
+        foreach (var projectFile in projectFiles) {
             var content = File.ReadAllText(projectFile);
             Assert.DoesNotContain("CanDoItAll.Mcp.Core", content);
         }
     }
 
-    private static string[] ReadProjectReferences(string projectPath)
-    {
+    private static string[] ReadProjectReferences(string projectPath) {
         var document = XDocument.Load(projectPath);
 
         return document

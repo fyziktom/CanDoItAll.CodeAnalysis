@@ -1,0 +1,25 @@
+<nav class="snapshot-tabs" aria-label="Snapshot navigation">
+    <a class="@GetClass("")" href="@BasePath">Dashboard</a>
+    <a class="@GetClass("dependencies")" href="@($"{BasePath}/dependencies")">Dependencies</a>
+    <a class="@GetClass("services")" href="@($"{BasePath}/services")">Services</a>
+    <a class="@GetClass("persistence")" href="@($"{BasePath}/persistence")">Persistence</a>
+    <a class="@GetClass("findings")" href="@($"{BasePath}/findings")">Findings</a>
+    <a class="@GetClass("exports")" href="@($"{BasePath}/exports")">Exports</a>
+</nav>
+
+@code {
+    [Parameter, EditorRequired]
+    public string SnapshotId { get; set; } = string.Empty;
+
+    [Parameter]
+    public string ActiveTab { get; set; } = string.Empty;
+
+    private string BasePath => $"/snapshots/{SnapshotId}";
+
+    private string GetClass(string tab)
+    {
+        return string.Equals(tab, ActiveTab, StringComparison.OrdinalIgnoreCase)
+            ? "tab-link is-active"
+            : "tab-link";
+    }
+}
