@@ -5,5 +5,6 @@ namespace CanDoItAll.CodeAnalytics.Facts.Dependencies;
 
 public sealed record DependencyCollectionResult(
     IReadOnlyList<ModuleFact> Modules,
+    IReadOnlyList<TypeRelationshipFact> TypeRelationships,
     IReadOnlyList<DependencyEdgeFact> Dependencies,
     IReadOnlyList<AnalysisDiagnostic> Diagnostics);

@@ -14,6 +14,10 @@ public sealed class PersistenceFacts {
 
         Assert.Contains(response.Snapshot.Facts.Entities, entity => entity.DisplayName == "Order" && entity.TableName == "Orders");
         Assert.Contains(response.Snapshot.Facts.Entities, entity => entity.RelationshipTargets.Count > 0);
+        Assert.Contains(
+            response.Snapshot.Facts.EntityRelationships,
+            relationship => relationship.Kind == CanDoItAll.CodeAnalytics.Domain.Facts.EntityRelationshipKind.OneToMany ||
+                relationship.Kind == CanDoItAll.CodeAnalytics.Domain.Facts.EntityRelationshipKind.Reference);
         Assert.Contains(response.Snapshot.Facts.DbContexts, dbContext => dbContext.DisplayName == "ReportingDbContext");
         Assert.Contains(
             response.Snapshot.Facts.Entities,

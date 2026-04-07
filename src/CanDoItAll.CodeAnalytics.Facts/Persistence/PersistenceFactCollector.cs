@@ -22,12 +22,15 @@ public sealed partial class PersistenceFactCollector {
         SymbolCollectionResult symbols,
         CancellationToken cancellationToken = default) {
         if (!workspace.Request.IncludePersistence || workspace.RoslynSolution is null) {
-            return new PersistenceCollectionResult([], [], []);
+            return new PersistenceCollectionResult([], [], [], []);
         }
 
         var diagnostics = new List<AnalysisDiagnostic>();
         var dbContexts = new List<DbContextFact>();
-        var entities = new List<EntityFact>();
+        var entityFactsById = new Dictionary<string, EntityFact>(StringComparer.Ordinal);
+        var entityRelationshipTargetsById = new Dictionary<string, HashSet<string>>(StringComparer.Ordinal);
+        var navigationCandidates = new List<EntityNavigationCandidate>();
+        var configuredEntityRelationships = new Dictionary<string, EntityRelationshipFact>(StringComparer.Ordinal);
         var typesByDisplayName = symbols.Types
             .GroupBy(type => type.DisplayName, StringComparer.Ordinal)
             .ToDictionary(group => group.Key, group => group.ToArray(), StringComparer.Ordinal);
@@ -39,6 +42,12 @@ public sealed partial class PersistenceFactCollector {
             .SelectMany(item => item.ConfigurationMappings)
             .OrderBy(item => item.ProjectId, StringComparer.Ordinal)
             .ThenBy(item => item.EntityDisplayName, StringComparer.Ordinal)
+            .ToArray();
+        var relationshipMappings = projectAnalyses
+            .SelectMany(item => item.RelationshipMappings)
+            .OrderBy(item => item.ProjectId, StringComparer.Ordinal)
+            .ThenBy(item => item.FromEntityDisplayName, StringComparer.Ordinal)
+            .ThenBy(item => item.ToEntityDisplayName, StringComparer.Ordinal)
             .ToArray();
 
         foreach (var analysis in projectAnalyses) {
@@ -65,6 +74,10 @@ public sealed partial class PersistenceFactCollector {
                     dbContextModel,
                     diagnostics,
                     dbContextDisplayName);
+                var applicableRelationshipMappings = ResolveApplicableRelationshipMappings(
+                    relationshipMappings,
+                    analysis.Context.Fact.ProjectId,
+                    dbContextModel);
                 var entityDisplayNames = new HashSet<string>(StringComparer.Ordinal);
                 foreach (var entitySymbol in EnumerateDbSetEntityTypes(dbContextSymbol)) {
                     entityDisplayNames.Add(entitySymbol.ToDisplayString(SymbolDisplayFormat.CSharpErrorMessageFormat));
@@ -81,6 +94,7 @@ public sealed partial class PersistenceFactCollector {
                 var storeObjectMappings = BuildStoreObjectMappings(applicableConfigurationMappings, dbContextModel);
                 var entityIds = new List<string>();
                 var knownEntityDisplayNames = entityDisplayNames.ToHashSet(StringComparer.Ordinal);
+                var resolvedEntities = new List<ResolvedEntityContext>();
 
                 foreach (var entityDisplayName in entityDisplayNames.OrderBy(value => value, StringComparer.Ordinal)) {
                     if (!TryResolveTypeFact(typesByDisplayName, entityDisplayName, analysis.Context.Fact.ProjectId, diagnostics, out var entityType)) {
@@ -105,24 +119,72 @@ public sealed partial class PersistenceFactCollector {
                     if (!entityIdsByIdentity.TryGetValue(entityKey, out var entityId)) {
                         entityId = StableId.ForEntity($"{entityType.ProjectId}:{entityDisplayName}");
                         entityIdsByIdentity[entityKey] = entityId;
-
-                        var storeObjectMapping = ResolveStoreObjectMapping(
-                            entityDisplayName,
-                            storeObjectMappings,
-                            PersistenceSyntaxExplorer.TryReadTableAttribute(entitySymbol, workspace.Request),
-                            dbContextModel.DefaultSchema);
-                        entities.Add(
-                            CreateEntityFact(
-                                entityId,
-                                entitySymbol,
-                                entityType,
-                                knownTypeDisplayNames,
-                                knownEntityDisplayNames,
-                                entityIdsByIdentity,
-                                storeObjectMapping));
                     }
 
+                    var storeObjectMapping = ResolveStoreObjectMapping(
+                        entityDisplayName,
+                        storeObjectMappings,
+                        PersistenceSyntaxExplorer.TryReadTableAttribute(entitySymbol, workspace.Request),
+                        dbContextModel.DefaultSchema);
+                    resolvedEntities.Add(new ResolvedEntityContext(entityId, entitySymbol, entityType, storeObjectMapping));
                     entityIds.Add(entityId);
+                }
+
+                foreach (var resolvedEntity in resolvedEntities.OrderBy(item => item.EntityType.DisplayName, StringComparer.Ordinal)) {
+                    var candidates = CreateEntityRelationshipCandidates(
+                        resolvedEntity.EntityId,
+                        resolvedEntity.EntitySymbol,
+                        resolvedEntity.EntityType,
+                        knownTypeDisplayNames,
+                        knownEntityDisplayNames,
+                        entityIdsByIdentity);
+                    navigationCandidates.AddRange(candidates);
+
+                    if (!entityRelationshipTargetsById.TryGetValue(resolvedEntity.EntityId, out var relationshipTargets)) {
+                        relationshipTargets = new HashSet<string>(StringComparer.Ordinal);
+                        entityRelationshipTargetsById[resolvedEntity.EntityId] = relationshipTargets;
+                    }
+
+                    foreach (var candidate in candidates) {
+                        relationshipTargets.Add(candidate.ToEntityId);
+                    }
+
+                    entityFactsById[resolvedEntity.EntityId] = CreateEntityFact(
+                        resolvedEntity.EntityId,
+                        resolvedEntity.EntitySymbol,
+                        resolvedEntity.EntityType,
+                        relationshipTargets.OrderBy(value => value, StringComparer.Ordinal).ToArray(),
+                        resolvedEntity.StoreObjectMapping);
+                }
+
+                foreach (var relationshipMapping in applicableRelationshipMappings) {
+                    var relationship = CreateConfiguredEntityRelationshipFact(
+                        relationshipMapping,
+                        entityIdsByIdentity,
+                        entityFactsById);
+                    if (relationship is null) {
+                        continue;
+                    }
+
+                    if (!entityRelationshipTargetsById.TryGetValue(relationship.FromEntityId, out var fromTargets)) {
+                        fromTargets = new HashSet<string>(StringComparer.Ordinal);
+                        entityRelationshipTargetsById[relationship.FromEntityId] = fromTargets;
+                    }
+
+                    if (!entityRelationshipTargetsById.TryGetValue(relationship.ToEntityId, out var toTargets)) {
+                        toTargets = new HashSet<string>(StringComparer.Ordinal);
+                        entityRelationshipTargetsById[relationship.ToEntityId] = toTargets;
+                    }
+
+                    fromTargets.Add(relationship.ToEntityId);
+                    toTargets.Add(relationship.FromEntityId);
+                    entityFactsById[relationship.FromEntityId] = entityFactsById[relationship.FromEntityId] with {
+                        RelationshipTargets = fromTargets.OrderBy(value => value, StringComparer.Ordinal).ToArray(),
+                    };
+                    entityFactsById[relationship.ToEntityId] = entityFactsById[relationship.ToEntityId] with {
+                        RelationshipTargets = toTargets.OrderBy(value => value, StringComparer.Ordinal).ToArray(),
+                    };
+                    configuredEntityRelationships[relationship.RelationshipId] = relationship;
                 }
 
                 dbContexts.Add(
@@ -137,9 +199,17 @@ public sealed partial class PersistenceFactCollector {
             }
         }
 
+        var entities = entityFactsById
+            .Values
+            .OrderBy(item => item.DisplayName, StringComparer.Ordinal)
+            .ToArray();
+        var entityRelationships = MergeEntityRelationships(
+            BuildEntityRelationships(navigationCandidates, entityFactsById),
+            configuredEntityRelationships.Values.ToArray());
         return new PersistenceCollectionResult(
             dbContexts.OrderBy(item => item.DisplayName, StringComparer.Ordinal).ToArray(),
-            entities.OrderBy(item => item.DisplayName, StringComparer.Ordinal).ToArray(),
+            entities,
+            entityRelationships,
             diagnostics.OrderBy(item => item.Code, StringComparer.Ordinal).ThenBy(item => item.Message, StringComparer.Ordinal).ToArray());
     }
 
@@ -178,6 +248,12 @@ public sealed partial class PersistenceFactCollector {
                 workspace.Request,
                 projectDocumentPaths,
                 cancellationToken);
+            var relationshipMappings = PersistenceSyntaxExplorer.DiscoverEntityRelationships(
+                projectContext,
+                compilation,
+                workspace.Request,
+                projectDocumentPaths,
+                cancellationToken);
 
             analyses.Add(
                 new ProjectAnalysisContext(
@@ -185,7 +261,8 @@ public sealed partial class PersistenceFactCollector {
                     compilation,
                     projectDocumentPaths,
                     sourceTypesByDisplayName,
-                    configurationMappings));
+                    configurationMappings,
+                    relationshipMappings));
         }
 
         return analyses;
@@ -219,6 +296,30 @@ public sealed partial class PersistenceFactCollector {
             .Select(group => group.First())
             .OrderBy(mapping => mapping.ProjectId, StringComparer.Ordinal)
             .ThenBy(mapping => mapping.EntityDisplayName, StringComparer.Ordinal)
+            .ToArray();
+    }
+
+    private static IReadOnlyList<ConfiguredEntityRelationshipMapping> ResolveApplicableRelationshipMappings(
+        IReadOnlyList<ConfiguredEntityRelationshipMapping> relationshipMappings,
+        string dbContextProjectId,
+        DbContextModelDiscovery dbContextModel) {
+        var mappings = new List<ConfiguredEntityRelationshipMapping>();
+        if (dbContextModel.IncludesSameProjectConfigurations) {
+            mappings.AddRange(relationshipMappings.Where(mapping => string.Equals(mapping.ProjectId, dbContextProjectId, StringComparison.Ordinal)));
+        }
+
+        if (dbContextModel.IncludesExternalConfigurations) {
+            mappings.AddRange(relationshipMappings);
+        }
+
+        return mappings
+            .GroupBy(
+                item => (item.ProjectId, item.FromEntityDisplayName, item.ToEntityDisplayName, item.Kind),
+                EqualityComparer<(string ProjectId, string FromEntityDisplayName, string ToEntityDisplayName, EntityRelationshipKind Kind)>.Default)
+            .Select(group => group.First())
+            .OrderBy(item => item.FromEntityDisplayName, StringComparer.Ordinal)
+            .ThenBy(item => item.ToEntityDisplayName, StringComparer.Ordinal)
+            .ThenBy(item => item.Kind)
             .ToArray();
     }
 
@@ -383,5 +484,12 @@ public sealed partial class PersistenceFactCollector {
         Compilation Compilation,
         ISet<string> ProjectDocumentPaths,
         IReadOnlyDictionary<string, INamedTypeSymbol[]> SourceTypesByDisplayName,
-        IReadOnlyList<EntityConfigurationMapping> ConfigurationMappings);
+        IReadOnlyList<EntityConfigurationMapping> ConfigurationMappings,
+        IReadOnlyList<ConfiguredEntityRelationshipMapping> RelationshipMappings);
+
+    private sealed record ResolvedEntityContext(
+        string EntityId,
+        INamedTypeSymbol EntitySymbol,
+        TypeFact EntityType,
+        EntityStoreObjectMapping? StoreObjectMapping);
 }

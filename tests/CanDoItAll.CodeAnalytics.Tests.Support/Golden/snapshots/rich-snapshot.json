@@ -136,6 +136,7 @@
         }
       }
     ],
+    "typeRelationships": [],
     "serviceRegistrations": [
       {
         "serviceRegistrationId": "svc-order",
@@ -161,6 +162,7 @@
         "moduleId": "mod-persistence",
         "displayName": "ShopDbContext",
         "entityTypeIds": [
+          "ent-customer",
           "ent-order"
         ],
         "source": {
@@ -172,6 +174,26 @@
     ],
     "entities": [
       {
+        "entityId": "ent-customer",
+        "typeId": "type-customer",
+        "projectId": "proj-infra",
+        "moduleId": "mod-persistence",
+        "displayName": "Customer",
+        "tableName": "Customers",
+        "schema": "sales",
+        "keyPropertyNames": [
+          "Id"
+        ],
+        "relationshipTargets": [
+          "ent-order"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 3,
+          "column": 21
+        }
+      },
+      {
         "entityId": "ent-order",
         "typeId": "type-order",
         "projectId": "proj-infra",
@@ -182,12 +204,26 @@
         "keyPropertyNames": [
           "Id"
         ],
-        "relationshipTargets": [],
+        "relationshipTargets": [
+          "ent-customer"
+        ],
         "source": {
           "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
           "line": 3,
           "column": 21
         }
+      }
+    ],
+    "entityRelationships": [
+      {
+        "relationshipId": "entrel-customer-orders",
+        "fromEntityId": "ent-customer",
+        "toEntityId": "ent-order",
+        "kind": "oneToMany",
+        "navigationPropertyNames": [
+          "Customer",
+          "Orders"
+        ]
       }
     ],
     "dependencies": [
@@ -207,7 +243,7 @@
       "typeCount": 1,
       "memberCount": 2,
       "serviceRegistrationCount": 1,
-      "entityCount": 1,
+      "entityCount": 2,
       "findingCount": 1,
       "openQuestionCount": 1,
       "diagnosticCount": 1

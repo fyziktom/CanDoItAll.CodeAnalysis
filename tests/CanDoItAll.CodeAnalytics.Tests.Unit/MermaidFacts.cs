@@ -19,13 +19,14 @@ public sealed class MermaidFacts {
         var snapshot = SampleSnapshotFactory.Create();
         var renderer = new ErDiagramMermaidRenderer();
 
-        var content = renderer.Render(snapshot.Facts.Entities, 50);
+        var content = renderer.Render(snapshot.Facts.Entities, snapshot.Facts.EntityRelationships, 50);
 
         GoldenFileAssert.EqualToFile("exports/er-diagram.mmd", content);
+        Assert.Contains("||--o{", content, StringComparison.Ordinal);
     }
 
     [Fact]
-    public void Mermaid_renders_class_diagram_with_safe_aliases_and_correct_edges() {
+    public void Mermaid_renders_class_diagram_with_safe_aliases_and_member_relations() {
         var renderer = new ClassDiagramMermaidRenderer();
         var types = new[]
         {
@@ -54,6 +55,18 @@ public sealed class MermaidFacts {
                 null,
                 new CanDoItAll.CodeAnalytics.Domain.Sources.SourceReference("src/ICommandHandler.cs", 1, 1)),
             new CanDoItAll.CodeAnalytics.Domain.Facts.TypeFact(
+                "type-repository",
+                "proj-app",
+                "mod-core",
+                "ns-core",
+                "Fixture.Shop.Core.OrderRepository",
+                CanDoItAll.CodeAnalytics.Domain.Facts.TypeKind.Class,
+                null,
+                [],
+                [],
+                null,
+                new CanDoItAll.CodeAnalytics.Domain.Sources.SourceReference("src/OrderRepository.cs", 1, 1)),
+            new CanDoItAll.CodeAnalytics.Domain.Facts.TypeFact(
                 "type-handler",
                 "proj-app",
                 "mod-core",
@@ -66,13 +79,31 @@ public sealed class MermaidFacts {
                 null,
                 new CanDoItAll.CodeAnalytics.Domain.Sources.SourceReference("src/PlaceOrderHandler.cs", 1, 1)),
         };
+        var relationships = new[]
+        {
+            new CanDoItAll.CodeAnalytics.Domain.Facts.TypeRelationshipFact(
+                "typerel-property",
+                "type-handler",
+                "type-repository",
+                CanDoItAll.CodeAnalytics.Domain.Facts.TypeRelationshipKind.Property,
+                1),
+            new CanDoItAll.CodeAnalytics.Domain.Facts.TypeRelationshipFact(
+                "typerel-method-return",
+                "type-handler",
+                "type-repository",
+                CanDoItAll.CodeAnalytics.Domain.Facts.TypeRelationshipKind.MethodReturn,
+                1),
+        };
 
-        var content = renderer.Render(types, 50);
+        var content = renderer.Render(types, relationships, 50);
 
         Assert.Contains("class T0001", content, StringComparison.Ordinal);
         Assert.Contains("&lt;PlaceOrder&gt;", content, StringComparison.Ordinal);
         Assert.Contains("<|--", content, StringComparison.Ordinal);
         Assert.Contains("<|..", content, StringComparison.Ordinal);
+        Assert.Contains("-->", content, StringComparison.Ordinal);
+        Assert.Contains("property", content, StringComparison.Ordinal);
+        Assert.Contains("returns", content, StringComparison.Ordinal);
         Assert.DoesNotContain("--|>", content, StringComparison.Ordinal);
         Assert.DoesNotContain("..|>", content, StringComparison.Ordinal);
     }

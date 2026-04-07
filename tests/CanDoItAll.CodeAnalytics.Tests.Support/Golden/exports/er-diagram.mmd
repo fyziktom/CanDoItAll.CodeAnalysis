@@ -1,4 +1,8 @@
 erDiagram
-    Order {
-        int Id PK
+    Customer {
+        string Id PK
     }
+    Order {
+        string Id PK
+    }
+    Customer ||--o{ Order : Customer/Orders

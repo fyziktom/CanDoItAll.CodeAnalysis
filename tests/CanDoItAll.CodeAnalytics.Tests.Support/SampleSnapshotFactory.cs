@@ -62,11 +62,16 @@ public static class SampleSnapshotFactory {
         };
         var dbContexts = new[]
         {
-            new DbContextFact("dbctx-shop", "type-shop-dbcontext", "proj-infra", "mod-persistence", "ShopDbContext", ["ent-order"], new SourceReference("src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs", 8, 21)),
+            new DbContextFact("dbctx-shop", "type-shop-dbcontext", "proj-infra", "mod-persistence", "ShopDbContext", ["ent-customer", "ent-order"], new SourceReference("src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs", 8, 21)),
         };
         var entities = new[]
         {
-            new EntityFact("ent-order", "type-order", "proj-infra", "mod-persistence", "Order", "Orders", "sales", ["Id"], [], new SourceReference("src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs", 3, 21)),
+            new EntityFact("ent-customer", "type-customer", "proj-infra", "mod-persistence", "Customer", "Customers", "sales", ["Id"], ["ent-order"], new SourceReference("src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs", 3, 21)),
+            new EntityFact("ent-order", "type-order", "proj-infra", "mod-persistence", "Order", "Orders", "sales", ["Id"], ["ent-customer"], new SourceReference("src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs", 3, 21)),
+        };
+        var entityRelationships = new[]
+        {
+            new EntityRelationshipFact("entrel-customer-orders", "ent-customer", "ent-order", EntityRelationshipKind.OneToMany, ["Customer", "Orders"]),
         };
         var dependencies = new[]
         {
@@ -80,12 +85,14 @@ public static class SampleSnapshotFactory {
             namespaces,
             types,
             members,
+            [],
             services,
             dbContexts,
             entities,
+            entityRelationships,
             dependencies);
         var insights = new ArchitectureInsights(
-            new RiskSummaryInsight(2, 1, 2, 1, 1, 1, 1, 1),
+            new RiskSummaryInsight(2, 1, 2, 1, 2, 1, 1, 1),
             [],
             [new HotspotInsight("type-order-service", "Type", 0.72, "fan-in=2, members=2")],
             [new FindingInsight("finding-layering", "LAYERING-001", FindingSeverity.Warning, FindingCategory.Layering, "Application depends on Infrastructure", "Fixture.Shop.Application references infrastructure.", "This couples orchestration to persistence details.", 0.92, ["proj-app", "proj-infra"])],

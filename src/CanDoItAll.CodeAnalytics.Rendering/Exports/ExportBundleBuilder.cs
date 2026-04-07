@@ -64,12 +64,12 @@ public sealed class ExportBundleBuilder {
                     $"Class diagram truncated to {maxDiagramNodes} types."));
         }
 
-        var content = _classDiagramRenderer.Render(snapshot.Facts.Types, maxDiagramNodes);
+        var content = _classDiagramRenderer.Render(snapshot.Facts.Types, snapshot.Facts.TypeRelationships, maxDiagramNodes);
         return CreateExport(
             ExportArtifactKind.MermaidClassDiagram,
             "exports/class-diagram.mmd",
             "Class diagram",
-            "Type inheritance and interface relationships.",
+            "Type inheritance, interface, and member relationships.",
             content);
     }
 
@@ -85,12 +85,12 @@ public sealed class ExportBundleBuilder {
                     $"ER diagram truncated to {maxDiagramNodes} entities."));
         }
 
-        var content = _erDiagramRenderer.Render(snapshot.Facts.Entities, maxDiagramNodes);
+        var content = _erDiagramRenderer.Render(snapshot.Facts.Entities, snapshot.Facts.EntityRelationships, maxDiagramNodes);
         return CreateExport(
             ExportArtifactKind.MermaidErDiagram,
             "exports/er-diagram.mmd",
             "ER diagram",
-            "Entity relationship overview.",
+            "Entity relationship overview with inferred cardinality.",
             content);
     }
 

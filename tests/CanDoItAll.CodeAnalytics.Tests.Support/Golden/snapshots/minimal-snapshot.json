@@ -26,9 +26,11 @@
     "namespaces": [],
     "types": [],
     "members": [],
+    "typeRelationships": [],
     "serviceRegistrations": [],
     "dbContexts": [],
     "entities": [],
+    "entityRelationships": [],
     "dependencies": []
   },
   "insights": {

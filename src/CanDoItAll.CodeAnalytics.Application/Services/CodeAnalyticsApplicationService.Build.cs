@@ -196,7 +196,7 @@ public sealed partial class CodeAnalyticsApplicationService : ICodeAnalyticsAppl
             "dependencies",
             "Collecting project, module, namespace, and type dependencies.",
             () => _dependencyFactCollector.CollectAsync(workspace, symbols, cancellationToken),
-            new DependencyCollectionResult([], [], []),
+            new DependencyCollectionResult([], [], [], []),
             diagnostics,
             "APP1002",
             progressEvents,
@@ -220,7 +220,7 @@ public sealed partial class CodeAnalyticsApplicationService : ICodeAnalyticsAppl
             "persistence",
             "Collecting EF Core persistence facts.",
             () => _persistenceFactCollector.CollectAsync(workspace, symbols, cancellationToken),
-            new PersistenceCollectionResult([], [], []),
+            new PersistenceCollectionResult([], [], [], []),
             diagnostics,
             "APP1004",
             progressEvents,
@@ -236,9 +236,11 @@ public sealed partial class CodeAnalyticsApplicationService : ICodeAnalyticsAppl
             symbols.Namespaces,
             symbols.Types,
             symbols.Members,
+            dependencies.TypeRelationships,
             services.Services,
             persistence.DbContexts,
             persistence.Entities,
+            persistence.EntityRelationships,
             dependencies.Dependencies);
     }
 

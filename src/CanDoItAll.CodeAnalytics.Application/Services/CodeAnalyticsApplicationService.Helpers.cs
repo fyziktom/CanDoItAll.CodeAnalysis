@@ -39,6 +39,8 @@ public sealed partial class CodeAnalyticsApplicationService {
             [],
             [],
             [],
+            [],
+            [],
             []);
     }
 

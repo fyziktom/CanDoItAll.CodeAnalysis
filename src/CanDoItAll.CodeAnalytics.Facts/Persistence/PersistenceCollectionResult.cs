@@ -6,4 +6,5 @@ namespace CanDoItAll.CodeAnalytics.Facts.Persistence;
 public sealed record PersistenceCollectionResult(
     IReadOnlyList<DbContextFact> DbContexts,
     IReadOnlyList<EntityFact> Entities,
+    IReadOnlyList<EntityRelationshipFact> EntityRelationships,
     IReadOnlyList<AnalysisDiagnostic> Diagnostics);

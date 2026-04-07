@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CanDoItAll.CodeAnalytics.Facts.Persistence;
 
-internal static class PersistenceSyntaxExplorer {
+internal static partial class PersistenceSyntaxExplorer {
     private const string TableAttributeTypeName = "System.ComponentModel.DataAnnotations.Schema.TableAttribute";
 
     public static DbContextModelDiscovery DiscoverDbContextModel(

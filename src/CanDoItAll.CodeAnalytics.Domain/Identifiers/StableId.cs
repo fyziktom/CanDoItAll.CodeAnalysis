@@ -53,6 +53,14 @@ public static partial class StableId {
         return Create("dbctx", value);
     }
 
+    public static string ForTypeRelationship(string value) {
+        return Create("typerel", value);
+    }
+
+    public static string ForEntityRelationship(string value) {
+        return Create("entrel", value);
+    }
+
     public static string ToHash(string value) {
         var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(value));
         return Convert.ToHexString(bytes).ToLowerInvariant();

@@ -22,6 +22,7 @@ public sealed class DependencyFactCollector {
         CancellationToken cancellationToken = default) {
         var diagnostics = new List<AnalysisDiagnostic>();
         var edges = new Dictionary<(DependencyKind Kind, string FromId, string ToId), int>();
+        var relationshipWeights = new Dictionary<(TypeRelationshipKind Kind, string FromTypeId, string ToTypeId), int>();
 
         foreach (var project in workspace.Projects) {
             foreach (var referenceId in project.ProjectReferences) {
@@ -30,10 +31,10 @@ public sealed class DependencyFactCollector {
         }
 
         if (workspace.RoslynSolution is null) {
-            return new DependencyCollectionResult(BuildModules(workspace, symbols), BuildDependencyFacts(edges), diagnostics);
+            return new DependencyCollectionResult(BuildModules(workspace, symbols), [], BuildDependencyFacts(edges), diagnostics);
         }
 
-        var typeByDisplayName = symbols.Types
+        var typeGroupsByDisplayName = symbols.Types
             .GroupBy(type => type.DisplayName, StringComparer.Ordinal)
             .ToDictionary(
                 group => group.Key,
@@ -50,7 +51,7 @@ public sealed class DependencyFactCollector {
                     return group
                         .OrderBy(type => type.ProjectId, StringComparer.Ordinal)
                         .ThenBy(type => type.TypeId, StringComparer.Ordinal)
-                        .First();
+                        .ToArray();
                 },
                 StringComparer.Ordinal);
 
@@ -67,11 +68,25 @@ public sealed class DependencyFactCollector {
 
             foreach (var typeSymbol in EnumerateTypes(compilation.GlobalNamespace)) {
                 var sourceDisplayName = typeSymbol.ToDisplayString(SymbolDisplayFormat.CSharpErrorMessageFormat);
-                if (!typeByDisplayName.TryGetValue(sourceDisplayName, out var sourceType)) {
+                if (!TryResolveTypeFact(
+                        typeGroupsByDisplayName,
+                        sourceDisplayName,
+                        projectContext.Fact.ProjectId,
+                        diagnostics,
+                        out var sourceType)) {
                     continue;
                 }
 
-                foreach (var targetType in CollectReferencedTypes(typeSymbol, typeByDisplayName)) {
+                foreach (var targetDisplayName in CollectDependencyTargetDisplayNames(typeSymbol)) {
+                    if (!TryResolveTypeFact(
+                            typeGroupsByDisplayName,
+                            targetDisplayName,
+                            sourceType.ProjectId,
+                            diagnostics,
+                            out var targetType)) {
+                        continue;
+                    }
+
                     if (string.Equals(sourceType.TypeId, targetType.TypeId, StringComparison.Ordinal)) {
                         continue;
                     }
@@ -86,11 +101,29 @@ public sealed class DependencyFactCollector {
                         AddEdge(edges, DependencyKind.ModuleDependency, sourceType.ModuleId, targetType.ModuleId);
                     }
                 }
+
+                foreach (var relationship in CollectTypeRelationships(typeSymbol)) {
+                    if (!TryResolveTypeFact(
+                            typeGroupsByDisplayName,
+                            relationship.TargetDisplayName,
+                            sourceType.ProjectId,
+                            diagnostics,
+                            out var targetType)) {
+                        continue;
+                    }
+
+                    if (string.Equals(sourceType.TypeId, targetType.TypeId, StringComparison.Ordinal)) {
+                        continue;
+                    }
+
+                    AddTypeRelationship(relationshipWeights, relationship.Kind, sourceType.TypeId, targetType.TypeId);
+                }
             }
         }
 
         return new DependencyCollectionResult(
             BuildModules(workspace, symbols),
+            BuildTypeRelationships(relationshipWeights),
             BuildDependencyFacts(edges),
             diagnostics.OrderBy(diagnostic => diagnostic.Code, StringComparer.Ordinal).ToArray());
     }
@@ -135,6 +168,22 @@ public sealed class DependencyFactCollector {
             .ToArray();
     }
 
+    private static IReadOnlyList<TypeRelationshipFact> BuildTypeRelationships(
+        IReadOnlyDictionary<(TypeRelationshipKind Kind, string FromTypeId, string ToTypeId), int> relationshipWeights) {
+        return relationshipWeights
+            .OrderBy(item => item.Key.Kind)
+            .ThenBy(item => item.Key.FromTypeId, StringComparer.Ordinal)
+            .ThenBy(item => item.Key.ToTypeId, StringComparer.Ordinal)
+            .Select(
+                item => new TypeRelationshipFact(
+                    StableId.ForTypeRelationship($"{item.Key.Kind}:{item.Key.FromTypeId}:{item.Key.ToTypeId}"),
+                    item.Key.FromTypeId,
+                    item.Key.ToTypeId,
+                    item.Key.Kind,
+                    item.Value))
+            .ToArray();
+    }
+
     private static void AddEdge(
         IDictionary<(DependencyKind Kind, string FromId, string ToId), int> edges,
         DependencyKind kind,
@@ -147,6 +196,20 @@ public sealed class DependencyFactCollector {
         }
 
         edges[key] = 1;
+    }
+
+    private static void AddTypeRelationship(
+        IDictionary<(TypeRelationshipKind Kind, string FromTypeId, string ToTypeId), int> relationshipWeights,
+        TypeRelationshipKind kind,
+        string fromTypeId,
+        string toTypeId) {
+        var key = (kind, fromTypeId, toTypeId);
+        if (relationshipWeights.TryGetValue(key, out var existing)) {
+            relationshipWeights[key] = existing + 1;
+            return;
+        }
+
+        relationshipWeights[key] = 1;
     }
 
     private static IEnumerable<INamedTypeSymbol> EnumerateTypes(INamespaceSymbol namespaceSymbol) {
@@ -179,51 +242,80 @@ public sealed class DependencyFactCollector {
         }
     }
 
-    private static IEnumerable<TypeFact> CollectReferencedTypes(
+    private static IEnumerable<string> CollectDependencyTargetDisplayNames(
         INamedTypeSymbol typeSymbol,
-        IReadOnlyDictionary<string, TypeFact> typeByDisplayName) {
-        var results = new HashSet<string>(StringComparer.Ordinal);
+        StringComparer? comparer = null) {
+        var results = new HashSet<string>(comparer ?? StringComparer.Ordinal);
 
         foreach (var candidate in ExpandType(typeSymbol.BaseType)) {
-            AddIfKnown(results, candidate, typeByDisplayName);
+            results.Add(candidate);
         }
 
         foreach (var iface in typeSymbol.Interfaces) {
             foreach (var candidate in ExpandType(iface)) {
-                AddIfKnown(results, candidate, typeByDisplayName);
+                results.Add(candidate);
             }
         }
+
+        foreach (var relationship in CollectTypeRelationships(typeSymbol)) {
+            results.Add(relationship.TargetDisplayName);
+        }
+
+        return results.OrderBy(item => item, StringComparer.Ordinal);
+    }
+
+    private static IEnumerable<TypeRelationshipCandidate> CollectTypeRelationships(
+        INamedTypeSymbol typeSymbol) {
+        var results = new HashSet<string>(StringComparer.Ordinal);
+        var relationships = new List<TypeRelationshipCandidate>();
 
         foreach (var member in typeSymbol.GetMembers().Where(member => !member.IsImplicitlyDeclared)) {
             switch (member) {
                 case IFieldSymbol field:
-                    AddExpandedType(results, field.Type, typeByDisplayName);
+                    AddExpandedRelationships(relationships, results, field.Type, TypeRelationshipKind.Field);
                     break;
                 case IPropertySymbol property:
-                    AddExpandedType(results, property.Type, typeByDisplayName);
+                    AddExpandedRelationships(relationships, results, property.Type, TypeRelationshipKind.Property);
                     break;
                 case IEventSymbol eventSymbol:
-                    AddExpandedType(results, eventSymbol.Type, typeByDisplayName);
+                    AddExpandedRelationships(relationships, results, eventSymbol.Type, TypeRelationshipKind.Event);
                     break;
                 case IMethodSymbol method:
-                    AddExpandedType(results, method.ReturnType, typeByDisplayName);
+                    if (method.MethodKind == MethodKind.Constructor) {
+                        foreach (var parameter in method.Parameters) {
+                            AddExpandedRelationships(relationships, results, parameter.Type, TypeRelationshipKind.ConstructorParameter);
+                        }
+
+                        break;
+                    }
+
+                    AddExpandedRelationships(relationships, results, method.ReturnType, TypeRelationshipKind.MethodReturn);
                     foreach (var parameter in method.Parameters) {
-                        AddExpandedType(results, parameter.Type, typeByDisplayName);
+                        AddExpandedRelationships(relationships, results, parameter.Type, TypeRelationshipKind.MethodParameter);
                     }
 
                     break;
             }
         }
 
-        return results.Select(key => typeByDisplayName[key]).OrderBy(item => item.DisplayName, StringComparer.Ordinal);
+        return relationships
+            .OrderBy(item => item.Kind)
+            .ThenBy(item => item.TargetDisplayName, StringComparer.Ordinal)
+            .ToArray();
     }
 
-    private static void AddExpandedType(
-        ISet<string> results,
+    private static void AddExpandedRelationships(
+        ICollection<TypeRelationshipCandidate> relationships,
+        ISet<string> seenKeys,
         ITypeSymbol? type,
-        IReadOnlyDictionary<string, TypeFact> typeByDisplayName) {
+        TypeRelationshipKind kind) {
         foreach (var candidate in ExpandType(type)) {
-            AddIfKnown(results, candidate, typeByDisplayName);
+            var key = $"{kind}:{candidate}";
+            if (!seenKeys.Add(key)) {
+                continue;
+            }
+
+            relationships.Add(new TypeRelationshipCandidate(candidate, kind));
         }
     }
 
@@ -257,12 +349,37 @@ public sealed class DependencyFactCollector {
         }
     }
 
-    private static void AddIfKnown(
-        ISet<string> results,
+    private bool TryResolveTypeFact(
+        IReadOnlyDictionary<string, TypeFact[]> typeGroupsByDisplayName,
         string displayName,
-        IReadOnlyDictionary<string, TypeFact> typeByDisplayName) {
-        if (typeByDisplayName.ContainsKey(displayName)) {
-            results.Add(displayName);
+        string projectId,
+        ICollection<AnalysisDiagnostic> diagnostics,
+        out TypeFact typeFact) {
+        if (!typeGroupsByDisplayName.TryGetValue(displayName, out var candidates) || candidates.Length == 0) {
+            typeFact = null!;
+            return false;
         }
+
+        var sameProjectCandidates = candidates
+            .Where(candidate => string.Equals(candidate.ProjectId, projectId, StringComparison.Ordinal))
+            .ToArray();
+        if (sameProjectCandidates.Length == 1) {
+            typeFact = sameProjectCandidates[0];
+            return true;
+        }
+
+        if (sameProjectCandidates.Length > 1 || candidates.Length > 1) {
+            diagnostics.Add(
+                new AnalysisDiagnostic(
+                    "DEP0003",
+                    AnalysisDiagnosticSeverity.Warning,
+                    $"Multiple collected types share the display name {displayName}. Falling back to the first candidate."));
+            _logger.LogWarning("Multiple collected types share the display name {DisplayName}. Falling back to the first candidate.", displayName);
+        }
+
+        typeFact = sameProjectCandidates.FirstOrDefault() ?? candidates[0];
+        return true;
     }
+
+    private sealed record TypeRelationshipCandidate(string TargetDisplayName, TypeRelationshipKind Kind);
 }

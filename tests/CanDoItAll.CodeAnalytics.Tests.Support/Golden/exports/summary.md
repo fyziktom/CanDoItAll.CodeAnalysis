@@ -7,7 +7,7 @@
 - Types: `1`
 - Members: `2`
 - Services: `1`
-- Entities: `1`
+- Entities: `2`
 - Findings: `1`
 
 ## Top Findings
@@ -24,4 +24,4 @@
 
 ## Persistence
 
-- `ShopDbContext` -> 1 entities
+- `ShopDbContext` -> 2 entities

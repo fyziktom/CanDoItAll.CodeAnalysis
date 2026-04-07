@@ -19,6 +19,8 @@ public sealed class ApplicationFacts {
         Assert.NotNull(findings);
         Assert.Equal(build.Snapshot.SnapshotId, dashboard!.Snapshot.SnapshotId);
         Assert.True(findings!.Findings.Count > 0 || findings.OpenQuestions.Count > 0);
+        Assert.NotEmpty(build.Snapshot.Facts.TypeRelationships);
+        Assert.NotEmpty(build.Snapshot.Facts.EntityRelationships);
     }
 
     [Fact]
