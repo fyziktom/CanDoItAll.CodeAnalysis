@@ -5,7 +5,12 @@ namespace CanDoItAll.CodeAnalytics.Rendering.Mermaid;
 
 public sealed class ClassDiagramMermaidRenderer {
     public string Render(IReadOnlyList<TypeFact> types, int maxNodes) {
-        var selectedTypes = types.OrderBy(type => type.DisplayName, StringComparer.Ordinal).Take(maxNodes).ToArray();
+        var selectedTypes = types
+            .GroupBy(type => type.TypeId, StringComparer.Ordinal)
+            .Select(group => group.First())
+            .OrderBy(type => type.DisplayName, StringComparer.Ordinal)
+            .Take(maxNodes)
+            .ToArray();
         var aliases = selectedTypes.ToDictionary(type => type.TypeId, type => type.TypeId.Replace('-', '_'), StringComparer.Ordinal);
 
         var builder = new StringBuilder();

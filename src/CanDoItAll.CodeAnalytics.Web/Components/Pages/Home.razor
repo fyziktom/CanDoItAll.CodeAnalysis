@@ -7,7 +7,7 @@
         <span class="eyebrow">Standalone analysis workspace</span>
         <h1>CanDoItAll Code Analytics</h1>
         <p>
-            Roslyn-first solution loading, deterministic architecture snapshots, lightweight SSR reporting,
+            Roslyn-first architecture snapshots, explicit collectors, deterministic storage,
             and a deliberately thin future seam for <code>CanDoItAll.Mcp.CodeAnalytics</code>.
         </p>
     </header>
@@ -15,13 +15,35 @@
     <section class="panel">
         <div class="panel-heading">
             <h2>Run Analysis</h2>
-            <p>Keep the expensive collectors explicit and build one deterministic snapshot at a time.</p>
+            <p>Pick a solution or a single project, then follow the live operation page while the collectors run.</p>
         </div>
 
         <form class="analysis-form" method="post" action="/analyze">
             <label class="field">
-                <span>Solution path</span>
-                <input type="text" name="solutionPath" value="@_defaultSolutionPath" />
+                <span>Solution or project path</span>
+                <div class="path-picker">
+                    <input id="workspacePathInput" type="text" name="solutionPath" value="@_defaultSolutionPath" />
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        data-workspace-picker
+                        data-target-id="workspacePathInput"
+                        data-status-id="pickerStatus">
+                        Browse
+                    </button>
+                </div>
+                <small class="field-help">
+                    Choose a <code>.sln</code>, <code>.slnx</code>, or <code>.csproj</code>. A project file runs scoped project analysis automatically.
+                </small>
+                <output class="picker-status" id="pickerStatus" aria-live="polite"></output>
+            </label>
+
+            <label class="field">
+                <span>Project filter</span>
+                <input type="text" name="scopeProjectNames" placeholder="Optional comma-separated project names" />
+                <small class="field-help">
+                    Leave this empty to analyze the full solution, or use it to narrow a solution run to specific projects.
+                </small>
             </label>
 
             <div class="toggle-grid">
@@ -33,7 +55,10 @@
                 <label><input type="checkbox" name="forceRefresh" /> Force refresh</label>
             </div>
 
-            <button class="primary-button" type="submit">Build snapshot</button>
+            <div class="action-row">
+                <button class="primary-button" type="submit">Start analysis</button>
+                <span class="form-note">The status page refreshes automatically while analysis is running.</span>
+            </div>
         </form>
     </section>
 

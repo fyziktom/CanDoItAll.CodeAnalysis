@@ -6,10 +6,18 @@ using CanDoItAll.CodeAnalytics.Domain.Sources;
 using CanDoItAll.CodeAnalytics.Workspace.Loading;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace CanDoItAll.CodeAnalytics.Facts.Services;
 
 public sealed class ServiceRegistrationCollector {
+    private readonly ILogger<ServiceRegistrationCollector> _logger;
+
+    public ServiceRegistrationCollector(ILogger<ServiceRegistrationCollector>? logger = null) {
+        _logger = logger ?? NullLogger<ServiceRegistrationCollector>.Instance;
+    }
+
     public async Task<ServiceRegistrationCollectionResult> CollectAsync(
         WorkspaceLoadResult workspace,
         CancellationToken cancellationToken = default) {
@@ -21,7 +29,11 @@ public sealed class ServiceRegistrationCollector {
         var diagnostics = new List<AnalysisDiagnostic>();
 
         foreach (var projectContext in workspace.ProjectContexts.OrderBy(context => context.Fact.Name, StringComparer.OrdinalIgnoreCase)) {
-            var moduleId = StableId.ForModule(projectContext.Fact.Name);
+            if (!ShouldIncludeProject(workspace.Request, projectContext.Fact)) {
+                continue;
+            }
+
+            var moduleId = StableId.ForModule($"{projectContext.Fact.ProjectId}:{projectContext.Fact.Name}");
 
             foreach (var documentContext in projectContext.Documents.OrderBy(context => context.Fact.Path, StringComparer.OrdinalIgnoreCase)) {
                 var syntaxRoot = await documentContext.Document.GetSyntaxRootAsync(cancellationToken);
@@ -152,6 +164,14 @@ public sealed class ServiceRegistrationCollector {
         return expression is SimpleLambdaExpressionSyntax
             or ParenthesizedLambdaExpressionSyntax
             or AnonymousMethodExpressionSyntax;
+    }
+
+    private static bool ShouldIncludeProject(AnalysisRequest request, ProjectFact project) {
+        if (request.ScopeProjectNames.Count == 0) {
+            return true;
+        }
+
+        return request.ScopeProjectNames.Contains(project.Name, StringComparer.OrdinalIgnoreCase);
     }
 
     private static string? ResolveTypeDisplayName(SemanticModel semanticModel, ExpressionSyntax expression) {

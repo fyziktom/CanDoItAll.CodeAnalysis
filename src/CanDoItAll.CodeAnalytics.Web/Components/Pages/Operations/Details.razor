@@ -1,0 +1,174 @@
+@page "/operations/{OperationId}"
+
+<PageTitle>Analysis Operation</PageTitle>
+
+@if (_operation is null)
+{
+    <section class="panel">
+        <h1>Analysis operation not found</h1>
+        <p class="empty-state">The requested operation is not available anymore.</p>
+    </section>
+}
+else
+{
+    <div class="page-shell">
+        <section class="panel">
+            <div class="panel-heading">
+                <h1>Analysis operation</h1>
+                <p>Progress and diagnostics stay visible even when the run finishes with partial errors.</p>
+            </div>
+
+            <div class="summary-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Status</span>
+                    <span class="@GetStatusBadgeClass(_operation.Status)">@GetStatusLabel(_operation.Status)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Workspace</span>
+                    <strong class="path-text">@_operation.WorkspacePath</strong>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Started</span>
+                    <span class="stat-value-sm">@FormatTimestamp(_operation.StartedUtc ?? _operation.CreatedUtc)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Finished</span>
+                    <span class="stat-value-sm">@FormatTimestamp(_operation.CompletedUtc)</span>
+                </div>
+            </div>
+
+            @if (_operation.ScopeProjectNames.Count > 0)
+            {
+                <p class="field-help">Scoped projects: @string.Join(", ", _operation.ScopeProjectNames)</p>
+            }
+
+            @if (_operation.Status is AnalysisOperationStatus.Running or AnalysisOperationStatus.Pending)
+            {
+                <p class="message-banner info-banner">This page refreshes automatically while the analysis is still running.</p>
+                <script>window.setTimeout(function () { window.location.reload(); }, 1500);</script>
+            }
+            else if (!string.IsNullOrWhiteSpace(_operation.SnapshotId))
+            {
+                <p class="message-banner success-banner">
+                    Snapshot ready:
+                    <a href="@($"/snapshots/{_operation.SnapshotId}")">@_operation.SnapshotId</a>
+                    @if (_operation.FromCache)
+                    {
+                        <span>from cache</span>
+                    }
+                </p>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(_operation.ErrorMessage))
+            {
+                <p class="message-banner error-banner">@_operation.ErrorMessage</p>
+            }
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <h2>Progress</h2>
+                <p>Each collector stage reports explicit started, completed, and failed events.</p>
+            </div>
+
+            @if (_operation.ProgressEvents.Count == 0)
+            {
+                <p class="empty-state">No progress has been reported yet.</p>
+            }
+            else
+            {
+                <div class="progress-list">
+                    @foreach (var item in _operation.ProgressEvents)
+                    {
+                        <article class="progress-item">
+                            <div class="progress-meta">
+                                <span class="@GetProgressStateClass(item.State)">@item.State</span>
+                                <strong>@item.Stage</strong>
+                                <span>@item.OccurredUtc.ToLocalTime().ToString("HH:mm:ss")</span>
+                            </div>
+                            <p>@item.Message</p>
+                        </article>
+                    }
+                </div>
+            }
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <h2>Diagnostics</h2>
+                <p>Errors and warnings are preserved instead of being swallowed behind generic fallback behavior.</p>
+            </div>
+
+            @if (_operation.Diagnostics.Count == 0)
+            {
+                <p class="empty-state">No diagnostics were reported.</p>
+            }
+            else
+            {
+                <div class="diagnostic-list">
+                    @foreach (var diagnostic in _operation.Diagnostics)
+                    {
+                        <article class="diagnostic-item">
+                            <div class="progress-meta">
+                                <span class="@GetDiagnosticSeverityClass(diagnostic.Severity)">@diagnostic.Severity</span>
+                                <strong>@diagnostic.Code</strong>
+                                @if (diagnostic.Source is not null)
+                                {
+                                    <span>@diagnostic.Source.Path</span>
+                                }
+                            </div>
+                            <p>@diagnostic.Message</p>
+                        </article>
+                    }
+                </div>
+            }
+        </section>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string OperationId { get; set; } = string.Empty;
+
+    [Inject]
+    private AnalysisOperationCoordinator OperationCoordinator { get; set; } = null!;
+
+    private AnalysisOperationView? _operation;
+
+    protected override void OnParametersSet()
+    {
+        _operation = OperationCoordinator.Get(OperationId);
+    }
+
+    private static string FormatTimestamp(DateTimeOffset? value)
+    {
+        return value?.ToLocalTime().ToString("u") ?? "Not finished yet";
+    }
+
+    private static string GetStatusLabel(AnalysisOperationStatus status)
+    {
+        return status switch {
+            AnalysisOperationStatus.Pending => "Pending",
+            AnalysisOperationStatus.Running => "Running",
+            AnalysisOperationStatus.Succeeded => "Completed",
+            AnalysisOperationStatus.CompletedWithErrors => "Completed with errors",
+            AnalysisOperationStatus.Failed => "Failed",
+            _ => status.ToString(),
+        };
+    }
+
+    private static string GetStatusBadgeClass(AnalysisOperationStatus status)
+    {
+        return $"status-badge status-{status.ToString().ToLowerInvariant()}";
+    }
+
+    private static string GetProgressStateClass(AnalysisProgressState state)
+    {
+        return $"severity-pill severity-{state.ToString().ToLowerInvariant()}";
+    }
+
+    private static string GetDiagnosticSeverityClass(AnalysisDiagnosticSeverity severity)
+    {
+        return $"severity-pill severity-{severity.ToString().ToLowerInvariant()}";
+    }
+}

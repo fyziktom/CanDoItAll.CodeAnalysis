@@ -5,14 +5,20 @@ using CanDoItAll.CodeAnalytics.Domain.Snapshot;
 using CanDoItAll.CodeAnalytics.Storage.Caching;
 using CanDoItAll.CodeAnalytics.Storage.Paths;
 using CanDoItAll.CodeAnalytics.Storage.Recent;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace CanDoItAll.CodeAnalytics.Storage.Snapshots;
 
 public sealed class FileSnapshotRepository {
     private readonly SnapshotJsonSerializer _serializer;
+    private readonly ILogger<FileSnapshotRepository> _logger;
 
-    public FileSnapshotRepository(SnapshotJsonSerializer serializer) {
+    public FileSnapshotRepository(
+        SnapshotJsonSerializer serializer,
+        ILogger<FileSnapshotRepository>? logger = null) {
         _serializer = serializer;
+        _logger = logger ?? NullLogger<FileSnapshotRepository>.Instance;
     }
 
     public string ComputeRequestHash(
@@ -35,16 +41,19 @@ public sealed class FileSnapshotRepository {
         var index = await ReadCacheIndexAsync(pathResolver, cancellationToken);
         var entry = index.Entries.FirstOrDefault(item => string.Equals(item.RequestHash, requestHash, StringComparison.Ordinal));
         if (entry is null) {
+            _logger.LogInformation("Snapshot cache miss for request hash {RequestHash}", requestHash);
             return null;
         }
 
         var snapshotPath = pathResolver.GetSnapshotJsonPath(entry.SnapshotId);
         if (!File.Exists(snapshotPath)) {
+            _logger.LogWarning("Snapshot cache entry {SnapshotId} was missing on disk.", entry.SnapshotId);
             return null;
         }
 
         var json = await File.ReadAllTextAsync(snapshotPath, cancellationToken);
         var snapshot = _serializer.DeserializeSnapshot(json);
+        _logger.LogInformation("Snapshot cache hit for request hash {RequestHash} resolved to {SnapshotId}", requestHash, entry.SnapshotId);
         return new CachedSnapshotLookup(requestHash, snapshot);
     }
 
@@ -54,10 +63,12 @@ public sealed class FileSnapshotRepository {
         CancellationToken cancellationToken = default) {
         var snapshotPath = pathResolver.GetSnapshotJsonPath(snapshotId);
         if (!File.Exists(snapshotPath)) {
+            _logger.LogInformation("Snapshot {SnapshotId} was not found on disk.", snapshotId);
             return null;
         }
 
         var json = await File.ReadAllTextAsync(snapshotPath, cancellationToken);
+        _logger.LogInformation("Loaded snapshot {SnapshotId} from {SnapshotPath}", snapshotId, snapshotPath);
         return _serializer.DeserializeSnapshot(json);
     }
 
@@ -79,6 +90,7 @@ public sealed class FileSnapshotRepository {
         string requestHash,
         IReadOnlyList<PreparedExport> exports,
         CancellationToken cancellationToken = default) {
+        _logger.LogInformation("Storing snapshot {SnapshotId} with {ExportCount} exports.", snapshot.SnapshotId, exports.Count);
         var snapshotDirectory = pathResolver.GetSnapshotDirectory(snapshot.SnapshotId);
         Directory.CreateDirectory(snapshotDirectory);
 
@@ -98,6 +110,7 @@ public sealed class FileSnapshotRepository {
 
         await WriteCacheIndexAsync(pathResolver, requestHash, snapshot.SnapshotId, cancellationToken);
         await WriteRecentIndexAsync(pathResolver, snapshot, cancellationToken);
+        _logger.LogInformation("Stored snapshot {SnapshotId} in {SnapshotDirectory}", snapshot.SnapshotId, snapshotDirectory);
     }
 
     private async Task<SnapshotCacheIndex> ReadCacheIndexAsync(

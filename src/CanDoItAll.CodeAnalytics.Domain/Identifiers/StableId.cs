@@ -65,7 +65,9 @@ public static partial class StableId {
         }
 
         if (slug.Length > 64) {
-            slug = slug[..64].Trim('-');
+            var hash = ToHash(value)[..12];
+            var prefixLength = Math.Max(1, 64 - hash.Length - 1);
+            slug = $"{slug[..prefixLength].Trim('-')}-{hash}";
         }
 
         return $"{prefix}-{slug}";

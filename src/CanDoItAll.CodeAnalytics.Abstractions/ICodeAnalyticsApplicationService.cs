@@ -8,6 +8,7 @@ namespace CanDoItAll.CodeAnalytics.Abstractions;
 public interface ICodeAnalyticsApplicationService {
     Task<SnapshotBuildResponse> BuildSnapshotAsync(
         BuildArchitectureSnapshotCommand command,
+        IAnalysisProgressReporter? progressReporter = null,
         CancellationToken cancellationToken = default);
 
     Task<SnapshotDashboardResponse?> GetDashboardAsync(

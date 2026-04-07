@@ -7,6 +7,15 @@ public sealed class AnalysisRequestNormalizer {
         ArgumentException.ThrowIfNullOrWhiteSpace(request.SolutionPath);
 
         var fullSolutionPath = Path.GetFullPath(request.SolutionPath);
+        var extension = Path.GetExtension(fullSolutionPath);
+        if (!string.Equals(extension, ".sln", StringComparison.OrdinalIgnoreCase) &&
+            !string.Equals(extension, ".slnx", StringComparison.OrdinalIgnoreCase) &&
+            !string.Equals(extension, ".csproj", StringComparison.OrdinalIgnoreCase)) {
+            throw new ArgumentException(
+                $"Only .sln, .slnx, and .csproj inputs are supported: {request.SolutionPath}",
+                nameof(request));
+        }
+
         var normalizedProjects = NormalizeList(request.ScopeProjectNames);
         var normalizedNamespaces = NormalizeList(request.ScopeNamespacePrefixes);
 

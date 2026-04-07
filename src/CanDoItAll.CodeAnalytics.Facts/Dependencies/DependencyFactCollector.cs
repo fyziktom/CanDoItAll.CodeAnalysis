@@ -4,10 +4,18 @@ using CanDoItAll.CodeAnalytics.Domain.Identifiers;
 using CanDoItAll.CodeAnalytics.Facts.Symbols;
 using CanDoItAll.CodeAnalytics.Workspace.Loading;
 using Microsoft.CodeAnalysis;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace CanDoItAll.CodeAnalytics.Facts.Dependencies;
 
 public sealed class DependencyFactCollector {
+    private readonly ILogger<DependencyFactCollector> _logger;
+
+    public DependencyFactCollector(ILogger<DependencyFactCollector>? logger = null) {
+        _logger = logger ?? NullLogger<DependencyFactCollector>.Instance;
+    }
+
     public async Task<DependencyCollectionResult> CollectAsync(
         WorkspaceLoadResult workspace,
         SymbolCollectionResult symbols,
@@ -31,11 +39,12 @@ public sealed class DependencyFactCollector {
                 group => group.Key,
                 group => {
                     if (group.Count() > 1) {
-                        diagnostics.Add(
-                            new AnalysisDiagnostic(
-                                "DEP0002",
-                                AnalysisDiagnosticSeverity.Warning,
-                                $"Duplicate type display name detected: {group.Key}."));
+                        var diagnostic = new AnalysisDiagnostic(
+                            "DEP0002",
+                            AnalysisDiagnosticSeverity.Warning,
+                            $"Duplicate type display name detected: {group.Key}.");
+                        diagnostics.Add(diagnostic);
+                        _logger.LogWarning("Duplicate type display name detected during dependency collection: {DisplayName}", group.Key);
                     }
 
                     return group

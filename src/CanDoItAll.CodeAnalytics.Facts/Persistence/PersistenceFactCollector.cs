@@ -7,10 +7,18 @@ using CanDoItAll.CodeAnalytics.Facts.Symbols;
 using CanDoItAll.CodeAnalytics.Workspace.Loading;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace CanDoItAll.CodeAnalytics.Facts.Persistence;
 
 public sealed class PersistenceFactCollector {
+    private readonly ILogger<PersistenceFactCollector> _logger;
+
+    public PersistenceFactCollector(ILogger<PersistenceFactCollector>? logger = null) {
+        _logger = logger ?? NullLogger<PersistenceFactCollector>.Instance;
+    }
+
     public async Task<PersistenceCollectionResult> CollectAsync(
         WorkspaceLoadResult workspace,
         SymbolCollectionResult symbols,
@@ -22,18 +30,25 @@ public sealed class PersistenceFactCollector {
         var diagnostics = new List<AnalysisDiagnostic>();
         var dbContexts = new List<DbContextFact>();
         var entities = new List<EntityFact>();
-        var typeByDisplayName = symbols.Types.ToDictionary(type => type.DisplayName, StringComparer.Ordinal);
-        var entityIdsByDisplayName = new Dictionary<string, string>(StringComparer.Ordinal);
+        var typesByDisplayName = symbols.Types
+            .GroupBy(type => type.DisplayName, StringComparer.Ordinal)
+            .ToDictionary(group => group.Key, group => group.ToArray(), StringComparer.Ordinal);
+        var knownTypeDisplayNames = typesByDisplayName.Keys.ToHashSet(StringComparer.Ordinal);
+        var entityIdsByIdentity = new Dictionary<(string ProjectId, string DisplayName), string>(EqualityComparer<(string ProjectId, string DisplayName)>.Default);
         var tableMappings = new Dictionary<string, (string? Table, string? Schema)>(StringComparer.Ordinal);
 
         foreach (var projectContext in workspace.ProjectContexts.OrderBy(context => context.Fact.Name, StringComparer.OrdinalIgnoreCase)) {
+            if (!ShouldIncludeProject(workspace.Request, projectContext.Fact)) {
+                continue;
+            }
+
             var compilation = await projectContext.Project.GetCompilationAsync(cancellationToken);
             if (compilation is null) {
                 diagnostics.Add(
                     new AnalysisDiagnostic(
                         "EF0001",
-                    AnalysisDiagnosticSeverity.Warning,
-                    $"Compilation was unavailable for project {projectContext.Fact.Name}."));
+                        AnalysisDiagnosticSeverity.Warning,
+                        $"Compilation was unavailable for project {projectContext.Fact.Name}."));
                 continue;
             }
 
@@ -46,7 +61,7 @@ public sealed class PersistenceFactCollector {
                 .Where(symbol => IsOwnedByProject(symbol, projectDocumentPaths))
                 .Where(IsDbContext)) {
                 var dbContextDisplayName = dbContextSymbol.ToDisplayString(SymbolDisplayFormat.CSharpErrorMessageFormat);
-                if (!typeByDisplayName.TryGetValue(dbContextDisplayName, out var dbContextType)) {
+                if (!TryResolveTypeFact(typesByDisplayName, dbContextDisplayName, projectContext.Fact.ProjectId, diagnostics, out var dbContextType)) {
                     continue;
                 }
 
@@ -74,7 +89,7 @@ public sealed class PersistenceFactCollector {
                 var entityIds = new List<string>();
                 foreach (var entitySymbol in entitySymbols) {
                     var entityDisplayName = entitySymbol.ToDisplayString(SymbolDisplayFormat.CSharpErrorMessageFormat);
-                    if (!typeByDisplayName.TryGetValue(entityDisplayName, out var entityType)) {
+                    if (!TryResolveTypeFact(typesByDisplayName, entityDisplayName, projectContext.Fact.ProjectId, diagnostics, out var entityType)) {
                         diagnostics.Add(
                             new AnalysisDiagnostic(
                                 "EF0002",
@@ -83,16 +98,18 @@ public sealed class PersistenceFactCollector {
                         continue;
                     }
 
-                    if (!entityIdsByDisplayName.TryGetValue(entityDisplayName, out var entityId)) {
-                        entityId = StableId.ForEntity(entityDisplayName);
-                        entityIdsByDisplayName[entityDisplayName] = entityId;
+                    var entityKey = (entityType.ProjectId, entityDisplayName);
+                    if (!entityIdsByIdentity.TryGetValue(entityKey, out var entityId)) {
+                        entityId = StableId.ForEntity($"{entityType.ProjectId}:{entityDisplayName}");
+                        entityIdsByIdentity[entityKey] = entityId;
                         entities.Add(
                             CreateEntityFact(
                                 entityId,
                                 entitySymbol,
                                 entityType,
-                                typeByDisplayName,
+                                knownTypeDisplayNames,
                                 knownEntityDisplayNames,
+                                entityIdsByIdentity,
                                 tableMappings));
                     }
 
@@ -101,7 +118,7 @@ public sealed class PersistenceFactCollector {
 
                 dbContexts.Add(
                     new DbContextFact(
-                        StableId.ForDbContext(dbContextDisplayName),
+                        StableId.ForDbContext($"{dbContextType.ProjectId}:{dbContextDisplayName}"),
                         dbContextType.TypeId,
                         dbContextType.ProjectId,
                         dbContextType.ModuleId,
@@ -130,11 +147,52 @@ public sealed class PersistenceFactCollector {
         return false;
     }
 
+    private static bool ShouldIncludeProject(AnalysisRequest request, ProjectFact project) {
+        if (request.ScopeProjectNames.Count == 0) {
+            return true;
+        }
+
+        return request.ScopeProjectNames.Contains(project.Name, StringComparer.OrdinalIgnoreCase);
+    }
+
     private static bool IsOwnedByProject(ISymbol symbol, ISet<string> projectDocumentPaths) {
         return symbol.Locations
             .Where(location => location.IsInSource && location.SourceTree?.FilePath is not null)
             .Select(location => Path.GetFullPath(location.SourceTree!.FilePath))
             .Any(projectDocumentPaths.Contains);
+    }
+
+    private bool TryResolveTypeFact(
+        IReadOnlyDictionary<string, TypeFact[]> typesByDisplayName,
+        string displayName,
+        string projectId,
+        ICollection<AnalysisDiagnostic> diagnostics,
+        out TypeFact typeFact) {
+        if (!typesByDisplayName.TryGetValue(displayName, out var candidates) || candidates.Length == 0) {
+            typeFact = null!;
+            return false;
+        }
+
+        var projectMatch = candidates.FirstOrDefault(candidate => string.Equals(candidate.ProjectId, projectId, StringComparison.Ordinal));
+        if (projectMatch is not null) {
+            typeFact = projectMatch;
+            return true;
+        }
+
+        if (candidates.Length > 1) {
+            var diagnostic = new AnalysisDiagnostic(
+                "EF0004",
+                AnalysisDiagnosticSeverity.Warning,
+                $"Multiple collected types share the display name {displayName}. Falling back to the first candidate.");
+            diagnostics.Add(diagnostic);
+            _logger.LogWarning("Multiple collected types share the display name {DisplayName}. Falling back to the first candidate.", displayName);
+        }
+
+        typeFact = candidates
+            .OrderBy(candidate => candidate.ProjectId, StringComparer.Ordinal)
+            .ThenBy(candidate => candidate.TypeId, StringComparer.Ordinal)
+            .First();
+        return true;
     }
 
     private static IEnumerable<INamedTypeSymbol> EnumerateTypes(INamespaceSymbol namespaceSymbol) {
@@ -180,7 +238,7 @@ public sealed class PersistenceFactCollector {
         return namedType.TypeArguments[0] as INamedTypeSymbol;
     }
 
-    private static void ReadModelBuilderMappings(
+    private void ReadModelBuilderMappings(
         INamedTypeSymbol dbContextSymbol,
         Compilation compilation,
         AnalysisRequest request,
@@ -206,12 +264,13 @@ public sealed class PersistenceFactCollector {
                     }
 
                     if (methodName is "OwnsOne" or "OwnsMany" or "HasConversion" or "ToJson") {
-                        diagnostics.Add(
-                            new AnalysisDiagnostic(
-                                "EF0003",
-                                AnalysisDiagnosticSeverity.Info,
-                                $"Persistence pattern {methodName} is only partially interpreted.",
-                                CreateSourceReference(invocation, request)));
+                        var diagnostic = new AnalysisDiagnostic(
+                            "EF0003",
+                            AnalysisDiagnosticSeverity.Info,
+                            $"Persistence pattern {methodName} is only partially interpreted.",
+                            CreateSourceReference(invocation, request));
+                        diagnostics.Add(diagnostic);
+                        _logger.LogInformation("EF Core collector noted partially interpreted pattern {Pattern}", methodName);
                     }
 
                     if (methodName != "ToTable") {
@@ -235,16 +294,19 @@ public sealed class PersistenceFactCollector {
         string entityId,
         INamedTypeSymbol entitySymbol,
         TypeFact entityType,
-        IReadOnlyDictionary<string, TypeFact> typeByDisplayName,
+        ISet<string> knownTypeDisplayNames,
         ISet<string> knownEntityDisplayNames,
+        IReadOnlyDictionary<(string ProjectId, string DisplayName), string> entityIdsByIdentity,
         IReadOnlyDictionary<string, (string? Table, string? Schema)> tableMappings) {
         var relationshipTargets = entitySymbol.GetMembers()
             .OfType<IPropertySymbol>()
             .SelectMany(property => ExpandEntityPropertyTypes(property.Type))
             .Select(candidate => candidate.ToDisplayString(SymbolDisplayFormat.CSharpErrorMessageFormat))
-            .Where(typeByDisplayName.ContainsKey)
+            .Where(knownTypeDisplayNames.Contains)
             .Where(knownEntityDisplayNames.Contains)
-            .Select(candidate => StableId.ForEntity(candidate))
+            .Select(candidate => entityIdsByIdentity.TryGetValue((entityType.ProjectId, candidate), out var targetId) ? targetId : null)
+            .Where(targetId => !string.IsNullOrWhiteSpace(targetId))
+            .Cast<string>()
             .Distinct(StringComparer.Ordinal)
             .OrderBy(value => value, StringComparer.Ordinal)
             .ToArray();

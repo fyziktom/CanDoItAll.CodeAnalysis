@@ -1,5 +1,5 @@
 using System.Net;
-using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using CanDoItAll.CodeAnalytics.Tests.Support;
 using CanDoItAll.CodeAnalytics.Web;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -7,6 +7,22 @@ using Microsoft.AspNetCore.Mvc.Testing;
 namespace CanDoItAll.CodeAnalytics.Tests.Web;
 
 public sealed class WebUiFacts {
+    private static readonly Regex SnapshotPathPattern = new("href=\"(?<path>/snapshots/[^\"]+)\"", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+    [Fact]
+    public async Task Home_route_renders_workspace_picker_controls() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
+        using var client = factory.CreateClient();
+
+        var html = await client.GetStringAsync("/");
+
+        Assert.Contains("Solution or project path", html, StringComparison.Ordinal);
+        Assert.Contains("Browse", html, StringComparison.Ordinal);
+        Assert.Contains("Project filter", html, StringComparison.Ordinal);
+    }
+
     [Fact]
     public async Task Dashboard_route_renders_after_analysis() {
         FixtureSolutionHost.EnsurePrepared();
@@ -14,11 +30,27 @@ public sealed class WebUiFacts {
         using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
         using var client = factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
 
-        var redirect = await StartAnalysisAsync(client);
-        var dashboard = await client.GetStringAsync(redirect);
+        var operationPath = await StartAnalysisAsync(client, FixturePaths.GetFixtureSolutionPath());
+        var snapshotPath = await WaitForSnapshotPathAsync(client, operationPath);
+        var dashboard = await client.GetStringAsync(snapshotPath);
 
         Assert.Contains("Snapshot dashboard", dashboard, StringComparison.OrdinalIgnoreCase);
         Assert.Contains("Fixture.Shop", dashboard, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task Project_path_analysis_renders_project_dashboard() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureProjectPath("Fixture.Shop.Infrastructure"));
+        using var client = factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
+
+        var operationPath = await StartAnalysisAsync(client, FixturePaths.GetFixtureProjectPath("Fixture.Shop.Infrastructure"));
+        var snapshotPath = await WaitForSnapshotPathAsync(client, operationPath);
+        var dashboard = await client.GetStringAsync(snapshotPath);
+
+        Assert.Contains("Fixture.Shop.Infrastructure", dashboard, StringComparison.Ordinal);
+        Assert.Contains(">1<", dashboard, StringComparison.Ordinal);
     }
 
     [Fact]
@@ -28,8 +60,9 @@ public sealed class WebUiFacts {
         using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
         using var client = factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
 
-        var redirect = await StartAnalysisAsync(client);
-        var snapshotId = redirect.Trim('/').Split('/').Last();
+        var operationPath = await StartAnalysisAsync(client, FixturePaths.GetFixtureSolutionPath());
+        var snapshotPath = await WaitForSnapshotPathAsync(client, operationPath);
+        var snapshotId = snapshotPath.Trim('/').Split('/').Last();
 
         var dependencies = await client.GetStringAsync($"/snapshots/{snapshotId}/dependencies");
         var services = await client.GetStringAsync($"/snapshots/{snapshotId}/services");
@@ -49,8 +82,9 @@ public sealed class WebUiFacts {
         using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
         using var client = factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
 
-        var redirect = await StartAnalysisAsync(client);
-        var snapshotId = redirect.Trim('/').Split('/').Last();
+        var operationPath = await StartAnalysisAsync(client, FixturePaths.GetFixtureSolutionPath());
+        var snapshotPath = await WaitForSnapshotPathAsync(client, operationPath);
+        var snapshotId = snapshotPath.Trim('/').Split('/').Last();
 
         using var response = await client.GetAsync($"/exports/{snapshotId}/exports/summary.md");
         var content = await response.Content.ReadAsStringAsync();
@@ -60,10 +94,10 @@ public sealed class WebUiFacts {
         Assert.Contains("Architecture Summary", content, StringComparison.Ordinal);
     }
 
-    private static async Task<string> StartAnalysisAsync(HttpClient client) {
+    private static async Task<string> StartAnalysisAsync(HttpClient client, string workspacePath) {
         using var request = new FormUrlEncodedContent(
             new Dictionary<string, string> {
-                ["solutionPath"] = FixturePaths.GetFixtureSolutionPath(),
+                ["solutionPath"] = workspacePath,
                 ["includeDi"] = "on",
                 ["includePersistence"] = "on",
                 ["includeRisks"] = "on",
@@ -74,7 +108,24 @@ public sealed class WebUiFacts {
         using var response = await client.PostAsync("/analyze", request);
         Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
         Assert.NotNull(response.Headers.Location);
-        return response.Headers.Location!.OriginalString;
+        Assert.StartsWith("/operations/", response.Headers.Location!.OriginalString, StringComparison.Ordinal);
+        return response.Headers.Location.OriginalString;
+    }
+
+    private static async Task<string> WaitForSnapshotPathAsync(HttpClient client, string operationPath) {
+        string? lastPage = null;
+
+        for (var attempt = 0; attempt < 120; attempt++) {
+            lastPage = await client.GetStringAsync(operationPath);
+            var match = SnapshotPathPattern.Match(lastPage);
+            if (match.Success) {
+                return match.Groups["path"].Value;
+            }
+
+            await Task.Delay(250);
+        }
+
+        throw new InvalidOperationException($"Operation did not complete in time. Last page:{Environment.NewLine}{lastPage}");
     }
 
     private sealed class CodeAnalyticsWebFactory : WebApplicationFactory<Program> {

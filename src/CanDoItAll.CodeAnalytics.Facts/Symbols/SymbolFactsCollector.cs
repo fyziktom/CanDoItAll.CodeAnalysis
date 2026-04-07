@@ -6,14 +6,20 @@ using CanDoItAll.CodeAnalytics.Domain.Sources;
 using CanDoItAll.CodeAnalytics.Facts.Documentation;
 using CanDoItAll.CodeAnalytics.Workspace.Loading;
 using Microsoft.CodeAnalysis;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace CanDoItAll.CodeAnalytics.Facts.Symbols;
 
 public sealed class SymbolFactsCollector {
     private readonly XmlDocumentationNormalizer _xmlDocumentationNormalizer;
+    private readonly ILogger<SymbolFactsCollector> _logger;
 
-    public SymbolFactsCollector(XmlDocumentationNormalizer xmlDocumentationNormalizer) {
+    public SymbolFactsCollector(
+        XmlDocumentationNormalizer xmlDocumentationNormalizer,
+        ILogger<SymbolFactsCollector>? logger = null) {
         _xmlDocumentationNormalizer = xmlDocumentationNormalizer;
+        _logger = logger ?? NullLogger<SymbolFactsCollector>.Instance;
     }
 
     public async Task<SymbolCollectionResult> CollectAsync(
@@ -38,8 +44,8 @@ public sealed class SymbolFactsCollector {
                 diagnostics.Add(
                     new AnalysisDiagnostic(
                         "SYM0001",
-                    AnalysisDiagnosticSeverity.Warning,
-                    $"Compilation was unavailable for project {projectContext.Fact.Name}."));
+                        AnalysisDiagnosticSeverity.Warning,
+                        $"Compilation was unavailable for project {projectContext.Fact.Name}."));
                 continue;
             }
 
@@ -61,12 +67,12 @@ public sealed class SymbolFactsCollector {
                     ? projectContext.Fact.Name
                     : symbol.ContainingNamespace.ToDisplayString();
                 var moduleName = ModuleNameClassifier.GetModuleName(projectContext.Fact.Name, namespaceName);
-                var moduleId = StableId.ForModule(moduleName);
-                var namespaceId = StableId.ForNamespace(namespaceName);
+                var moduleId = StableId.ForModule($"{projectContext.Fact.ProjectId}:{moduleName}");
+                var namespaceId = StableId.ForNamespace($"{projectContext.Fact.ProjectId}:{namespaceName}");
                 var displayName = symbol.ToDisplayString(SymbolDisplayFormat.CSharpErrorMessageFormat);
                 var source = CreateSourceReference(symbol, projectContext.Project, workspace.Request);
                 var xmlSummary = GetXmlSummary(workspace.Request, symbol, source, diagnostics, cancellationToken);
-                var typeId = StableId.ForType(displayName);
+                var typeId = StableId.ForType($"{projectContext.Fact.ProjectId}:{displayName}");
                 var typeMembers = CreateMembers(symbol, typeId, projectContext.Project, workspace.Request)
                     .OrderBy(member => member.DisplayName, StringComparer.Ordinal)
                     .ToArray();
@@ -100,6 +106,34 @@ public sealed class SymbolFactsCollector {
             }
         }
 
+        var duplicateTypeGroups = types
+            .GroupBy(type => type.TypeId, StringComparer.Ordinal)
+            .Where(group => group.Count() > 1)
+            .OrderBy(group => group.Key, StringComparer.Ordinal)
+            .ToArray();
+        foreach (var group in duplicateTypeGroups) {
+            diagnostics.Add(
+                new AnalysisDiagnostic(
+                    "SYM0002",
+                    AnalysisDiagnosticSeverity.Warning,
+                    $"Duplicate type facts were collapsed for {group.First().DisplayName}."));
+            _logger.LogWarning("Duplicate type facts were collapsed for {TypeId}", group.Key);
+        }
+
+        var orderedTypes = types
+            .GroupBy(type => type.TypeId, StringComparer.Ordinal)
+            .Select(
+                group => group
+                    .OrderBy(type => type.Source.Path, StringComparer.Ordinal)
+                    .ThenBy(type => type.DisplayName, StringComparer.Ordinal)
+                    .First())
+            .OrderBy(type => type.DisplayName, StringComparer.Ordinal)
+            .ToArray();
+        var orderedMembers = members
+            .GroupBy(member => member.MemberId, StringComparer.Ordinal)
+            .Select(group => group.First())
+            .OrderBy(member => member.DisplayName, StringComparer.Ordinal)
+            .ToArray();
         var namespaces = namespaceIndex
             .OrderBy(item => item.Value.Name, StringComparer.OrdinalIgnoreCase)
             .Select(
@@ -108,13 +142,16 @@ public sealed class SymbolFactsCollector {
                     item.Key.ProjectId,
                     item.Key.ModuleId,
                     item.Value.Name,
-                    item.Value.TypeIds.OrderBy(value => value, StringComparer.Ordinal).ToArray()))
+                    item.Value.TypeIds
+                        .Distinct(StringComparer.Ordinal)
+                        .OrderBy(value => value, StringComparer.Ordinal)
+                        .ToArray()))
             .ToArray();
 
         return new SymbolCollectionResult(
             namespaces,
-            types.OrderBy(type => type.DisplayName, StringComparer.Ordinal).ToArray(),
-            members.OrderBy(member => member.DisplayName, StringComparer.Ordinal).ToArray(),
+            orderedTypes,
+            orderedMembers,
             diagnostics.OrderBy(diagnostic => diagnostic.Code, StringComparer.Ordinal).ThenBy(diagnostic => diagnostic.Message, StringComparer.Ordinal).ToArray());
     }
 
@@ -233,6 +270,7 @@ public sealed class SymbolFactsCollector {
             source);
         foreach (var diagnostic in result.Diagnostics) {
             diagnostics.Add(diagnostic);
+            _logger.LogInformation("XML documentation diagnostic {Code}: {Message}", diagnostic.Code, diagnostic.Message);
         }
 
         return result.Summary;

@@ -20,4 +20,23 @@ public sealed class ApplicationFacts {
         Assert.Equal(build.Snapshot.SnapshotId, dashboard!.Snapshot.SnapshotId);
         Assert.True(findings!.Findings.Count > 0 || findings.OpenQuestions.Count > 0);
     }
+
+    [Fact]
+    public async Task Application_builds_a_project_scoped_snapshot_from_a_csproj_path() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var response = await service.BuildSnapshotAsync(
+            new BuildArchitectureSnapshotCommand(
+                FixturePaths.GetFixtureProjectPath("Fixture.Shop.Infrastructure"),
+                ForceRefresh: true));
+
+        Assert.Equal("Fixture.Shop.Infrastructure", response.Snapshot.Facts.Solution.Name);
+        Assert.Single(response.Snapshot.Facts.Projects);
+        Assert.Equal("Fixture.Shop.Infrastructure", response.Snapshot.Facts.Projects[0].Name);
+        Assert.All(
+            response.Snapshot.Facts.Types,
+            type => Assert.Equal(response.Snapshot.Facts.Projects[0].ProjectId, type.ProjectId));
+    }
 }
