@@ -32,6 +32,22 @@ public interface ICodeAnalyticsApplicationService {
         SnapshotQuery query,
         CancellationToken cancellationToken = default);
 
+    Task<SolutionInventoryResponse?> GetSolutionInventoryAsync(
+        SolutionInventoryQuery query,
+        CancellationToken cancellationToken = default);
+
+    Task<ProjectInventoryResponse?> GetProjectInventoryAsync(
+        ProjectInventoryQuery query,
+        CancellationToken cancellationToken = default);
+
+    Task<DocumentSourceResponse?> GetDocumentSourceAsync(
+        DocumentQuery query,
+        CancellationToken cancellationToken = default);
+
+    Task<DocumentSymbolsResponse?> GetDocumentSymbolsAsync(
+        DocumentQuery query,
+        CancellationToken cancellationToken = default);
+
     Task<TypesViewResponse?> GetTypesAsync(
         TypeSearchQuery query,
         CancellationToken cancellationToken = default);

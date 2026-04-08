@@ -205,6 +205,144 @@ public sealed class ApplicationFacts {
     }
 
     [Fact]
+    public async Task Application_returns_solution_inventory_with_direct_and_reverse_project_references() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetSolutionInventoryAsync(new SolutionInventoryQuery(build.Snapshot.SnapshotId));
+
+        Assert.NotNull(response);
+        Assert.Equal(build.Snapshot.Facts.Solution.Name, response!.Solution.Name);
+
+        var contractsProject = Assert.Single(
+            response.Projects,
+            item => string.Equals(item.Project.Name, "Fixture.Shop.Contracts", StringComparison.Ordinal));
+        Assert.Empty(contractsProject.DirectProjectReferences);
+        Assert.Equal(3, contractsProject.ReferencedByProjects.Count);
+        Assert.Contains(
+            contractsProject.ReferencedByProjects,
+            item => string.Equals(item.ProjectName, "Fixture.Shop.Application", StringComparison.Ordinal));
+        Assert.Contains(
+            contractsProject.ReferencedByProjects,
+            item => string.Equals(item.ProjectName, "Fixture.Shop.Infrastructure", StringComparison.Ordinal));
+        Assert.Contains(
+            contractsProject.ReferencedByProjects,
+            item => string.Equals(item.ProjectName, "Fixture.Shop.Web", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public async Task Application_returns_project_inventory_with_documents() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetProjectInventoryAsync(
+            new ProjectInventoryQuery(
+                build.Snapshot.SnapshotId,
+                ProjectName: "Fixture.Shop.Application",
+                IncludeDocuments: true));
+
+        Assert.NotNull(response);
+        Assert.Equal("Fixture.Shop.Application", response!.Project.Project.Name);
+        Assert.Equal(2, response.Project.DirectProjectReferences.Count);
+        Assert.Contains(
+            response.Project.DirectProjectReferences,
+            item => string.Equals(item.ProjectName, "Fixture.Shop.Contracts", StringComparison.Ordinal));
+        Assert.Contains(
+            response.Project.DirectProjectReferences,
+            item => string.Equals(item.ProjectName, "Fixture.Shop.Infrastructure", StringComparison.Ordinal));
+        Assert.Single(response.Project.ReferencedByProjects);
+        Assert.Contains(
+            response.Project.Documents,
+            item => item.Path.EndsWith("OrderService.cs", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public async Task Application_returns_document_source_for_snapshot_document_path() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetDocumentSourceAsync(
+            new DocumentQuery(
+                build.Snapshot.SnapshotId,
+                DocumentPath: "src/Fixture.Shop.Application/Orders/OrderService.cs"));
+
+        Assert.NotNull(response);
+        Assert.Equal("Fixture.Shop.Application", response!.ProjectName);
+        Assert.Equal("OrderService.cs", response.Document.Name);
+        Assert.Contains("public sealed partial class OrderService", response.SourceCode, StringComparison.Ordinal);
+        Assert.Contains("PlaceOrderAsync", response.SourceCode, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task Application_returns_document_symbols_for_snapshot_document_path() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetDocumentSymbolsAsync(
+            new DocumentQuery(
+                build.Snapshot.SnapshotId,
+                DocumentPath: "src/Fixture.Shop.Application/Orders/OrderService.cs"));
+
+        Assert.NotNull(response);
+        Assert.Equal("Fixture.Shop.Application", response!.ProjectName);
+        var orderService = Assert.Single(response.Types);
+        Assert.Contains("OrderService", orderService.Type.DisplayName, StringComparison.Ordinal);
+        Assert.Contains(
+            orderService.Members,
+            item => item.DisplayName.Contains("PlaceOrderAsync", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public async Task Application_document_queries_tolerate_duplicate_document_ids() {
+        using var workspace = new TemporaryDirectoryScope();
+        using var output = new TemporaryDirectoryScope();
+
+        var solutionPath = Path.Combine(workspace.Path, "Fixture.Shop.slnx");
+        var orderServiceDirectory = Path.Combine(workspace.Path, "src", "Fixture.Shop.Application", "Orders");
+        Directory.CreateDirectory(orderServiceDirectory);
+        await File.WriteAllTextAsync(solutionPath, string.Empty);
+        await WriteOrderServiceSourceAsync(orderServiceDirectory);
+
+        var original = SampleSnapshotFactory.Create();
+        var duplicateDocumentId = original.Facts.Documents[0].DocumentId;
+        var snapshot = original with {
+            Request = original.Request with {
+                SolutionPath = solutionPath,
+            },
+            Facts = original.Facts with {
+                Documents = [
+                    .. original.Facts.Documents,
+                    new DocumentFact(
+                        duplicateDocumentId,
+                        "proj-app",
+                        "src/Fixture.Shop.Application/Orders/OrderService.Duplicate.cs",
+                        "OrderService.Duplicate.cs",
+                        12),
+                ],
+            },
+        };
+        await StoreSnapshotAsync(snapshot, output.Path);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetDocumentSymbolsAsync(
+            new DocumentQuery(
+                snapshot.SnapshotId,
+                DocumentPath: "src/Fixture.Shop.Application/Orders/OrderService.cs"));
+
+        Assert.NotNull(response);
+        var orderService = Assert.Single(response!.Types);
+        Assert.Contains("OrderService", orderService.Type.DisplayName, StringComparison.Ordinal);
+    }
+
+    [Fact]
     public async Task Application_returns_focused_context_for_a_service_seed() {
         FixtureSolutionHost.EnsurePrepared();
         using var output = new TemporaryDirectoryScope();
