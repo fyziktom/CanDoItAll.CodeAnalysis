@@ -5,4 +5,6 @@ public sealed record FocusedContextQuery(
     string? TypeId = null,
     string? MemberId = null,
     string? ServiceRegistrationId = null,
-    int Depth = 2);
+    int Depth = 2,
+    string? QueryText = null,
+    IReadOnlyList<string>? FocusTags = null);

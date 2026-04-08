@@ -14,6 +14,7 @@
 - Analyze whether the information is really helpful
 - Compare with SharpTools call count and context cost
 - Explain how to make it better if the savings are still weak
+- Explain what feedback the new tuning page needs for the next heuristic pass
 
 ## Prerequisites
 
@@ -33,6 +34,7 @@
 - Final validation matrix
 - Host usefulness assessment
 - SharpTools comparison analysis
+- Tuning-feedback guidance
 - Updated bundle closure evidence
 
 ## Dependency Impact
@@ -47,7 +49,8 @@
 
 1. Run the full validation matrix.
 2. Rerun host analysis and compare outputs against SharpTools probing.
-3. Review the future MCP seam and record residual risks honestly.
+3. Review what the tuning page reveals about noisy versus useful excerpts and record the next feedback loop explicitly.
+4. Review the future MCP seam and record residual risks honestly.
 
 ## Do Not Do
 
@@ -58,6 +61,7 @@
 
 - The reopened validation matrix passes.
 - The comparison against SharpTools is evidence-based.
+- The tuning guidance is explicit enough to shape the next heuristic pass.
 - Residual risks and next improvements are explicit.
 
 ## Proof Required
@@ -66,6 +70,7 @@
 - Mermaid CLI render commands
 - Playwright artifacts
 - SharpTools call log and comparison notes
+- Tuning-feedback write-up tied to the lab page output
 - Final bundle validator pass
 
 ## Browser Validation Logging

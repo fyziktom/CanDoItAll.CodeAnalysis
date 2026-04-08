@@ -127,17 +127,30 @@ public sealed partial class SymbolFactsCollector {
     }
 
     private static SourceReference? CreateSourceReference(ISymbol symbol, Project project, AnalysisRequest request) {
-        var location = symbol.Locations.FirstOrDefault(candidate => candidate.IsInSource && candidate.SourceTree is not null);
-        if (location is null || location.SourceTree?.FilePath is null) {
-            return null;
+        var syntaxReference = symbol.DeclaringSyntaxReferences.FirstOrDefault();
+        if (syntaxReference is not null) {
+            var syntax = syntaxReference.GetSyntax();
+            var syntaxPath = syntax.SyntaxTree.FilePath;
+            if (!string.IsNullOrWhiteSpace(syntaxPath)) {
+                var syntaxLineSpan = syntax.GetLocation().GetLineSpan();
+                return CreateSourceReference(request, syntaxLineSpan);
+            }
         }
 
-        var lineSpan = location.GetLineSpan();
+        var location = symbol.Locations.FirstOrDefault(candidate => candidate.IsInSource && candidate.SourceTree is not null);
+        return location is null || location.SourceTree?.FilePath is null
+            ? null
+            : CreateSourceReference(request, location.GetLineSpan());
+    }
+
+    private static SourceReference CreateSourceReference(AnalysisRequest request, FileLinePositionSpan lineSpan) {
         var solutionDirectory = Path.GetDirectoryName(request.SolutionPath)!;
         return new SourceReference(
             Path.GetRelativePath(solutionDirectory, lineSpan.Path).Replace('\\', '/'),
             lineSpan.StartLinePosition.Line + 1,
-            lineSpan.StartLinePosition.Character + 1);
+            lineSpan.StartLinePosition.Character + 1,
+            lineSpan.EndLinePosition.Line + 1,
+            lineSpan.EndLinePosition.Character + 1);
     }
 
     private sealed class NamespaceBuilder {

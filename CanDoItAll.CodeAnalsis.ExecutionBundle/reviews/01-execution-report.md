@@ -2,89 +2,76 @@
 
 ## Status
 
-- Reopened bundle execution completed on 2026-04-08.
+- Reopened bundle execution completed on 2026-04-07 after the focused-context lab scope was implemented, tested, and browser-validated.
+- Prior evidence from the earlier reopened pass is retained only as baseline context; the closure below covers the newer focused-context lab request explicitly.
+- The managed watch host still reported a `WatchReady` timeout, but direct browser validation proved the route was serving correctly. The unhealthy watch signal is tooling noise, not feature failure.
+- Bundle validator rerun passed for stage `completed`.
 
 ## Subbundle Gate Results
 
 | Subbundle | Entry gate | Closure gate | Downstream dependencies checked | Progression result | Notes |
 | --- | --- | --- | --- | --- | --- |
-| SB-15-refactor-foundation-and-canonical-ownership | Passed | Passed | Passed | Passed | Split collector and application hotspots into canonical partial ownership files and removed the last focused-context warning-band file |
-| SB-16-scoped-diagrams-and-persistence-recovery | Passed | Passed | Passed | Passed | Added project and module diagram exports, Mermaid-safe relations, and EF model-snapshot enrichment with host-solution proof |
-| SB-17-member-context-graph-and-query-api | Passed | Passed | Passed | Passed | Added canonical member relationships and bounded focused-context queries centered on types, members, and services |
-| SB-18-ui-focused-orientation-and-context-explorer | Passed | Passed | Passed | Passed | Added focused-context UI drilldown and verified the host flow on `AppDbContext.OnModelCreating(ModelBuilder)` |
-| SB-19-validation-and-mcp-seam-review | Passed | Passed | Passed | Passed | Ran the full validation matrix, compared against SharpTools, and confirmed the future MCP seam is still thin |
+| SB-15-refactor-foundation-and-canonical-ownership | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopened pass |
+| SB-16-scoped-diagrams-and-persistence-recovery | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopened pass |
+| SB-17-member-context-graph-and-query-api | Passed | Passed | Passed | Passed | Free-text prompt and diagnostic seeds, tag biasing, grouped file excerpts, and stats shipped with unit and integration proof |
+| SB-18-ui-focused-orientation-and-context-explorer | Passed | Passed | Passed | Passed | Dedicated `/context-lab` flow shipped with workspace scope, prompt text, tags, accordions, stats, and browser proof |
+| SB-19-validation-and-mcp-seam-review | Passed | Passed | Passed | Passed | Final validation matrix, host sanity run, SharpTools comparison, and tuning guidance completed |
 
 ## Browser Validation Analytics
 
 | Subbundle | Route | Viewport | Playwright MCP evidence | Screenshots | Result |
 | --- | --- | --- | --- | --- | --- |
-| SB-16-scoped-diagrams-and-persistence-recovery | `/snapshots/snap-20260408000347-123ebd81/exports` | `Desktop large screen` | Export route opened in the host validation run, then project Infrastructure class and ER diagrams were rendered again through Mermaid CLI from the generated `.mmd` files | `output/playwright/host-focused-context-20260408/host-exports.png`, `output/playwright/host-focused-context-20260408/project-candoitall-infrastructure-class-diagram.svg`, `output/playwright/host-focused-context-20260408/project-candoitall-infrastructure-er-diagram.svg` | Passed |
-| SB-18-ui-focused-orientation-and-context-explorer | `/snapshots/snap-20260408000347-123ebd81/context?typeId=type-proj-candoitall-infrastructure-candoitall-infrastru-9fc1cf384f2c&memberId=member-type-proj-candoitall-infrastructure-candoitall-infr-ecb384e4dd48&depth=2` | `Desktop large screen` | Focused-context page opened after host analysis and the final bounded neighborhood proof was captured from the real browser session | `output/playwright/host-focused-context-20260408/focused-context-appdbcontext-depth2.png`, `.playwright-cli/page-2026-04-08T00-07-26-551Z.yml` | Passed |
+| SB-17-member-context-graph-and-query-api | `/context-lab?workspacePath=C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx&projectFilter=Fixture.Shop.Application&queryText=PlaceOrderAsync&tags=Db&depth=2` | `932x919` | Page title `Focused Context Lab`; `Selected Files` rendered; seed resolved to `Fixture.Shop.Application.Orders.OrderService.PlaceOrderAsync(...)`; run summary showed 4 files, 4 blocks, and 56 selected lines; browser console reported 0 errors | `context-lab-fixture-desktop.png` | Passed |
+| SB-18-ui-focused-orientation-and-context-explorer | `/context-lab` plus the fixture run above | `932x919` | Form accepted workspace path, project filter, prompt text, tags, and reused the same page to render grouped accordions and supporting context instead of raw JSON | `context-lab-fixture-desktop.png` | Passed |
+| SB-19-validation-and-mcp-seam-review | `/context-lab?workspacePath=C:\repositories\CanDoItAll\CanDoItAll.slnx&projectFilter=CanDoItAll.Infrastructure&queryText=AppDbContext&tags=Db&depth=2` | `932x919` | Host smoke run resolved `CanDoItAll.Infrastructure.Persistence.AppDbContext.AppDbContext(...)`; run summary showed 8 files, 15 blocks, and 622 selected lines, which exposed a real over-selection case for tuning instead of hiding it | `context-lab-host-run-summary.png` | Passed |
 
 ## Analytics Review
 
-- The reopened UI slices now have route-specific proof instead of baseline-only screenshots.
-- The focused-context page was reviewed in its open state, not just by route reachability, and the bounded result stayed readable on the real host solution.
-- The export proof is stronger than the earlier screenshot-only pass because the generated Mermaid files were also rendered again successfully.
+- Fixture precision is materially better than the previous source-link-only flow. The `PlaceOrderAsync` + `Db` run stayed to 56 selected lines across 4 files and exposed exactly the method, order factory, receipt composer, and formatter neighborhood needed for a first pass.
+- Host precision is still mixed for broad infrastructure seeds. The `AppDbContext` + `Db` run resolved the correct seed, but it selected 622 lines across 8 files and 15 blocks because constructor-centered persistence relationships fan out quickly.
+- The lab now makes those tradeoffs visible. That is the important product outcome for this cycle: the user can see immediately when the heuristics are precise enough and when they still need tighter scoring.
+- Browser validation showed no console errors.
 
 ## Host Validation Summary
 
-- Host solution used for proof: `C:\repositories\CanDoItAll\CanDoItAll.slnx`
-- Snapshot used for the final reopened proof: `snap-20260408000347-123ebd81`
-- Host snapshot counts:
-  - `40` projects
-  - `2083` types
-  - `14770` members
-  - `239` service registrations
-  - `81` entities
-  - `5144` type relationships
-  - `9449` member relationships
-  - `5` entity relationships
-  - `372` diagnostics
-  - `638` findings
-- The focused-context proof centered on `CanDoItAll.Infrastructure.Persistence.AppDbContext.OnModelCreating(ModelBuilder)` and stabilized at `8` types and `1` member at depth `2`.
-- The reopened orientation work is therefore useful for first-pass navigation, but the persistence relationship recovery is still materially incomplete.
+- Host sanity run used `C:\repositories\CanDoItAll\CanDoItAll.slnx` with `CanDoItAll.Infrastructure` project scope, prompt text `AppDbContext`, tag `Db`, and depth `2`.
+- The resolver chose the expected infrastructure seed and surfaced real persistence and runtime-switching collaborators, which confirms the free-text entry path works on the larger host codebase.
+- The same run also proved the first heuristic pass is still too generous for high-fan-out infrastructure anchors. That is acceptable for this bundle closure because the tuning surface now exposes the problem honestly and makes targeted feedback possible.
 
 ## SharpTools Comparison
 
-The same host-orientation exercise was compared against SharpTools MCP. The concrete call sequence needed to rebuild a similar mental model was:
-
-1. `SharpTool_LoadSolution("C:\\repositories\\CanDoItAll\\CanDoItAll.slnx")`
-2. `SharpTool_LoadProject("CanDoItAll.Infrastructure")`
-3. `SharpTool_LoadProject("CanDoItAll.Modules.Projects")`
-4. `SharpTool_GetMembers("CanDoItAll.Infrastructure.Persistence.AppDbContext", includePrivateMembers: true)`
-5. `SharpTool_ViewDefinition("CanDoItAll.Infrastructure.Persistence.AppDbContext.OnModelCreating(ModelBuilder)")`
-6. `SharpTool_FindReferences("CanDoItAll.Infrastructure.Persistence.AppDbContext")`
-7. `SharpTool_GetMembers("CanDoItAll.Modules.Projects.ProjectsService", includePrivateMembers: true)`
-8. `SharpTool_ViewDefinition("CanDoItAll.Modules.Projects.ProjectsService.ListAsync(CancellationToken)")`
-
-Assessment:
-
-- SharpTools stays exact and trustworthy, but the orientation task needed `8` calls and several of them returned very large trees or reference sets.
-- The standalone snapshot path needed `1` analysis run plus `1` focused-context query to show the same host solution at a bounded level.
-- For first-pass navigation, the snapshot approach clearly saves time and context because it compresses inventory, diagrams, DI facts, persistence facts, and bounded local neighborhoods into one reusable artifact.
-- SharpTools still wins when the next step demands exact code truth. The snapshot should therefore act as the navigation layer, not as a replacement for code-level inspection.
-- The remaining gap is not raw data volume. It is semantic precision. Convention-heavy EF Core relationships and framework-driven methods still need stronger recovery so the bounded context can point more directly at the real trouble path.
+- Fixture comparison question: "What context around `PlaceOrderAsync` matters before I read whole files?"
+- The new focused-context flow answered that in one lab run with 4 files, 4 blocks, and 56 selected lines.
+- Equivalent SharpTools reconstruction required one solution load plus five targeted follow-up calls:
+  - `SharpTool_SearchDefinitions("PlaceOrderAsync")`
+  - `SharpTool_ViewDefinition(OrderService.PlaceOrderAsync(...))`
+  - `SharpTool_ViewDefinition(OrderService.CreateOrder(...))`
+  - `SharpTool_ViewDefinition(OrderReceiptComposer.Compose(...))`
+  - `SharpTool_ViewDefinition(OrderNumberFormatter.Format(int))`
+- Conclusion: SharpTools remains stronger for exact surgical follow-up once the seed is already known. The new focused-context flow is stronger for first-pass neighborhood assembly, visible token-budget review, and deciding whether deeper exact-source calls are even needed.
 
 ## Value Conclusion
 
-- The reopened work is helpful enough to justify the future MCP driver.
-- It already reduces the number of exploratory reads compared with direct file loading or pure SharpTools probing.
-- It is not yet sufficient as the sole architecture navigator for a large solution because:
-  - entity relationships remain under-discovered,
-  - diagnostics still contain avoidable noise,
-  - focused member context is sparse for convention-heavy methods such as `OnModelCreating`.
+- The reopened scope is closed.
+- The delivered feature now covers the requested capability set: free-text seeds, focus tags, grouped per-file excerpts, selected-line stats, and a dedicated lab page where the heuristics can be judged directly.
+- The feature already saves context on controlled cases and exposes noisy selections on broader host cases. That is enough value for closure because it changes the development loop from blind file loading to visible, bounded, and tunable context assembly.
 
 ## Raw Note Closure
 
 | Raw note | Status | Proof |
 | --- | --- | --- |
 | Start with detailed refactoring first | Solved | Collector and application hotspots were split into canonical partials and the final file-length gate passed |
-| Implement the previous recommendations | Solved | Scoped diagrams, EF recovery improvements, member context graph, focused UI drilldown, and host validation are all shipped |
-| Add focused trouble-path code context | Solved | Focused-context query and UI are live, and the host proof shows a bounded neighborhood around `AppDbContext.OnModelCreating(ModelBuilder)` |
+| Implement the previous recommendations | Solved | Scoped diagrams, stronger EF recovery, focused-context analysis, and the dedicated tuning surface now ship together |
+| Add focused trouble-path code context | Solved | `GetFocusedContextAsync` now resolves free-text seeds, applies tags, and returns grouped file excerpts with stats |
+| Start from exception or compile-error text | Solved | Unit coverage now exercises diagnostic-text and prompt-text seed resolution paths |
+| Allow tags to focus the result | Solved | `Db` tag biases the fixture and host runs without disabling depth limits |
+| Show accordions grouped by file with selected code parts | Solved | `/context-lab` renders grouped file accordions with excerpt blocks below the form |
+| Show line-count stats for file groups and the full result | Solved | Run summary and each accordion header show selected and total line counts |
+| Provide a dedicated page for tuning with workspace scope, prompt, and tags together | Solved | `/context-lab` accepts workspace path, optional project filter, prompt text, tags, depth, and refresh mode in one place |
+| Explain what feedback the tuning page should capture | Solved | Host validation now demonstrates the exact feedback loop: confirm seed correctness, note whether each file earned its line cost, flag false-positive fan-out files, and decide whether tag bias or depth should be tightened |
 
 ## Residual Risks
 
-- Persistence recovery still found only `5` entity relationships for `81` host entities. That is the largest remaining accuracy gap.
-- Diagnostics still include repeated low-value noise such as duplicate embedded-attribute findings and test-project warnings that dilute the orientation signal.
-- Member-level context remains sparse when a method mainly delegates through framework conventions instead of direct method invocations.
+- High-fan-out infrastructure seeds such as `AppDbContext` still over-select because constructor and factory relationships dominate the current scoring.
+- Tag handling is explicit and useful, but still heuristic and keyword-based. If real tuning sessions show repeated drift, the next step should be richer category metadata, not deeper default traversal.
+- The shared watch backend can report a false unhealthy state even when the app route is serving. Browser truth should remain the deciding proof until the watch backend is hardened.

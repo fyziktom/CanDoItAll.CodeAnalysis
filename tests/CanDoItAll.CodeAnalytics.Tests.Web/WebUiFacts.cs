@@ -117,6 +117,23 @@ public sealed class WebUiFacts {
         Assert.Contains("Member relations", context, StringComparison.Ordinal);
     }
 
+    [Fact]
+    public async Task Focused_context_lab_route_renders_grouped_file_excerpts() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
+        using var client = factory.CreateClient();
+
+        var route = $"/context-lab?workspacePath={Uri.EscapeDataString(FixturePaths.GetFixtureSolutionPath())}&projectFilter={Uri.EscapeDataString("Fixture.Shop.Application")}&queryText={Uri.EscapeDataString("PlaceOrderAsync")}&tags={Uri.EscapeDataString("Db")}&depth=2";
+        var html = await client.GetStringAsync(route);
+
+        Assert.Contains("Focused Context Lab", html, StringComparison.Ordinal);
+        Assert.Contains("Selected Files", html, StringComparison.Ordinal);
+        Assert.Contains("OrderService.cs", html, StringComparison.Ordinal);
+        Assert.Contains("PlaceOrderAsync", html, StringComparison.Ordinal);
+        Assert.Contains("selected /", html, StringComparison.Ordinal);
+    }
+
     private static async Task<string> StartAnalysisAsync(HttpClient client, string workspacePath) {
         using var request = new FormUrlEncodedContent(
             new Dictionary<string, string> {

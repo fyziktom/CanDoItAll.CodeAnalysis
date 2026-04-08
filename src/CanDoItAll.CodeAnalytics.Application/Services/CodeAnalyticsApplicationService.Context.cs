@@ -14,6 +14,11 @@ public sealed partial class CodeAnalyticsApplicationService {
     private const int MaxFocusedTypeRelationships = 80;
     private const int MaxRelatedServices = 24;
     private const int MaxReferenceTypes = 6;
+    private const int MaxFocusedFiles = 8;
+    private const int MaxExcerptBlocks = 16;
+    private const int MaxExcerptBlocksPerFile = 6;
+    private const int DefaultExcerptPaddingLines = 1;
+    private const int DefaultExcerptLength = 8;
 
     public async Task<FocusedContextResponse?> GetFocusedContextAsync(
         FocusedContextQuery query,
@@ -24,6 +29,7 @@ public sealed partial class CodeAnalyticsApplicationService {
         }
 
         var depth = Math.Clamp(query.Depth, 0, 5);
+        var focusTags = NormalizeFocusTags(query.FocusTags);
         var typesById = snapshot.Facts.Types.ToDictionary(item => item.TypeId, StringComparer.Ordinal);
         var membersById = snapshot.Facts.Members.ToDictionary(item => item.MemberId, StringComparer.Ordinal);
         var servicesById = snapshot.Facts.ServiceRegistrations.ToDictionary(item => item.ServiceRegistrationId, StringComparer.Ordinal);
@@ -32,39 +38,43 @@ public sealed partial class CodeAnalyticsApplicationService {
             .GroupBy(item => item.TypeId, StringComparer.Ordinal)
             .ToDictionary(group => group.Key, group => (IReadOnlyList<MemberFact>)group.ToArray(), StringComparer.Ordinal);
 
-        var seedType = !string.IsNullOrWhiteSpace(query.TypeId) && typesById.TryGetValue(query.TypeId, out var resolvedType)
-            ? resolvedType
-            : null;
-        var seedMember = !string.IsNullOrWhiteSpace(query.MemberId) && membersById.TryGetValue(query.MemberId, out var resolvedMember)
-            ? resolvedMember
-            : null;
-        var seedService = !string.IsNullOrWhiteSpace(query.ServiceRegistrationId) && servicesById.TryGetValue(query.ServiceRegistrationId, out var resolvedService)
-            ? resolvedService
-            : null;
-
-        if (seedService is not null && seedType is null) {
-            seedType = ResolveTypeForService(seedService, snapshot.Facts.Types);
-        }
-
-        if (seedMember is not null && seedType is null && typesById.TryGetValue(seedMember.TypeId, out var memberType)) {
-            seedType = memberType;
-        }
-
-        if (seedMember is null && seedType is null && seedService is null) {
+        var seed = ResolveFocusedContextSeed(
+            query,
+            snapshot,
+            typesById,
+            membersById,
+            servicesById,
+            projectsById,
+            membersByTypeId,
+            focusTags);
+        if (!seed.HasSeed) {
             return null;
         }
 
+        var seedType = seed.SeedType;
+        var seedMember = seed.SeedMember;
+        var seedService = seed.SeedService;
         var seedMemberIds = ResolveSeedMemberIds(seedType, seedMember, membersByTypeId);
-        var selectedMemberIds = ExpandMemberNeighborhood(seedMemberIds, snapshot.Facts.MemberRelationships, membersById, typesById, projectsById, seedType, depth);
+        var selectedMemberIds = ExpandMemberNeighborhood(
+            seedMemberIds,
+            snapshot.Facts.MemberRelationships,
+            membersById,
+            typesById,
+            projectsById,
+            seedType,
+            depth,
+            focusTags);
         var selectedMembers = selectedMemberIds
             .Where(membersById.ContainsKey)
             .Select(memberId => membersById[memberId])
             .OrderBy(item => string.Equals(item.MemberId, seedMember?.MemberId, StringComparison.Ordinal) ? 0 : 1)
             .ThenBy(item => string.Equals(item.TypeId, seedType?.TypeId, StringComparison.Ordinal) ? 0 : 1)
+            .ThenByDescending(item => GetFocusTagScore(focusTags, item.DisplayName, item.ReturnTypeDisplayName, item.Source.Path))
             .ThenBy(item => item.DisplayName, StringComparer.Ordinal)
+            .Take(MaxFocusedMembers)
             .ToArray();
 
-        var selectedTypes = SelectRelevantTypes(seedType, selectedMembers, snapshot.Facts.TypeRelationships, typesById, projectsById);
+        var selectedTypes = SelectRelevantTypes(seedType, selectedMembers, snapshot.Facts.TypeRelationships, typesById, projectsById, focusTags);
 
         var anchorTypeIds = selectedMembers.Select(item => item.TypeId).ToHashSet(StringComparer.Ordinal);
         if (seedType is not null) {
@@ -73,12 +83,17 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         var memberIdSet = selectedMembers.Select(item => item.MemberId).ToHashSet(StringComparer.Ordinal);
         var typeIdSet = selectedTypes.Select(item => item.TypeId).ToHashSet(StringComparer.Ordinal);
-        var relatedServices = SelectRelevantServices(snapshot.Facts.ServiceRegistrations, typeIdSet, snapshot.Facts.Types, projectsById, seedType);
-        var referenceTypes = FindReferenceTypes(snapshot.Facts.TypeRelationships, selectedTypes, anchorTypeIds, typesById, projectsById, seedType);
+        var relatedServices = SelectRelevantServices(snapshot.Facts.ServiceRegistrations, typeIdSet, snapshot.Facts.Types, projectsById, seedType, focusTags);
+        var referenceTypes = FindReferenceTypes(snapshot.Facts.TypeRelationships, selectedTypes, anchorTypeIds, typesById, projectsById, seedType, focusTags);
+        var files = await BuildFocusedContextFilesAsync(snapshot, seedType, seedMember, selectedTypes, selectedMembers, cancellationToken);
+        var stats = BuildFocusedContextStats(files);
 
         return new FocusedContextResponse(
             snapshot.SnapshotId,
             depth,
+            query.QueryText?.Trim(),
+            focusTags,
+            seed.SeedExplanation,
             seedType,
             seedMember,
             seedService,
@@ -87,7 +102,9 @@ public sealed partial class CodeAnalyticsApplicationService {
             SelectRelevantMemberRelationships(snapshot.Facts.MemberRelationships, memberIdSet, membersById, typesById, projectsById, seedType),
             SelectRelevantTypeRelationships(snapshot.Facts.TypeRelationships, typeIdSet, anchorTypeIds),
             relatedServices,
-            referenceTypes);
+            referenceTypes,
+            stats,
+            files);
     }
 
     private static IReadOnlyList<string> ResolveSeedMemberIds(
@@ -131,5 +148,13 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         return types.FirstOrDefault(item => string.Equals(item.ProjectId, projectId, StringComparison.Ordinal) && string.Equals(item.DisplayName, displayName, StringComparison.Ordinal))
             ?? types.FirstOrDefault(item => string.Equals(item.DisplayName, displayName, StringComparison.Ordinal));
+    }
+
+    private sealed record ResolvedFocusedContextSeed(
+        TypeFact? SeedType,
+        MemberFact? SeedMember,
+        ServiceRegistrationFact? SeedService,
+        string? SeedExplanation) {
+        public bool HasSeed => SeedType is not null || SeedMember is not null || SeedService is not null;
     }
 }

@@ -11,6 +11,11 @@
 - `REQ-007`: Include exact source references in focused context output so an agent can jump to code only when needed.
 - `REQ-008`: Expose focused context through the standalone application layer and SSR-first UI.
 - `REQ-009`: Keep outputs useful for future MCP integration and token-saving orientation flows.
+- `REQ-016`: Resolve focused-context seeds from free-text inputs such as exception text, compile-error text, or a symbol name when explicit ids are not available.
+- `REQ-017`: Support optional focus tags that bias the traversal toward relevant parts of the codebase without making the graph unbounded.
+- `REQ-018`: Return grouped per-file excerpts with selected code blocks, source anchors, and line-count stats so the result is reviewable without whole-file loading.
+- `REQ-019`: Provide a dedicated tuning UI where the user can select a solution or project scope, enter prompt text, add tags, run analysis, and inspect accordion-based file results.
+- `REQ-020`: Record enough visible evidence in the lab flow that future tuning feedback can say which excerpts were helpful or noisy.
 
 ## Quality requirements
 
@@ -26,3 +31,4 @@
 - `NONGOAL-001`: Do not build a full replacement for SharpTools exact-source navigation.
 - `NONGOAL-002`: Do not modify the host CanDoItAll repo.
 - `NONGOAL-003`: Do not implement runtime reflection-based or debugger-based live analysis.
+- `NONGOAL-004`: Do not build a general-purpose prompt interpreter or a persistent tag taxonomy engine in this cycle.

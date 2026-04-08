@@ -1,0 +1,346 @@
+@page "/context-lab"
+
+<PageTitle>Focused Context Lab</PageTitle>
+
+<div class="page-shell">
+    <header class="hero">
+        <span class="eyebrow">Focused context tuning</span>
+        <h1>Focused Context Lab</h1>
+        <p>
+            Run a bounded focused-context pass from plain prompt text, optional project scope, and explicit tags.
+            The goal is to judge whether the selected excerpts are precise enough before an agent starts reading whole files.
+        </p>
+    </header>
+
+    <section class="panel">
+        <div class="panel-heading">
+            <h2>Run Lab</h2>
+            <p>Snapshots are reused when possible, so repeated tuning runs stay fast unless you force a refresh.</p>
+        </div>
+
+        <form class="analysis-form" method="get">
+            <label class="field">
+                <span>Solution or project path</span>
+                <div class="path-picker">
+                    <input id="labWorkspacePathInput" type="text" name="workspacePath" value="@GetWorkspacePath()" />
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        data-workspace-picker
+                        data-target-id="labWorkspacePathInput"
+                        data-status-id="labPickerStatus">
+                        Browse
+                    </button>
+                </div>
+                <small class="field-help">
+                    Choose a <code>.sln</code>, <code>.slnx</code>, or <code>.csproj</code>. Use the project filter only when the workspace is a solution.
+                </small>
+                <output class="picker-status" id="labPickerStatus" aria-live="polite"></output>
+            </label>
+
+            <label class="field">
+                <span>Project filter</span>
+                <input type="text" name="projectFilter" value="@ProjectFilter" placeholder="Optional comma-separated project names" />
+                <small class="field-help">This narrows a solution run before the focused-context query starts.</small>
+            </label>
+
+            <label class="field">
+                <span>Prompt text</span>
+                <textarea name="queryText" rows="4" placeholder="Exception text, compile error, method name, class name, or a short trouble description">@QueryText</textarea>
+                <small class="field-help">
+                    The resolver first tries diagnostics, then members, types, and services. Use a specific method or class name when you want predictable matching.
+                </small>
+            </label>
+
+            <label class="field">
+                <span>Tags</span>
+                <input type="text" name="tags" value="@Tags" placeholder="Optional tags such as Db, Ui, Service" />
+                <small class="field-help">Tags bias the traversal instead of expanding it without limits.</small>
+            </label>
+
+            <div class="summary-grid">
+                <label class="field">
+                    <span>Depth</span>
+                    <select name="depth">
+                        @for (var depthOption = 0; depthOption <= 5; depthOption++)
+                        {
+                            <option value="@depthOption" selected="@(depthOption == GetDepth())">@depthOption hop(s)</option>
+                        }
+                    </select>
+                </label>
+
+                <label class="search-toggle lab-toggle">
+                    <input type="checkbox" name="forceRefresh" value="true" checked="@ForceRefresh" />
+                    <span>Force refresh snapshot</span>
+                </label>
+            </div>
+
+            <div class="action-row">
+                <button class="primary-button" type="submit">Run focused context</button>
+                <a class="secondary-link-button" href="/">Back to analysis home</a>
+            </div>
+        </form>
+    </section>
+
+    @if (!string.IsNullOrWhiteSpace(_errorMessage))
+    {
+        <section class="panel">
+            <p class="message-banner error-banner">@_errorMessage</p>
+        </section>
+    }
+    else if (_buildResponse is not null && _response is null)
+    {
+        <section class="panel">
+            <p class="message-banner warning-banner">A snapshot was built, but the prompt did not resolve to a bounded seed.</p>
+        </section>
+    }
+
+    @if (_buildResponse is not null)
+    {
+        <section class="panel">
+            <div class="panel-heading">
+                <h2>Run Summary</h2>
+                <p>Use this to judge whether the heuristic picked the right neighborhood before opening whole files.</p>
+            </div>
+
+            <div class="summary-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Snapshot</span>
+                    <strong class="path-text">@_buildResponse.Snapshot.SnapshotId</strong>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Cache</span>
+                    <span class="stat-value-sm">@(_buildResponse.FromCache ? "Reused" : "Fresh")</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Diagnostics</span>
+                    <span class="stat-value-sm">@_buildResponse.Diagnostics.Count</span>
+                </div>
+                @if (_response is not null)
+                {
+                    <div class="stat-card">
+                        <span class="stat-label">Selected Lines</span>
+                        <span class="stat-value-sm">@_response.Stats.SelectedLineCount</span>
+                    </div>
+                }
+            </div>
+
+            @if (_response is not null)
+            {
+                <div class="metadata-row">
+                    @if (!string.IsNullOrWhiteSpace(_response.SeedExplanation))
+                    {
+                        <span><strong>Seed</strong> @_response.SeedExplanation</span>
+                    }
+                    @if (_response.SeedType is not null)
+                    {
+                        <span><strong>Type</strong> @_response.SeedType.DisplayName</span>
+                    }
+                    @if (_response.SeedMember is not null)
+                    {
+                        <span><strong>Member</strong> @_response.SeedMember.DisplayName</span>
+                    }
+                    @if (_response.SeedService is not null)
+                    {
+                        <span><strong>Service</strong> @_response.SeedService.ServiceTypeDisplayName</span>
+                    }
+                    <span><strong>Files</strong> @_response.Stats.FileCount</span>
+                    <span><strong>Blocks</strong> @_response.Stats.BlockCount</span>
+                    <span><strong>Total file lines</strong> @_response.Stats.TotalLineCount</span>
+                </div>
+
+                @if (_response.FocusTags.Count > 0)
+                {
+                    <div class="chip-row">
+                        @foreach (var focusTag in _response.FocusTags)
+                        {
+                            <span class="severity-pill severity-info">@focusTag</span>
+                        }
+                    </div>
+                }
+            }
+        </section>
+    }
+
+    @if (_response is not null)
+    {
+        <section class="panel">
+            <div class="panel-heading">
+                <h2>Selected Files</h2>
+                <p>Each accordion shows only the code the analyzer decided was worth carrying into working memory.</p>
+            </div>
+
+            <div class="accordion-list">
+                @foreach (var file in _response.Files)
+                {
+                    <details class="file-accordion" open="@IsSeedFile(file.Path)">
+                        <summary class="file-summary">
+                            <strong>@file.Path</strong>
+                            <span>@file.SelectedLineCount selected / @file.TotalLineCount total lines</span>
+                            <span>@file.Blocks.Count block(s)</span>
+                        </summary>
+
+                        @if (file.TypeDisplayNames.Count > 0)
+                        {
+                            <p class="field-help">Types: @string.Join(", ", file.TypeDisplayNames)</p>
+                        }
+
+                        <div class="code-block-list">
+                            @foreach (var block in file.Blocks)
+                            {
+                                <article class="code-block">
+                                    <div class="progress-meta">
+                                        <span class="severity-pill severity-info">@block.Kind</span>
+                                        <strong>@block.Title</strong>
+                                        <span>Lines @block.StartLine-@block.EndLine</span>
+                                    </div>
+                                    <pre class="code-snippet"><code>@block.Code</code></pre>
+                                </article>
+                            }
+                        </div>
+                    </details>
+                }
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <h2>Supporting Context</h2>
+                <p>These sections help explain why the file excerpts were chosen and what you should tune next.</p>
+            </div>
+
+            <div class="type-browser-grid">
+                @foreach (var type in _response.Types)
+                {
+                    <article class="type-browser-card">
+                        <div class="type-browser-header">
+                            <div>
+                                <h3>@type.DisplayName</h3>
+                                <p class="field-help">@type.Source.Path:@type.Source.Line</p>
+                            </div>
+                            <span class="severity-pill severity-info">@type.Kind</span>
+                        </div>
+                        @if (!string.IsNullOrWhiteSpace(type.XmlSummary))
+                        {
+                            <p>@type.XmlSummary</p>
+                        }
+                    </article>
+                }
+            </div>
+
+            @if (_response.ReferenceTypes.Count > 0)
+            {
+                <div class="panel-heading">
+                    <h2>Reference Helpers</h2>
+                    <p>These are reusable collaborators the graph considered useful even if they did not land in the main excerpt set.</p>
+                </div>
+
+                <ul class="detail-list">
+                    @foreach (var type in _response.ReferenceTypes)
+                    {
+                        <li><strong>@type.DisplayName</strong> <span>@type.Source.Path:@type.Source.Line</span></li>
+                    }
+                </ul>
+            }
+        </section>
+    }
+</div>
+
+@code {
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "workspacePath")]
+    public string? WorkspacePath { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "projectFilter")]
+    public string? ProjectFilter { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "queryText")]
+    public string? QueryText { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "tags")]
+    public string? Tags { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "depth")]
+    public int? Depth { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "forceRefresh")]
+    public bool ForceRefresh { get; set; }
+
+    [Inject]
+    private ICodeAnalyticsApplicationService ApplicationService { get; set; } = null!;
+
+    [Inject]
+    private CodeAnalyticsWebSettings WebSettings { get; set; } = null!;
+
+    private SnapshotBuildResponse? _buildResponse;
+    private FocusedContextResponse? _response;
+    private string? _errorMessage;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _errorMessage = null;
+        _buildResponse = null;
+        _response = null;
+
+        if (string.IsNullOrWhiteSpace(QueryText)) {
+            return;
+        }
+
+        try {
+            var workspacePath = GetWorkspacePath();
+            _buildResponse = await ApplicationService.BuildSnapshotAsync(
+                new BuildArchitectureSnapshotCommand(
+                    workspacePath,
+                    ParseDelimitedList(ProjectFilter),
+                    ForceRefresh: ForceRefresh));
+
+            _response = await ApplicationService.GetFocusedContextAsync(
+                new FocusedContextQuery(
+                    _buildResponse.Snapshot.SnapshotId,
+                    Depth: GetDepth(),
+                    QueryText: QueryText,
+                    FocusTags: ParseDelimitedList(Tags)));
+        }
+        catch (Exception exception) {
+            _errorMessage = exception.Message;
+        }
+    }
+
+    private string GetWorkspacePath()
+    {
+        return string.IsNullOrWhiteSpace(WorkspacePath)
+            ? WebSettings.DefaultSolutionPath
+            : WorkspacePath;
+    }
+
+    private int GetDepth()
+    {
+        return Math.Clamp(Depth ?? 2, 0, 5);
+    }
+
+    private static IReadOnlyList<string> ParseDelimitedList(string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value)) {
+            return [];
+        }
+
+        return value
+            .Split([',', ';', '\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+    }
+
+    private bool IsSeedFile(string path)
+    {
+        var seedPath = _response?.SeedMember?.Source.Path
+            ?? _response?.SeedType?.Source.Path
+            ?? _response?.SeedService?.Source.Path;
+        return !string.IsNullOrWhiteSpace(seedPath)
+            && string.Equals(seedPath, path, StringComparison.OrdinalIgnoreCase);
+    }
+}

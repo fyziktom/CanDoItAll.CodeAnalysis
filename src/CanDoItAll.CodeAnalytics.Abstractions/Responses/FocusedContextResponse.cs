@@ -5,6 +5,9 @@ namespace CanDoItAll.CodeAnalytics.Abstractions.Responses;
 public sealed record FocusedContextResponse(
     string SnapshotId,
     int Depth,
+    string? QueryText,
+    IReadOnlyList<string> FocusTags,
+    string? SeedExplanation,
     TypeFact? SeedType,
     MemberFact? SeedMember,
     ServiceRegistrationFact? SeedService,
@@ -13,4 +16,6 @@ public sealed record FocusedContextResponse(
     IReadOnlyList<MemberRelationshipFact> MemberRelationships,
     IReadOnlyList<TypeRelationshipFact> TypeRelationships,
     IReadOnlyList<ServiceRegistrationFact> RelatedServices,
-    IReadOnlyList<TypeFact> ReferenceTypes);
+    IReadOnlyList<TypeFact> ReferenceTypes,
+    FocusedContextStats Stats,
+    IReadOnlyList<FocusedContextFileExcerpt> Files);

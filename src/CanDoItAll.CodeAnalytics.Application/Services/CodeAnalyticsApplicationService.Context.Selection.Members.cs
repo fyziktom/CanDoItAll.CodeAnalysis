@@ -10,7 +10,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyDictionary<string, TypeFact> typesById,
         IReadOnlyDictionary<string, ProjectFact> projectsById,
         TypeFact? seedType,
-        int depth) {
+        int depth,
+        IReadOnlyCollection<string> focusTags) {
         var selected = seedMemberIds.ToHashSet(StringComparer.Ordinal);
         var frontier = seedMemberIds.ToHashSet(StringComparer.Ordinal);
         var seedTypeIds = seedMemberIds
@@ -79,7 +80,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                 return;
             }
 
-            var score = ScoreMemberCandidate(candidateMember, candidateType, seedTypeIds, relationshipKind);
+            var score = ScoreMemberCandidate(candidateMember, candidateType, seedTypeIds, relationshipKind, focusTags);
             if (candidates.TryGetValue(candidateMemberId, out var existingScore)) {
                 if (score > existingScore) {
                     candidates[candidateMemberId] = score;
@@ -137,7 +138,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         MemberFact member,
         TypeFact type,
         ISet<string> seedTypeIds,
-        MemberRelationshipKind relationshipKind) {
+        MemberRelationshipKind relationshipKind,
+        IReadOnlyCollection<string> focusTags) {
         var score = 0;
         if (seedTypeIds.Contains(type.TypeId)) {
             score += 50;
@@ -159,6 +161,13 @@ public sealed partial class CodeAnalyticsApplicationService {
             _ => 0,
         };
 
+        score += GetFocusTagScore(
+            focusTags,
+            member.DisplayName,
+            member.ReturnTypeDisplayName,
+            string.Join(' ', member.ParameterDisplayNames),
+            type.DisplayName,
+            type.Source.Path);
         return score;
     }
 

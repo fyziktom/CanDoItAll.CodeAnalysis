@@ -6,13 +6,16 @@
 
 ## Objective
 
-- Expose the new focused context query and scoped diagrams in the SSR UI so the value can be tested through real user flow.
+- Expose the reopened focused-context query through a dedicated SSR tuning page where workspace scope, prompt text, tags, and accordion-based file excerpts can be judged together.
 
 ## Covered Inputs
 
 - Search through types in a project
 - Ask for functions inside classes
 - Surface focused context instead of forcing whole-file reading
+- Select a solution plus optional project scope from the tuning page
+- Enter prompt text and tags directly instead of deep-linking through other pages
+- Review grouped excerpts, file accordions, and line stats below the form
 
 ## Prerequisites
 
@@ -29,13 +32,14 @@
 
 ## Deliverables
 
-- UI route or panel for focused context exploration
-- Better scoped diagram access from the UI
-- Clear source-reference display for selective deeper reading
+- Dedicated focused-context lab route
+- Workspace, project, prompt, depth, and tag controls on the same page
+- Accordion-based file excerpts with stats and clear source-reference display
+- Better nearby access to focused context and scoped diagrams from the existing snapshot flow
 
 ## Dependency Impact
 
-- Final comparison and closure depend on a real UI flow that demonstrates the value.
+- Final comparison and closure depend on a real UI flow that demonstrates the value and supports heuristic tuning feedback.
 
 ## Validation Depth
 
@@ -43,9 +47,10 @@
 
 ## Implementation Steps
 
-1. Add focused context entry points to the UI.
-2. Render related members, types, and source references clearly.
-3. Validate the flow in a real browser.
+1. Add a dedicated focused-context lab entry point to the UI.
+2. Render related members, types, grouped excerpts, and stats clearly.
+3. Keep the existing snapshot drilldown paths wired into the same focused-context surface.
+4. Validate the flow in a real browser.
 
 ## Do Not Do
 
@@ -54,24 +59,26 @@
 
 ## Acceptance Checklist
 
-- A user can start from a type or member and inspect bounded related context.
-- Source references are visible and readable.
-- Scoped diagrams are reachable from the same exploration flow or nearby.
+- A user can select solution or project scope, enter prompt text, add tags, and inspect bounded related context.
+- Source references, excerpts, and line stats are visible and readable.
+- The output is grouped by file with usable accordions.
+- Scoped diagrams remain reachable from the same exploration flow or nearby.
 
 ## Proof Required
 
 - Web tests
 - Playwright route proof and screenshots
 - Manual screenshot review notes in execution report
+- Evidence that the page makes tuning feedback possible instead of hiding the scoring choices
 
 ## Browser Validation Logging
 
-- Required for the focused context route and the updated snapshot routes.
+- Required for the dedicated lab route and the updated snapshot routes.
 
 ## Progression Gate
 
-- Final comparison may continue only after the UI proves the new context flow is practically usable.
+- Final comparison may continue only after the UI proves the new context flow is practically usable for tuning, not only for one deep-linked happy path.
 
 ## Suggested Agent Prompt
 
-Expose focused context through a clean SSR flow that helps orientation without overwhelming the screen.
+Expose focused context through a clean SSR lab flow that helps orientation without overwhelming the screen and makes excerpt precision easy to judge.

@@ -1,5 +1,9 @@
 using CanDoItAll.CodeAnalytics.Abstractions.Commands;
 using CanDoItAll.CodeAnalytics.Abstractions.Queries;
+using CanDoItAll.CodeAnalytics.Domain.Diagnostics;
+using CanDoItAll.CodeAnalytics.Domain.Sources;
+using CanDoItAll.CodeAnalytics.Storage.Paths;
+using CanDoItAll.CodeAnalytics.Storage.Snapshots;
 using CanDoItAll.CodeAnalytics.Tests.Support;
 
 namespace CanDoItAll.CodeAnalytics.Tests.Unit;
@@ -83,5 +87,97 @@ public sealed class ApplicationFacts {
         Assert.NotEmpty(response.Types);
         Assert.NotEmpty(response.Members);
         Assert.Contains(response.RelatedServices, item => item.ServiceRegistrationId == seedService.ServiceRegistrationId);
+    }
+
+    [Fact]
+    public async Task Application_resolves_focused_context_from_prompt_text_and_returns_file_excerpts() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                build.Snapshot.SnapshotId,
+                Depth: 2,
+                QueryText: "PlaceOrderAsync",
+                FocusTags: ["Db"]));
+
+        Assert.NotNull(response);
+        Assert.NotNull(response!.SeedMember);
+        Assert.Contains("PlaceOrderAsync", response.SeedMember!.DisplayName, StringComparison.Ordinal);
+        Assert.Contains(response.FocusTags, item => string.Equals(item, "db", StringComparison.Ordinal));
+        Assert.NotEmpty(response.Files);
+        Assert.True(response.Stats.SelectedLineCount > 0);
+        Assert.Contains(response.Files, file => file.Path.EndsWith("OrderService.cs", StringComparison.Ordinal));
+        Assert.Contains(
+            response.Files.SelectMany(file => file.Blocks),
+            block => block.Code.Contains("SaveChangesAsync", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public async Task Application_resolves_focused_context_from_diagnostic_text_when_source_is_available() {
+        using var workspace = new TemporaryDirectoryScope();
+        using var output = new TemporaryDirectoryScope();
+
+        var solutionPath = Path.Combine(workspace.Path, "Fixture.Shop.slnx");
+        var orderServiceDirectory = Path.Combine(workspace.Path, "src", "Fixture.Shop.Application", "Orders");
+        Directory.CreateDirectory(orderServiceDirectory);
+        await File.WriteAllTextAsync(solutionPath, string.Empty);
+        await File.WriteAllTextAsync(
+            Path.Combine(orderServiceDirectory, "OrderService.cs"),
+            """
+            namespace Fixture.Shop.Application.Orders;
+
+            public sealed class OrderService
+            {
+                public OrderService()
+                {
+                }
+
+                public async Task<OrderReceipt> PlaceOrderAsync(PlaceOrderCommand command, CancellationToken cancellationToken = default)
+                {
+                    var customer = new Customer();
+                    var order = CreateOrder(command, customer);
+
+                    _dbContext.Customers.Add(customer);
+                    _dbContext.Orders.Add(order);
+                    await _dbContext.SaveChangesAsync(cancellationToken);
+
+                    return new OrderReceipt(order.Id);
+                }
+            }
+            """);
+
+        var original = SampleSnapshotFactory.Create();
+        var snapshot = original with {
+            Request = original.Request with {
+                SolutionPath = solutionPath,
+            },
+            Diagnostics = [
+                new AnalysisDiagnostic(
+                    "DI0001",
+                    AnalysisDiagnosticSeverity.Info,
+                    "Factory registration is only partially interpreted.",
+                    new SourceReference("src/Fixture.Shop.Application/Orders/OrderService.cs", 20, 1, 20, 1)),
+            ],
+        };
+        var repository = new FileSnapshotRepository(new SnapshotJsonSerializer());
+        var pathResolver = new SnapshotPathResolver(output.Path);
+        var requestHash = repository.ComputeRequestHash(snapshot.Request, snapshot.GeneratorVersion, snapshot.SchemaVersion);
+        await repository.StoreAsync(pathResolver, snapshot, requestHash, [], CancellationToken.None);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                snapshot.SnapshotId,
+                Depth: 1,
+                QueryText: "Factory registration is only partially interpreted."));
+
+        Assert.NotNull(response);
+        Assert.NotNull(response!.SeedMember);
+        Assert.Contains("diagnostic", response.SeedExplanation, StringComparison.OrdinalIgnoreCase);
+        Assert.Contains("PlaceOrderAsync", response.SeedMember!.DisplayName, StringComparison.Ordinal);
+        Assert.NotEmpty(response.Files);
     }
 }

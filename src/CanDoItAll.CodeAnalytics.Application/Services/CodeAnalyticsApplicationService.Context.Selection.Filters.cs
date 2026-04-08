@@ -8,10 +8,12 @@ public sealed partial class CodeAnalyticsApplicationService {
         ISet<string> typeIdSet,
         IReadOnlyList<TypeFact> types,
         IReadOnlyDictionary<string, ProjectFact> projectsById,
-        TypeFact? seedType) {
+        TypeFact? seedType,
+        IReadOnlyCollection<string> focusTags) {
         return services
             .Where(service => ServiceTouchesTypes(service, typeIdSet, types, projectsById, seedType))
-            .OrderBy(item => item.ServiceTypeDisplayName, StringComparer.Ordinal)
+            .OrderByDescending(service => GetFocusTagScore(focusTags, service.ServiceTypeDisplayName, service.ImplementationTypeDisplayName, service.Source.Path))
+            .ThenBy(item => item.ServiceTypeDisplayName, StringComparer.Ordinal)
             .ThenBy(item => item.ImplementationTypeDisplayName, StringComparer.Ordinal)
             .Take(MaxRelatedServices)
             .ToArray();

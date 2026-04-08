@@ -13,3 +13,9 @@
 | Recursive tree from function or bug location | REQ-006, REQ-007 | SB-17 | Depth-limited traversal tests | Requires member relationship model |
 | Output exact file references and optional summaries | REQ-007, REQ-008 | SB-17, SB-18 | Query payload tests and UI rendering proof | Supports selective deeper reads |
 | Identify high-reuse helpers for temporary memory reuse | REQ-009 | SB-17, SB-19 | Focused context response and comparison analysis | First version can be heuristic, not a persistent skill engine |
+| Start from exception or compile-error text, not only explicit ids | REQ-016, REQ-017, REQ-019 | SB-17, SB-18 | Seed-resolution tests and lab-page proof | Diagnostic and prompt text must map to a bounded seed |
+| Allow tags such as `Db` to bias the result | REQ-017, REQ-020 | SB-17, SB-18, SB-19 | Unit tests, lab screenshots, tuning notes | First version may be heuristic as long as behavior is explicit |
+| Show selected code parts below as accordions per file | REQ-018, REQ-019 | SB-17, SB-18 | Query payload tests and Playwright proof | Source links alone are no longer enough |
+| Show how many lines each file group contributes and overall stats | REQ-018, REQ-019 | SB-17, SB-18 | UI assertions and screenshot review | Needed to judge context cost directly |
+| Provide a page where solution plus optional project, prompt, and tags can be tested together | REQ-019, REQ-020 | SB-18, SB-19 | Web tests, Playwright flow, tuning write-up | Dedicated tuning surface is part of the requested value |
+| Explain what feedback is needed to tune the heuristics | REQ-020 | SB-19 | Closure write-up | Validation must teach the next iteration |

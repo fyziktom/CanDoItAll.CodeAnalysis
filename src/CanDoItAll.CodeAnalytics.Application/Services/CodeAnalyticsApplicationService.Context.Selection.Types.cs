@@ -8,7 +8,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyList<MemberFact> selectedMembers,
         IReadOnlyList<TypeRelationshipFact> relationships,
         IReadOnlyDictionary<string, TypeFact> typesById,
-        IReadOnlyDictionary<string, ProjectFact> projectsById) {
+        IReadOnlyDictionary<string, ProjectFact> projectsById,
+        IReadOnlyCollection<string> focusTags) {
         var selectedTypeIds = selectedMembers.Select(item => item.TypeId).ToHashSet(StringComparer.Ordinal);
         if (seedType is not null) {
             selectedTypeIds.Add(seedType.TypeId);
@@ -87,7 +88,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                 return;
             }
 
-            var score = ScoreTypeCandidate(candidateType, relationship, anchorProjectIds, anchorModuleIds, anchorPaths);
+            var score = ScoreTypeCandidate(candidateType, relationship, anchorProjectIds, anchorModuleIds, anchorPaths, focusTags);
             if (candidates.TryGetValue(candidateTypeId, out var existingScore)) {
                 if (score > existingScore) {
                     candidates[candidateTypeId] = score;
@@ -120,7 +121,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         ISet<string> anchorTypeIds,
         IReadOnlyDictionary<string, TypeFact> typesById,
         IReadOnlyDictionary<string, ProjectFact> projectsById,
-        TypeFact? seedType) {
+        TypeFact? seedType,
+        IReadOnlyCollection<string> focusTags) {
         var selectedTypeIds = selectedTypes.Select(item => item.TypeId).ToHashSet(StringComparer.Ordinal);
         var anchorProjectIds = anchorTypeIds
             .Where(typesById.ContainsKey)
@@ -174,6 +176,7 @@ public sealed partial class CodeAnalyticsApplicationService {
             };
 
             score += Math.Min(relationship.Weight, 6);
+            score += GetFocusTagScore(focusTags, candidateType.DisplayName, candidateType.XmlSummary, candidateType.Source.Path);
 
             if (candidates.TryGetValue(candidateTypeId, out var existingScore)) {
                 if (score > existingScore) {
@@ -191,7 +194,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         TypeRelationshipFact relationship,
         ISet<string> anchorProjectIds,
         ISet<string> anchorModuleIds,
-        ISet<string> anchorPaths) {
+        ISet<string> anchorPaths,
+        IReadOnlyCollection<string> focusTags) {
         var score = 0;
         if (anchorProjectIds.Contains(candidateType.ProjectId)) {
             score += 40;
@@ -218,6 +222,7 @@ public sealed partial class CodeAnalyticsApplicationService {
         };
 
         score += Math.Min(relationship.Weight, 8);
+        score += GetFocusTagScore(focusTags, CreateFocusTagText(candidateType));
         return score;
     }
 
