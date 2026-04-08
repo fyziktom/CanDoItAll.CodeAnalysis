@@ -1,0 +1,400 @@
+@page "/snapshots/{SnapshotId}/symbols"
+
+<PageTitle>Symbols</PageTitle>
+
+@if (_searchResponse is null)
+{
+    <div class="panel">
+        <h1>Symbols</h1>
+        <p class="empty-state">The requested snapshot could not be loaded.</p>
+    </div>
+}
+else
+{
+    <div class="page-shell">
+        <header class="panel">
+            <h1>Symbols</h1>
+            <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="symbols" />
+            <form method="get" class="search-form type-search-form">
+                <input type="text" name="search" value="@Search" placeholder="Search exact symbols, helpers, interfaces, or methods" />
+                <select name="project">
+                    <option value="">All projects</option>
+                    @foreach (var projectName in _searchResponse.AvailableProjects)
+                    {
+                        <option value="@projectName" selected="@IsSelectedProject(projectName)">@projectName</option>
+                    }
+                </select>
+                <select name="mode">
+                    @foreach (var mode in Enum.GetValues<SymbolSearchMode>())
+                    {
+                        <option value="@mode" selected="@(mode == GetSearchMode())">@mode</option>
+                    }
+                </select>
+                @if (!string.IsNullOrWhiteSpace(SelectedTypeId))
+                {
+                    <input type="hidden" name="typeId" value="@SelectedTypeId" />
+                }
+                @if (!string.IsNullOrWhiteSpace(SelectedMemberId))
+                {
+                    <input type="hidden" name="memberId" value="@SelectedMemberId" />
+                }
+                <button type="submit">Search</button>
+            </form>
+        </header>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <h2>Definition Search</h2>
+                <p>Use this route for precise symbol starts, definition inspection, implementation discovery, and reference tracing without forcing a broader focused-context bundle first.</p>
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(_searchResponse.ValidationError))
+            {
+                <p class="message-banner error-banner">@_searchResponse.ValidationError</p>
+            }
+            else if (string.IsNullOrWhiteSpace(Search))
+            {
+                <p class="empty-state">Enter a symbol query to inspect exact types or members.</p>
+            }
+            else if (_searchResponse.Results.Count == 0)
+            {
+                <p class="empty-state">No symbols matched the current search.</p>
+            }
+            else
+            {
+                <div class="type-browser-grid">
+                    @foreach (var result in _searchResponse.Results)
+                    {
+                        <article class="type-browser-card">
+                            <div class="type-browser-header">
+                                <div>
+                                    <h3>@GetShortDisplayName(result.DisplayName)</h3>
+                                    <p class="path-text">@result.Declaration</p>
+                                </div>
+                                <span class="severity-pill severity-info">@result.TargetKind</span>
+                            </div>
+
+                            <div class="metadata-row">
+                                <span><strong>Project</strong> @result.ProjectName</span>
+                                <span><strong>Module</strong> @result.ModuleName</span>
+                                <span><strong>Namespace</strong> @result.NamespaceName</span>
+                                <span><strong>Source</strong> @result.Path:@result.Line</span>
+                                <span><strong>Matched on</strong> @string.Join(", ", result.MatchFields)</span>
+                            </div>
+
+                            <div class="action-links">
+                                <a href="@GetInspectHref(result)">Inspect symbol</a>
+                                <a href="@GetFocusedContextHref(result)">Open focused context</a>
+                            </div>
+                        </article>
+                    }
+                </div>
+            }
+        </section>
+
+        @if (_definitionResponse is not null)
+        {
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Definition</h2>
+                    <p>@_definitionResponse.Declaration</p>
+                </div>
+
+                <div class="summary-grid">
+                    <article class="stat-card">
+                        <span class="stat-label">Target</span>
+                        <strong class="stat-value-sm">@_definitionResponse.TargetKind</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-label">Project</span>
+                        <strong class="stat-value-sm">@_definitionResponse.ProjectName</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-label">Module</span>
+                        <strong class="stat-value-sm">@_definitionResponse.ModuleName</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-label">Location</span>
+                        <strong class="stat-value-sm">@_definitionResponse.Definition.Path:@_definitionResponse.Definition.StartLine</strong>
+                    </article>
+                </div>
+
+                @if (!string.IsNullOrWhiteSpace(_definitionResponse.XmlSummary))
+                {
+                    <p>@_definitionResponse.XmlSummary</p>
+                }
+
+                @if (_definitionResponse.ContainingTypeHeader is not null)
+                {
+                    <div class="code-block">
+                        <strong>Containing Type Header</strong>
+                        <pre class="code-snippet"><code>@_definitionResponse.ContainingTypeHeader.Code</code></pre>
+                    </div>
+                }
+
+                <div class="code-block">
+                    <strong>Source (@_definitionResponse.Definition.StartLine-@_definitionResponse.Definition.EndLine)</strong>
+                    @if (_definitionResponse.Definition.IsTruncated)
+                    {
+                        <p class="field-help">The definition is truncated to keep the payload surgical.</p>
+                    }
+                    <pre class="code-snippet"><code>@_definitionResponse.Definition.Code</code></pre>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Symbol Neighbors</h2>
+                    <p>These sections keep exact symbol drilldowns separate so you can widen only where it helps.</p>
+                </div>
+
+                <div class="summary-grid">
+                    <article class="stat-card">
+                        <span class="stat-label">Members</span>
+                        <strong class="stat-value">@(_membersResponse?.Members.Count ?? 0)</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-label">Implementations</span>
+                        <strong class="stat-value">@(_implementationsResponse?.Implementations.Count ?? 0)</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-label">References</span>
+                        <strong class="stat-value">@(_referencesResponse?.TotalCount ?? 0)</strong>
+                    </article>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Members</h2>
+                    <p>Exact members for the selected type.</p>
+                </div>
+
+                @if (_membersResponse is null || _membersResponse.Members.Count == 0)
+                {
+                    <p class="empty-state">No members are available for the selected type.</p>
+                }
+                else
+                {
+                    <div class="member-list">
+                        @foreach (var item in _membersResponse.Members)
+                        {
+                            <article class="member-card">
+                                <div class="progress-meta">
+                                    <span class="severity-pill severity-info">@item.Kind</span>
+                                    <strong>@item.DisplayName</strong>
+                                </div>
+                                <p class="field-help">@item.Source.Path:@item.Source.Line</p>
+                                <div class="action-links">
+                                    <a href="@GetInspectHref(_definitionResponse.Type.TypeId, item.MemberId)">Inspect member</a>
+                                    <a href="@GetFocusedContextHref(_definitionResponse.Type.TypeId, item.MemberId)">Open member context</a>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                }
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Implementations</h2>
+                    <p>Implementing or derived types for the selected symbol’s type.</p>
+                </div>
+
+                @if (_implementationsResponse is null || _implementationsResponse.Implementations.Count == 0)
+                {
+                    <p class="empty-state">No implementations or derived types were found.</p>
+                }
+                else
+                {
+                    <div class="member-list">
+                        @foreach (var item in _implementationsResponse.Implementations)
+                        {
+                            <article class="member-card">
+                                <div class="progress-meta">
+                                    <span class="severity-pill severity-info">@item.Kind</span>
+                                    <strong>@item.Type.DisplayName</strong>
+                                </div>
+                                <p class="field-help">@item.Type.Source.Path:@item.Type.Source.Line</p>
+                                <div class="action-links">
+                                    <a href="@GetInspectHref(item.Type.TypeId)">Inspect type</a>
+                                    <a href="@GetFocusedContextHref(item.Type.TypeId)">Open focused context</a>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                }
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>References</h2>
+                    <p>Ordered references for the selected type or member.</p>
+                </div>
+
+                @if (_referencesResponse is null || _referencesResponse.References.Count == 0)
+                {
+                    <p class="empty-state">No references were found.</p>
+                }
+                else
+                {
+                    <p class="field-help">Showing @_referencesResponse.References.Count of @_referencesResponse.TotalCount references.</p>
+
+                    <div class="member-list">
+                        @foreach (var item in _referencesResponse.References)
+                        {
+                            <article class="member-card">
+                                <div class="progress-meta">
+                                    <span class="severity-pill severity-info">@item.Kind</span>
+                                    <strong>@item.SourceType.DisplayName</strong>
+                                </div>
+                                @if (item.SourceMember is not null)
+                                {
+                                    <p>@item.SourceMember.DisplayName</p>
+                                }
+                                <p class="field-help">@item.Path:@item.Line</p>
+                                <pre class="code-snippet"><code>@item.ContextExcerpt.Code</code></pre>
+                            </article>
+                        }
+                    </div>
+                }
+            </section>
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string SnapshotId { get; set; } = string.Empty;
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "search")]
+    public string? Search { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "project")]
+    public string? Project { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "mode")]
+    public string? ModeText { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "typeId")]
+    public string? SelectedTypeId { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "memberId")]
+    public string? SelectedMemberId { get; set; }
+
+    [Inject]
+    private ICodeAnalyticsApplicationService ApplicationService { get; set; } = null!;
+
+    private SymbolSearchResponse? _searchResponse;
+    private SymbolDefinitionResponse? _definitionResponse;
+    private SymbolMembersResponse? _membersResponse;
+    private SymbolImplementationsResponse? _implementationsResponse;
+    private SymbolReferencesResponse? _referencesResponse;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _searchResponse = await ApplicationService.SearchSymbolsAsync(
+            new SymbolSearchQuery(
+                SnapshotId,
+                Search,
+                Project,
+                GetSearchMode()));
+        _definitionResponse = null;
+        _membersResponse = null;
+        _implementationsResponse = null;
+        _referencesResponse = null;
+
+        if (_searchResponse is null || string.IsNullOrWhiteSpace(SelectedTypeId))
+        {
+            return;
+        }
+
+        _definitionResponse = await ApplicationService.GetSymbolDefinitionAsync(
+            new SymbolDefinitionQuery(
+                SnapshotId,
+                SelectedTypeId,
+                SelectedMemberId));
+        if (_definitionResponse is null)
+        {
+            return;
+        }
+
+        _membersResponse = await ApplicationService.GetSymbolMembersAsync(new SymbolMembersQuery(SnapshotId, SelectedTypeId));
+        _implementationsResponse = await ApplicationService.GetSymbolImplementationsAsync(new SymbolImplementationsQuery(SnapshotId, SelectedTypeId));
+        _referencesResponse = await ApplicationService.GetSymbolReferencesAsync(
+            new SymbolReferencesQuery(
+                SnapshotId,
+                SelectedTypeId,
+                SelectedMemberId));
+    }
+
+    private bool IsSelectedProject(string projectName)
+    {
+        return string.Equals(projectName, Project, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private SymbolSearchMode GetSearchMode()
+    {
+        return Enum.TryParse<SymbolSearchMode>(ModeText, ignoreCase: true, out var parsed)
+            ? parsed
+            : SymbolSearchMode.Contains;
+    }
+
+    private static string GetShortDisplayName(string displayName)
+    {
+        var memberStart = displayName.IndexOf('(');
+        if (memberStart >= 0)
+        {
+            displayName = displayName[..memberStart];
+        }
+
+        var lastDotIndex = displayName.LastIndexOf('.');
+        return lastDotIndex >= 0 && lastDotIndex < displayName.Length - 1
+            ? displayName[(lastDotIndex + 1)..]
+            : displayName;
+    }
+
+    private string GetInspectHref(SymbolSearchResultItem item)
+    {
+        return GetInspectHref(item.TypeId, item.MemberId);
+    }
+
+    private string GetInspectHref(string typeId, string? memberId = null)
+    {
+        var query = new List<string>();
+        AddQueryValue(query, "search", Search);
+        AddQueryValue(query, "project", Project);
+        AddQueryValue(query, "mode", GetSearchMode().ToString());
+        AddQueryValue(query, "typeId", typeId);
+        AddQueryValue(query, "memberId", memberId);
+        return $"/snapshots/{SnapshotId}/symbols?{string.Join("&", query)}";
+    }
+
+    private string GetFocusedContextHref(SymbolSearchResultItem item)
+    {
+        return GetFocusedContextHref(item.TypeId, item.MemberId);
+    }
+
+    private string GetFocusedContextHref(string typeId, string? memberId = null)
+    {
+        var query = new List<string>();
+        AddQueryValue(query, "typeId", typeId);
+        AddQueryValue(query, "memberId", memberId);
+        return $"/snapshots/{SnapshotId}/context?{string.Join("&", query)}";
+    }
+
+    private static void AddQueryValue(ICollection<string> query, string key, string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return;
+        }
+
+        query.Add($"{Uri.EscapeDataString(key)}={Uri.EscapeDataString(value)}");
+    }
+}

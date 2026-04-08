@@ -69,6 +69,7 @@ public sealed class WebUiFacts {
         var services = await client.GetStringAsync($"/snapshots/{snapshotId}/services");
         var persistence = await client.GetStringAsync($"/snapshots/{snapshotId}/persistence");
         var types = await client.GetStringAsync($"/snapshots/{snapshotId}/types?project=Fixture.Shop.Application&memberSearch=PlaceOrderAsync&includeMembers=true&methodsOnly=true");
+        var symbols = await client.GetStringAsync($"/snapshots/{snapshotId}/symbols?search=IOrderService&mode=Exact");
         var findings = await client.GetStringAsync($"/snapshots/{snapshotId}/findings");
 
         Assert.Contains("Dependencies", dependencies, StringComparison.Ordinal);
@@ -76,6 +77,7 @@ public sealed class WebUiFacts {
         Assert.Contains("Persistence", persistence, StringComparison.Ordinal);
         Assert.Contains("Type Explorer", types, StringComparison.Ordinal);
         Assert.Contains("PlaceOrderAsync", types, StringComparison.Ordinal);
+        Assert.Contains("Definition Search", symbols, StringComparison.Ordinal);
         Assert.Contains("Findings", findings, StringComparison.Ordinal);
     }
 
@@ -152,6 +154,30 @@ public sealed class WebUiFacts {
         Assert.Contains("Outline", html, StringComparison.Ordinal);
         Assert.Contains("Selection Reasons", html, StringComparison.Ordinal);
         Assert.Contains("Outline precision intentionally suppresses code excerpts", html, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task Symbol_explorer_route_renders_selected_symbol_details() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
+        using var client = factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
+
+        var operationPath = await StartAnalysisAsync(client, FixturePaths.GetFixtureSolutionPath());
+        var snapshotPath = await WaitForSnapshotPathAsync(client, operationPath);
+        var snapshotId = snapshotPath.Trim('/').Split('/').Last();
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var snapshot = await service.GetSnapshotAsync(snapshotId);
+        var type = Assert.Single(snapshot!.Facts.Types, item => string.Equals(item.DisplayName, "Fixture.Shop.Contracts.Orders.IOrderService", StringComparison.Ordinal));
+        var inspectPath = $"/snapshots/{snapshotId}/symbols?search=IOrderService&mode=Exact&typeId={Uri.EscapeDataString(type.TypeId)}";
+
+        var details = await client.GetStringAsync(inspectPath);
+
+        Assert.Contains("Definition", details, StringComparison.Ordinal);
+        Assert.Contains("Implementations", details, StringComparison.Ordinal);
+        Assert.Contains("References", details, StringComparison.Ordinal);
+        Assert.Contains("IOrderService", details, StringComparison.Ordinal);
+        Assert.Contains("OrderService", details, StringComparison.Ordinal);
     }
 
     private static async Task<string> StartAnalysisAsync(HttpClient client, string workspacePath) {

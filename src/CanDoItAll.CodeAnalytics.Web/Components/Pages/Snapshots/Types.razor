@@ -70,6 +70,7 @@ else
 
                             <div class="action-links">
                                 <a href="@GetTypeContextHref(item.Type.TypeId)">Open focused context</a>
+                                <a href="@GetTypeSymbolHref(item.Type.TypeId)">Inspect symbol</a>
                             </div>
 
                             @if (!string.IsNullOrWhiteSpace(item.Type.XmlSummary))
@@ -102,6 +103,7 @@ else
                                                     }
                                                     <p class="field-help">@member.Source.Path:@member.Source.Line</p>
                                                     <a href="@GetMemberContextHref(item.Type.TypeId, member.MemberId)">Open member context</a>
+                                                    <a href="@GetMemberSymbolHref(item.Type.TypeId, member.MemberId)">Inspect symbol</a>
                                                 </article>
                                             }
                                         </div>
@@ -178,5 +180,15 @@ else
     private string GetMemberContextHref(string typeId, string memberId)
     {
         return $"/snapshots/{SnapshotId}/context?typeId={Uri.EscapeDataString(typeId)}&memberId={Uri.EscapeDataString(memberId)}";
+    }
+
+    private string GetTypeSymbolHref(string typeId)
+    {
+        return $"/snapshots/{SnapshotId}/symbols?typeId={Uri.EscapeDataString(typeId)}";
+    }
+
+    private string GetMemberSymbolHref(string typeId, string memberId)
+    {
+        return $"/snapshots/{SnapshotId}/symbols?typeId={Uri.EscapeDataString(typeId)}&memberId={Uri.EscapeDataString(memberId)}";
     }
 }

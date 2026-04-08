@@ -20,60 +20,6 @@ var buildResponse = await service.BuildSnapshotAsync(
         ForceRefresh: true));
 setupStopwatch.Stop();
 
-var scenarios = ScenarioDefinition.CreateDefault();
-var scenarioReports = new List<ScenarioReport>(scenarios.Length);
-
-foreach (var scenario in scenarios) {
-    var scenarioStopwatch = Stopwatch.StartNew();
-    var response = await service.GetFocusedContextAsync(
-        new FocusedContextQuery(
-            buildResponse.Snapshot.SnapshotId,
-            Depth: scenario.Depth,
-            QueryText: scenario.QueryText,
-            FocusTags: scenario.FocusTags,
-            Intent: scenario.Intent,
-            Precision: scenario.Precision));
-    scenarioStopwatch.Stop();
-
-    if (response is null) {
-        throw new InvalidOperationException($"Focused-context returned null for scenario '{scenario.Key}'.");
-    }
-
-    var markdown = FocusedContextMarkdownRenderer.Render(scenario, response, scenarioStopwatch.Elapsed);
-    var responsePath = Path.Combine(configuration.BundleAnalysisDirectory, $"focused-context-{scenario.Key}.md");
-    var payloadPath = Path.Combine(configuration.BundleAnalysisDirectory, $"focused-context-{scenario.Key}.json");
-
-    await File.WriteAllTextAsync(responsePath, markdown);
-    await File.WriteAllTextAsync(payloadPath, JsonSerializer.Serialize(response, JsonOptions.Indented));
-
-    scenarioReports.Add(
-        new ScenarioReport(
-            scenario.Key,
-            scenario.Name,
-            scenario.QueryText,
-            scenario.FocusTags,
-            scenario.Depth,
-            scenario.Intent,
-            scenario.Precision,
-            scenarioStopwatch.ElapsedMilliseconds,
-            1,
-            markdown.Length,
-            EstimateTokens(markdown.Length),
-            response.Stats.FileCount,
-            response.Stats.BlockCount,
-            response.Stats.SelectedLineCount,
-            response.Stats.TotalLineCount,
-            response.ResolvedIntent,
-            response.ResolvedPrecision,
-            response.SeedType?.DisplayName,
-            response.SeedMember?.DisplayName,
-            response.UsageSummary?.TotalCallerCount,
-            response.UsageSummary?.TotalClusterCount,
-            response.UsageSummary?.OmittedCallerCount,
-            Path.GetFileName(responsePath),
-            Path.GetFileName(payloadPath)));
-}
-
 var setupReport = new SetupReport(
     buildResponse.Snapshot.SnapshotId,
     configuration.SolutionPath,
@@ -83,14 +29,196 @@ var setupReport = new SetupReport(
     buildResponse.Snapshot.Facts.Types.Count,
     buildResponse.Snapshot.Facts.Members.Count);
 
-var summary = new FocusedContextRunSummary(setupReport, scenarioReports);
-var summaryPath = Path.Combine(configuration.BundleAnalysisDirectory, "focused-context-summary.json");
-await File.WriteAllTextAsync(summaryPath, JsonSerializer.Serialize(summary, JsonOptions.Indented));
+switch (configuration.Mode) {
+    case HarnessMode.SymbolTools:
+        await RunSymbolToolsAsync(service, buildResponse.Snapshot.SnapshotId, configuration, setupReport);
+        break;
+    default:
+        await RunFocusedContextAsync(service, buildResponse.Snapshot.SnapshotId, configuration, setupReport);
+        break;
+}
 
-Console.WriteLine(JsonSerializer.Serialize(summary, JsonOptions.Indented));
+static async Task RunFocusedContextAsync(
+    ICodeAnalyticsApplicationService service,
+    string snapshotId,
+    RunnerConfiguration configuration,
+    SetupReport setupReport) {
+    var scenarios = FocusedContextScenarioDefinition.CreateDefault();
+    var scenarioReports = new List<FocusedContextScenarioReport>(scenarios.Length);
+
+    foreach (var scenario in scenarios) {
+        var scenarioStopwatch = Stopwatch.StartNew();
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                snapshotId,
+                Depth: scenario.Depth,
+                QueryText: scenario.QueryText,
+                FocusTags: scenario.FocusTags,
+                Intent: scenario.Intent,
+                Precision: scenario.Precision));
+        scenarioStopwatch.Stop();
+
+        if (response is null) {
+            throw new InvalidOperationException($"Focused-context returned null for scenario '{scenario.Key}'.");
+        }
+
+        var markdown = FocusedContextMarkdownRenderer.Render(scenario, response, scenarioStopwatch.Elapsed);
+        var responsePath = Path.Combine(configuration.BundleAnalysisDirectory, $"focused-context-{scenario.Key}.md");
+        var payloadPath = Path.Combine(configuration.BundleAnalysisDirectory, $"focused-context-{scenario.Key}.json");
+
+        await File.WriteAllTextAsync(responsePath, markdown);
+        await File.WriteAllTextAsync(payloadPath, JsonSerializer.Serialize(response, JsonOptions.Indented));
+
+        scenarioReports.Add(
+            new FocusedContextScenarioReport(
+                scenario.Key,
+                scenario.Name,
+                scenario.QueryText,
+                scenario.FocusTags,
+                scenario.Depth,
+                scenario.Intent,
+                scenario.Precision,
+                scenarioStopwatch.ElapsedMilliseconds,
+                1,
+                markdown.Length,
+                EstimateTokens(markdown.Length),
+                response.Stats.FileCount,
+                response.Stats.BlockCount,
+                response.Stats.SelectedLineCount,
+                response.Stats.TotalLineCount,
+                response.ResolvedIntent,
+                response.ResolvedPrecision,
+                response.SeedType?.DisplayName,
+                response.SeedMember?.DisplayName,
+                response.UsageSummary?.TotalCallerCount,
+                response.UsageSummary?.TotalClusterCount,
+                response.UsageSummary?.OmittedCallerCount,
+                Path.GetFileName(responsePath),
+                Path.GetFileName(payloadPath)));
+    }
+
+    var summary = new FocusedContextRunSummary(setupReport, scenarioReports);
+    var summaryPath = Path.Combine(configuration.BundleAnalysisDirectory, "focused-context-summary.json");
+    await File.WriteAllTextAsync(summaryPath, JsonSerializer.Serialize(summary, JsonOptions.Indented));
+
+    Console.WriteLine(JsonSerializer.Serialize(summary, JsonOptions.Indented));
+}
+
+static async Task RunSymbolToolsAsync(
+    ICodeAnalyticsApplicationService service,
+    string snapshotId,
+    RunnerConfiguration configuration,
+    SetupReport setupReport) {
+    var scenarios = SymbolToolsScenarioDefinition.CreateDefault();
+    var scenarioReports = new List<SymbolToolsScenarioReport>(scenarios.Length);
+
+    foreach (var scenario in scenarios) {
+        var scenarioStopwatch = Stopwatch.StartNew();
+        var searchResponse = await service.SearchSymbolsAsync(
+            new SymbolSearchQuery(
+                snapshotId,
+                SearchText: scenario.QueryText,
+                SearchMode: SymbolSearchMode.Exact));
+        if (searchResponse is null) {
+            throw new InvalidOperationException($"Symbol search returned null for scenario '{scenario.Key}'.");
+        }
+
+        var selectedResult = ResolveSelectedSymbolResult(searchResponse.Results, scenario);
+        if (selectedResult is null) {
+            throw new InvalidOperationException($"No symbol result was resolved for scenario '{scenario.Key}'.");
+        }
+
+        var definitionResponse = await service.GetSymbolDefinitionAsync(
+            new SymbolDefinitionQuery(
+                snapshotId,
+                selectedResult.TypeId,
+                selectedResult.MemberId));
+        var membersResponse = await service.GetSymbolMembersAsync(new SymbolMembersQuery(snapshotId, selectedResult.TypeId));
+        var implementationsResponse = await service.GetSymbolImplementationsAsync(new SymbolImplementationsQuery(snapshotId, selectedResult.TypeId));
+        var referencesResponse = await service.GetSymbolReferencesAsync(
+            new SymbolReferencesQuery(
+                snapshotId,
+                selectedResult.TypeId,
+                selectedResult.MemberId));
+        scenarioStopwatch.Stop();
+
+        if (definitionResponse is null || membersResponse is null || implementationsResponse is null || referencesResponse is null) {
+            throw new InvalidOperationException($"One or more symbol-tool responses were null for scenario '{scenario.Key}'.");
+        }
+
+        var payload = new SymbolToolsScenarioPayload(
+            searchResponse,
+            selectedResult,
+            definitionResponse,
+            membersResponse,
+            implementationsResponse,
+            referencesResponse);
+        var markdown = SymbolToolsMarkdownRenderer.Render(scenario, payload, scenarioStopwatch.Elapsed);
+        var responsePath = Path.Combine(configuration.BundleAnalysisDirectory, $"symbol-tools-{scenario.Key}.md");
+        var payloadPath = Path.Combine(configuration.BundleAnalysisDirectory, $"symbol-tools-{scenario.Key}.json");
+
+        await File.WriteAllTextAsync(responsePath, markdown);
+        await File.WriteAllTextAsync(payloadPath, JsonSerializer.Serialize(payload, JsonOptions.Indented));
+
+        scenarioReports.Add(
+            new SymbolToolsScenarioReport(
+                scenario.Key,
+                scenario.Name,
+                scenario.QueryText,
+                scenarioStopwatch.ElapsedMilliseconds,
+                5,
+                markdown.Length,
+                EstimateTokens(markdown.Length),
+                searchResponse.Results.Count,
+                selectedResult.DisplayName,
+                definitionResponse.TargetKind,
+                membersResponse.Members.Count,
+                implementationsResponse.Implementations.Count,
+                referencesResponse.TotalCount,
+                referencesResponse.References.Count,
+                Path.GetFileName(responsePath),
+                Path.GetFileName(payloadPath)));
+    }
+
+    var summary = new SymbolToolsRunSummary(setupReport, scenarioReports);
+    var summaryPath = Path.Combine(configuration.BundleAnalysisDirectory, "symbol-tools-summary.json");
+    await File.WriteAllTextAsync(summaryPath, JsonSerializer.Serialize(summary, JsonOptions.Indented));
+
+    Console.WriteLine(JsonSerializer.Serialize(summary, JsonOptions.Indented));
+}
+
+static SymbolSearchResultItem? ResolveSelectedSymbolResult(
+    IReadOnlyList<SymbolSearchResultItem> results,
+    SymbolToolsScenarioDefinition scenario) {
+    return results
+        .Where(item => item.TargetKind == SymbolTargetKind.Type)
+        .FirstOrDefault(
+            item => string.Equals(item.DisplayName, scenario.ExpectedDisplayName, StringComparison.Ordinal)
+                || string.Equals(GetTrailingIdentifier(item.DisplayName), scenario.QueryText, StringComparison.Ordinal))
+        ?? results.FirstOrDefault(item => item.TargetKind == SymbolTargetKind.Type)
+        ?? results.FirstOrDefault();
+}
 
 static int EstimateTokens(int characterCount) {
     return (characterCount + 3) / 4;
+}
+
+static string GetTrailingIdentifier(string displayName) {
+    var trimmed = displayName.Trim();
+    var genericStart = trimmed.IndexOf('<');
+    if (genericStart >= 0) {
+        trimmed = trimmed[..genericStart];
+    }
+
+    var methodStart = trimmed.IndexOf('(');
+    if (methodStart >= 0) {
+        trimmed = trimmed[..methodStart];
+    }
+
+    var lastDot = trimmed.LastIndexOf('.');
+    return lastDot >= 0
+        ? trimmed[(lastDot + 1)..]
+        : trimmed;
 }
 
 internal static class JsonOptions {
@@ -99,24 +227,53 @@ internal static class JsonOptions {
     };
 }
 
+internal enum HarnessMode {
+    FocusedContext,
+    SymbolTools,
+}
+
 internal sealed record RunnerConfiguration(
+    HarnessMode Mode,
     string SolutionPath,
     string BundleAnalysisDirectory,
     string SnapshotOutputDirectory) {
     public static RunnerConfiguration FromArgs(string[] args) {
-        if (args.Length != 3) {
-            throw new InvalidOperationException(
-                "Expected arguments: <solution-path> <bundle-analysis-directory> <snapshot-output-directory>.");
+        if (args.Length == 3) {
+            return new RunnerConfiguration(
+                HarnessMode.FocusedContext,
+                Path.GetFullPath(args[0]),
+                Path.GetFullPath(args[1]),
+                Path.GetFullPath(args[2]));
         }
 
-        return new RunnerConfiguration(
-            Path.GetFullPath(args[0]),
-            Path.GetFullPath(args[1]),
-            Path.GetFullPath(args[2]));
+        if (args.Length == 4 && TryParseMode(args[0], out var mode)) {
+            return new RunnerConfiguration(
+                mode,
+                Path.GetFullPath(args[1]),
+                Path.GetFullPath(args[2]),
+                Path.GetFullPath(args[3]));
+        }
+
+        throw new InvalidOperationException(
+            "Expected arguments: <solution-path> <bundle-analysis-directory> <snapshot-output-directory> or <mode> <solution-path> <bundle-analysis-directory> <snapshot-output-directory>.");
+    }
+
+    private static bool TryParseMode(string value, out HarnessMode mode) {
+        if (string.Equals(value, "focused-context", StringComparison.OrdinalIgnoreCase)) {
+            mode = HarnessMode.FocusedContext;
+            return true;
+        }
+
+        if (string.Equals(value, "symbol-tools", StringComparison.OrdinalIgnoreCase)) {
+            mode = HarnessMode.SymbolTools;
+            return true;
+        }
+
+        return Enum.TryParse(value, ignoreCase: true, out mode);
     }
 }
 
-internal sealed record ScenarioDefinition(
+internal sealed record FocusedContextScenarioDefinition(
     string Key,
     string Name,
     string QueryText,
@@ -124,9 +281,9 @@ internal sealed record ScenarioDefinition(
     int Depth,
     FocusedContextIntent Intent,
     FocusedContextPrecision Precision) {
-    public static ScenarioDefinition[] CreateDefault() {
+    public static FocusedContextScenarioDefinition[] CreateDefault() {
         return [
-            new ScenarioDefinition(
+            new FocusedContextScenarioDefinition(
                 "app-db-context",
                 "Database scenario",
                 "AppDbContext",
@@ -134,7 +291,7 @@ internal sealed record ScenarioDefinition(
                 2,
                 FocusedContextIntent.Auto,
                 FocusedContextPrecision.Auto),
-            new ScenarioDefinition(
+            new FocusedContextScenarioDefinition(
                 "i-clock",
                 "Common helper scenario",
                 "IClock",
@@ -142,7 +299,7 @@ internal sealed record ScenarioDefinition(
                 2,
                 FocusedContextIntent.Auto,
                 FocusedContextPrecision.Auto),
-            new ScenarioDefinition(
+            new FocusedContextScenarioDefinition(
                 "canvas-scene-host",
                 "UI scenario",
                 "CanvasSceneHost",
@@ -150,6 +307,42 @@ internal sealed record ScenarioDefinition(
                 2,
                 FocusedContextIntent.Auto,
                 FocusedContextPrecision.Auto),
+        ];
+    }
+}
+
+internal sealed record SymbolToolsScenarioDefinition(
+    string Key,
+    string Name,
+    string QueryText,
+    string ExpectedDisplayName) {
+    public static SymbolToolsScenarioDefinition[] CreateDefault() {
+        return [
+            new SymbolToolsScenarioDefinition(
+                "app-db-context",
+                "Database scenario",
+                "AppDbContext",
+                "CanDoItAll.Infrastructure.Persistence.AppDbContext"),
+            new SymbolToolsScenarioDefinition(
+                "i-clock",
+                "Common helper scenario",
+                "IClock",
+                "CanDoItAll.SharedKernel.IClock"),
+            new SymbolToolsScenarioDefinition(
+                "canvas-scene-host",
+                "UI scenario",
+                "CanvasSceneHost",
+                "CanDoItAll.Components.CanvasLib.CanvasSceneHost"),
+            new SymbolToolsScenarioDefinition(
+                "storage-driver-registry",
+                "Storage registry scenario",
+                "IStorageDriverRegistry",
+                "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry"),
+            new SymbolToolsScenarioDefinition(
+                "database-runtime-state",
+                "Database runtime switching scenario",
+                "IDatabaseRuntimeState",
+                "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState"),
         ];
     }
 }
@@ -163,7 +356,7 @@ internal sealed record SetupReport(
     int TypeCount,
     int MemberCount);
 
-internal sealed record ScenarioReport(
+internal sealed record FocusedContextScenarioReport(
     string Key,
     string Name,
     string QueryText,
@@ -191,11 +384,41 @@ internal sealed record ScenarioReport(
 
 internal sealed record FocusedContextRunSummary(
     SetupReport Setup,
-    IReadOnlyList<ScenarioReport> Scenarios);
+    IReadOnlyList<FocusedContextScenarioReport> Scenarios);
+
+internal sealed record SymbolToolsScenarioReport(
+    string Key,
+    string Name,
+    string QueryText,
+    long ElapsedMilliseconds,
+    int CallCount,
+    int CharacterCount,
+    int EstimatedTokenCount,
+    int SearchResultCount,
+    string SelectedSymbol,
+    SymbolTargetKind TargetKind,
+    int MemberCount,
+    int ImplementationCount,
+    int TotalReferenceCount,
+    int ReturnedReferenceCount,
+    string MarkdownArtifact,
+    string JsonArtifact);
+
+internal sealed record SymbolToolsRunSummary(
+    SetupReport Setup,
+    IReadOnlyList<SymbolToolsScenarioReport> Scenarios);
+
+internal sealed record SymbolToolsScenarioPayload(
+    SymbolSearchResponse Search,
+    SymbolSearchResultItem SelectedResult,
+    SymbolDefinitionResponse Definition,
+    SymbolMembersResponse Members,
+    SymbolImplementationsResponse Implementations,
+    SymbolReferencesResponse References);
 
 internal static class FocusedContextMarkdownRenderer {
     public static string Render(
-        ScenarioDefinition scenario,
+        FocusedContextScenarioDefinition scenario,
         FocusedContextResponse response,
         TimeSpan elapsed) {
         var builder = new StringBuilder();
@@ -397,5 +620,60 @@ internal static class FocusedContextMarkdownRenderer {
         return typeNamesById.TryGetValue(typeId, out var displayName)
             ? displayName
             : typeId;
+    }
+}
+
+internal static class SymbolToolsMarkdownRenderer {
+    public static string Render(
+        SymbolToolsScenarioDefinition scenario,
+        SymbolToolsScenarioPayload payload,
+        TimeSpan elapsed) {
+        var builder = new StringBuilder();
+        builder.AppendLine($"# {scenario.Name}");
+        builder.AppendLine();
+        builder.AppendLine("## Query");
+        builder.AppendLine();
+        builder.AppendLine($"- Query text: `{scenario.QueryText}`");
+        builder.AppendLine($"- Elapsed milliseconds: {elapsed.TotalMilliseconds:F0}");
+        builder.AppendLine($"- Search results: {payload.Search.Results.Count}");
+        builder.AppendLine($"- Selected symbol: `{payload.SelectedResult.DisplayName}`");
+        builder.AppendLine($"- Target kind: `{payload.Definition.TargetKind}`");
+        builder.AppendLine();
+        builder.AppendLine("## Definition");
+        builder.AppendLine();
+        builder.AppendLine($"- Declaration: `{payload.Definition.Declaration}`");
+        builder.AppendLine($"- Path: {payload.Definition.Definition.Path}:{payload.Definition.Definition.StartLine}");
+        builder.AppendLine($"- Truncated: {payload.Definition.Definition.IsTruncated}");
+        builder.AppendLine();
+        builder.AppendLine("```csharp");
+        builder.AppendLine(payload.Definition.Definition.Code);
+        builder.AppendLine("```");
+        builder.AppendLine();
+        builder.AppendLine("## Members");
+        builder.AppendLine();
+        builder.AppendLine($"- Member count: {payload.Members.Members.Count}");
+        foreach (var member in payload.Members.Members.Take(12)) {
+            builder.AppendLine($"- `{member.DisplayName}` ({member.Kind})");
+        }
+
+        builder.AppendLine();
+        builder.AppendLine("## Implementations");
+        builder.AppendLine();
+        builder.AppendLine($"- Count: {payload.Implementations.Implementations.Count}");
+        foreach (var implementation in payload.Implementations.Implementations.Take(12)) {
+            builder.AppendLine($"- `{implementation.Type.DisplayName}` ({implementation.Kind})");
+        }
+
+        builder.AppendLine();
+        builder.AppendLine("## References");
+        builder.AppendLine();
+        builder.AppendLine($"- Total references: {payload.References.TotalCount}");
+        builder.AppendLine($"- Returned references: {payload.References.References.Count}");
+        foreach (var reference in payload.References.References.Take(12)) {
+            builder.AppendLine($"- `{reference.SourceType.DisplayName}` :: `{reference.SourceMember?.DisplayName ?? "Type-level reference"}` ({reference.Kind})");
+            builder.AppendLine($"  Path: {reference.Path}:{reference.Line}");
+        }
+
+        return builder.ToString();
     }
 }

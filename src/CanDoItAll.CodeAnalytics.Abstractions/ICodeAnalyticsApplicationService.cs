@@ -36,6 +36,26 @@ public interface ICodeAnalyticsApplicationService {
         TypeSearchQuery query,
         CancellationToken cancellationToken = default);
 
+    Task<SymbolSearchResponse?> SearchSymbolsAsync(
+        SymbolSearchQuery query,
+        CancellationToken cancellationToken = default);
+
+    Task<SymbolDefinitionResponse?> GetSymbolDefinitionAsync(
+        SymbolDefinitionQuery query,
+        CancellationToken cancellationToken = default);
+
+    Task<SymbolMembersResponse?> GetSymbolMembersAsync(
+        SymbolMembersQuery query,
+        CancellationToken cancellationToken = default);
+
+    Task<SymbolImplementationsResponse?> GetSymbolImplementationsAsync(
+        SymbolImplementationsQuery query,
+        CancellationToken cancellationToken = default);
+
+    Task<SymbolReferencesResponse?> GetSymbolReferencesAsync(
+        SymbolReferencesQuery query,
+        CancellationToken cancellationToken = default);
+
     Task<FocusedContextResponse?> GetFocusedContextAsync(
         FocusedContextQuery query,
         CancellationToken cancellationToken = default);

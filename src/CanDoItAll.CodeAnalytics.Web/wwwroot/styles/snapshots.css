@@ -136,6 +136,12 @@
     overflow: hidden;
 }
 
+.symbol-result-list,
+.symbol-detail-grid {
+    display: grid;
+    gap: 1rem;
+}
+
 .file-summary {
     display: grid;
     gap: 0.25rem;

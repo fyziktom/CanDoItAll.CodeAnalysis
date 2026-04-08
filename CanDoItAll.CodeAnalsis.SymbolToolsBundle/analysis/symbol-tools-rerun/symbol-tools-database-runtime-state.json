@@ -1,0 +1,848 @@
+{
+  "Search": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "SearchText": "IDatabaseRuntimeState",
+    "ProjectName": null,
+    "SearchMode": 1,
+    "AvailableProjects": [
+      "CanDoItAll.Components",
+      "CanDoItAll.Components.BaseLib",
+      "CanDoItAll.Components.CanvasLib",
+      "CanDoItAll.Components.Common",
+      "CanDoItAll.Components.Sandbox",
+      "CanDoItAll.Composition",
+      "CanDoItAll.Infrastructure",
+      "CanDoItAll.Manager",
+      "CanDoItAll.Mcp.Components",
+      "CanDoItAll.Mcp.Components.Tests",
+      "CanDoItAll.Mcp.Core",
+      "CanDoItAll.Mcp.DotNetWatch",
+      "CanDoItAll.Mcp.DotNetWatch.IntegrationTests",
+      "CanDoItAll.Mcp.DotNetWatch.Tests",
+      "CanDoItAll.Mcp.DotNetWatch.Tray",
+      "CanDoItAll.Mcp.LocalRuntime",
+      "CanDoItAll.Mcp.ProjectStructure",
+      "CanDoItAll.Mcp.ProjectStructure.Tests",
+      "CanDoItAll.Mcp.SshOps",
+      "CanDoItAll.Migrations.PostgreSql",
+      "CanDoItAll.Migrations.Sqlite",
+      "CanDoItAll.Modules.Activity",
+      "CanDoItAll.Modules.Automation",
+      "CanDoItAll.Modules.CrmHr",
+      "CanDoItAll.Modules.Factory",
+      "CanDoItAll.Modules.Projects",
+      "CanDoItAll.Modules.Prompts",
+      "CanDoItAll.Modules.Resources",
+      "CanDoItAll.Modules.Security",
+      "CanDoItAll.Modules.TestLab",
+      "CanDoItAll.Modules.Validation",
+      "CanDoItAll.Modules.Workbench",
+      "CanDoItAll.Modules.Workspace",
+      "CanDoItAll.SharedKernel",
+      "CanDoItAll.Tests.Components",
+      "CanDoItAll.Tests.Integration",
+      "CanDoItAll.Tests.Playwright",
+      "CanDoItAll.Tests.Support",
+      "CanDoItAll.Tests.Unit",
+      "CanDoItAll.Web"
+    ],
+    "ValidationError": null,
+    "Results": [
+      {
+        "TargetKind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+        "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+        "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+        "Line": 26,
+        "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+        "Declaration": "interface CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+        "ContainerTypeDisplayName": null,
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+        "MemberId": null,
+        "MatchFields": [
+          0
+        ]
+      }
+    ]
+  },
+  "SelectedResult": {
+    "TargetKind": 0,
+    "ProjectName": "CanDoItAll.Infrastructure",
+    "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+    "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+    "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+    "Line": 26,
+    "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+    "Declaration": "interface CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+    "ContainerTypeDisplayName": null,
+    "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+    "MemberId": null,
+    "MatchFields": [
+      0
+    ]
+  },
+  "Definition": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "TargetKind": 0,
+    "ProjectName": "CanDoItAll.Infrastructure",
+    "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+    "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+    "Type": {
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+      "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+      "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-e76ccb7f5629",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-adbf58f37842",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-c59b66ecab49",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-4ca80e42ac75"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+        "Line": 26,
+        "Column": 1,
+        "EndLine": 35,
+        "EndColumn": 2
+      }
+    },
+    "Member": null,
+    "Declaration": "interface CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+    "XmlSummary": null,
+    "Definition": {
+      "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+      "StartLine": 26,
+      "EndLine": 35,
+      "Code": "public interface IDatabaseRuntimeState\r\n{\r\n    DatabaseRuntimeSnapshot GetSnapshot();\r\n\r\n    Task\u003CDatabaseContextLease\u003E AcquireContextLeaseAsync(CancellationToken cancellationToken = default);\r\n\r\n    Task\u003CDatabaseSwitchSession\u003E BeginSwitchAsync(CancellationToken cancellationToken = default);\r\n\r\n    void MarkCurrentProfile(ResolvedDatabaseProfile profile);\r\n}",
+      "IsTruncated": false
+    },
+    "ContainingTypeHeader": null
+  },
+  "Members": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "ProjectName": "CanDoItAll.Infrastructure",
+    "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+    "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+    "Type": {
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+      "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+      "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-e76ccb7f5629",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-adbf58f37842",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-c59b66ecab49",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-4ca80e42ac75"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+        "Line": 26,
+        "Column": 1,
+        "EndLine": 35,
+        "EndColumn": 2
+      }
+    },
+    "Members": [
+      {
+        "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-e76ccb7f5629",
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+        "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState.AcquireContextLeaseAsync(System.Threading.CancellationToken)",
+        "Kind": 1,
+        "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.Infrastructure.Persistence.DatabaseContextLease\u003E",
+        "ParameterDisplayNames": [
+          "System.Threading.CancellationToken"
+        ],
+        "Source": {
+          "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+          "Line": 30,
+          "Column": 5,
+          "EndLine": 30,
+          "EndColumn": 104
+        }
+      },
+      {
+        "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-adbf58f37842",
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+        "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState.BeginSwitchAsync(System.Threading.CancellationToken)",
+        "Kind": 1,
+        "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.Infrastructure.Persistence.DatabaseSwitchSession\u003E",
+        "ParameterDisplayNames": [
+          "System.Threading.CancellationToken"
+        ],
+        "Source": {
+          "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+          "Line": 32,
+          "Column": 5,
+          "EndLine": 32,
+          "EndColumn": 97
+        }
+      },
+      {
+        "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-c59b66ecab49",
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+        "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState.GetSnapshot()",
+        "Kind": 1,
+        "ReturnTypeDisplayName": "CanDoItAll.Infrastructure.Persistence.DatabaseRuntimeSnapshot",
+        "ParameterDisplayNames": [],
+        "Source": {
+          "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+          "Line": 28,
+          "Column": 5,
+          "EndLine": 28,
+          "EndColumn": 43
+        }
+      },
+      {
+        "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-4ca80e42ac75",
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+        "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState.MarkCurrentProfile(CanDoItAll.Infrastructure.ControlPlane.ResolvedDatabaseProfile)",
+        "Kind": 1,
+        "ReturnTypeDisplayName": "void",
+        "ParameterDisplayNames": [
+          "CanDoItAll.Infrastructure.ControlPlane.ResolvedDatabaseProfile"
+        ],
+        "Source": {
+          "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+          "Line": 34,
+          "Column": 5,
+          "EndLine": 34,
+          "EndColumn": 62
+        }
+      }
+    ]
+  },
+  "Implementations": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "ProjectName": "CanDoItAll.Infrastructure",
+    "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+    "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+    "Type": {
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+      "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+      "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-e76ccb7f5629",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-adbf58f37842",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-c59b66ecab49",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-4ca80e42ac75"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+        "Line": 26,
+        "Column": 1,
+        "EndLine": 35,
+        "EndColumn": 2
+      }
+    },
+    "Implementations": [
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+        "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+        "Type": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-901da128f7d9",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+          "DisplayName": "CanDoItAll.Infrastructure.Persistence.DatabaseRuntimeState",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-5efd45fbcfa9",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-4b018d4241cf",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-6c398f07578b",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-d1dacb97b095",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-828ee5539280",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-a69d04e90409",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-6349c6ddbaa6",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-cf530dc20b63",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-8a8f5621069f",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-911665879d6e",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-6078e0516ab4",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-1e1f40eaf23f",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-e6ac29c604ff",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-0d3f0e6bd0fa",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-6aaf43f27bed",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-8429b9c081f9",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-1977440c7539",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-c0c68e7fc494",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-bd62b05dc8fd",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-d8e1114ad12d"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+            "Line": 47,
+            "Column": 1,
+            "EndLine": 204,
+            "EndColumn": 2
+          }
+        }
+      }
+    ]
+  },
+  "References": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "TargetKind": 0,
+    "Type": {
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-12c5a0735704",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+      "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+      "DisplayName": "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-e76ccb7f5629",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-adbf58f37842",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-c59b66ecab49",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-4ca80e42ac75"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/Persistence/DatabaseRuntimeSwitching.cs",
+        "Line": 26,
+        "Column": 1,
+        "EndLine": 35,
+        "EndColumn": 2
+      }
+    },
+    "Member": null,
+    "TotalCount": 9,
+    "References": [
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+        "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-62efbc82ad5a",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+          "DisplayName": "CanDoItAll.Infrastructure.Persistence.SwitchableAppDbContextFactory",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Persistence.ISwitchableAppDbContextFactory"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-ce923a5b7ac7",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-3aa64cbf5b5e",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-ce85ff199318",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-2e07ac5735a7"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+            "Line": 108,
+            "Column": 1,
+            "EndLine": 141,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-3aa64cbf5b5e",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-62efbc82ad5a",
+          "DisplayName": "CanDoItAll.Infrastructure.Persistence.SwitchableAppDbContextFactory.CreateDbContextAsync(System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E",
+          "ParameterDisplayNames": [
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+            "Line": 117,
+            "Column": 5,
+            "EndLine": 132,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+        "Line": 118,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+          "StartLine": 118,
+          "EndLine": 120,
+          "Code": "    {\r\n        var lease = await runtimeState.AcquireContextLeaseAsync(cancellationToken);\r\n",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+        "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-62efbc82ad5a",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+          "DisplayName": "CanDoItAll.Infrastructure.Persistence.SwitchableAppDbContextFactory",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Persistence.ISwitchableAppDbContextFactory"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-ce923a5b7ac7",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-3aa64cbf5b5e",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-ce85ff199318",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-2e07ac5735a7"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+            "Line": 108,
+            "Column": 1,
+            "EndLine": 141,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-3aa64cbf5b5e",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-62efbc82ad5a",
+          "DisplayName": "CanDoItAll.Infrastructure.Persistence.SwitchableAppDbContextFactory.CreateDbContextAsync(System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E",
+          "ParameterDisplayNames": [
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+            "Line": 117,
+            "Column": 5,
+            "EndLine": 132,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+        "Line": 123,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+          "StartLine": 123,
+          "EndLine": 125,
+          "Code": "            var profile = profileAccessor.ResolveCurrentProfile();\r\n            runtimeState.MarkCurrentProfile(profile);\r\n            return new AppDbContext(AppDbContextOptionsConfigurator.CreateOptions(profile), lease);",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 4,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Persistence",
+        "NamespaceName": "CanDoItAll.Infrastructure.Persistence",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-62efbc82ad5a",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-003f42c311d9",
+          "DisplayName": "CanDoItAll.Infrastructure.Persistence.SwitchableAppDbContextFactory",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Persistence.ISwitchableAppDbContextFactory"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-ce923a5b7ac7",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-3aa64cbf5b5e",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-ce85ff199318",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-2e07ac5735a7"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+            "Line": 108,
+            "Column": 1,
+            "EndLine": 141,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-2e07ac5735a7",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-62efbc82ad5a",
+          "DisplayName": "CanDoItAll.Infrastructure.Persistence.SwitchableAppDbContextFactory.SwitchableAppDbContextFactory(CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileRuntimeAccessor, CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState)",
+          "Kind": 0,
+          "ReturnTypeDisplayName": "SwitchableAppDbContextFactory",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileRuntimeAccessor",
+            "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+            "Line": 108,
+            "Column": 1,
+            "EndLine": 141,
+            "EndColumn": 2
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+        "Line": 109,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Persistence/SwitchableAppDbContextFactory.cs",
+          "StartLine": 109,
+          "EndLine": 111,
+          "Code": "    IDatabaseProfileRuntimeAccessor profileAccessor,\r\n    IDatabaseRuntimeState runtimeState) : ISwitchableAppDbContextFactory\r\n{",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 10,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.DependencyInjection",
+        "NamespaceName": "CanDoItAll.Infrastructure.DependencyInjection",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-6bf44f214e5f",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-a5a92cd283ca",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-a5a92cd283ca",
+          "DisplayName": "CanDoItAll.Infrastructure.DependencyInjection.InfrastructureServiceCollectionExtensions",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-5ee4e5c0f5cf"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+            "Line": 20,
+            "Column": 1,
+            "EndLine": 108,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-5ee4e5c0f5cf",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-6bf44f214e5f",
+          "DisplayName": "CanDoItAll.Infrastructure.DependencyInjection.InfrastructureServiceCollectionExtensions.AddCanDoItAllInfrastructure(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, Microsoft.Extensions.Hosting.IHostEnvironment, System.Collections.Generic.IReadOnlyList\u003CSystem.Reflection.Assembly\u003E)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+          "ParameterDisplayNames": [
+            "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+            "Microsoft.Extensions.Configuration.IConfiguration",
+            "Microsoft.Extensions.Hosting.IHostEnvironment",
+            "System.Collections.Generic.IReadOnlyList\u003CSystem.Reflection.Assembly\u003E"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+            "Line": 22,
+            "Column": 5,
+            "EndLine": 107,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+        "Line": 76,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+          "StartLine": 76,
+          "EndLine": 78,
+          "Code": "        services.AddSingleton\u003CIDatabaseSwitchNotificationService, DatabaseSwitchNotificationService\u003E();\r\n        services.AddSingleton\u003CIDatabaseRuntimeState, DatabaseRuntimeState\u003E();\r\n        services.AddSingleton\u003CIDatabaseDriver, InMemoryDatabaseDriver\u003E();",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Tests.Integration",
+        "ModuleName": "CanDoItAll.Tests.Integration",
+        "NamespaceName": "CanDoItAll.Tests.Integration",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-tests-integration-candoitall-tests-f5627eb7aeab",
+          "ProjectId": "proj-candoitall-tests-integration",
+          "ModuleId": "mod-proj-candoitall-tests-integration-candoitall-tests-integration",
+          "NamespaceId": "ns-proj-candoitall-tests-integration-candoitall-tests-integration",
+          "DisplayName": "CanDoItAll.Tests.Integration.DatabaseSwitchIntegrationTests",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [],
+          "MemberIds": [
+            "member-type-proj-candoitall-tests-integration-candoitall-t-9839ebabb270"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "tests/CanDoItAll.Tests.Integration/DatabaseRuntimeSwitchingIntegrationTests.cs",
+            "Line": 12,
+            "Column": 1,
+            "EndLine": 104,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-tests-integration-candoitall-t-9839ebabb270",
+          "TypeId": "type-proj-candoitall-tests-integration-candoitall-tests-f5627eb7aeab",
+          "DisplayName": "CanDoItAll.Tests.Integration.DatabaseSwitchIntegrationTests.SwitchAsync_changes_active_data_source_without_restarting_the_process()",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task",
+          "ParameterDisplayNames": [],
+          "Source": {
+            "Path": "tests/CanDoItAll.Tests.Integration/DatabaseRuntimeSwitchingIntegrationTests.cs",
+            "Line": 14,
+            "Column": 5,
+            "EndLine": 103,
+            "EndColumn": 6
+          }
+        },
+        "Path": "tests/CanDoItAll.Tests.Integration/DatabaseRuntimeSwitchingIntegrationTests.cs",
+        "Line": 99,
+        "ContextExcerpt": {
+          "Path": "tests/CanDoItAll.Tests.Integration/DatabaseRuntimeSwitchingIntegrationTests.cs",
+          "StartLine": 99,
+          "EndLine": 101,
+          "Code": "\r\n        var runtimeSnapshot = runtimeState.GetSnapshot();\r\n        Assert.Equal(initialProfile.Profile.Id, runtimeSnapshot.ActiveProfileId);",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Tests.Unit",
+        "ModuleName": "CanDoItAll.Tests.Unit",
+        "NamespaceName": "CanDoItAll.Tests.Unit",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-tests-unit-candoitall-tests-unit-ap-ce211d827d1f",
+          "ProjectId": "proj-candoitall-tests-unit",
+          "ModuleId": "mod-proj-candoitall-tests-unit-candoitall-tests-unit",
+          "NamespaceId": "ns-proj-candoitall-tests-unit-candoitall-tests-unit",
+          "DisplayName": "CanDoItAll.Tests.Unit.AppDbContextRuntimeSwitchTests",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [],
+          "MemberIds": [
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-5859fa729e6f"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "tests/CanDoItAll.Tests.Unit/DatabaseRuntimeSwitchingTests.cs",
+            "Line": 76,
+            "Column": 1,
+            "EndLine": 119,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-tests-unit-candoitall-tests-un-5859fa729e6f",
+          "TypeId": "type-proj-candoitall-tests-unit-candoitall-tests-unit-ap-ce211d827d1f",
+          "DisplayName": "CanDoItAll.Tests.Unit.AppDbContextRuntimeSwitchTests.CreateDbContextAsync_uses_the_new_active_profile_after_a_switch()",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task",
+          "ParameterDisplayNames": [],
+          "Source": {
+            "Path": "tests/CanDoItAll.Tests.Unit/DatabaseRuntimeSwitchingTests.cs",
+            "Line": 78,
+            "Column": 5,
+            "EndLine": 118,
+            "EndColumn": 6
+          }
+        },
+        "Path": "tests/CanDoItAll.Tests.Unit/DatabaseRuntimeSwitchingTests.cs",
+        "Line": 114,
+        "ContextExcerpt": {
+          "Path": "tests/CanDoItAll.Tests.Unit/DatabaseRuntimeSwitchingTests.cs",
+          "StartLine": 114,
+          "EndLine": 116,
+          "Code": "\r\n        var runtimeSnapshot = runtimeState.GetSnapshot();\r\n        Assert.Equal(targetProfile.Profile.Id, runtimeSnapshot.ActiveProfileId);",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Web",
+        "ModuleName": "CanDoItAll.Web.Infrastructure",
+        "NamespaceName": "CanDoItAll.Web.Infrastructure",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-d-b8066365aa10",
+          "ProjectId": "proj-candoitall-web",
+          "ModuleId": "mod-proj-candoitall-web-candoitall-web-infrastructure",
+          "NamespaceId": "ns-proj-candoitall-web-candoitall-web-infrastructure",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.DatabaseSwitchCoordinator",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.ControlPlane.IDatabaseSwitchCoordinator"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-450a540eaead",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-ea158d03d5cb",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-f0c3b7ce2fd8"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+            "Line": 50,
+            "Column": 1,
+            "EndLine": 140,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-web-candoitall-web-infrastruct-f0c3b7ce2fd8",
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-d-b8066365aa10",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.DatabaseSwitchCoordinator.SwitchAsync(System.Guid, System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.SharedKernel.Result\u003CCanDoItAll.Infrastructure.ControlPlane.DatabaseSwitchResult\u003E\u003E",
+          "ParameterDisplayNames": [
+            "System.Guid",
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+            "Line": 60,
+            "Column": 5,
+            "EndLine": 139,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+        "Line": 70,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+          "StartLine": 70,
+          "EndLine": 72,
+          "Code": "        {\r\n            var snapshot = runtimeState.GetSnapshot();\r\n            return Result\u003CDatabaseSwitchResult\u003E.Success(new DatabaseSwitchResult(",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Web",
+        "ModuleName": "CanDoItAll.Web.Infrastructure",
+        "NamespaceName": "CanDoItAll.Web.Infrastructure",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-d-b8066365aa10",
+          "ProjectId": "proj-candoitall-web",
+          "ModuleId": "mod-proj-candoitall-web-candoitall-web-infrastructure",
+          "NamespaceId": "ns-proj-candoitall-web-candoitall-web-infrastructure",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.DatabaseSwitchCoordinator",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.ControlPlane.IDatabaseSwitchCoordinator"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-450a540eaead",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-ea158d03d5cb",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-f0c3b7ce2fd8"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+            "Line": 50,
+            "Column": 1,
+            "EndLine": 140,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-web-candoitall-web-infrastruct-f0c3b7ce2fd8",
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-d-b8066365aa10",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.DatabaseSwitchCoordinator.SwitchAsync(System.Guid, System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.SharedKernel.Result\u003CCanDoItAll.Infrastructure.ControlPlane.DatabaseSwitchResult\u003E\u003E",
+          "ParameterDisplayNames": [
+            "System.Guid",
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+            "Line": 60,
+            "Column": 5,
+            "EndLine": 139,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+        "Line": 88,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+          "StartLine": 88,
+          "EndLine": 90,
+          "Code": "\r\n        await using var switchSession = await runtimeState.BeginSwitchAsync(cancellationToken);\r\n",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 4,
+        "ProjectName": "CanDoItAll.Web",
+        "ModuleName": "CanDoItAll.Web.Infrastructure",
+        "NamespaceName": "CanDoItAll.Web.Infrastructure",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-d-b8066365aa10",
+          "ProjectId": "proj-candoitall-web",
+          "ModuleId": "mod-proj-candoitall-web-candoitall-web-infrastructure",
+          "NamespaceId": "ns-proj-candoitall-web-candoitall-web-infrastructure",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.DatabaseSwitchCoordinator",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.ControlPlane.IDatabaseSwitchCoordinator"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-450a540eaead",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-ea158d03d5cb",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-f0c3b7ce2fd8"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+            "Line": 50,
+            "Column": 1,
+            "EndLine": 140,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-web-candoitall-web-infrastruct-450a540eaead",
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-d-b8066365aa10",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.DatabaseSwitchCoordinator.DatabaseSwitchCoordinator(CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileRuntimeAccessor, CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileService, CanDoItAll.Infrastructure.ControlPlane.IDatabaseDriverRegistry, CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState, CanDoItAll.Infrastructure.ControlPlane.IAppDatabaseBootstrapper, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Web.Infrastructure.DatabaseSwitchCoordinator\u003E)",
+          "Kind": 0,
+          "ReturnTypeDisplayName": "DatabaseSwitchCoordinator",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileRuntimeAccessor",
+            "CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileService",
+            "CanDoItAll.Infrastructure.ControlPlane.IDatabaseDriverRegistry",
+            "CanDoItAll.Infrastructure.Persistence.IDatabaseRuntimeState",
+            "CanDoItAll.Infrastructure.ControlPlane.IAppDatabaseBootstrapper",
+            "Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Web.Infrastructure.DatabaseSwitchCoordinator\u003E"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+            "Line": 50,
+            "Column": 1,
+            "EndLine": 140,
+            "EndColumn": 2
+          }
+        },
+        "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+        "Line": 53,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Web/Infrastructure/RuntimeDatabaseSwitching.cs",
+          "StartLine": 53,
+          "EndLine": 55,
+          "Code": "    IDatabaseDriverRegistry driverRegistry,\r\n    IDatabaseRuntimeState runtimeState,\r\n    IAppDatabaseBootstrapper bootstrapper,",
+          "IsTruncated": false
+        }
+      }
+    ]
+  }
+}

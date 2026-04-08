@@ -1,0 +1,1374 @@
+{
+  "Search": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "SearchText": "IStorageDriverRegistry",
+    "ProjectName": null,
+    "SearchMode": 1,
+    "AvailableProjects": [
+      "CanDoItAll.Components",
+      "CanDoItAll.Components.BaseLib",
+      "CanDoItAll.Components.CanvasLib",
+      "CanDoItAll.Components.Common",
+      "CanDoItAll.Components.Sandbox",
+      "CanDoItAll.Composition",
+      "CanDoItAll.Infrastructure",
+      "CanDoItAll.Manager",
+      "CanDoItAll.Mcp.Components",
+      "CanDoItAll.Mcp.Components.Tests",
+      "CanDoItAll.Mcp.Core",
+      "CanDoItAll.Mcp.DotNetWatch",
+      "CanDoItAll.Mcp.DotNetWatch.IntegrationTests",
+      "CanDoItAll.Mcp.DotNetWatch.Tests",
+      "CanDoItAll.Mcp.DotNetWatch.Tray",
+      "CanDoItAll.Mcp.LocalRuntime",
+      "CanDoItAll.Mcp.ProjectStructure",
+      "CanDoItAll.Mcp.ProjectStructure.Tests",
+      "CanDoItAll.Mcp.SshOps",
+      "CanDoItAll.Migrations.PostgreSql",
+      "CanDoItAll.Migrations.Sqlite",
+      "CanDoItAll.Modules.Activity",
+      "CanDoItAll.Modules.Automation",
+      "CanDoItAll.Modules.CrmHr",
+      "CanDoItAll.Modules.Factory",
+      "CanDoItAll.Modules.Projects",
+      "CanDoItAll.Modules.Prompts",
+      "CanDoItAll.Modules.Resources",
+      "CanDoItAll.Modules.Security",
+      "CanDoItAll.Modules.TestLab",
+      "CanDoItAll.Modules.Validation",
+      "CanDoItAll.Modules.Workbench",
+      "CanDoItAll.Modules.Workspace",
+      "CanDoItAll.SharedKernel",
+      "CanDoItAll.Tests.Components",
+      "CanDoItAll.Tests.Integration",
+      "CanDoItAll.Tests.Playwright",
+      "CanDoItAll.Tests.Support",
+      "CanDoItAll.Tests.Unit",
+      "CanDoItAll.Web"
+    ],
+    "ValidationError": null,
+    "Results": [
+      {
+        "TargetKind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+        "Line": 30,
+        "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+        "Declaration": "interface CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+        "ContainerTypeDisplayName": null,
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+        "MemberId": null,
+        "MatchFields": [
+          0
+        ]
+      }
+    ]
+  },
+  "SelectedResult": {
+    "TargetKind": 0,
+    "ProjectName": "CanDoItAll.Infrastructure",
+    "ModuleName": "CanDoItAll.Infrastructure.Storage",
+    "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+    "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+    "Line": 30,
+    "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+    "Declaration": "interface CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+    "ContainerTypeDisplayName": null,
+    "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+    "MemberId": null,
+    "MatchFields": [
+      0
+    ]
+  },
+  "Definition": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "TargetKind": 0,
+    "ProjectName": "CanDoItAll.Infrastructure",
+    "ModuleName": "CanDoItAll.Infrastructure.Storage",
+    "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+    "Type": {
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+      "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+      "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-b4fffc602574",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-71b5ee4dc05f",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-692852dedce7"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+        "Line": 30,
+        "Column": 1,
+        "EndLine": 37,
+        "EndColumn": 2
+      }
+    },
+    "Member": null,
+    "Declaration": "interface CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+    "XmlSummary": null,
+    "Definition": {
+      "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+      "StartLine": 30,
+      "EndLine": 37,
+      "Code": "public interface IStorageDriverRegistry\r\n{\r\n    IReadOnlyCollection\u003CStorageProviderKind\u003E RegisteredKinds { get; }\r\n\r\n    bool TryResolve(StorageProviderKind providerKind, out IStorageDriver driver);\r\n\r\n    IStorageDriver Resolve(StorageProviderKind providerKind);\r\n}",
+      "IsTruncated": false
+    },
+    "ContainingTypeHeader": null
+  },
+  "Members": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "ProjectName": "CanDoItAll.Infrastructure",
+    "ModuleName": "CanDoItAll.Infrastructure.Storage",
+    "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+    "Type": {
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+      "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+      "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-b4fffc602574",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-71b5ee4dc05f",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-692852dedce7"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+        "Line": 30,
+        "Column": 1,
+        "EndLine": 37,
+        "EndColumn": 2
+      }
+    },
+    "Members": [
+      {
+        "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-71b5ee4dc05f",
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+        "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry.Resolve(CanDoItAll.Infrastructure.Storage.StorageProviderKind)",
+        "Kind": 1,
+        "ReturnTypeDisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriver",
+        "ParameterDisplayNames": [
+          "CanDoItAll.Infrastructure.Storage.StorageProviderKind"
+        ],
+        "Source": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+          "Line": 36,
+          "Column": 5,
+          "EndLine": 36,
+          "EndColumn": 62
+        }
+      },
+      {
+        "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-692852dedce7",
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+        "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry.TryResolve(CanDoItAll.Infrastructure.Storage.StorageProviderKind, out CanDoItAll.Infrastructure.Storage.IStorageDriver)",
+        "Kind": 1,
+        "ReturnTypeDisplayName": "bool",
+        "ParameterDisplayNames": [
+          "CanDoItAll.Infrastructure.Storage.StorageProviderKind",
+          "CanDoItAll.Infrastructure.Storage.IStorageDriver"
+        ],
+        "Source": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+          "Line": 34,
+          "Column": 5,
+          "EndLine": 34,
+          "EndColumn": 82
+        }
+      },
+      {
+        "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-b4fffc602574",
+        "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+        "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry.RegisteredKinds",
+        "Kind": 2,
+        "ReturnTypeDisplayName": "System.Collections.Generic.IReadOnlyCollection\u003CCanDoItAll.Infrastructure.Storage.StorageProviderKind\u003E",
+        "ParameterDisplayNames": [],
+        "Source": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+          "Line": 32,
+          "Column": 5,
+          "EndLine": 32,
+          "EndColumn": 70
+        }
+      }
+    ]
+  },
+  "Implementations": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "ProjectName": "CanDoItAll.Infrastructure",
+    "ModuleName": "CanDoItAll.Infrastructure.Storage",
+    "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+    "Type": {
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+      "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+      "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-b4fffc602574",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-71b5ee4dc05f",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-692852dedce7"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+        "Line": 30,
+        "Column": 1,
+        "EndLine": 37,
+        "EndColumn": 2
+      }
+    },
+    "Implementations": [
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "Type": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-d07e44e98bc6",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageDriverRegistry",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-dc6aadcb0260",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-1403045048d5",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-706f44b64a91",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-8e55ef7b52c5",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-83535804adf3"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageDriverRegistry.cs",
+            "Line": 3,
+            "Column": 1,
+            "EndLine": 22,
+            "EndColumn": 2
+          }
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Tests.Unit",
+        "ModuleName": "CanDoItAll.Tests.Unit",
+        "NamespaceName": "CanDoItAll.Tests.Unit",
+        "Type": {
+          "TypeId": "type-proj-candoitall-tests-unit-candoitall-tests-unit-st-c3392cf00b2b",
+          "ProjectId": "proj-candoitall-tests-unit",
+          "ModuleId": "mod-proj-candoitall-tests-unit-candoitall-tests-unit",
+          "NamespaceId": "ns-proj-candoitall-tests-unit-candoitall-tests-unit",
+          "DisplayName": "CanDoItAll.Tests.Unit.StorageAccessServiceTests.TestStorageDriverRegistry",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-4bd4f0286ada",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-a50a5dffb5c1",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-731e9dfbace5",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-72267895489d",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-79da9dd0e08d"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "tests/CanDoItAll.Tests.Unit/StorageAccessServiceTests.cs",
+            "Line": 139,
+            "Column": 5,
+            "EndLine": 150,
+            "EndColumn": 6
+          }
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Tests.Unit",
+        "ModuleName": "CanDoItAll.Tests.Unit",
+        "NamespaceName": "CanDoItAll.Tests.Unit",
+        "Type": {
+          "TypeId": "type-proj-candoitall-tests-unit-candoitall-tests-unit-st-a25836db0b8f",
+          "ProjectId": "proj-candoitall-tests-unit",
+          "ModuleId": "mod-proj-candoitall-tests-unit-candoitall-tests-unit",
+          "NamespaceId": "ns-proj-candoitall-tests-unit-candoitall-tests-unit",
+          "DisplayName": "CanDoItAll.Tests.Unit.StoragePlacementServiceTests.TestStorageDriverRegistry",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-7cf1cc3669fe",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-c8d5a01b6573",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-82c8690a1ac6",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-5123f7140552",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-bcd4dbf0048d"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "tests/CanDoItAll.Tests.Unit/StoragePlacementServiceTests.cs",
+            "Line": 139,
+            "Column": 5,
+            "EndLine": 150,
+            "EndColumn": 6
+          }
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Tests.Unit",
+        "ModuleName": "CanDoItAll.Tests.Unit",
+        "NamespaceName": "CanDoItAll.Tests.Unit",
+        "Type": {
+          "TypeId": "type-proj-candoitall-tests-unit-candoitall-tests-unit-st-3eaacfc27d7a",
+          "ProjectId": "proj-candoitall-tests-unit",
+          "ModuleId": "mod-proj-candoitall-tests-unit-candoitall-tests-unit",
+          "NamespaceId": "ns-proj-candoitall-tests-unit-candoitall-tests-unit",
+          "DisplayName": "CanDoItAll.Tests.Unit.StorageTransferPipelineTests.TestStorageDriverRegistry",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-d3c432e18cbe",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-3088c066b448",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-efb4df2ab38b",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-4fd63751901b",
+            "member-type-proj-candoitall-tests-unit-candoitall-tests-un-fb3155f8496a"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "tests/CanDoItAll.Tests.Unit/StorageTransferPipelineTests.cs",
+            "Line": 158,
+            "Column": 5,
+            "EndLine": 169,
+            "EndColumn": 6
+          }
+        }
+      }
+    ]
+  },
+  "References": {
+    "SnapshotId": "snap-20260408180223-123ebd81",
+    "TargetKind": 0,
+    "Type": {
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-34f587b06f0a",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+      "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+      "DisplayName": "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-b4fffc602574",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-71b5ee4dc05f",
+        "member-type-proj-candoitall-infrastructure-candoitall-infr-692852dedce7"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Abstractions/StorageContracts.cs",
+        "Line": 30,
+        "Column": 1,
+        "EndLine": 37,
+        "EndColumn": 2
+      }
+    },
+    "Member": null,
+    "TotalCount": 15,
+    "References": [
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-938286432905",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.LocalFileStore",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IFileStore",
+            "CanDoItAll.Infrastructure.Storage.IStorageCompatibilityFileStoreAdapter"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-85b3a96682e9",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-109c6b4972fa",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-1fc35fca87c1",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-b77647e5b2e6",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-9cb0fad3793b",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-9cd2f21c4b42"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/WorkspaceStorage.cs",
+            "Line": 181,
+            "Column": 1,
+            "EndLine": 256,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-1fc35fca87c1",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-938286432905",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.LocalFileStore.ResolveFileSystemDriverAsync(System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003C(CanDoItAll.Infrastructure.Storage.StorageCatalogRecord Storage, CanDoItAll.Infrastructure.Storage.IStorageDriver Driver)\u003E",
+          "ParameterDisplayNames": [
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/WorkspaceStorage.cs",
+            "Line": 251,
+            "Column": 5,
+            "EndLine": 255,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/WorkspaceStorage.cs",
+        "Line": 253,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/WorkspaceStorage.cs",
+          "StartLine": 253,
+          "EndLine": 255,
+          "Code": "        var storage = await catalogService.EnsureBootstrapFileSystemStorageAsync(cancellationToken);\r\n        return (storage, driverRegistry.Resolve(StorageProviderKind.FileSystem));\r\n    }",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-cec48eff2846",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageAccessService",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageAccessService"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-bff96aa40231",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-8ab98523ebd9",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-c39f63c16793",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-9c4e571a0eee",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-e306c50023c6",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-81979917abaa"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Access/StorageAccessService.cs",
+            "Line": 3,
+            "Column": 1,
+            "EndLine": 139,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-c39f63c16793",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-cec48eff2846",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageAccessService.ResolveCapabilityMask(CanDoItAll.Infrastructure.Storage.StorageObjectReference, CanDoItAll.Infrastructure.Storage.StorageCatalogRecord?)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "CanDoItAll.Infrastructure.Storage.StorageCapability",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.StorageObjectReference",
+            "CanDoItAll.Infrastructure.Storage.StorageCatalogRecord?"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Access/StorageAccessService.cs",
+            "Line": 35,
+            "Column": 5,
+            "EndLine": 61,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Access/StorageAccessService.cs",
+        "Line": 39,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Access/StorageAccessService.cs",
+          "StartLine": 39,
+          "EndLine": 41,
+          "Code": "            var capabilityMask = storage.CapabilityMask;\r\n            if (driverRegistry.TryResolve(storage.ProviderKind, out var driver))\r\n            {",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-144f77f5a0db",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageConnectionTestService",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageConnectionTestService"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-051e7771672e",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-69767c6532f3"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageConnectionTestService.cs",
+            "Line": 5,
+            "Column": 1,
+            "EndLine": 58,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-69767c6532f3",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-144f77f5a0db",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageConnectionTestService.TestAsync(System.Guid, System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.Infrastructure.Storage.StorageConnectionTestResult\u003E",
+          "ParameterDisplayNames": [
+            "System.Guid",
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageConnectionTestService.cs",
+            "Line": 11,
+            "Column": 5,
+            "EndLine": 57,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageConnectionTestService.cs",
+        "Line": 27,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageConnectionTestService.cs",
+          "StartLine": 27,
+          "EndLine": 29,
+          "Code": "        {\r\n            var driver = driverRegistry.Resolve(storage.ProviderKind);\r\n            var result = await driver.TestConnectionAsync(storage, secretValue, cancellationToken);",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ab8422f61c61",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StoragePlacementService",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStoragePlacementService"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f827231cd5e5",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-5e2f9bbe1437",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-7c84fa79a06d",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f025eab13562",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f20d6bf83c4a",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-901ffe7c0313",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-868d8432fe18"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Placement/StoragePlacementService.cs",
+            "Line": 5,
+            "Column": 1,
+            "EndLine": 200,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-f827231cd5e5",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ab8422f61c61",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StoragePlacementService.PlaceAsync(CanDoItAll.Infrastructure.Storage.StoragePlacementRequest, System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.Infrastructure.Storage.StoragePlacementResult\u003E",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.StoragePlacementRequest",
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Placement/StoragePlacementService.cs",
+            "Line": 11,
+            "Column": 5,
+            "EndLine": 65,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Placement/StoragePlacementService.cs",
+        "Line": 24,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Placement/StoragePlacementService.cs",
+          "StartLine": 24,
+          "EndLine": 26,
+          "Code": "\r\n        if (!driverRegistry.TryResolve(storage.ProviderKind, out var driver))\r\n        {",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ad658459211b",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageTransferPipeline",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageTransferPipeline"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-ce90cc5fd2bb",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-bf3fceebe01a",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-50aed2a0d093",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-0244ecf7098b",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-232f4fc2abc1",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-839efa6c8efb",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f9410c336b9e",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-d44e31318486",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-80def3ce2fa1",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f89f01eceb96"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Transfers/StorageTransferPipeline.cs",
+            "Line": 7,
+            "Column": 1,
+            "EndLine": 343,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-bf3fceebe01a",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ad658459211b",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageTransferPipeline.ExecuteAsync(CanDoItAll.Infrastructure.Storage.StorageTransferManifest, System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.Infrastructure.Storage.StorageTransferResult\u003E",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.StorageTransferManifest",
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Transfers/StorageTransferPipeline.cs",
+            "Line": 13,
+            "Column": 5,
+            "EndLine": 119,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Transfers/StorageTransferPipeline.cs",
+        "Line": 27,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Transfers/StorageTransferPipeline.cs",
+          "StartLine": 27,
+          "EndLine": 29,
+          "Code": "            ?? await ResolveStorageAsync(manifest.TargetStorageId, \u0022target\u0022, cancellationToken);\r\n        var sourceDriver = driverRegistry.Resolve(sourceStorage.ProviderKind);\r\n        var targetDriver = driverRegistry.Resolve(targetStorage.ProviderKind);",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 4,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-938286432905",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.LocalFileStore",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IFileStore",
+            "CanDoItAll.Infrastructure.Storage.IStorageCompatibilityFileStoreAdapter"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-85b3a96682e9",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-109c6b4972fa",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-1fc35fca87c1",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-b77647e5b2e6",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-9cb0fad3793b",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-9cd2f21c4b42"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/WorkspaceStorage.cs",
+            "Line": 181,
+            "Column": 1,
+            "EndLine": 256,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-85b3a96682e9",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-938286432905",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.LocalFileStore.LocalFileStore(CanDoItAll.Infrastructure.Storage.IWorkspacePathAccessGuard, CanDoItAll.Infrastructure.Storage.IStorageCatalogService, CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry)",
+          "Kind": 0,
+          "ReturnTypeDisplayName": "LocalFileStore",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IWorkspacePathAccessGuard",
+            "CanDoItAll.Infrastructure.Storage.IStorageCatalogService",
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/WorkspaceStorage.cs",
+            "Line": 181,
+            "Column": 1,
+            "EndLine": 256,
+            "EndColumn": 2
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/WorkspaceStorage.cs",
+        "Line": 183,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/WorkspaceStorage.cs",
+          "StartLine": 183,
+          "EndLine": 185,
+          "Code": "    IStorageCatalogService catalogService,\r\n    IStorageDriverRegistry driverRegistry) : IFileStore, IStorageCompatibilityFileStoreAdapter\r\n{",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 4,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-cec48eff2846",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageAccessService",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageAccessService"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-bff96aa40231",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-8ab98523ebd9",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-c39f63c16793",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-9c4e571a0eee",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-e306c50023c6",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-81979917abaa"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Access/StorageAccessService.cs",
+            "Line": 3,
+            "Column": 1,
+            "EndLine": 139,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-e306c50023c6",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-cec48eff2846",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageAccessService.StorageAccessService(CanDoItAll.Infrastructure.Storage.IStorageCatalogService, CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry, CanDoItAll.Infrastructure.Storage.IWorkspacePathResolver)",
+          "Kind": 0,
+          "ReturnTypeDisplayName": "StorageAccessService",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageCatalogService",
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+            "CanDoItAll.Infrastructure.Storage.IWorkspacePathResolver"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Access/StorageAccessService.cs",
+            "Line": 3,
+            "Column": 1,
+            "EndLine": 139,
+            "EndColumn": 2
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Access/StorageAccessService.cs",
+        "Line": 4,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Access/StorageAccessService.cs",
+          "StartLine": 4,
+          "EndLine": 6,
+          "Code": "    IStorageCatalogService catalogService,\r\n    IStorageDriverRegistry driverRegistry,\r\n    IWorkspacePathResolver workspacePathResolver) : IStorageAccessService",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 4,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-144f77f5a0db",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageConnectionTestService",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageConnectionTestService"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-051e7771672e",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-69767c6532f3"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageConnectionTestService.cs",
+            "Line": 5,
+            "Column": 1,
+            "EndLine": 58,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-051e7771672e",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-144f77f5a0db",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageConnectionTestService.StorageConnectionTestService(CanDoItAll.Infrastructure.Storage.IStorageCatalogService, CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry, CanDoItAll.Infrastructure.Storage.IStorageSecretResolver, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.Storage.StorageConnectionTestService\u003E)",
+          "Kind": 0,
+          "ReturnTypeDisplayName": "StorageConnectionTestService",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageCatalogService",
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+            "CanDoItAll.Infrastructure.Storage.IStorageSecretResolver",
+            "Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.Storage.StorageConnectionTestService\u003E"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageConnectionTestService.cs",
+            "Line": 5,
+            "Column": 1,
+            "EndLine": 58,
+            "EndColumn": 2
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageConnectionTestService.cs",
+        "Line": 6,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Drivers/StorageConnectionTestService.cs",
+          "StartLine": 6,
+          "EndLine": 8,
+          "Code": "    IStorageCatalogService catalogService,\r\n    IStorageDriverRegistry driverRegistry,\r\n    IStorageSecretResolver secretResolver,",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 4,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ab8422f61c61",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StoragePlacementService",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStoragePlacementService"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f827231cd5e5",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-5e2f9bbe1437",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-7c84fa79a06d",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f025eab13562",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f20d6bf83c4a",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-901ffe7c0313",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-868d8432fe18"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Placement/StoragePlacementService.cs",
+            "Line": 5,
+            "Column": 1,
+            "EndLine": 200,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-901ffe7c0313",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ab8422f61c61",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StoragePlacementService.StoragePlacementService(CanDoItAll.Infrastructure.Storage.IStorageCatalogService, CanDoItAll.Infrastructure.Storage.IStorageRoutingService, CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.Storage.StoragePlacementService\u003E)",
+          "Kind": 0,
+          "ReturnTypeDisplayName": "StoragePlacementService",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageCatalogService",
+            "CanDoItAll.Infrastructure.Storage.IStorageRoutingService",
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+            "Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.Storage.StoragePlacementService\u003E"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Placement/StoragePlacementService.cs",
+            "Line": 5,
+            "Column": 1,
+            "EndLine": 200,
+            "EndColumn": 2
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Placement/StoragePlacementService.cs",
+        "Line": 7,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Placement/StoragePlacementService.cs",
+          "StartLine": 7,
+          "EndLine": 9,
+          "Code": "    IStorageRoutingService routingService,\r\n    IStorageDriverRegistry driverRegistry,\r\n    ILogger\u003CStoragePlacementService\u003E logger) : IStoragePlacementService",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 4,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.Storage",
+        "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ad658459211b",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastructure-storage",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageTransferPipeline",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageTransferPipeline"
+          ],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-ce90cc5fd2bb",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-bf3fceebe01a",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-50aed2a0d093",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-0244ecf7098b",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-232f4fc2abc1",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-839efa6c8efb",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f9410c336b9e",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-d44e31318486",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-80def3ce2fa1",
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-f89f01eceb96"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Transfers/StorageTransferPipeline.cs",
+            "Line": 7,
+            "Column": 1,
+            "EndLine": 343,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-839efa6c8efb",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ad658459211b",
+          "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageTransferPipeline.StorageTransferPipeline(CanDoItAll.Infrastructure.Storage.IStorageCatalogService, CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry, CanDoItAll.Infrastructure.Storage.IStorageSecretResolver, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.Storage.StorageTransferPipeline\u003E)",
+          "Kind": 0,
+          "ReturnTypeDisplayName": "StorageTransferPipeline",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Infrastructure.Storage.IStorageCatalogService",
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+            "CanDoItAll.Infrastructure.Storage.IStorageSecretResolver",
+            "Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.Storage.StorageTransferPipeline\u003E"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/Storage/Transfers/StorageTransferPipeline.cs",
+            "Line": 7,
+            "Column": 1,
+            "EndLine": 343,
+            "EndColumn": 2
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/Storage/Transfers/StorageTransferPipeline.cs",
+        "Line": 8,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/Storage/Transfers/StorageTransferPipeline.cs",
+          "StartLine": 8,
+          "EndLine": 10,
+          "Code": "    IStorageCatalogService catalogService,\r\n    IStorageDriverRegistry driverRegistry,\r\n    IStorageSecretResolver secretResolver,",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 10,
+        "ProjectName": "CanDoItAll.Infrastructure",
+        "ModuleName": "CanDoItAll.Infrastructure.DependencyInjection",
+        "NamespaceName": "CanDoItAll.Infrastructure.DependencyInjection",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-6bf44f214e5f",
+          "ProjectId": "proj-candoitall-infrastructure",
+          "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastru-a5a92cd283ca",
+          "NamespaceId": "ns-proj-candoitall-infrastructure-candoitall-infrastru-a5a92cd283ca",
+          "DisplayName": "CanDoItAll.Infrastructure.DependencyInjection.InfrastructureServiceCollectionExtensions",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [],
+          "MemberIds": [
+            "member-type-proj-candoitall-infrastructure-candoitall-infr-5ee4e5c0f5cf"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+            "Line": 20,
+            "Column": 1,
+            "EndLine": 108,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-5ee4e5c0f5cf",
+          "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-6bf44f214e5f",
+          "DisplayName": "CanDoItAll.Infrastructure.DependencyInjection.InfrastructureServiceCollectionExtensions.AddCanDoItAllInfrastructure(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, Microsoft.Extensions.Hosting.IHostEnvironment, System.Collections.Generic.IReadOnlyList\u003CSystem.Reflection.Assembly\u003E)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+          "ParameterDisplayNames": [
+            "Microsoft.Extensions.DependencyInjection.IServiceCollection",
+            "Microsoft.Extensions.Configuration.IConfiguration",
+            "Microsoft.Extensions.Hosting.IHostEnvironment",
+            "System.Collections.Generic.IReadOnlyList\u003CSystem.Reflection.Assembly\u003E"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+            "Line": 22,
+            "Column": 5,
+            "EndLine": 107,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+        "Line": 89,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+          "StartLine": 89,
+          "EndLine": 91,
+          "Code": "        services.AddSingleton\u003CIStorageDriver, FtpStorageDriver\u003E();\r\n        services.AddSingleton\u003CIStorageDriverRegistry, StorageDriverRegistry\u003E();\r\n        services.AddSingleton\u003CIStorageRoutingService, DefaultStorageRoutingService\u003E();",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Modules.Workspace",
+        "ModuleName": "CanDoItAll.Modules.Workspace",
+        "NamespaceName": "CanDoItAll.Modules.Workspace",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-modules-workspace-candoitall-module-7f3a53f593fa",
+          "ProjectId": "proj-candoitall-modules-workspace",
+          "ModuleId": "mod-proj-candoitall-modules-workspace-candoitall-modules-workspace",
+          "NamespaceId": "ns-proj-candoitall-modules-workspace-candoitall-modules-workspace",
+          "DisplayName": "CanDoItAll.Modules.Workspace.WorkspaceService",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [],
+          "MemberIds": [
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-521bc489fbb9",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-0353b88fd94f",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-08a9dce988c4",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-e0e33fa7d781",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-bd2cc298a64d",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-fa13eda2f249",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-8ae6e341d03d",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-f38f326de9b6",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-18c13102f22f",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-16da2073d3de",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-24bf3d5f7833",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-441cddfe89ed",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-edf0e655162a",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-ea214d78afae",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-01e2a65776b4",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-ef0bb45ef1d0",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-2517bb975544",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-1ae508f35f2a",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-d2e57a9a9713",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-55bc6b45c2f5",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-d6a77aa34c55",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-cdaae031fc90",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-98625c7d471c",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-0161819198c0",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-6d8147e5a4ea",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-3c534f853429",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-362f61e3c759",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-9a9e123290d4"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Modules.Workspace/WorkspaceModels.cs",
+            "Line": 140,
+            "Column": 1,
+            "EndLine": 479,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-modules-workspace-candoitall-m-3c534f853429",
+          "TypeId": "type-proj-candoitall-modules-workspace-candoitall-module-7f3a53f593fa",
+          "DisplayName": "CanDoItAll.Modules.Workspace.WorkspaceService.TestStorageAsync(CanDoItAll.Modules.Workspace.StorageCatalogEditorModel, System.Threading.CancellationToken)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.Modules.Workspace.StorageCatalogTestResult\u003E",
+          "ParameterDisplayNames": [
+            "CanDoItAll.Modules.Workspace.StorageCatalogEditorModel",
+            "System.Threading.CancellationToken"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Modules.Workspace/WorkspaceService.Storage.cs",
+            "Line": 172,
+            "Column": 5,
+            "EndLine": 255,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Modules.Workspace/WorkspaceService.Storage.cs",
+        "Line": 198,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Modules.Workspace/WorkspaceService.Storage.cs",
+          "StartLine": 198,
+          "EndLine": 200,
+          "Code": "\r\n        if (!storageDriverRegistry.TryResolve(record.ProviderKind, out var driver))\r\n        {",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 0,
+        "ProjectName": "CanDoItAll.Web",
+        "ModuleName": "CanDoItAll.Web.Infrastructure",
+        "NamespaceName": "CanDoItAll.Web.Infrastructure",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-m-6f77ef1b936c",
+          "ProjectId": "proj-candoitall-web",
+          "ModuleId": "mod-proj-candoitall-web-candoitall-web-infrastructure",
+          "NamespaceId": "ns-proj-candoitall-web-candoitall-web-infrastructure",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.ManagedFilesEndpointRoutes",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [],
+          "MemberIds": [
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-67a0e886808d",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-e0bbef0a431c",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-c52198993892",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-eae1d74570c6",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-d6e5ff40f0af",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-301954737d32",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-9b62a8c49a3b",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-db0d2d1e0d4c",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-d4be63ff7ae9"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/ManagedFilesEndpointRoutes.cs",
+            "Line": 9,
+            "Column": 1,
+            "EndLine": 185,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-web-candoitall-web-infrastruct-9b62a8c49a3b",
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-m-6f77ef1b936c",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.ManagedFilesEndpointRoutes.HandleStorageObjectRequestAsync(Microsoft.AspNetCore.Http.HttpContext, bool, CanDoItAll.Infrastructure.Storage.IStorageAccessService, CanDoItAll.Infrastructure.Storage.IStorageCatalogService, CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CMicrosoft.AspNetCore.Http.IResult\u003E",
+          "ParameterDisplayNames": [
+            "Microsoft.AspNetCore.Http.HttpContext",
+            "bool",
+            "CanDoItAll.Infrastructure.Storage.IStorageAccessService",
+            "CanDoItAll.Infrastructure.Storage.IStorageCatalogService",
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/ManagedFilesEndpointRoutes.cs",
+            "Line": 50,
+            "Column": 5,
+            "EndLine": 93,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Web/Infrastructure/ManagedFilesEndpointRoutes.cs",
+        "Line": 84,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Web/Infrastructure/ManagedFilesEndpointRoutes.cs",
+          "StartLine": 84,
+          "EndLine": 86,
+          "Code": "        var storage = storageResolution.Storage!;\r\n        var driver = driverRegistry.Resolve(storage.ProviderKind);\r\n        var stream = await driver.OpenReadAsync(storage, reference, httpContext.RequestAborted);",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 4,
+        "ProjectName": "CanDoItAll.Modules.Workspace",
+        "ModuleName": "CanDoItAll.Modules.Workspace",
+        "NamespaceName": "CanDoItAll.Modules.Workspace",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-modules-workspace-candoitall-module-7f3a53f593fa",
+          "ProjectId": "proj-candoitall-modules-workspace",
+          "ModuleId": "mod-proj-candoitall-modules-workspace-candoitall-modules-workspace",
+          "NamespaceId": "ns-proj-candoitall-modules-workspace-candoitall-modules-workspace",
+          "DisplayName": "CanDoItAll.Modules.Workspace.WorkspaceService",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [],
+          "MemberIds": [
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-521bc489fbb9",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-0353b88fd94f",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-08a9dce988c4",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-e0e33fa7d781",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-bd2cc298a64d",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-fa13eda2f249",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-8ae6e341d03d",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-f38f326de9b6",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-18c13102f22f",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-16da2073d3de",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-24bf3d5f7833",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-441cddfe89ed",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-edf0e655162a",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-ea214d78afae",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-01e2a65776b4",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-ef0bb45ef1d0",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-2517bb975544",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-1ae508f35f2a",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-d2e57a9a9713",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-55bc6b45c2f5",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-d6a77aa34c55",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-cdaae031fc90",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-98625c7d471c",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-0161819198c0",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-6d8147e5a4ea",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-3c534f853429",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-362f61e3c759",
+            "member-type-proj-candoitall-modules-workspace-candoitall-m-9a9e123290d4"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Modules.Workspace/WorkspaceModels.cs",
+            "Line": 140,
+            "Column": 1,
+            "EndLine": 479,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-modules-workspace-candoitall-m-9a9e123290d4",
+          "TypeId": "type-proj-candoitall-modules-workspace-candoitall-module-7f3a53f593fa",
+          "DisplayName": "CanDoItAll.Modules.Workspace.WorkspaceService.WorkspaceService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Security.SecretService, CanDoItAll.Modules.Workspace.ProviderRegistry, CanDoItAll.Infrastructure.Storage.IStorageCatalogService, CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry, CanDoItAll.SharedKernel.IActivityStream)",
+          "Kind": 0,
+          "ReturnTypeDisplayName": "WorkspaceService",
+          "ParameterDisplayNames": [
+            "Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E",
+            "CanDoItAll.SharedKernel.IClock",
+            "CanDoItAll.Modules.Security.SecretService",
+            "CanDoItAll.Modules.Workspace.ProviderRegistry",
+            "CanDoItAll.Infrastructure.Storage.IStorageCatalogService",
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry",
+            "CanDoItAll.SharedKernel.IActivityStream"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Modules.Workspace/WorkspaceModels.cs",
+            "Line": 140,
+            "Column": 1,
+            "EndLine": 479,
+            "EndColumn": 2
+          }
+        },
+        "Path": "src/CanDoItAll.Modules.Workspace/WorkspaceModels.cs",
+        "Line": 145,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Modules.Workspace/WorkspaceModels.cs",
+          "StartLine": 145,
+          "EndLine": 147,
+          "Code": "    IStorageCatalogService storageCatalogService,\r\n    IStorageDriverRegistry storageDriverRegistry,\r\n    IActivityStream activityStream)",
+          "IsTruncated": false
+        }
+      },
+      {
+        "Kind": 5,
+        "ProjectName": "CanDoItAll.Web",
+        "ModuleName": "CanDoItAll.Web.Infrastructure",
+        "NamespaceName": "CanDoItAll.Web.Infrastructure",
+        "SourceType": {
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-m-6f77ef1b936c",
+          "ProjectId": "proj-candoitall-web",
+          "ModuleId": "mod-proj-candoitall-web-candoitall-web-infrastructure",
+          "NamespaceId": "ns-proj-candoitall-web-candoitall-web-infrastructure",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.ManagedFilesEndpointRoutes",
+          "Kind": 0,
+          "BaseTypeDisplayName": null,
+          "InterfaceDisplayNames": [],
+          "MemberIds": [
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-67a0e886808d",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-e0bbef0a431c",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-c52198993892",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-eae1d74570c6",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-d6e5ff40f0af",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-301954737d32",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-9b62a8c49a3b",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-db0d2d1e0d4c",
+            "member-type-proj-candoitall-web-candoitall-web-infrastruct-d4be63ff7ae9"
+          ],
+          "XmlSummary": null,
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/ManagedFilesEndpointRoutes.cs",
+            "Line": 9,
+            "Column": 1,
+            "EndLine": 185,
+            "EndColumn": 2
+          }
+        },
+        "SourceMember": {
+          "MemberId": "member-type-proj-candoitall-web-candoitall-web-infrastruct-301954737d32",
+          "TypeId": "type-proj-candoitall-web-candoitall-web-infrastructure-m-6f77ef1b936c",
+          "DisplayName": "CanDoItAll.Web.Infrastructure.ManagedFilesEndpointRoutes.HandleStorageObjectPreviewRequest(Microsoft.AspNetCore.Http.HttpContext, CanDoItAll.Infrastructure.Storage.IStorageAccessService, CanDoItAll.Infrastructure.Storage.IStorageCatalogService, CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry)",
+          "Kind": 1,
+          "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CMicrosoft.AspNetCore.Http.IResult\u003E",
+          "ParameterDisplayNames": [
+            "Microsoft.AspNetCore.Http.HttpContext",
+            "CanDoItAll.Infrastructure.Storage.IStorageAccessService",
+            "CanDoItAll.Infrastructure.Storage.IStorageCatalogService",
+            "CanDoItAll.Infrastructure.Storage.IStorageDriverRegistry"
+          ],
+          "Source": {
+            "Path": "src/CanDoItAll.Web/Infrastructure/ManagedFilesEndpointRoutes.cs",
+            "Line": 22,
+            "Column": 5,
+            "EndLine": 34,
+            "EndColumn": 6
+          }
+        },
+        "Path": "src/CanDoItAll.Web/Infrastructure/ManagedFilesEndpointRoutes.cs",
+        "Line": 25,
+        "ContextExcerpt": {
+          "Path": "src/CanDoItAll.Web/Infrastructure/ManagedFilesEndpointRoutes.cs",
+          "StartLine": 25,
+          "EndLine": 27,
+          "Code": "        IStorageCatalogService catalogService,\r\n        IStorageDriverRegistry driverRegistry)\r\n    {",
+          "IsTruncated": false
+        }
+      }
+    ]
+  }
+}
