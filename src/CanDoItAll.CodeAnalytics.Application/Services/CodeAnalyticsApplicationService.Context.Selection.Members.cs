@@ -39,13 +39,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                 break;
             }
 
-            var next = candidates
-                .Select(item => new ScoredMemberCandidate(membersById[item.Key], item.Value))
-                .OrderByDescending(item => item.Score)
-                .ThenBy(item => item.Member.DisplayName, StringComparer.Ordinal)
-                .Take(remaining)
-                .Select(item => item.Member.MemberId)
-                .ToHashSet(StringComparer.Ordinal);
+            var next = SelectNextMemberFrontier(candidates, membersById, typesById, seedType, remaining);
 
             foreach (var memberId in next) {
                 selected.Add(memberId);
@@ -147,7 +141,7 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         score += member.Kind switch {
             MemberKind.Method => 18,
-            MemberKind.Constructor => 16,
+            MemberKind.Constructor => 8,
             MemberKind.Property => 10,
             MemberKind.Field => 8,
             _ => 0,
@@ -169,6 +163,63 @@ public sealed partial class CodeAnalyticsApplicationService {
             type.DisplayName,
             type.Source.Path);
         return score;
+    }
+
+    private static HashSet<string> SelectNextMemberFrontier(
+        IReadOnlyDictionary<string, int> candidates,
+        IReadOnlyDictionary<string, MemberFact> membersById,
+        IReadOnlyDictionary<string, TypeFact> typesById,
+        TypeFact? seedType,
+        int remaining) {
+        var selected = new HashSet<string>(StringComparer.Ordinal);
+        var selectedPerType = new Dictionary<string, int>(StringComparer.Ordinal);
+        var selectedPerProject = new Dictionary<string, int>(StringComparer.Ordinal);
+        var externalProjects = new HashSet<string>(StringComparer.Ordinal);
+        var seedProjectId = seedType?.ProjectId;
+
+        foreach (var candidate in candidates
+                     .Select(item => new ScoredMemberCandidate(membersById[item.Key], item.Value))
+                     .OrderByDescending(item => item.Score)
+                     .ThenBy(item => item.Member.DisplayName, StringComparer.Ordinal)) {
+            if (selected.Count >= remaining) {
+                break;
+            }
+
+            if (!typesById.TryGetValue(candidate.Member.TypeId, out var type)) {
+                continue;
+            }
+
+            var typeCount = selectedPerType.TryGetValue(type.TypeId, out var resolvedTypeCount)
+                ? resolvedTypeCount
+                : 0;
+            if (typeCount >= MaxFrontierMembersPerType) {
+                continue;
+            }
+
+            var isSeedProject = string.Equals(type.ProjectId, seedProjectId, StringComparison.Ordinal);
+            var projectLimit = isSeedProject
+                ? MaxFrontierMembersInSeedProject
+                : MaxFrontierMembersPerExternalProject;
+            var projectCount = selectedPerProject.TryGetValue(type.ProjectId, out var resolvedProjectCount)
+                ? resolvedProjectCount
+                : 0;
+            if (projectCount >= projectLimit) {
+                continue;
+            }
+
+            if (!isSeedProject && !externalProjects.Contains(type.ProjectId) && externalProjects.Count >= MaxFrontierExternalProjects) {
+                continue;
+            }
+
+            selected.Add(candidate.Member.MemberId);
+            selectedPerType[type.TypeId] = typeCount + 1;
+            selectedPerProject[type.ProjectId] = projectCount + 1;
+            if (!isSeedProject) {
+                externalProjects.Add(type.ProjectId);
+            }
+        }
+
+        return selected;
     }
 
     private sealed record ScoredMemberCandidate(MemberFact Member, int Score);

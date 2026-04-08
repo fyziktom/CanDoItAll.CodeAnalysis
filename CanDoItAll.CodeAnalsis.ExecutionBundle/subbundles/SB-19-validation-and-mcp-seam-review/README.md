@@ -6,7 +6,7 @@
 
 ## Objective
 
-- Run the full reopened validation matrix, compare the new workflow against SharpTools, and confirm the future MCP seam remains thin.
+- Rerun the validation matrix after the comparison-driven fixes, compare the three host cases against SharpTools with an explicit rubric, and confirm the future MCP seam remains thin.
 
 ## Covered Inputs
 
@@ -15,6 +15,8 @@
 - Compare with SharpTools call count and context cost
 - Explain how to make it better if the savings are still weak
 - Explain what feedback the new tuning page needs for the next heuristic pass
+- Analyze one database, one common-helper, and one UI case explicitly
+- Compare helpfulness and noise, not only counts
 
 ## Prerequisites
 
@@ -36,6 +38,7 @@
 - SharpTools comparison analysis
 - Tuning-feedback guidance
 - Updated bundle closure evidence
+- Explicit three-case rubric and before-versus-after rerun notes
 
 ## Dependency Impact
 
@@ -48,8 +51,8 @@
 ## Implementation Steps
 
 1. Run the full validation matrix.
-2. Rerun host analysis and compare outputs against SharpTools probing.
-3. Review what the tuning page reveals about noisy versus useful excerpts and record the next feedback loop explicitly.
+2. Rerun the database, helper, and UI comparison cases in the improved lab.
+3. Compare those same cases against SharpTools with an explicit usefulness, noise, and operator-cost rubric.
 4. Review the future MCP seam and record residual risks honestly.
 
 ## Do Not Do
@@ -63,6 +66,8 @@
 - The comparison against SharpTools is evidence-based.
 - The tuning guidance is explicit enough to shape the next heuristic pass.
 - Residual risks and next improvements are explicit.
+- The helper case is no longer blocked by a correctness failure.
+- The comparison explains where focused context should stop and hand over to SharpTools instead of pretending one tool should do both jobs.
 
 ## Proof Required
 
@@ -72,6 +77,7 @@
 - SharpTools call log and comparison notes
 - Tuning-feedback write-up tied to the lab page output
 - Final bundle validator pass
+- Before-and-after notes for the database, helper, and UI cases
 
 ## Browser Validation Logging
 
@@ -81,6 +87,17 @@
 
 - Final closure passes only if the reopened value claim is supported by actual evidence.
 
+## Completion Notes
+
+- Final validation commands passed:
+  - `dotnet build C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.slnx -nologo`
+  - `dotnet test C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.slnx -nologo`
+- Host rerun summary:
+  - `AppDbContext` improved materially and is now a useful first-pass bundle.
+  - `IClock` no longer fails, but still needs another helper-specific tuning pass.
+  - `CanvasSceneHost` remained a strong focused case.
+- The future MCP seam remains thin. The remaining issue is scoring policy for high-reuse helper symbols, not architecture boundary drift.
+
 ## Suggested Agent Prompt
 
-Close the reopened initiative with evidence. Measure context savings honestly and preserve the thin future MCP seam.
+Close the new reopen with evidence. Measure where the improved focused-context flow beats SharpTools, where it still should hand off, and whether the helper crash and broad-noise defects are truly closed.

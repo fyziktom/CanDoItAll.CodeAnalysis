@@ -16,6 +16,11 @@
 - `REQ-018`: Return grouped per-file excerpts with selected code blocks, source anchors, and line-count stats so the result is reviewable without whole-file loading.
 - `REQ-019`: Provide a dedicated tuning UI where the user can select a solution or project scope, enter prompt text, add tags, run analysis, and inspect accordion-based file results.
 - `REQ-020`: Record enough visible evidence in the lab flow that future tuning feedback can say which excerpts were helpful or noisy.
+- `REQ-021`: Evaluate the focused-context flow against SharpTools on at least one database, one common-helper, and one UI search against `C:\repositories\CanDoItAll\CanDoItAll.slnx` using an explicit quality rubric.
+- `REQ-022`: Eliminate focused-context failures caused by duplicate normalized source paths such as package-backed generated files reused across projects.
+- `REQ-023`: Reduce noise for broad type and helper searches by improving seed-member choice, fan-out control, and representative excerpt selection.
+- `REQ-024`: Preserve or improve first-pass usefulness for narrow UI searches while tightening noisy database and helper cases.
+- `REQ-025`: Refactor the focused-context application and UI code to improve readability, structure, and standard best practice without widening the transport seam.
 
 ## Quality requirements
 
@@ -24,6 +29,7 @@
 - `REQ-012`: Keep the application layer transport-agnostic.
 - `REQ-013`: Keep the future `CanDoItAll.Mcp.CodeAnalytics` seam thin.
 - `REQ-014`: Validate with builds, tests, Mermaid rendering, Playwright proof, and host-solution comparison.
+- `REQ-026`: Validate the improvement pass with the same three-case comparison matrix so the benefit is measured instead of assumed.
 - `REQ-015`: Update the bundle, workbook, traceability, and execution evidence to the current workflow standard.
 
 ## Non-goals for this cycle

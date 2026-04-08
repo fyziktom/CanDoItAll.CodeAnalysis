@@ -8,6 +8,7 @@
 - Function-level context will be materially useful even if the first version uses bounded static call and type dependency traversal rather than perfect whole-program flow analysis.
 - The first tag system can be heuristic and keyword-driven as long as the applied tags and their effect remain visible in the UI.
 - The dedicated lab page may build or reuse snapshots synchronously for now because cache reuse keeps repeated tuning runs practical in the standalone tool.
+- The next pass should reopen the existing bundle instead of creating a second bundle root because the new work is a direct consequence of the completed focused-context cycle.
 
 ## Critical Path Risks
 
@@ -17,6 +18,8 @@
 - Reopened bundle execution can drift if old completed subbundles and new active subbundles are not separated cleanly in the phase plan.
 - Free-text seed resolution can pick the wrong member if diagnostic text, helper names, and overloaded symbols are not scored carefully.
 - Excerpt generation can become misleading if line spans are too shallow, too wide, or grouped incorrectly across files.
+- Shared helper analysis can fail entirely if duplicate normalized document paths from package-backed generated files are still treated as unique dictionary keys.
+- Broad type queries can remain misleading if constructor-first seed selection keeps dragging the neighborhood toward factories and consumers instead of the most explanatory member.
 
 ## Validation Risks
 
@@ -26,11 +29,13 @@
 - The context query can look useful in JSON but still fail the “saves calls and context” test unless it is compared directly with SharpTools probing.
 - The lab page can look convincing while still hiding noisy excerpt grouping unless screenshot review checks readability, accordion hierarchy, and stats clarity.
 - Build and test validation can report false failures if lingering `testhost` processes keep binaries locked; clean reruns must isolate that tooling issue from product regressions.
+- The comparison can still be misleading if only line counts are measured. The reopen must score helpfulness, noise, and operator effort explicitly.
 
 ## Reopen Triggers
 
 - Reopen `SB-15` if any later subbundle exposes wrong source-of-truth placement or oversized files regrow without ownership cleanup.
 - Reopen `SB-16` if host-solution diagrams are still noisy or EF relationships remain obviously under-reported.
 - Reopen `SB-17` if the focused context query still requires whole-file reading, cannot resolve free-text seeds reliably, or returns excerpts that are not bounded enough.
+- Reopen `SB-17` if duplicate source-path collisions still break common-helper searches or if type/helper seeds still explode into broad low-value context.
 - Reopen `SB-18` if Playwright proof shows the lab page cannot drive the new context exploration path clearly or if the accordion output is visually noisy.
 - Reopen `SB-19` if the future MCP seam thickens, the tuning feedback remains vague, or the snapshot versus SharpTools comparison still shows poor context savings.

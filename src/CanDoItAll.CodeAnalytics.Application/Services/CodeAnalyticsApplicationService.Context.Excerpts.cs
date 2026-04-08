@@ -12,8 +12,10 @@ public sealed partial class CodeAnalyticsApplicationService {
         MemberFact? seedMember,
         IReadOnlyList<TypeFact> selectedTypes,
         IReadOnlyList<MemberFact> selectedMembers,
+        IReadOnlyDictionary<string, IReadOnlyList<MemberFact>> membersByTypeId,
+        IReadOnlyCollection<string> focusTags,
         CancellationToken cancellationToken) {
-        var fileCandidates = CreateExcerptCandidates(seedType, seedMember, selectedTypes, selectedMembers)
+        var fileCandidates = CreateExcerptCandidates(seedType, seedMember, selectedTypes, selectedMembers, membersByTypeId, focusTags)
             .GroupBy(item => NormalizePath(item.Source.Path), StringComparer.OrdinalIgnoreCase)
             .OrderByDescending(group => group.Max(item => item.Priority))
             .ThenBy(group => group.Key, StringComparer.Ordinal)
@@ -24,10 +26,12 @@ public sealed partial class CodeAnalyticsApplicationService {
         }
 
         var workspaceRoot = Path.GetDirectoryName(snapshot.Request.SolutionPath)!;
-        var documentLineCounts = snapshot.Facts.Documents.ToDictionary(
-            item => NormalizePath(item.Path),
-            item => item.LineCount,
-            StringComparer.OrdinalIgnoreCase);
+        var documentLineCounts = snapshot.Facts.Documents
+            .GroupBy(item => NormalizePath(item.Path), StringComparer.OrdinalIgnoreCase)
+            .ToDictionary(
+                group => group.Key,
+                group => group.Max(item => item.LineCount),
+                StringComparer.OrdinalIgnoreCase);
         var typesByPath = selectedTypes
             .GroupBy(item => NormalizePath(item.Source.Path), StringComparer.OrdinalIgnoreCase)
             .ToDictionary(
@@ -91,7 +95,9 @@ public sealed partial class CodeAnalyticsApplicationService {
         TypeFact? seedType,
         MemberFact? seedMember,
         IReadOnlyList<TypeFact> selectedTypes,
-        IReadOnlyList<MemberFact> selectedMembers) {
+        IReadOnlyList<MemberFact> selectedMembers,
+        IReadOnlyDictionary<string, IReadOnlyList<MemberFact>> membersByTypeId,
+        IReadOnlyCollection<string> focusTags) {
         var candidates = new List<ExcerptCandidate>();
 
         foreach (var member in selectedMembers.Take(MaxExcerptBlocks)) {
@@ -111,18 +117,64 @@ public sealed partial class CodeAnalyticsApplicationService {
             .Select(item => NormalizePath(item.Source.Path))
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
         foreach (var type in selectedTypes.Where(item => !representedPaths.Contains(NormalizePath(item.Source.Path))).Take(MaxExcerptBlocks)) {
+            if (membersByTypeId.TryGetValue(type.TypeId, out var members)) {
+                foreach (var member in RankRepresentativeMembers(type, members, focusTags).Take(MaxRepresentativeMembersPerType)) {
+                    candidates.Add(
+                        new ExcerptCandidate(
+                            member.Source,
+                            member.DisplayName,
+                            member.Kind.ToString(),
+                            GetRepresentativeExcerptPriority(type, member, seedType, seedMember)));
+                }
+
+                continue;
+            }
+
             candidates.Add(
                 new ExcerptCandidate(
-                    type.Source,
+                    CreateTypeHeaderSource(type.Source),
                     type.DisplayName,
                     type.Kind.ToString(),
-                    string.Equals(type.TypeId, seedType?.TypeId, StringComparison.Ordinal) ? 360 : 180));
+                    string.Equals(type.TypeId, seedType?.TypeId, StringComparison.Ordinal) ? 260 : 150));
         }
 
         return candidates
             .GroupBy(item => $"{NormalizePath(item.Source.Path)}::{item.Title}::{item.Source.Line}::{item.Kind}", StringComparer.OrdinalIgnoreCase)
             .Select(group => group.First())
             .ToArray();
+    }
+
+    private static IReadOnlyList<MemberFact> RankRepresentativeMembers(
+        TypeFact type,
+        IReadOnlyList<MemberFact> members,
+        IReadOnlyCollection<string> focusTags) {
+        return RankSeedMembers(type, members, type.DisplayName, focusTags)
+            .Where(item => item.Kind is MemberKind.Method or MemberKind.Property or MemberKind.Constructor)
+            .ToArray();
+    }
+
+    private static int GetRepresentativeExcerptPriority(
+        TypeFact type,
+        MemberFact member,
+        TypeFact? seedType,
+        MemberFact? seedMember) {
+        if (string.Equals(member.MemberId, seedMember?.MemberId, StringComparison.Ordinal)) {
+            return 400;
+        }
+
+        if (string.Equals(type.TypeId, seedType?.TypeId, StringComparison.Ordinal)) {
+            return 280;
+        }
+
+        return 170;
+    }
+
+    private static SourceReference CreateTypeHeaderSource(SourceReference source) {
+        var startLine = source.Line ?? 1;
+        var endLine = source.EndLine ?? (startLine + DefaultTypeHeaderLength - 1);
+        return source with {
+            EndLine = Math.Max(startLine, Math.Min(endLine, startLine + DefaultTypeHeaderLength - 1)),
+        };
     }
 
     private static FocusedContextExcerptBlock? CreateExcerptBlock(ExcerptCandidate candidate, string[] lines) {

@@ -122,6 +122,10 @@
                         <span class="stat-label">Selected Lines</span>
                         <span class="stat-value-sm">@_response.Stats.SelectedLineCount</span>
                     </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Selection quality</span>
+                        <span class="stat-value-sm">@GetSelectionQuality()</span>
+                    </div>
                 }
             </div>
 
@@ -158,6 +162,13 @@
                         }
                     </div>
                 }
+
+                @if (HasBroadSelection())
+                {
+                    <p class="message-banner warning-banner">
+                        This run still looks broad. One or more files are carrying large excerpts, so the graph likely needs another scoring or traversal adjustment.
+                    </p>
+                }
             }
         </section>
     }
@@ -178,6 +189,10 @@
                             <strong>@file.Path</strong>
                             <span>@file.SelectedLineCount selected / @file.TotalLineCount total lines</span>
                             <span>@file.Blocks.Count block(s)</span>
+                            @if (IsBroadFile(file))
+                            {
+                                <span class="severity-pill severity-warning">Broad excerpt</span>
+                            }
                         </summary>
 
                         @if (file.TypeDisplayNames.Count > 0)
@@ -342,5 +357,39 @@
             ?? _response?.SeedService?.Source.Path;
         return !string.IsNullOrWhiteSpace(seedPath)
             && string.Equals(seedPath, path, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private string GetSelectionQuality()
+    {
+        if (_response is null) {
+            return "N/A";
+        }
+
+        var broadFileCount = _response.Files.Count(IsBroadFile);
+        if (broadFileCount > 0 || _response.Stats.SelectedLineCount > 320 || _response.Stats.FileCount > 5) {
+            return "Broad";
+        }
+
+        if (_response.Stats.SelectedLineCount > 180 || _response.Stats.FileCount > 3) {
+            return "Mixed";
+        }
+
+        return "Focused";
+    }
+
+    private bool HasBroadSelection()
+    {
+        return _response is not null && (_response.Files.Any(IsBroadFile) || string.Equals(GetSelectionQuality(), "Broad", StringComparison.Ordinal));
+    }
+
+    private static bool IsBroadFile(FocusedContextFileExcerpt file)
+    {
+        if (file.TotalLineCount <= 0) {
+            return false;
+        }
+
+        var selectedRatio = (double)file.SelectedLineCount / file.TotalLineCount;
+        return file.SelectedLineCount >= 140
+            || (file.TotalLineCount >= 120 && selectedRatio >= 0.5);
     }
 }

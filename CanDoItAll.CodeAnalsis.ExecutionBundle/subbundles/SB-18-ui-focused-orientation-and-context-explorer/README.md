@@ -6,7 +6,7 @@
 
 ## Objective
 
-- Expose the reopened focused-context query through a dedicated SSR tuning page where workspace scope, prompt text, tags, and accordion-based file excerpts can be judged together.
+- Refine the focused-context lab so noisy selections are easier to judge quickly while preserving the clean tuning flow that already works for narrow UI searches.
 
 ## Covered Inputs
 
@@ -16,6 +16,8 @@
 - Select a solution plus optional project scope from the tuning page
 - Enter prompt text and tags directly instead of deep-linking through other pages
 - Review grouped excerpts, file accordions, and line stats below the form
+- Compare helpfulness and noise instead of line counts alone
+- Keep the strong UI case readable after the heuristic tightening pass
 
 ## Prerequisites
 
@@ -36,6 +38,7 @@
 - Workspace, project, prompt, depth, and tag controls on the same page
 - Accordion-based file excerpts with stats and clear source-reference display
 - Better nearby access to focused context and scoped diagrams from the existing snapshot flow
+- Visible quality cues when the selection is approaching full-file or broad noisy territory
 
 ## Dependency Impact
 
@@ -47,10 +50,10 @@
 
 ## Implementation Steps
 
-1. Add a dedicated focused-context lab entry point to the UI.
-2. Render related members, types, grouped excerpts, and stats clearly.
-3. Keep the existing snapshot drilldown paths wired into the same focused-context surface.
-4. Validate the flow in a real browser.
+1. Keep the dedicated focused-context lab entry point.
+2. Add visible quality cues for broad or near-full-file selections.
+3. Preserve the existing grouped excerpts and stats flow.
+4. Validate the improved flow in a real browser against the comparison cases.
 
 ## Do Not Do
 
@@ -63,6 +66,7 @@
 - Source references, excerpts, and line stats are visible and readable.
 - The output is grouped by file with usable accordions.
 - Scoped diagrams remain reachable from the same exploration flow or nearby.
+- The lab makes noisy selections obvious instead of requiring the user to infer them from raw counts alone.
 
 ## Proof Required
 
@@ -79,6 +83,12 @@
 
 - Final comparison may continue only after the UI proves the new context flow is practically usable for tuning, not only for one deep-linked happy path.
 
+## Completion Notes
+
+- The focused-context lab now shows `Selection quality` on every run.
+- Broad selections now surface an explicit warning banner and per-file `Broad excerpt` pill when the thresholds are crossed.
+- The preserved UI case stayed focused after the heuristic tightening pass.
+
 ## Suggested Agent Prompt
 
-Expose focused context through a clean SSR lab flow that helps orientation without overwhelming the screen and makes excerpt precision easy to judge.
+Keep the lab flow clean while making quality problems visible fast enough that the user can tune heuristics without reading every excerpt first.

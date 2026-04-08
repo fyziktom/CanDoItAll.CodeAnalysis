@@ -1,6 +1,7 @@
 using CanDoItAll.CodeAnalytics.Abstractions.Commands;
 using CanDoItAll.CodeAnalytics.Abstractions.Queries;
 using CanDoItAll.CodeAnalytics.Domain.Diagnostics;
+using CanDoItAll.CodeAnalytics.Domain.Facts;
 using CanDoItAll.CodeAnalytics.Domain.Sources;
 using CanDoItAll.CodeAnalytics.Storage.Paths;
 using CanDoItAll.CodeAnalytics.Storage.Snapshots;
@@ -124,30 +125,7 @@ public sealed class ApplicationFacts {
         var orderServiceDirectory = Path.Combine(workspace.Path, "src", "Fixture.Shop.Application", "Orders");
         Directory.CreateDirectory(orderServiceDirectory);
         await File.WriteAllTextAsync(solutionPath, string.Empty);
-        await File.WriteAllTextAsync(
-            Path.Combine(orderServiceDirectory, "OrderService.cs"),
-            """
-            namespace Fixture.Shop.Application.Orders;
-
-            public sealed class OrderService
-            {
-                public OrderService()
-                {
-                }
-
-                public async Task<OrderReceipt> PlaceOrderAsync(PlaceOrderCommand command, CancellationToken cancellationToken = default)
-                {
-                    var customer = new Customer();
-                    var order = CreateOrder(command, customer);
-
-                    _dbContext.Customers.Add(customer);
-                    _dbContext.Orders.Add(order);
-                    await _dbContext.SaveChangesAsync(cancellationToken);
-
-                    return new OrderReceipt(order.Id);
-                }
-            }
-            """);
+        await WriteOrderServiceSourceAsync(orderServiceDirectory);
 
         var original = SampleSnapshotFactory.Create();
         var snapshot = original with {
@@ -179,5 +157,92 @@ public sealed class ApplicationFacts {
         Assert.Contains("diagnostic", response.SeedExplanation, StringComparison.OrdinalIgnoreCase);
         Assert.Contains("PlaceOrderAsync", response.SeedMember!.DisplayName, StringComparison.Ordinal);
         Assert.NotEmpty(response.Files);
+    }
+
+    [Fact]
+    public async Task Application_merges_duplicate_document_paths_when_building_focused_context_files() {
+        using var workspace = new TemporaryDirectoryScope();
+        using var output = new TemporaryDirectoryScope();
+
+        var solutionPath = Path.Combine(workspace.Path, "Fixture.Shop.slnx");
+        var orderServiceDirectory = Path.Combine(workspace.Path, "src", "Fixture.Shop.Application", "Orders");
+        Directory.CreateDirectory(orderServiceDirectory);
+        await File.WriteAllTextAsync(solutionPath, string.Empty);
+        await WriteOrderServiceSourceAsync(orderServiceDirectory);
+
+        var original = SampleSnapshotFactory.Create();
+        var snapshot = original with {
+            Request = original.Request with {
+                SolutionPath = solutionPath,
+            },
+            Facts = original.Facts with {
+                Documents = [
+                    .. original.Facts.Documents,
+                    new DocumentFact("doc-duplicate", "proj-app", @"src\Fixture.Shop.Application\Orders\OrderService.cs", "OrderService.cs", 99),
+                ],
+            },
+        };
+        var repository = new FileSnapshotRepository(new SnapshotJsonSerializer());
+        var pathResolver = new SnapshotPathResolver(output.Path);
+        var requestHash = repository.ComputeRequestHash(snapshot.Request, snapshot.GeneratorVersion, snapshot.SchemaVersion);
+        await repository.StoreAsync(pathResolver, snapshot, requestHash, [], CancellationToken.None);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                snapshot.SnapshotId,
+                Depth: 1,
+                QueryText: "PlaceOrderAsync"));
+
+        Assert.NotNull(response);
+        var file = Assert.Single(response!.Files, item => item.Path.EndsWith("OrderService.cs", StringComparison.Ordinal));
+        Assert.Equal(99, file.TotalLineCount);
+    }
+
+    [Fact]
+    public async Task Application_prefers_behavioral_seed_members_for_type_name_queries() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                build.Snapshot.SnapshotId,
+                Depth: 1,
+                QueryText: "OrderService"));
+
+        Assert.NotNull(response);
+        Assert.NotNull(response!.SeedType);
+        Assert.NotNull(response.SeedMember);
+        Assert.Equal(MemberKind.Method, response.SeedMember!.Kind);
+        Assert.DoesNotContain("OrderService(", response.SeedMember.DisplayName, StringComparison.Ordinal);
+    }
+
+    private static Task WriteOrderServiceSourceAsync(string orderServiceDirectory) {
+        return File.WriteAllTextAsync(
+            Path.Combine(orderServiceDirectory, "OrderService.cs"),
+            """
+            namespace Fixture.Shop.Application.Orders;
+
+            public sealed class OrderService
+            {
+                public OrderService()
+                {
+                }
+
+                public async Task<OrderReceipt> PlaceOrderAsync(PlaceOrderCommand command, CancellationToken cancellationToken = default)
+                {
+                    var customer = new Customer();
+                    var order = CreateOrder(command, customer);
+
+                    _dbContext.Customers.Add(customer);
+                    _dbContext.Orders.Add(order);
+                    await _dbContext.SaveChangesAsync(cancellationToken);
+
+                    return new OrderReceipt(order.Id);
+                }
+            }
+            """);
     }
 }

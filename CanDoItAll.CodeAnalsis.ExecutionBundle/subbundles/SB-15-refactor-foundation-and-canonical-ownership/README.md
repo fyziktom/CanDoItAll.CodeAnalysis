@@ -6,13 +6,14 @@
 
 ## Objective
 
-- Perform the refactor-first pass that reduces oversized files and re-establishes clear sources of truth before adding new feature breadth.
+- Perform the comparison-driven readability and ownership refactor pass so the focused-context implementation remains understandable while the new heuristics land.
 
 ## Covered Inputs
 
 - Refactor first
 - Analyze whole solution and find architecture gaps
 - Focus on long files, sources of truth, and isolation of helpers
+- Include generic readability, structure, and standard best-practice improvements in the focused-context code
 
 ## Prerequisites
 
@@ -21,20 +22,19 @@
 
 ## Exact Source References
 
-- `C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Facts\Persistence`
-- `C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Facts\Dependencies`
 - `C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Application\Services`
+- `C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web\Components\Pages\ContextLab.razor`
 - `C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\01-current-state.md`
 
 ## Deliverables
 
-- Smaller collector and orchestrator ownership slices
-- Updated file-length posture
-- Explicit canonical ownership for new work
+- Smaller and clearer focused-context service slices
+- Reduced heuristic complexity where the comparison exposed muddled responsibilities
+- Explicit ownership for scoring, seeding, excerpt assembly, and UI quality cues
 
 ## Dependency Impact
 
-- Blocks every later reopened phase because adding features on top of muddled ownership would make the repo harder to transplant and harder to trust.
+- Blocks the new heuristic work because comparison-driven fixes are easier to validate when the scoring and excerpt code is not tangled.
 
 ## Validation Depth
 
@@ -42,8 +42,8 @@
 
 ## Implementation Steps
 
-1. Split oversized collectors and orchestrators by responsibility.
-2. Keep source-of-truth placement explicit.
+1. Refactor the focused-context service code only where readability or ownership clarity is weak.
+2. Keep source-of-truth placement explicit between seeding, scoring, and excerpt assembly.
 3. Update tests if refactor changes internal ownership boundaries.
 
 ## Do Not Do
@@ -53,8 +53,8 @@
 
 ## Acceptance Checklist
 
-- Primary hotspots are reduced or made clearly bounded.
-- Ownership boundaries are easier to explain in one sentence each.
+- The focused-context implementation is easier to explain by responsibility.
+- New heuristics do not pile additional branching into already unclear files.
 - Build and tests still pass.
 
 ## Proof Required
@@ -71,6 +71,15 @@
 
 - Later work may continue only after refactor proof shows the new features will land on cleaner ownership seams.
 
+## Completion Notes
+
+- Focused-context responsibilities are now easier to follow:
+  - seed scoring and exact-type gating live in `CodeAnalyticsApplicationService.Context.SeedResolution.cs`
+  - member fan-out limits live in `CodeAnalyticsApplicationService.Context.Selection.Members.cs`
+  - excerpt assembly and representative fallbacks live in `CodeAnalyticsApplicationService.Context.Excerpts.cs`
+  - lab quality feedback lives in `ContextLab.razor`
+- Build and full tests passed after the refactor-driven cleanup.
+
 ## Suggested Agent Prompt
 
-Refactor only. Split collectors and orchestrators along canonical ownership lines and keep behavior stable.
+Refactor only where the new focused-context comparison exposed readability or ownership debt. Keep behavior stable while preparing the heuristic fixes.

@@ -47,3 +47,17 @@
 - SharpTools remains stronger for exact source truth.
 - The standalone snapshot is already stronger for one-shot repo orientation and cross-cutting counts.
 - The missing bridge is a focused context view that narrows the snapshot to the trouble path developers actually follow.
+
+## Focused-context comparison findings from the new reopen
+
+- Database case:
+  - `AppDbContext` with project scope `CanDoItAll.Infrastructure` and tag `Db` resolved the expected seed.
+  - The output was still too noisy: `622` selected lines, `8` files, and `15` blocks, including near-full-file excerpts in `StorageCatalogService.cs` and `BackgroundJobs.cs`.
+  - The strongest signal is that constructor-heavy seeding and type-only file fallbacks are over-expanding.
+- Common-helper case:
+  - `IClock` with whole-solution scope and tag `Service` did not merely return a noisy result.
+  - It hard-failed with duplicate normalized source-path handling around `Microsoft.NET.Test.Sdk.Program.cs`.
+  - This is now a correctness defect in the focused-context foundation, not only a tuning issue.
+- UI case:
+  - `CanvasSceneHost` with project scope `CanDoItAll.Components.CanvasLib` and tag `Ui` produced a strong first-pass result: `98` selected lines across `3` files.
+  - This is the preservation case for the next implementation pass. Noise tightening must not regress this narrower UI flow.

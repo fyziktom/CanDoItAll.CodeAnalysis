@@ -19,3 +19,8 @@
 | Show how many lines each file group contributes and overall stats | REQ-018, REQ-019 | SB-17, SB-18 | UI assertions and screenshot review | Needed to judge context cost directly |
 | Provide a page where solution plus optional project, prompt, and tags can be tested together | REQ-019, REQ-020 | SB-18, SB-19 | Web tests, Playwright flow, tuning write-up | Dedicated tuning surface is part of the requested value |
 | Explain what feedback is needed to tune the heuristics | REQ-020 | SB-19 | Closure write-up | Validation must teach the next iteration |
+| Analyze the focused-context flow against SharpTools on CanDoItAll | REQ-021, REQ-026 | SB-19 | Three-case comparison matrix, SharpTools call log, rerun write-up | Must compare database, helper, and UI cases explicitly |
+| Simulate one database, one common-helper, and one UI search | REQ-021, REQ-023, REQ-024 | SB-17, SB-18, SB-19 | Host lab runs, SharpTools probes, browser proof | The quality rubric must make these searches judgeable |
+| Compare not only content amount but also helpfulness and noise | REQ-021, REQ-023, REQ-026 | SB-19 | Explicit rubric and evidence-based analysis | Call count alone is not enough |
+| Improve the feature based on the comparison | REQ-022, REQ-023, REQ-024 | SB-17, SB-18, SB-19 | Tests, browser proof, rerun comparison | Must close the helper failure and tighten noisy cases |
+| Include generic readability and structure refactoring | REQ-025 | SB-15, SB-17, SB-18 | Code review, build, tests | Refactor must stay small and behavior-preserving |

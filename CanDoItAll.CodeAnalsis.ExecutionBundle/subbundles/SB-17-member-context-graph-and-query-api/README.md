@@ -6,7 +6,7 @@
 
 ## Objective
 
-- Extend the canonical member-level relationship graph and focused context query surface so it can resolve free-text seeds, apply focus tags, and return bounded code excerpts grouped by file.
+- Repair the focused-context engine so it survives shared-helper searches, chooses better broad-search seeds, and returns more representative excerpts instead of near-whole-file spill.
 
 ## Covered Inputs
 
@@ -18,6 +18,9 @@
 - Start from exception text, compile-error text, or an explicit symbol name when ids are unavailable
 - Bias selection with tags such as `Db`
 - Return per-file excerpts and line-count stats instead of source references alone
+- Analyze a database, common-helper, and UI case against SharpTools
+- Eliminate duplicate-path crashes
+- Tighten broad type and helper searches without regressing narrow UI usefulness
 
 ## Prerequisites
 
@@ -37,6 +40,8 @@
 - Bounded focused-context query contracts
 - Seed-resolution heuristics for prompt and diagnostic text
 - Tag-aware selection and grouped excerpt output with stats
+- Duplicate-safe excerpt assembly
+- Better seed-member and representative-excerpt heuristics
 - Application query implementation and tests
 
 ## Dependency Impact
@@ -50,10 +55,10 @@
 
 ## Implementation Steps
 
-1. Define member relationship contracts.
-2. Collect member relationships from Roslyn semantic analysis.
-3. Add prompt-text seed resolution for diagnostics, symbols, and source-path hints.
-4. Add tag-aware scoring and grouped excerpt output with deterministic ordering and stats.
+1. Fix duplicate normalized-path handling in focused-context assembly.
+2. Improve type and member seed selection so broad type-name queries do not default to constructor-heavy neighborhoods.
+3. Replace noisy type-only excerpt fallbacks with more representative members or tighter header slices.
+4. Tighten fan-out rules enough to help database and helper cases while preserving the strong UI case.
 
 ## Do Not Do
 
@@ -68,12 +73,16 @@
 - Prompt text can resolve to a bounded seed without explicit ids in at least one diagnostic-oriented case.
 - File-grouped excerpts expose enough code to judge the result without reading the whole file.
 - Stats show file count, excerpt count, and selected line totals.
+- The helper comparison case no longer crashes.
+- The database comparison case is measurably tighter than the baseline reopen.
+- The UI comparison case remains useful after the tightening pass.
 
 ## Proof Required
 
 - Unit tests for traversal and ordering
 - Integration tests against the fixture solution
 - Seed-resolution and tag-behavior tests
+- Regression tests for duplicate-path safety and broad-seed behavior
 - Example focused-context payloads that include grouped excerpts and stats
 
 ## Browser Validation Logging
@@ -84,6 +93,13 @@
 
 - UI work may continue only after focused context outputs are trustworthy enough to drive real navigation and visible excerpt review.
 
+## Completion Notes
+
+- Duplicate normalized document paths are now merged safely during excerpt assembly.
+- Exact-type gating prevents unrelated constructor consumers and factory wrappers from outranking direct type-name intent.
+- Whole-type fallback spill was replaced with representative member excerpts or compact type-header slices.
+- Regression coverage now includes duplicate-path safety and behavioral-member preference for type-name queries.
+
 ## Suggested Agent Prompt
 
-Implement the smallest useful member graph upgrade that supports bounded trouble-path exploration from free-text seeds, explicit tags, and grouped file excerpts.
+Implement the smallest useful focused-context engine repair that closes the helper crash, tightens broad seeds, and keeps the strong UI case intact.

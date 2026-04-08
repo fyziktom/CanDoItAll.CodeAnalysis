@@ -69,6 +69,10 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyDictionary<string, IReadOnlyList<MemberFact>> membersByTypeId,
         IReadOnlyCollection<string> focusTags) {
         SeedCandidate? best = null;
+        var exactTypeIds = snapshot.Facts.Types
+            .Where(type => IsTypeIdentityQuery(queryText, type))
+            .Select(type => type.TypeId)
+            .ToHashSet(StringComparer.Ordinal);
 
         foreach (var diagnostic in snapshot.Diagnostics) {
             var score = ScoreSearchText(queryText, diagnostic.Code, diagnostic.Message, diagnostic.Source?.Path);
@@ -118,14 +122,21 @@ public sealed partial class CodeAnalyticsApplicationService {
                 continue;
             }
 
-            var score = ScoreSearchText(
-                queryText,
-                member.DisplayName,
-                member.ReturnTypeDisplayName,
-                string.Join(' ', member.ParameterDisplayNames),
-                member.Source.Path,
-                type.DisplayName,
-                type.XmlSummary);
+            if (exactTypeIds.Count > 0
+                && !exactTypeIds.Contains(type.TypeId)
+                && !MemberNameMatchesQuery(member, queryText)) {
+                continue;
+            }
+
+            if (member.Kind == MemberKind.Constructor && IsTypeIdentityQuery(queryText, type) && !LooksLikeConstructorQuery(queryText)) {
+                continue;
+            }
+
+            var score = ScoreSearchText(queryText, member.DisplayName, member.ReturnTypeDisplayName, string.Join(' ', member.ParameterDisplayNames), member.Source.Path);
+            if (!IsTypeIdentityQuery(queryText, type)) {
+                score += ScoreSearchText(queryText, type.DisplayName, type.XmlSummary);
+            }
+
             if (score <= 0) {
                 continue;
             }
@@ -136,13 +147,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                     type,
                     member,
                     null,
-                    score + 180 + GetFocusTagScore(
-                        focusTags,
-                        member.DisplayName,
-                        member.ReturnTypeDisplayName,
-                        string.Join(' ', member.ParameterDisplayNames),
-                        type.DisplayName,
-                        type.Source.Path),
+                    score + ScoreSeedMember(type, member, queryText, focusTags),
                     $"Resolved from prompt text to member {member.DisplayName}."));
         }
 
@@ -160,9 +165,9 @@ public sealed partial class CodeAnalyticsApplicationService {
                 best,
                 new SeedCandidate(
                     type,
-                    ChooseSeedMember(type, membersByTypeId),
+                    ChooseSeedMember(type, membersByTypeId, queryText, focusTags),
                     null,
-                    score + 140 + GetFocusTagScore(focusTags, type.DisplayName, type.XmlSummary, type.Source.Path),
+                    score + 140 + GetTypeIdentityBoost(queryText, type) + GetFocusTagScore(focusTags, type.DisplayName, type.XmlSummary, type.Source.Path),
                     $"Resolved from prompt text to type {type.DisplayName}."));
         }
 
@@ -181,11 +186,15 @@ public sealed partial class CodeAnalyticsApplicationService {
                 continue;
             }
 
+            if (exactTypeIds.Count > 0 && (type is null || !exactTypeIds.Contains(type.TypeId))) {
+                continue;
+            }
+
             best = SelectHigherScore(
                 best,
                 new SeedCandidate(
                     type,
-                    type is null ? null : ChooseSeedMember(type, membersByTypeId),
+                    type is null ? null : ChooseSeedMember(type, membersByTypeId, queryText, focusTags),
                     service,
                     score + 120 + GetFocusTagScore(
                         focusTags,
@@ -298,10 +307,117 @@ public sealed partial class CodeAnalyticsApplicationService {
 
     private static MemberFact? ChooseSeedMember(
         TypeFact type,
-        IReadOnlyDictionary<string, IReadOnlyList<MemberFact>> membersByTypeId) {
-        return ResolveSeedMemberIds(type, null, membersByTypeId)
+        IReadOnlyDictionary<string, IReadOnlyList<MemberFact>> membersByTypeId,
+        string? queryText,
+        IReadOnlyCollection<string> focusTags) {
+        return ResolveSeedMemberIds(type, null, membersByTypeId, queryText, focusTags)
             .Select(memberId => membersByTypeId[type.TypeId].FirstOrDefault(item => string.Equals(item.MemberId, memberId, StringComparison.Ordinal)))
             .FirstOrDefault(item => item is not null);
+    }
+
+    private static int ScoreSeedMember(
+        TypeFact type,
+        MemberFact member,
+        string? queryText,
+        IReadOnlyCollection<string> focusTags) {
+        var score = member.Kind switch {
+            MemberKind.Method => 120,
+            MemberKind.Property => 85,
+            MemberKind.Constructor => 40,
+            MemberKind.Field => 15,
+            _ => 0,
+        };
+
+        if (type.Kind == TypeKind.Interface && member.Kind == MemberKind.Method && !string.IsNullOrWhiteSpace(queryText) && IsTypeIdentityQuery(queryText, type)) {
+            score += 40;
+        }
+
+        if (!string.IsNullOrWhiteSpace(queryText)) {
+            score += ScoreSearchText(
+                queryText,
+                member.DisplayName,
+                member.ReturnTypeDisplayName,
+                string.Join(' ', member.ParameterDisplayNames));
+
+            if (member.Kind == MemberKind.Constructor && IsTypeIdentityQuery(queryText, type)) {
+                score -= 220;
+            }
+            else if (member.Kind == MemberKind.Constructor && !LooksLikeConstructorQuery(queryText)) {
+                score -= 50;
+            }
+        }
+
+        if (type.Kind == TypeKind.Interface && member.Kind == MemberKind.Method && !string.IsNullOrWhiteSpace(queryText) && !IsTypeIdentityQuery(queryText, type)) {
+            score -= 60;
+        }
+
+        if (IsLowSignalMember(member)) {
+            score -= 20;
+        }
+
+        score += GetFocusTagScore(
+            focusTags,
+            member.DisplayName,
+            member.ReturnTypeDisplayName,
+            string.Join(' ', member.ParameterDisplayNames),
+            type.DisplayName,
+            type.Source.Path);
+
+        return score;
+    }
+
+    private static int GetTypeIdentityBoost(string queryText, TypeFact type) {
+        return IsTypeIdentityQuery(queryText, type)
+            ? 180
+            : 0;
+    }
+
+    private static bool IsTypeIdentityQuery(string queryText, TypeFact type) {
+        var normalizedQuery = NormalizeSearchToken(queryText);
+        if (string.IsNullOrWhiteSpace(normalizedQuery)) {
+            return false;
+        }
+
+        return string.Equals(normalizedQuery, NormalizeSearchToken(type.DisplayName), StringComparison.Ordinal)
+            || string.Equals(normalizedQuery, NormalizeSearchToken(GetTrailingIdentifier(type.DisplayName)), StringComparison.Ordinal);
+    }
+
+    private static bool LooksLikeConstructorQuery(string queryText) {
+        return queryText.Contains('(', StringComparison.Ordinal)
+            || queryText.Contains(".ctor", StringComparison.OrdinalIgnoreCase)
+            || queryText.Contains("constructor", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static bool IsLowSignalMember(MemberFact member) {
+        return member.DisplayName.Contains("Dispose", StringComparison.Ordinal)
+            || member.DisplayName.Contains("Reset", StringComparison.Ordinal);
+    }
+
+    private static bool MemberNameMatchesQuery(MemberFact member, string queryText) {
+        var normalizedQuery = NormalizeSearchToken(queryText);
+        if (string.IsNullOrWhiteSpace(normalizedQuery)) {
+            return false;
+        }
+
+        return string.Equals(normalizedQuery, NormalizeSearchToken(GetTrailingIdentifier(member.DisplayName)), StringComparison.Ordinal);
+    }
+
+    private static string GetTrailingIdentifier(string displayName) {
+        var trimmed = displayName.Trim();
+        var genericStart = trimmed.IndexOf('<');
+        if (genericStart >= 0) {
+            trimmed = trimmed[..genericStart];
+        }
+
+        var methodStart = trimmed.IndexOf('(');
+        if (methodStart >= 0) {
+            trimmed = trimmed[..methodStart];
+        }
+
+        var lastDot = trimmed.LastIndexOf('.');
+        return lastDot >= 0
+            ? trimmed[(lastDot + 1)..]
+            : trimmed;
     }
 
     private sealed record SeedCandidate(
