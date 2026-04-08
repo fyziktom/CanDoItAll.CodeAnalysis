@@ -8,6 +8,7 @@ public sealed record ArchitectureFacts(
     IReadOnlyList<NamespaceFact> Namespaces,
     IReadOnlyList<TypeFact> Types,
     IReadOnlyList<MemberFact> Members,
+    IReadOnlyList<MemberRelationshipFact> MemberRelationships,
     IReadOnlyList<TypeRelationshipFact> TypeRelationships,
     IReadOnlyList<ServiceRegistrationFact> ServiceRegistrations,
     IReadOnlyList<DbContextFact> DbContexts,

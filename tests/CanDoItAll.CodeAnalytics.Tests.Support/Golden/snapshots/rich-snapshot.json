@@ -136,6 +136,20 @@
         }
       }
     ],
+    "memberRelationships": [
+      {
+        "relationshipId": "memberrel-order",
+        "fromMemberId": "member-order-method",
+        "toMemberId": "member-order-ctor",
+        "kind": "objectCreation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 22,
+          "column": 13
+        }
+      }
+    ],
     "typeRelationships": [],
     "serviceRegistrations": [
       {
@@ -223,7 +237,12 @@
         "navigationPropertyNames": [
           "Customer",
           "Orders"
-        ]
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 11,
+          "column": 5
+        }
       }
     ],
     "dependencies": [

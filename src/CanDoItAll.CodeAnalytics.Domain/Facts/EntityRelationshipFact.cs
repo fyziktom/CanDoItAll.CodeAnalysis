@@ -1,3 +1,5 @@
+using CanDoItAll.CodeAnalytics.Domain.Sources;
+
 namespace CanDoItAll.CodeAnalytics.Domain.Facts;
 
 public sealed record EntityRelationshipFact(
@@ -5,4 +7,5 @@ public sealed record EntityRelationshipFact(
     string FromEntityId,
     string ToEntityId,
     EntityRelationshipKind Kind,
-    IReadOnlyList<string> NavigationPropertyNames);
+    IReadOnlyList<string> NavigationPropertyNames,
+    SourceReference? Source);

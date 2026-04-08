@@ -21,7 +21,9 @@
 
 ## Non-blocking follow-ups
 
-- Watch `PersistenceFactCollector` size if more EF Core conventions are added.
+- Strengthen EF Core relationship recovery so host-scale models do not stop at `5` inferred relationships for `81` entities.
+- Collapse repeated low-value diagnostics before they reach the UI so the orientation flow carries a higher signal-to-noise ratio.
+- Extend focused member-context discovery for convention-heavy methods where the current call graph is intentionally sparse.
 - If the future MCP driver is added inside the host repo, keep the transport glue in that driver project rather than moving MCP concerns back into the standalone application layer.
 
 ## Closure recommendation

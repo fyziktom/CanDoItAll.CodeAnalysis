@@ -56,6 +56,16 @@ public static class SampleSnapshotFactory {
             new MemberFact("member-order-ctor", "type-order-service", "OrderService.OrderService()", MemberKind.Constructor, "OrderService", [], new SourceReference("src/Fixture.Shop.Application/Orders/OrderService.cs", 12, 12)),
             new MemberFact("member-order-method", "type-order-service", "PlaceOrderAsync", MemberKind.Method, "Task<OrderReceipt>", ["PlaceOrderCommand"], new SourceReference("src/Fixture.Shop.Application/Orders/OrderService.cs", 20, 18)),
         };
+        var memberRelationships = new[]
+        {
+            new MemberRelationshipFact(
+                "memberrel-order",
+                "member-order-method",
+                "member-order-ctor",
+                MemberRelationshipKind.ObjectCreation,
+                1,
+                new SourceReference("src/Fixture.Shop.Application/Orders/OrderService.cs", 22, 13)),
+        };
         var services = new[]
         {
             new ServiceRegistrationFact("svc-order", "proj-app", "mod-orders", ServiceLifetimeKind.Scoped, "Fixture.Shop.Contracts.Orders.IOrderService", "Fixture.Shop.Application.Orders.OrderService", "AddScoped", false, new SourceReference("src/Fixture.Shop.Web/Program.cs", 10, 1)),
@@ -71,7 +81,7 @@ public static class SampleSnapshotFactory {
         };
         var entityRelationships = new[]
         {
-            new EntityRelationshipFact("entrel-customer-orders", "ent-customer", "ent-order", EntityRelationshipKind.OneToMany, ["Customer", "Orders"]),
+            new EntityRelationshipFact("entrel-customer-orders", "ent-customer", "ent-order", EntityRelationshipKind.OneToMany, ["Customer", "Orders"], new SourceReference("src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs", 11, 5)),
         };
         var dependencies = new[]
         {
@@ -85,6 +95,7 @@ public static class SampleSnapshotFactory {
             namespaces,
             types,
             members,
+            memberRelationships,
             [],
             services,
             dbContexts,

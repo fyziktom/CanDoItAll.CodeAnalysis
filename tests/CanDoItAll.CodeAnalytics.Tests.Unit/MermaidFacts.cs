@@ -86,13 +86,15 @@ public sealed class MermaidFacts {
                 "type-handler",
                 "type-repository",
                 CanDoItAll.CodeAnalytics.Domain.Facts.TypeRelationshipKind.Property,
-                1),
+                1,
+                new CanDoItAll.CodeAnalytics.Domain.Sources.SourceReference("src/PlaceOrderHandler.cs", 12, 9)),
             new CanDoItAll.CodeAnalytics.Domain.Facts.TypeRelationshipFact(
                 "typerel-method-return",
                 "type-handler",
                 "type-repository",
                 CanDoItAll.CodeAnalytics.Domain.Facts.TypeRelationshipKind.MethodReturn,
-                1),
+                1,
+                new CanDoItAll.CodeAnalytics.Domain.Sources.SourceReference("src/PlaceOrderHandler.cs", 18, 9)),
         };
 
         var content = renderer.Render(types, relationships, 50);

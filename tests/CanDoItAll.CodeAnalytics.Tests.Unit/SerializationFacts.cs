@@ -42,6 +42,7 @@ public sealed class SerializationFacts {
                 [],
                 [],
                 [],
+                [],
                 []),
             new ArchitectureInsights(
                 new RiskSummaryInsight(0, 0, 0, 0, 0, 0, 0, 0),

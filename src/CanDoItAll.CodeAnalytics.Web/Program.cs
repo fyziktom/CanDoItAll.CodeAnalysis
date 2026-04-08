@@ -6,6 +6,7 @@ using CanDoItAll.CodeAnalytics.Analysis.Rules;
 using CanDoItAll.CodeAnalytics.Application.Services;
 using CanDoItAll.CodeAnalytics.Facts.Dependencies;
 using CanDoItAll.CodeAnalytics.Facts.Documentation;
+using CanDoItAll.CodeAnalytics.Facts.Members;
 using CanDoItAll.CodeAnalytics.Facts.Persistence;
 using CanDoItAll.CodeAnalytics.Facts.Services;
 using CanDoItAll.CodeAnalytics.Facts.Symbols;
@@ -78,6 +79,7 @@ public class Program {
         services.AddSingleton<MsBuildWorkspaceLoader>();
         services.AddSingleton<XmlDocumentationNormalizer>();
         services.AddSingleton<SymbolFactsCollector>();
+        services.AddSingleton<MemberRelationshipCollector>();
         services.AddSingleton<DependencyFactCollector>();
         services.AddSingleton<ServiceRegistrationCollector>();
         services.AddSingleton<PersistenceFactCollector>();

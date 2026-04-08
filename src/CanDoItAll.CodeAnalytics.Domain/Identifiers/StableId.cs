@@ -45,6 +45,10 @@ public static partial class StableId {
         return Create("member", value);
     }
 
+    public static string ForMemberRelationship(string value) {
+        return Create("memberrel", value);
+    }
+
     public static string ForDependency(string value) {
         return Create("dep", value);
     }

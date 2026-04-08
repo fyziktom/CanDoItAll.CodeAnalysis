@@ -36,6 +36,10 @@ public interface ICodeAnalyticsApplicationService {
         TypeSearchQuery query,
         CancellationToken cancellationToken = default);
 
+    Task<FocusedContextResponse?> GetFocusedContextAsync(
+        FocusedContextQuery query,
+        CancellationToken cancellationToken = default);
+
     Task<ExportsViewResponse?> GetExportsAsync(
         string snapshotId,
         CancellationToken cancellationToken = default);

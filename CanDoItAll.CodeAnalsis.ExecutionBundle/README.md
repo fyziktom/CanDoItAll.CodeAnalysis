@@ -1,66 +1,56 @@
-# CanDoItAll.CodeAnalsis — execution-grade Codex bundle
+# CanDoItAll.CodeAnalsis bundle
 
-This bundle is a revised implementation bundle for building the standalone **`CanDoItAll.CodeAnalsis`** repository.
+This bundle was reopened on 2026-04-07 because the original implementation reached functional baseline but did not yet deliver the stronger architecture navigation outcomes now required:
 
-The bundle is intentionally optimized for **future transplantation into the current CanDoItAll MCP ecosystem**.
-Compared with the previous version, this revision now bakes in:
+- refactor-first hardening of oversized ownership hotspots,
+- project-scoped and context-scoped diagram usefulness,
+- stronger EF schema relationship recovery,
+- member-level trouble-path context queries that save agent context,
+- a bundle structure that is executable under the current CanDoItAll workflow contract.
 
-- the current CanDoItAll MCP server patterns,
-- the current host repo naming/settings/install conventions,
-- the current `CanDoItAll.Mcp.Core` shared surface,
-- a detailed master start prompt,
-- explicit compatibility subbundles and reference artifacts,
-- an expanded backlog workbook with compatibility and naming sheets.
+The naming map remains frozen:
 
-## Intended use
+- Repo root: `CanDoItAll.CodeAnalsis`
+- Canonical solution: `CanDoItAll.CodeAnalsis.slnx`
+- Project and namespace family: `CanDoItAll.CodeAnalytics.*`
+- Future MCP host driver: `CanDoItAll.Mcp.CodeAnalytics`
 
-1. Give Codex the repository workspace for the new standalone repo.
-2. Also make the current CanDoItAll repo available in the workspace.
-3. Start with `START-HERE.md`.
-4. Then use `prompts/04-codex-master-start-prompt.md`.
-5. Execute the numbered subbundles in dependency order.
-6. Finish with the refactor and review prompts.
+## Bundle Scope
 
-## Important naming rule
+- Preserve the standalone repo as the canonical engine.
+- Keep the future MCP seam thin.
+- Refactor before widening features.
+- Add context-focused analysis outputs that reduce agent call count and token waste versus raw file loading.
+- Keep the host CanDoItAll repository read-only and use it only as validation and compatibility reference.
 
-The user explicitly wants:
-- repo/solution identity: **`CanDoItAll.CodeAnalsis`**
-- project/namespace family: **`CanDoItAll.CodeAnalytics.*`**
-- future driver example: **`CanDoItAll.Mcp.CodeAnalytics`**
+## Key Inputs
 
-Do not blur those together.
+- [00-original-request.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\00-original-request.md)
+- [01-source-artifacts.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\01-source-artifacts.md)
+- [02-structured-input.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\02-structured-input.md)
+- [01-current-state.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\01-current-state.md)
+- [01-target-solution.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\architecture\01-target-solution.md)
+- [01-phase-plan.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\plan\01-phase-plan.md)
+- [01-requirement-traceability.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\traceability\01-requirement-traceability.md)
+- [CanDoItAll.CodeAnalsis.ExecutionBacklog.xlsx](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\spreadsheets\CanDoItAll.CodeAnalsis.ExecutionBacklog.xlsx)
 
-## Most important documents
+## Validation Summary
 
-- `START-HERE.md`
-- `overview/03-solution-structure.md`
-- `overview/15-current-candoitall-mcp-landscape.md`
-- `overview/16-compatibility-and-shared-parts.md`
-- `overview/17-naming-settings-and-tool-surface-map.md`
-- `overview/19-host-repo-shared-surface-catalog.md`
-- `prompts/04-codex-master-start-prompt.md`
-- `spreadsheets/CanDoItAll.CodeAnalsis.ExecutionBacklog.xlsx`
+- Bundle preparation status: `Prepared`
+- Bundle readiness gate: `Passed on 2026-04-07 after repair`
+- Execution status: `Completed on 2026-04-08`
+- Subbundle gate review: `Passed for SB-15 through SB-19`
+- Final closure gate: `Completed after validator rerun`
+- Browser validation analytics: `Recorded and reviewed for the reopened UI slices`
 
-## Notes for implementation
+## Current Focus
 
-- Prompts are intentionally written in English so they can be pasted directly into Codex.
-- Code comments must be in English.
-- Keep comments rare.
-- Avoid XML docs unless there is a clear public-contract reason.
-- Codex may work fast in rough slices, but the final pass must refactor long files and restore clean folder structure.
+- Completed baseline subbundles remain the foundation for repo bootstrap, compatibility, Roslyn loading, snapshot storage, and the first UI shell.
+- Reopened execution closed the refactor-first hardening, scoped diagrams, focused member-context flow, host-solution validation, SharpTools comparison, and final closure proof.
 
-## Execution status
+## Notes
 
-- Status: Completed on 2026-04-07.
-- Delivery repo: `C:\repositories\CanDoItAll.CodeAnalsis`
-- Host repo audit source: `C:\repositories\CanDoItAll`
-- Closure evidence: `reviews/01-execution-report.md`, `reviews/02-refactor-report.md`, `reviews/03-review-report.md`
-
-## Validation summary
-
-- `dotnet build .\CanDoItAll.CodeAnalsis.slnx -warnaserror`: passed
-- `dotnet test .\CanDoItAll.CodeAnalsis.slnx --no-build`: passed
-- `dotnet format .\CanDoItAll.CodeAnalsis.slnx --verify-no-changes`: passed
-- `pwsh .\eng\Validate-FileLengths.ps1`: passed with one review-only warning
-- `pwsh .\eng\Validate-SolutionStructure.ps1`: passed
-- Browser proof captured for the SSR UI and export flow under `output/playwright/`
+- The original bundle artifacts are kept in place and are still referenced where they remain valid.
+- The bundle is now maintained as an `initiative` profile bundle with inventories, templates, and traceability.
+- Execution must not change anything under `C:\repositories\CanDoItAll`.
+- The standalone engine still preserves a thin future `CanDoItAll.Mcp.CodeAnalytics` seam. The remaining follow-up work is quality improvement, not transport redesign.

@@ -68,6 +68,10 @@ else
                                 <span><strong>Source</strong> @item.Type.Source.Path</span>
                             </div>
 
+                            <div class="action-links">
+                                <a href="@GetTypeContextHref(item.Type.TypeId)">Open focused context</a>
+                            </div>
+
                             @if (!string.IsNullOrWhiteSpace(item.Type.XmlSummary))
                             {
                                 <p>@item.Type.XmlSummary</p>
@@ -97,6 +101,7 @@ else
                                                         <p>Parameters: @string.Join(", ", member.ParameterDisplayNames)</p>
                                                     }
                                                     <p class="field-help">@member.Source.Path:@member.Source.Line</p>
+                                                    <a href="@GetMemberContextHref(item.Type.TypeId, member.MemberId)">Open member context</a>
                                                 </article>
                                             }
                                         </div>
@@ -163,5 +168,15 @@ else
         return lastDotIndex >= 0 && lastDotIndex < displayName.Length - 1
             ? displayName[(lastDotIndex + 1)..]
             : displayName;
+    }
+
+    private string GetTypeContextHref(string typeId)
+    {
+        return $"/snapshots/{SnapshotId}/context?typeId={Uri.EscapeDataString(typeId)}";
+    }
+
+    private string GetMemberContextHref(string typeId, string memberId)
+    {
+        return $"/snapshots/{SnapshotId}/context?typeId={Uri.EscapeDataString(typeId)}&memberId={Uri.EscapeDataString(memberId)}";
     }
 }

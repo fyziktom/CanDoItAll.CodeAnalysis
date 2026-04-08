@@ -8,7 +8,13 @@
 
 ## Files split
 
-- No additional production files were split during the final pass because the implementation had already been decomposed into domain, workspace, facts, rendering, storage, application, and web slices.
+- `src/CanDoItAll.CodeAnalytics.Facts/Dependencies/DependencyFactCollector.cs` was split into graph and traversal partials.
+- `src/CanDoItAll.CodeAnalytics.Facts/Persistence/PersistenceFactCollector.cs` was split into project analysis, symbol traversal, symbol resolution, entity relationship, and model snapshot partials.
+- `src/CanDoItAll.CodeAnalytics.Facts/Persistence/PersistenceSyntaxExplorer.cs` was split into shared, configuration discovery, relationships, and model snapshot partials.
+- `src/CanDoItAll.CodeAnalytics.Facts/Symbols/SymbolFactsCollector.cs` was split into scope and member-fact partials.
+- `src/CanDoItAll.CodeAnalytics.Application/Services/CodeAnalyticsApplicationService.Build.cs` was split into build pipeline and execution partials.
+- `src/CanDoItAll.CodeAnalytics.Application/Services/CodeAnalyticsApplicationService.Context.cs` now delegates selection logic to member, type, and filter partials.
+- `src/CanDoItAll.CodeAnalytics.Web/wwwroot/app.css` was split into `styles/base.css`, `styles/forms.css`, `styles/snapshots.css`, and `styles/responsive.css`.
 
 ## Files renamed
 
@@ -28,5 +34,5 @@
 
 ## Remaining justified exceptions
 
-- `src/CanDoItAll.CodeAnalytics.Facts/Persistence/PersistenceFactCollector.cs` remains at 351 lines. It is a single cohesive EF collector with symbol and syntax inspection in one place, so it was left intact rather than split into artificial fragments.
-- `src/CanDoItAll.CodeAnalytics.Facts/Symbols/SymbolFactsCollector.cs` and `src/CanDoItAll.CodeAnalytics.Application/Services/CodeAnalyticsApplicationService.cs` remain large but below the review threshold and retain clear single responsibilities.
+- `src/CanDoItAll.CodeAnalytics.Facts/Persistence/PersistenceFactCollector.cs` remains cohesive but now delegates the volatile responsibilities into narrower partials.
+- `src/CanDoItAll.CodeAnalytics.Application/Services/CodeAnalyticsApplicationService.cs` remains the orchestration entry point, but the reopened slice removed the selection hotspot that had started to accumulate there.

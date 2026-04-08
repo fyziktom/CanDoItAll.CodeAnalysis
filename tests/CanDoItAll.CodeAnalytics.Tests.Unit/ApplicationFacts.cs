@@ -65,4 +65,23 @@ public sealed class ApplicationFacts {
             member => member.Kind == CanDoItAll.CodeAnalytics.Domain.Facts.MemberKind.Method &&
                 member.DisplayName.Contains("PlaceOrderAsync", StringComparison.Ordinal));
     }
+
+    [Fact]
+    public async Task Application_returns_focused_context_for_a_service_seed() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var seedService = Assert.Single(
+            build.Snapshot.Facts.ServiceRegistrations,
+            item => string.Equals(item.ServiceTypeDisplayName, "Fixture.Shop.Contracts.Orders.IOrderService", StringComparison.Ordinal));
+        var response = await service.GetFocusedContextAsync(new FocusedContextQuery(build.Snapshot.SnapshotId, ServiceRegistrationId: seedService.ServiceRegistrationId, Depth: 2));
+
+        Assert.NotNull(response);
+        Assert.NotNull(response!.SeedService);
+        Assert.NotEmpty(response.Types);
+        Assert.NotEmpty(response.Members);
+        Assert.Contains(response.RelatedServices, item => item.ServiceRegistrationId == seedService.ServiceRegistrationId);
+    }
 }

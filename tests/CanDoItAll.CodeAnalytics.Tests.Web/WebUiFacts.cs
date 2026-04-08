@@ -8,6 +8,7 @@ namespace CanDoItAll.CodeAnalytics.Tests.Web;
 
 public sealed class WebUiFacts {
     private static readonly Regex SnapshotPathPattern = new("href=\"(?<path>/snapshots/[^\"]+)\"", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly Regex ContextPathPattern = new("href=\"(?<path>/snapshots/[^\"]+/context\\?[^\"]+)\"", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
     [Fact]
     public async Task Home_route_renders_workspace_picker_controls() {
@@ -97,6 +98,25 @@ public sealed class WebUiFacts {
         Assert.Contains("Architecture Summary", content, StringComparison.Ordinal);
     }
 
+    [Fact]
+    public async Task Focused_context_route_renders_after_analysis() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
+        using var client = factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
+
+        var operationPath = await StartAnalysisAsync(client, FixturePaths.GetFixtureSolutionPath());
+        var snapshotPath = await WaitForSnapshotPathAsync(client, operationPath);
+        var snapshotId = snapshotPath.Trim('/').Split('/').Last();
+        var services = await client.GetStringAsync($"/snapshots/{snapshotId}/services");
+        var contextPath = ExtractContextPath(services);
+
+        var context = await client.GetStringAsync(contextPath);
+
+        Assert.Contains("Focused Context", context, StringComparison.Ordinal);
+        Assert.Contains("Member relations", context, StringComparison.Ordinal);
+    }
+
     private static async Task<string> StartAnalysisAsync(HttpClient client, string workspacePath) {
         using var request = new FormUrlEncodedContent(
             new Dictionary<string, string> {
@@ -129,6 +149,15 @@ public sealed class WebUiFacts {
         }
 
         throw new InvalidOperationException($"Operation did not complete in time. Last page:{Environment.NewLine}{lastPage}");
+    }
+
+    private static string ExtractContextPath(string html) {
+        var match = ContextPathPattern.Match(html);
+        if (!match.Success) {
+            throw new InvalidOperationException($"No focused-context link was found.{Environment.NewLine}{html}");
+        }
+
+        return match.Groups["path"].Value;
     }
 
     private sealed class CodeAnalyticsWebFactory : WebApplicationFactory<Program> {

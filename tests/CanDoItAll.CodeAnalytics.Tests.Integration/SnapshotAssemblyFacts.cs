@@ -15,5 +15,7 @@ public sealed class SnapshotAssemblyFacts {
 
         Assert.True(File.Exists(Path.Combine(snapshotDirectory, "snapshot.json")));
         Assert.True(File.Exists(Path.Combine(snapshotDirectory, "exports", "summary.md")));
+        Assert.NotEmpty(Directory.GetFiles(Path.Combine(snapshotDirectory, "exports", "class-diagrams"), "*.mmd"));
+        Assert.NotEmpty(Directory.GetFiles(Path.Combine(snapshotDirectory, "exports", "er-diagrams"), "*.mmd"));
     }
 }

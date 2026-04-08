@@ -1,3 +1,5 @@
+using CanDoItAll.CodeAnalytics.Domain.Sources;
+
 namespace CanDoItAll.CodeAnalytics.Domain.Facts;
 
 public sealed record TypeRelationshipFact(
@@ -5,4 +7,5 @@ public sealed record TypeRelationshipFact(
     string FromTypeId,
     string ToTypeId,
     TypeRelationshipKind Kind,
-    int Weight);
+    int Weight,
+    SourceReference? Source);
