@@ -24,10 +24,13 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyDictionary<string, TypeFact> typesById,
         IReadOnlyDictionary<string, ProjectFact> projectsById) {
         var requestedIntent = query.Intent;
+        var normalizedRequestedIntent = requestedIntent == FocusedContextIntent.Behavior
+            ? FocusedContextIntent.TroublePath
+            : requestedIntent;
         var requestedPrecision = query.Precision;
         var helperAnalysis = AnalyzeHelperSeed(query, seedType, seedMember, seedMemberIds, relationships, membersById, typesById, projectsById);
-        var resolvedIntent = requestedIntent != FocusedContextIntent.Auto
-            ? requestedIntent
+        var resolvedIntent = normalizedRequestedIntent != FocusedContextIntent.Auto
+            ? normalizedRequestedIntent
             : helperAnalysis.IsHighFanInHelper
                 ? FocusedContextIntent.Definition
                 : FocusedContextIntent.TroublePath;
@@ -413,7 +416,9 @@ public sealed partial class CodeAnalyticsApplicationService {
         }
 
         if (requestedIntent != FocusedContextIntent.Auto || requestedPrecision != FocusedContextPrecision.Auto) {
-            return $"Used requested {NormalizeIntentText(resolvedIntent)} mode with {NormalizeSearchToken(resolvedPrecision.ToString())} precision.{depthNote}";
+            return requestedIntent == FocusedContextIntent.Behavior
+                ? $"Mapped legacy behavior mode to {NormalizeIntentText(resolvedIntent)} with {NormalizeSearchToken(resolvedPrecision.ToString())} precision.{depthNote}"
+                : $"Used requested {NormalizeIntentText(resolvedIntent)} mode with {NormalizeSearchToken(resolvedPrecision.ToString())} precision.{depthNote}";
         }
 
         return "Used default trouble-path expansion.";
@@ -596,6 +601,7 @@ public sealed partial class CodeAnalyticsApplicationService {
 
     private static string NormalizeIntentText(FocusedContextIntent intent) {
         return intent switch {
+            FocusedContextIntent.Behavior => "behavior",
             FocusedContextIntent.TroublePath => "trouble-path",
             FocusedContextIntent.UsageSummary => "usage-summary",
             FocusedContextIntent.RepresentativeConsumers => "representative-consumers",

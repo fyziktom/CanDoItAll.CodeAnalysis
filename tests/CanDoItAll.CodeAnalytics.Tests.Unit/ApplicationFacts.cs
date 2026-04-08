@@ -1,6 +1,7 @@
 using CanDoItAll.CodeAnalytics.Abstractions;
 using CanDoItAll.CodeAnalytics.Abstractions.Commands;
 using CanDoItAll.CodeAnalytics.Abstractions.Queries;
+using CanDoItAll.CodeAnalytics.Abstractions.Responses;
 using CanDoItAll.CodeAnalytics.Domain.Diagnostics;
 using CanDoItAll.CodeAnalytics.Domain.Facts;
 using CanDoItAll.CodeAnalytics.Domain.Snapshot;
@@ -261,6 +262,38 @@ public sealed class ApplicationFacts {
     }
 
     [Fact]
+    public async Task Application_separates_product_and_supporting_projects_in_inventory() {
+        using var output = new TemporaryDirectoryScope();
+        var snapshot = CreateInventoryClassificationSnapshot();
+        await StoreSnapshotAsync(snapshot, output.Path);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetProjectInventoryAsync(
+            new ProjectInventoryQuery(
+                snapshot.SnapshotId,
+                ProjectName: "Fixture.Shop.Application",
+                IncludeDocuments: false));
+
+        Assert.NotNull(response);
+        Assert.Equal(ProjectRoleKind.Product, response!.Project.ProjectRole);
+        Assert.Single(response.Project.DirectProjectReferences);
+        Assert.Equal(ProjectRoleKind.Product, response.Project.DirectProjectReferences[0].ProjectRole);
+        Assert.Empty(response.Project.SupportingDirectProjectReferences);
+        Assert.Single(response.Project.ReferencedByProjects);
+        Assert.Equal("Fixture.Shop.Web", response.Project.ReferencedByProjects[0].ProjectName);
+        Assert.Equal(ProjectRoleKind.Product, response.Project.ReferencedByProjects[0].ProjectRole);
+        Assert.Equal(2, response.Project.SupportingReferencedByProjects.Count);
+        Assert.Contains(
+            response.Project.SupportingReferencedByProjects,
+            item => string.Equals(item.ProjectName, "Fixture.Shop.Application.Tests", StringComparison.Ordinal)
+                && item.ProjectRole == ProjectRoleKind.Test);
+        Assert.Contains(
+            response.Project.SupportingReferencedByProjects,
+            item => string.Equals(item.ProjectName, "Fixture.Shop.Application.Benchmarks", StringComparison.Ordinal)
+                && item.ProjectRole == ProjectRoleKind.Benchmark);
+    }
+
+    [Fact]
     public async Task Application_returns_document_source_for_snapshot_document_path() {
         FixtureSolutionHost.EnsurePrepared();
         using var output = new TemporaryDirectoryScope();
@@ -359,6 +392,28 @@ public sealed class ApplicationFacts {
         Assert.NotEmpty(response.Types);
         Assert.NotEmpty(response.Members);
         Assert.Contains(response.RelatedServices, item => item.ServiceRegistrationId == seedService.ServiceRegistrationId);
+    }
+
+    [Fact]
+    public async Task Application_maps_behavior_intent_to_trouble_path_for_focused_context() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                build.Snapshot.SnapshotId,
+                Depth: 2,
+                QueryText: "PlaceOrderAsync",
+                Intent: FocusedContextIntent.Behavior,
+                Precision: FocusedContextPrecision.Balanced));
+
+        Assert.NotNull(response);
+        Assert.Equal(FocusedContextIntent.Behavior, response!.RequestedIntent);
+        Assert.Equal(FocusedContextIntent.TroublePath, response.ResolvedIntent);
+        Assert.NotNull(response.SeedMember);
+        Assert.Contains("behavior", response.StrategyExplanation, StringComparison.OrdinalIgnoreCase);
     }
 
     [Fact]
@@ -611,6 +666,27 @@ public sealed class ApplicationFacts {
         var pathResolver = new SnapshotPathResolver(outputPath);
         var requestHash = repository.ComputeRequestHash(snapshot.Request, snapshot.GeneratorVersion, snapshot.SchemaVersion);
         await repository.StoreAsync(pathResolver, snapshot, requestHash, [], CancellationToken.None);
+    }
+
+    private static ArchitectureSnapshot CreateInventoryClassificationSnapshot() {
+        var original = SampleSnapshotFactory.Create();
+        var projects = new[]
+        {
+            new ProjectFact("proj-app", "Fixture.Shop.Application", "src/Fixture.Shop.Application/Fixture.Shop.Application.csproj", ["net10.0"], ["proj-infra"], [], 2),
+            new ProjectFact("proj-infra", "Fixture.Shop.Infrastructure", "src/Fixture.Shop.Infrastructure/Fixture.Shop.Infrastructure.csproj", ["net10.0"], [], ["Microsoft.EntityFrameworkCore"], 1),
+            new ProjectFact("proj-web", "Fixture.Shop.Web", "src/Fixture.Shop.Web/Fixture.Shop.Web.csproj", ["net10.0"], ["proj-app"], [], 1),
+            new ProjectFact("proj-tests", "Fixture.Shop.Application.Tests", "tests/Fixture.Shop.Application.Tests/Fixture.Shop.Application.Tests.csproj", ["net10.0"], ["proj-app"], ["Microsoft.NET.Test.Sdk"], 1),
+            new ProjectFact("proj-bench", "Fixture.Shop.Application.Benchmarks", "benchmarks/Fixture.Shop.Application.Benchmarks/Fixture.Shop.Application.Benchmarks.csproj", ["net10.0"], ["proj-app"], ["BenchmarkDotNet"], 1),
+        };
+
+        return original with {
+            Facts = original.Facts with {
+                Solution = original.Facts.Solution with {
+                    ProjectCount = projects.Length,
+                },
+                Projects = projects,
+            },
+        };
     }
 
     private static Task WriteOrderServiceSourceAsync(string orderServiceDirectory) {

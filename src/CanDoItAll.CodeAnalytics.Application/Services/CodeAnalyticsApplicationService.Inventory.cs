@@ -43,6 +43,7 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyList<DocumentFact> documents,
         bool includeDocuments) {
         var projectsById = projects.ToDictionary(project => project.ProjectId, StringComparer.Ordinal);
+        var projectRolesById = projects.ToDictionary(project => project.ProjectId, ClassifyProjectRole, StringComparer.Ordinal);
         var documentsByProjectId = documents
             .GroupBy(document => document.ProjectId, StringComparer.Ordinal)
             .ToDictionary(
@@ -69,25 +70,45 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         return projects
             .OrderBy(project => project.Name, StringComparer.OrdinalIgnoreCase)
-            .Select(
-                project => new ProjectInventoryItem(
-                    project,
-                    project.ProjectReferences
-                        .Select(projectId => CreateProjectLink(projectId, projectsById))
-                        .Where(link => link is not null)
-                        .Cast<ProjectLinkItem>()
-                        .OrderBy(link => link.ProjectName, StringComparer.OrdinalIgnoreCase)
-                        .ToArray(),
-                    referencedByLookup.TryGetValue(project.ProjectId, out var referencedByProjects)
-                        ? referencedByProjects
-                            .OrderBy(item => item.Name, StringComparer.OrdinalIgnoreCase)
-                            .Select(item => new ProjectLinkItem(item.ProjectId, item.Name, item.Path))
-                            .ToArray()
-                        : [],
-                    includeDocuments && documentsByProjectId.TryGetValue(project.ProjectId, out var projectDocuments)
-                        ? projectDocuments
-                        : []))
+            .Select(project => CreateProjectInventoryItem(project))
             .ToArray();
+
+        ProjectInventoryItem CreateProjectInventoryItem(ProjectFact project) {
+            var directProjectReferences = project.ProjectReferences
+                .Select(projectId => CreateProjectLink(projectId, projectsById, projectRolesById))
+                .Where(link => link is not null)
+                .Cast<ProjectLinkItem>()
+                .OrderBy(link => link.ProjectName, StringComparer.OrdinalIgnoreCase)
+                .ToArray();
+            var referencedByProjects = referencedByLookup.TryGetValue(project.ProjectId, out var callers)
+                ? callers
+                    .OrderBy(item => item.Name, StringComparer.OrdinalIgnoreCase)
+                    .Select(item => new ProjectLinkItem(item.ProjectId, item.Name, item.Path, projectRolesById[item.ProjectId]))
+                    .ToArray()
+                : [];
+            var productDirectProjectReferences = directProjectReferences
+                .Where(static item => item.ProjectRole == ProjectRoleKind.Product)
+                .ToArray();
+            var supportingDirectProjectReferences = directProjectReferences
+                .Where(static item => item.ProjectRole != ProjectRoleKind.Product)
+                .ToArray();
+            var productReferencedByProjects = referencedByProjects
+                .Where(static item => item.ProjectRole == ProjectRoleKind.Product)
+                .ToArray();
+            var supportingReferencedByProjects = referencedByProjects
+                .Where(static item => item.ProjectRole != ProjectRoleKind.Product)
+                .ToArray();
+            return new ProjectInventoryItem(
+                project,
+                projectRolesById[project.ProjectId],
+                productDirectProjectReferences,
+                supportingDirectProjectReferences,
+                productReferencedByProjects,
+                supportingReferencedByProjects,
+                includeDocuments && documentsByProjectId.TryGetValue(project.ProjectId, out var projectDocuments)
+                    ? projectDocuments
+                    : []);
+        }
     }
 
     private static ProjectInventoryItem? ResolveProjectInventoryItem(
@@ -108,9 +129,33 @@ public sealed partial class CodeAnalyticsApplicationService {
 
     private static ProjectLinkItem? CreateProjectLink(
         string projectId,
-        IReadOnlyDictionary<string, ProjectFact> projectsById) {
+        IReadOnlyDictionary<string, ProjectFact> projectsById,
+        IReadOnlyDictionary<string, ProjectRoleKind> projectRolesById) {
         return projectsById.TryGetValue(projectId, out var project)
-            ? new ProjectLinkItem(project.ProjectId, project.Name, project.Path)
+            ? new ProjectLinkItem(project.ProjectId, project.Name, project.Path, projectRolesById[project.ProjectId])
             : null;
+    }
+
+    private static ProjectRoleKind ClassifyProjectRole(ProjectFact project) {
+        var normalizedName = project.Name;
+        var normalizedPath = NormalizeProjectPath(project.Path);
+        if (project.PackageReferences.Any(static package => string.Equals(package, "BenchmarkDotNet", StringComparison.OrdinalIgnoreCase))
+            || normalizedPath.Contains("/benchmarks/", StringComparison.Ordinal)
+            || normalizedName.Contains(".Benchmark", StringComparison.OrdinalIgnoreCase)) {
+            return ProjectRoleKind.Benchmark;
+        }
+
+        if (project.PackageReferences.Any(static package => string.Equals(package, "Microsoft.NET.Test.Sdk", StringComparison.OrdinalIgnoreCase))
+            || normalizedPath.Contains("/tests/", StringComparison.Ordinal)
+            || normalizedName.Contains(".Test", StringComparison.OrdinalIgnoreCase)
+            || normalizedName.EndsWith("Tests", StringComparison.OrdinalIgnoreCase)) {
+            return ProjectRoleKind.Test;
+        }
+
+        return ProjectRoleKind.Product;
+    }
+
+    private static string NormalizeProjectPath(string path) {
+        return path.Replace('\\', '/');
     }
 }
