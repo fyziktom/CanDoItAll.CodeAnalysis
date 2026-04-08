@@ -133,6 +133,8 @@ public sealed class WebUiFacts {
         Assert.Contains("PlaceOrderAsync", html, StringComparison.Ordinal);
         Assert.Contains("selected /", html, StringComparison.Ordinal);
         Assert.Contains("Selection quality", html, StringComparison.Ordinal);
+        Assert.Contains("Intent", html, StringComparison.Ordinal);
+        Assert.Contains("Precision", html, StringComparison.Ordinal);
         Assert.Contains("Focused", html, StringComparison.Ordinal);
     }
 

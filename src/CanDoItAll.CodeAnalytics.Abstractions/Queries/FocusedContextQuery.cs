@@ -1,3 +1,5 @@
+using CanDoItAll.CodeAnalytics.Abstractions;
+
 namespace CanDoItAll.CodeAnalytics.Abstractions.Queries;
 
 public sealed record FocusedContextQuery(
@@ -7,4 +9,6 @@ public sealed record FocusedContextQuery(
     string? ServiceRegistrationId = null,
     int Depth = 2,
     string? QueryText = null,
-    IReadOnlyList<string>? FocusTags = null);
+    IReadOnlyList<string>? FocusTags = null,
+    FocusedContextIntent Intent = FocusedContextIntent.Auto,
+    FocusedContextPrecision Precision = FocusedContextPrecision.Auto);

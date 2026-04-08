@@ -61,3 +61,23 @@
 - UI case:
   - `CanvasSceneHost` with project scope `CanDoItAll.Components.CanvasLib` and tag `Ui` produced a strong first-pass result: `98` selected lines across `3` files.
   - This is the preservation case for the next implementation pass. Noise tightening must not regress this narrower UI flow.
+
+## Helper-precision findings from the newest reopen
+
+- The residual helper-noise problem is now narrower and better understood than the previous reopen:
+  - seed resolution for helpers is no longer the main defect,
+  - the remaining issue is that high-fan-in helpers still flow through the same undirected traversal used for trouble-path exploration.
+- The host `IClock` footprint is wide enough to require a different mode:
+  - `62` source matches,
+  - `41` source files,
+  - `14` source projects,
+  - strongest spread in `CanDoItAll.Modules.Workbench`, `CanDoItAll.Infrastructure`, `CanDoItAll.Modules.Automation`, and `CanDoItAll.Modules.CrmHr`.
+- SharpTools remains more surgical for helpers because it separates:
+  - definition lookup,
+  - implementation lookup,
+  - and usage search,
+  instead of collapsing them into one automatically expanded bundle.
+- The next pass therefore needs:
+  - explicit helper-oriented intent or precision handling,
+  - directional traversal instead of always exploring both directions,
+  - sampled or summarized consumers instead of trying to load the full helper neighborhood into the main excerpt payload.

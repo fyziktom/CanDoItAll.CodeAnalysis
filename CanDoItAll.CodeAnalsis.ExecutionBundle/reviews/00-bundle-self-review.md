@@ -16,6 +16,7 @@
 - The reopened scope keeps prompt resolution, tag heuristics, and excerpt grouping in the application layer instead of hiding them inside Razor pages.
 - The persistence and diagram subbundles are separated from the member-context work so regressions are easier to localize.
 - The new reopen keeps the comparison-driven improvements small: fix the hard helper failure, tighten broad seed behavior, preserve the good UI case, and refactor the focused-context code for readability.
+- This helper reopen also keeps scope staged: minimal helper-precision changes first, then maintainability refactor, then wider helper-mode improvements.
 
 ## Senior manager review
 
@@ -24,3 +25,4 @@
 - The workbook remains the planning surface for user stories, issues, and validation ownership.
 - The closure phase explicitly includes the value comparison against SharpTools, the future MCP seam review, and what user feedback must be captured for the next tuning pass.
 - The new reopen still has a short critical path because it reuses the existing bundle instead of inventing a second initiative.
+- The helper reopen has a clean decision rule: do not chase SharpTools parity with more score tweaks; add an explicit helper-oriented strategy boundary instead.

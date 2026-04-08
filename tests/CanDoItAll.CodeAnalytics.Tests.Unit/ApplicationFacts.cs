@@ -1,7 +1,9 @@
+using CanDoItAll.CodeAnalytics.Abstractions;
 using CanDoItAll.CodeAnalytics.Abstractions.Commands;
 using CanDoItAll.CodeAnalytics.Abstractions.Queries;
 using CanDoItAll.CodeAnalytics.Domain.Diagnostics;
 using CanDoItAll.CodeAnalytics.Domain.Facts;
+using CanDoItAll.CodeAnalytics.Domain.Snapshot;
 using CanDoItAll.CodeAnalytics.Domain.Sources;
 using CanDoItAll.CodeAnalytics.Storage.Paths;
 using CanDoItAll.CodeAnalytics.Storage.Snapshots;
@@ -217,6 +219,74 @@ public sealed class ApplicationFacts {
         Assert.NotNull(response.SeedMember);
         Assert.Equal(MemberKind.Method, response.SeedMember!.Kind);
         Assert.DoesNotContain("OrderService(", response.SeedMember.DisplayName, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task Application_switches_high_fan_in_helpers_into_surgical_definition_mode() {
+        using var workspace = new TemporaryDirectoryScope();
+        using var output = new TemporaryDirectoryScope();
+
+        var snapshot = await FocusedContextHelperSnapshotFactory.CreateHighFanInHelperSnapshotAsync(workspace.Path);
+        await StoreSnapshotAsync(snapshot, output.Path);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                snapshot.SnapshotId,
+                Depth: 3,
+                QueryText: "IClock"));
+
+        Assert.NotNull(response);
+        Assert.Equal(FocusedContextIntent.Definition, response!.ResolvedIntent);
+        Assert.Equal(FocusedContextPrecision.Surgical, response.ResolvedPrecision);
+        Assert.NotEmpty(response.ImplementationTypes);
+        Assert.NotNull(response.UsageSummary);
+        Assert.Equal(7, response.UsageSummary!.TotalCallerCount);
+        Assert.Equal(5, response.UsageSummary.TotalClusterCount);
+        Assert.True(response.UsageSummary.OmittedCallerCount > 0);
+        Assert.True(response.Members.Count < 7);
+        Assert.Contains(response.Files, item => item.Path.EndsWith("IClock.cs", StringComparison.Ordinal));
+        Assert.Contains(response.Files, item => item.Path.EndsWith("SystemClock.cs", StringComparison.Ordinal));
+        Assert.Contains(response.Members, item => item.TypeId == "type-system-clock");
+    }
+
+    [Fact]
+    public async Task Application_can_render_usage_summary_without_pulling_consumer_members_into_main_selection() {
+        using var workspace = new TemporaryDirectoryScope();
+        using var output = new TemporaryDirectoryScope();
+
+        var snapshot = await FocusedContextHelperSnapshotFactory.CreateHighFanInHelperSnapshotAsync(workspace.Path);
+        await StoreSnapshotAsync(snapshot, output.Path);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                snapshot.SnapshotId,
+                Depth: 2,
+                QueryText: "IClock",
+                Intent: FocusedContextIntent.UsageSummary,
+                Precision: FocusedContextPrecision.Surgical));
+
+        Assert.NotNull(response);
+        Assert.Equal(FocusedContextIntent.UsageSummary, response!.ResolvedIntent);
+        Assert.Equal(FocusedContextPrecision.Surgical, response.ResolvedPrecision);
+        Assert.NotNull(response.UsageSummary);
+        Assert.DoesNotContain(
+            response.Members,
+            item => item.TypeId is "type-order-service"
+                or "type-invoice-service"
+                or "type-reminder-service"
+                or "type-digest-service"
+                or "type-dashboard-page"
+                or "type-report-builder"
+                or "type-cleanup-job");
+    }
+
+    private static async Task StoreSnapshotAsync(ArchitectureSnapshot snapshot, string outputPath) {
+        var repository = new FileSnapshotRepository(new SnapshotJsonSerializer());
+        var pathResolver = new SnapshotPathResolver(outputPath);
+        var requestHash = repository.ComputeRequestHash(snapshot.Request, snapshot.GeneratorVersion, snapshot.SchemaVersion);
+        await repository.StoreAsync(pathResolver, snapshot, requestHash, [], CancellationToken.None);
     }
 
     private static Task WriteOrderServiceSourceAsync(string orderServiceDirectory) {

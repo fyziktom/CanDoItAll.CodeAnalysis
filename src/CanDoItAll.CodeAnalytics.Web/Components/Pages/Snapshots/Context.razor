@@ -56,10 +56,73 @@ else
                     <span><strong>Member</strong> @_response.SeedMember.DisplayName</span>
                 }
                 <span><strong>Depth</strong> @_response.Depth</span>
+                <span><strong>Intent</strong> @GetIntentLabel(_response.ResolvedIntent)</span>
+                <span><strong>Precision</strong> @GetPrecisionLabel(_response.ResolvedPrecision)</span>
                 <span><strong>Types</strong> @_response.Types.Count</span>
                 <span><strong>Members</strong> @_response.Members.Count</span>
             </div>
+
+            @if (!string.IsNullOrWhiteSpace(_response.StrategyExplanation))
+            {
+                <p class="field-help">@_response.StrategyExplanation</p>
+            }
         </section>
+
+        @if (_response.UsageSummary is not null)
+        {
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Usage Summary</h2>
+                    <p>Grouped callers keep widespread helpers readable without pulling every consumer into the focused excerpt set.</p>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Total callers</span>
+                        <span class="stat-value-sm">@_response.UsageSummary.TotalCallerCount</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Clusters</span>
+                        <span class="stat-value-sm">@_response.UsageSummary.Clusters.Count / @_response.UsageSummary.TotalClusterCount</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Omitted callers</span>
+                        <span class="stat-value-sm">@_response.UsageSummary.OmittedCallerCount</span>
+                    </div>
+                </div>
+
+                <ul class="detail-list">
+                    @foreach (var cluster in _response.UsageSummary.Clusters)
+                    {
+                        <li>
+                            <strong>@cluster.ProjectName</strong>
+                            @if (!string.IsNullOrWhiteSpace(cluster.ModuleName))
+                            {
+                                <span> @cluster.ModuleName </span>
+                            }
+                            <span>@cluster.CallerCount caller(s)</span>
+                        </li>
+                    }
+                </ul>
+            </section>
+        }
+
+        @if (_response.ImplementationTypes.Count > 0)
+        {
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Implementations</h2>
+                    <p>These concrete types are treated as definition-adjacent context for helper-like seeds.</p>
+                </div>
+
+                <ul class="detail-list">
+                    @foreach (var type in _response.ImplementationTypes)
+                    {
+                        <li><strong>@type.DisplayName</strong> <span>@type.Source.Path:@type.Source.Line</span></li>
+                    }
+                </ul>
+            </section>
+        }
 
         <section class="panel">
             <div class="panel-heading">
@@ -260,5 +323,27 @@ else
     private string GetMemberName(string memberId)
     {
         return _response?.Members.FirstOrDefault(item => string.Equals(item.MemberId, memberId, StringComparison.Ordinal))?.DisplayName ?? memberId;
+    }
+
+    private static string GetIntentLabel(FocusedContextIntent intent)
+    {
+        return intent switch
+        {
+            FocusedContextIntent.TroublePath => "Trouble path",
+            FocusedContextIntent.UsageSummary => "Usage summary",
+            FocusedContextIntent.RepresentativeConsumers => "Representative consumers",
+            _ => intent.ToString(),
+        };
+    }
+
+    private static string GetPrecisionLabel(FocusedContextPrecision precision)
+    {
+        return precision switch
+        {
+            FocusedContextPrecision.Auto => "Auto",
+            FocusedContextPrecision.Balanced => "Balanced",
+            FocusedContextPrecision.Surgical => "Surgical",
+            _ => precision.ToString(),
+        };
     }
 }

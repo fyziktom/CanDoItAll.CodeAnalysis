@@ -40,6 +40,7 @@ public sealed partial class CodeAnalyticsApplicationService {
         var membersById = snapshot.Facts.Members.ToDictionary(item => item.MemberId, StringComparer.Ordinal);
         var servicesById = snapshot.Facts.ServiceRegistrations.ToDictionary(item => item.ServiceRegistrationId, StringComparer.Ordinal);
         var projectsById = snapshot.Facts.Projects.ToDictionary(item => item.ProjectId, StringComparer.Ordinal);
+        var modulesById = snapshot.Facts.Modules.ToDictionary(item => item.ModuleId, StringComparer.Ordinal);
         var membersByTypeId = snapshot.Facts.Members
             .GroupBy(item => item.TypeId, StringComparer.Ordinal)
             .ToDictionary(group => group.Key, group => (IReadOnlyList<MemberFact>)group.ToArray(), StringComparer.Ordinal);
@@ -61,26 +62,46 @@ public sealed partial class CodeAnalyticsApplicationService {
         var seedMember = seed.SeedMember;
         var seedService = seed.SeedService;
         var seedMemberIds = ResolveSeedMemberIds(seedType, seedMember, membersByTypeId, query.QueryText, focusTags);
-        var selectedMemberIds = ExpandMemberNeighborhood(
+        var strategy = ResolveFocusedContextStrategy(
+            query,
+            seedType,
+            seedMember,
             seedMemberIds,
             snapshot.Facts.MemberRelationships,
             membersById,
             typesById,
-            projectsById,
+            projectsById);
+        var memberSelection = SelectFocusedMembers(
             seedType,
-            depth,
+            seedMember,
+            seedMemberIds,
+            snapshot.Facts.Types,
+            snapshot.Facts.MemberRelationships,
+            membersById,
+            typesById,
+            projectsById,
+            modulesById,
+            membersByTypeId,
+            strategy,
             focusTags);
-        var selectedMembers = selectedMemberIds
-            .Where(membersById.ContainsKey)
-            .Select(memberId => membersById[memberId])
-            .OrderBy(item => string.Equals(item.MemberId, seedMember?.MemberId, StringComparison.Ordinal) ? 0 : 1)
-            .ThenBy(item => string.Equals(item.TypeId, seedType?.TypeId, StringComparison.Ordinal) ? 0 : 1)
-            .ThenByDescending(item => GetFocusTagScore(focusTags, item.DisplayName, item.ReturnTypeDisplayName, item.Source.Path))
-            .ThenBy(item => item.DisplayName, StringComparer.Ordinal)
-            .Take(MaxFocusedMembers)
-            .ToArray();
-
-        var selectedTypes = SelectRelevantTypes(seedType, selectedMembers, snapshot.Facts.TypeRelationships, typesById, projectsById, focusTags);
+        var selectedMembers = OrderSelectedMembers(
+            memberSelection.SelectedMemberIds,
+            membersById,
+            seedType,
+            seedMember,
+            focusTags,
+            memberSelection.ImplementationTypes,
+            memberSelection.RepresentativeConsumers,
+            strategy);
+        var selectedTypes = SelectRelevantTypes(
+            seedType,
+            memberSelection.ImplementationTypes,
+            selectedMembers,
+            snapshot.Facts.TypeRelationships,
+            typesById,
+            projectsById,
+            focusTags,
+            strategy);
 
         var anchorTypeIds = selectedMembers.Select(item => item.TypeId).ToHashSet(StringComparer.Ordinal);
         if (seedType is not null) {
@@ -90,7 +111,15 @@ public sealed partial class CodeAnalyticsApplicationService {
         var memberIdSet = selectedMembers.Select(item => item.MemberId).ToHashSet(StringComparer.Ordinal);
         var typeIdSet = selectedTypes.Select(item => item.TypeId).ToHashSet(StringComparer.Ordinal);
         var relatedServices = SelectRelevantServices(snapshot.Facts.ServiceRegistrations, typeIdSet, snapshot.Facts.Types, projectsById, seedType, focusTags);
-        var referenceTypes = FindReferenceTypes(snapshot.Facts.TypeRelationships, selectedTypes, anchorTypeIds, typesById, projectsById, seedType, focusTags);
+        var referenceTypes = FindReferenceTypes(
+            snapshot.Facts.TypeRelationships,
+            selectedTypes,
+            anchorTypeIds,
+            typesById,
+            projectsById,
+            seedType,
+            focusTags,
+            strategy);
         var files = await BuildFocusedContextFilesAsync(
             snapshot,
             seedType,
@@ -104,19 +133,26 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         return new FocusedContextResponse(
             snapshot.SnapshotId,
-            depth,
+            strategy.EffectiveDepth,
             query.QueryText?.Trim(),
             focusTags,
+            strategy.RequestedIntent,
+            strategy.ResolvedIntent,
+            strategy.RequestedPrecision,
+            strategy.ResolvedPrecision,
+            strategy.StrategyExplanation,
             seed.SeedExplanation,
             seedType,
             seedMember,
             seedService,
+            memberSelection.ImplementationTypes,
             selectedTypes,
             selectedMembers,
             SelectRelevantMemberRelationships(snapshot.Facts.MemberRelationships, memberIdSet, membersById, typesById, projectsById, seedType),
             SelectRelevantTypeRelationships(snapshot.Facts.TypeRelationships, typeIdSet, anchorTypeIds),
             relatedServices,
             referenceTypes,
+            memberSelection.UsageSummary,
             stats,
             files);
     }

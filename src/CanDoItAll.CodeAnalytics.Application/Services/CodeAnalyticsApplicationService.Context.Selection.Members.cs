@@ -11,7 +11,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyDictionary<string, ProjectFact> projectsById,
         TypeFact? seedType,
         int depth,
-        IReadOnlyCollection<string> focusTags) {
+        IReadOnlyCollection<string> focusTags,
+        FocusedContextTraversalMode traversalMode) {
         var selected = seedMemberIds.ToHashSet(StringComparer.Ordinal);
         var frontier = seedMemberIds.ToHashSet(StringComparer.Ordinal);
         var seedTypeIds = seedMemberIds
@@ -31,8 +32,13 @@ public sealed partial class CodeAnalyticsApplicationService {
 
             var candidates = new Dictionary<string, int>(StringComparer.Ordinal);
             foreach (var relationship in relationships) {
-                CollectMemberCandidate(candidates, relationship.FromMemberId, relationship.ToMemberId, relationship.Kind);
-                CollectMemberCandidate(candidates, relationship.ToMemberId, relationship.FromMemberId, relationship.Kind);
+                if (traversalMode is FocusedContextTraversalMode.Bidirectional or FocusedContextTraversalMode.OutboundOnly) {
+                    CollectMemberCandidate(candidates, relationship.FromMemberId, relationship.ToMemberId, relationship.Kind);
+                }
+
+                if (traversalMode is FocusedContextTraversalMode.Bidirectional or FocusedContextTraversalMode.InboundOnly) {
+                    CollectMemberCandidate(candidates, relationship.ToMemberId, relationship.FromMemberId, relationship.Kind);
+                }
             }
 
             if (candidates.Count == 0) {

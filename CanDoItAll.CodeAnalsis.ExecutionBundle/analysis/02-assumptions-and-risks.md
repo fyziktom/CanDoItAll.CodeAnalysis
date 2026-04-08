@@ -9,6 +9,7 @@
 - The first tag system can be heuristic and keyword-driven as long as the applied tags and their effect remain visible in the UI.
 - The dedicated lab page may build or reuse snapshots synchronously for now because cache reuse keeps repeated tuning runs practical in the standalone tool.
 - The next pass should reopen the existing bundle instead of creating a second bundle root because the new work is a direct consequence of the completed focused-context cycle.
+- The helper-precision pass can remain incremental if it introduces a typed traversal strategy instead of rewriting the full focused-context pipeline at once.
 
 ## Critical Path Risks
 
@@ -20,6 +21,8 @@
 - Excerpt generation can become misleading if line spans are too shallow, too wide, or grouped incorrectly across files.
 - Shared helper analysis can fail entirely if duplicate normalized document paths from package-backed generated files are still treated as unique dictionary keys.
 - Broad type queries can remain misleading if constructor-first seed selection keeps dragging the neighborhood toward factories and consumers instead of the most explanatory member.
+- High-fan-in helper symbols can remain noisy even after better seeding unless traversal and response shaping switch away from undirected neighborhood expansion.
+- A helper-specific response can become harder to reason about if usage sampling, implementation lookup, and trouble-path traversal are mixed without a clear strategy boundary.
 
 ## Validation Risks
 
@@ -30,6 +33,7 @@
 - The lab page can look convincing while still hiding noisy excerpt grouping unless screenshot review checks readability, accordion hierarchy, and stats clarity.
 - Build and test validation can report false failures if lingering `testhost` processes keep binaries locked; clean reruns must isolate that tooling issue from product regressions.
 - The comparison can still be misleading if only line counts are measured. The reopen must score helpfulness, noise, and operator effort explicitly.
+- The helper-mode reopen can regress the strong database or UI cases if the new traversal strategy leaks into the default trouble-path path instead of being explicitly selected.
 
 ## Reopen Triggers
 
@@ -39,3 +43,5 @@
 - Reopen `SB-17` if duplicate source-path collisions still break common-helper searches or if type/helper seeds still explode into broad low-value context.
 - Reopen `SB-18` if Playwright proof shows the lab page cannot drive the new context exploration path clearly or if the accordion output is visually noisy.
 - Reopen `SB-19` if the future MCP seam thickens, the tuning feedback remains vague, or the snapshot versus SharpTools comparison still shows poor context savings.
+- Reopen `SB-20` or `SB-22` if helper seeds still explode into consumer-heavy bundles after the new strategy pass.
+- Reopen `SB-23` if the rerun still cannot explain where focused context should stop and hand over to SharpTools for helper exploration.

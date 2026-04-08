@@ -1,3 +1,4 @@
+using CanDoItAll.CodeAnalytics.Abstractions;
 using CanDoItAll.CodeAnalytics.Domain.Facts;
 
 namespace CanDoItAll.CodeAnalytics.Abstractions.Responses;
@@ -7,15 +8,22 @@ public sealed record FocusedContextResponse(
     int Depth,
     string? QueryText,
     IReadOnlyList<string> FocusTags,
+    FocusedContextIntent RequestedIntent,
+    FocusedContextIntent ResolvedIntent,
+    FocusedContextPrecision RequestedPrecision,
+    FocusedContextPrecision ResolvedPrecision,
+    string? StrategyExplanation,
     string? SeedExplanation,
     TypeFact? SeedType,
     MemberFact? SeedMember,
     ServiceRegistrationFact? SeedService,
+    IReadOnlyList<TypeFact> ImplementationTypes,
     IReadOnlyList<TypeFact> Types,
     IReadOnlyList<MemberFact> Members,
     IReadOnlyList<MemberRelationshipFact> MemberRelationships,
     IReadOnlyList<TypeRelationshipFact> TypeRelationships,
     IReadOnlyList<ServiceRegistrationFact> RelatedServices,
     IReadOnlyList<TypeFact> ReferenceTypes,
+    FocusedContextUsageSummary? UsageSummary,
     FocusedContextStats Stats,
     IReadOnlyList<FocusedContextFileExcerpt> Files);

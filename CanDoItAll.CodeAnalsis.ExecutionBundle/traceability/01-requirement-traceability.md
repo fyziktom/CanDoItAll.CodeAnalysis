@@ -24,3 +24,7 @@
 | Compare not only content amount but also helpfulness and noise | REQ-021, REQ-023, REQ-026 | SB-19 | Explicit rubric and evidence-based analysis | Call count alone is not enough |
 | Improve the feature based on the comparison | REQ-022, REQ-023, REQ-024 | SB-17, SB-18, SB-19 | Tests, browser proof, rerun comparison | Must close the helper failure and tighten noisy cases |
 | Include generic readability and structure refactoring | REQ-025 | SB-15, SB-17, SB-18 | Code review, build, tests | Refactor must stay small and behavior-preserving |
+| Make helpers like `IClock` more surgical and precise | REQ-027, REQ-028, REQ-029, REQ-031, REQ-032 | SB-20, SB-22, SB-23 | Host helper rerun, SharpTools comparison, focused-context payload review | High-fan-in helper mode is the new reopen target |
+| Start with the minimal change set first | REQ-027, REQ-028, REQ-030 | SB-20 | Unit tests, focused host rerun, entry and closure gate notes | Sequencing matters; do not jump straight to a wider redesign |
+| Then refactor for maintainability | REQ-030 | SB-21 | Build, tests, code review, ownership review | Helper-mode logic must not become another tangled heuristic slice |
+| Then add the broader helper-mode improvements | REQ-029, REQ-031, REQ-032 | SB-22, SB-23 | UI proof, host rerun, final SharpTools comparison | Broader improvements come only after the minimal foundation is stable |

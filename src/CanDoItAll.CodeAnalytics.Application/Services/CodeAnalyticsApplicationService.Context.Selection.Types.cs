@@ -5,11 +5,17 @@ namespace CanDoItAll.CodeAnalytics.Application.Services;
 public sealed partial class CodeAnalyticsApplicationService {
     private static IReadOnlyList<TypeFact> SelectRelevantTypes(
         TypeFact? seedType,
+        IReadOnlyList<TypeFact> implementationTypes,
         IReadOnlyList<MemberFact> selectedMembers,
         IReadOnlyList<TypeRelationshipFact> relationships,
         IReadOnlyDictionary<string, TypeFact> typesById,
         IReadOnlyDictionary<string, ProjectFact> projectsById,
-        IReadOnlyCollection<string> focusTags) {
+        IReadOnlyCollection<string> focusTags,
+        FocusedContextStrategy strategy) {
+        if (strategy.UseTargetedSelection) {
+            return SelectTargetedTypes(seedType, implementationTypes, selectedMembers, typesById, focusTags);
+        }
+
         var selectedTypeIds = selectedMembers.Select(item => item.TypeId).ToHashSet(StringComparer.Ordinal);
         if (seedType is not null) {
             selectedTypeIds.Add(seedType.TypeId);
@@ -122,7 +128,12 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyDictionary<string, TypeFact> typesById,
         IReadOnlyDictionary<string, ProjectFact> projectsById,
         TypeFact? seedType,
-        IReadOnlyCollection<string> focusTags) {
+        IReadOnlyCollection<string> focusTags,
+        FocusedContextStrategy strategy) {
+        if (strategy.DisableReferenceTypes) {
+            return [];
+        }
+
         var selectedTypeIds = selectedTypes.Select(item => item.TypeId).ToHashSet(StringComparer.Ordinal);
         var anchorProjectIds = anchorTypeIds
             .Where(typesById.ContainsKey)
@@ -187,6 +198,51 @@ public sealed partial class CodeAnalyticsApplicationService {
                 candidates.Add(candidateTypeId, score);
             }
         }
+    }
+
+    private static IReadOnlyList<TypeFact> SelectTargetedTypes(
+        TypeFact? seedType,
+        IReadOnlyList<TypeFact> implementationTypes,
+        IReadOnlyList<MemberFact> selectedMembers,
+        IReadOnlyDictionary<string, TypeFact> typesById,
+        IReadOnlyCollection<string> focusTags) {
+        var implementationTypeIds = implementationTypes
+            .Select(item => item.TypeId)
+            .ToHashSet(StringComparer.Ordinal);
+        var selectedTypeIds = selectedMembers
+            .Select(item => item.TypeId)
+            .ToHashSet(StringComparer.Ordinal);
+        foreach (var implementationType in implementationTypes) {
+            selectedTypeIds.Add(implementationType.TypeId);
+        }
+
+        if (seedType is not null) {
+            selectedTypeIds.Add(seedType.TypeId);
+        }
+
+        return selectedTypeIds
+            .Where(typesById.ContainsKey)
+            .Select(typeId => typesById[typeId])
+            .OrderBy(item => GetTargetedTypeBucket(item, seedType, implementationTypeIds))
+            .ThenByDescending(item => GetFocusTagScore(focusTags, CreateFocusTagText(item)))
+            .ThenBy(item => item.DisplayName, StringComparer.Ordinal)
+            .Take(MaxFocusedTypes)
+            .ToArray();
+    }
+
+    private static int GetTargetedTypeBucket(
+        TypeFact type,
+        TypeFact? seedType,
+        ISet<string> implementationTypeIds) {
+        if (string.Equals(type.TypeId, seedType?.TypeId, StringComparison.Ordinal)) {
+            return 0;
+        }
+
+        if (implementationTypeIds.Contains(type.TypeId)) {
+            return 1;
+        }
+
+        return 2;
     }
 
     private static int ScoreTypeCandidate(

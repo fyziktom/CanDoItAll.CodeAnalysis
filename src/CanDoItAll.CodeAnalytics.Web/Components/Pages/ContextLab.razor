@@ -60,6 +60,26 @@
 
             <div class="summary-grid">
                 <label class="field">
+                    <span>Intent</span>
+                    <select name="intent">
+                        @foreach (var intentOption in Enum.GetValues<FocusedContextIntent>())
+                        {
+                            <option value="@intentOption" selected="@(intentOption == GetIntent())">@GetIntentLabel(intentOption)</option>
+                        }
+                    </select>
+                </label>
+
+                <label class="field">
+                    <span>Precision</span>
+                    <select name="precision">
+                        @foreach (var precisionOption in Enum.GetValues<FocusedContextPrecision>())
+                        {
+                            <option value="@precisionOption" selected="@(precisionOption == GetPrecision())">@GetPrecisionLabel(precisionOption)</option>
+                        }
+                    </select>
+                </label>
+
+                <label class="field">
                     <span>Depth</span>
                     <select name="depth">
                         @for (var depthOption = 0; depthOption <= 5; depthOption++)
@@ -126,6 +146,14 @@
                         <span class="stat-label">Selection quality</span>
                         <span class="stat-value-sm">@GetSelectionQuality()</span>
                     </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Intent</span>
+                        <span class="stat-value-sm">@GetIntentLabel(_response.ResolvedIntent)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Precision</span>
+                        <span class="stat-value-sm">@GetPrecisionLabel(_response.ResolvedPrecision)</span>
+                    </div>
                 }
             </div>
 
@@ -152,6 +180,11 @@
                     <span><strong>Blocks</strong> @_response.Stats.BlockCount</span>
                     <span><strong>Total file lines</strong> @_response.Stats.TotalLineCount</span>
                 </div>
+
+                @if (!string.IsNullOrWhiteSpace(_response.StrategyExplanation))
+                {
+                    <p class="field-help">@_response.StrategyExplanation</p>
+                }
 
                 @if (_response.FocusTags.Count > 0)
                 {
@@ -218,11 +251,79 @@
             </div>
         </section>
 
+        @if (_response.UsageSummary is not null)
+        {
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Usage Summary</h2>
+                    <p>Helper callers are grouped by project or module so breadth stays visible without dragging every consumer into the excerpt set.</p>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Total callers</span>
+                        <span class="stat-value-sm">@_response.UsageSummary.TotalCallerCount</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Clusters</span>
+                        <span class="stat-value-sm">@_response.UsageSummary.Clusters.Count / @_response.UsageSummary.TotalClusterCount</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Omitted callers</span>
+                        <span class="stat-value-sm">@_response.UsageSummary.OmittedCallerCount</span>
+                    </div>
+                </div>
+
+                <div class="accordion-list">
+                    @foreach (var cluster in _response.UsageSummary.Clusters)
+                    {
+                        <details class="file-accordion">
+                            <summary class="file-summary">
+                                <strong>@cluster.ProjectName</strong>
+                                @if (!string.IsNullOrWhiteSpace(cluster.ModuleName))
+                                {
+                                    <span>@cluster.ModuleName</span>
+                                }
+                                <span>@cluster.CallerCount caller(s)</span>
+                            </summary>
+
+                            <ul class="detail-list">
+                                @foreach (var sample in cluster.Samples)
+                                {
+                                    <li>
+                                        <strong>@sample.TypeDisplayName</strong>
+                                        <span>@sample.MemberDisplayName</span>
+                                        <span>@sample.Path:@sample.Line</span>
+                                        <span>@sample.Reason</span>
+                                    </li>
+                                }
+                            </ul>
+                        </details>
+                    }
+                </div>
+            </section>
+        }
+
         <section class="panel">
             <div class="panel-heading">
                 <h2>Supporting Context</h2>
                 <p>These sections help explain why the file excerpts were chosen and what you should tune next.</p>
             </div>
+
+            @if (_response.ImplementationTypes.Count > 0)
+            {
+                <div class="panel-heading">
+                    <h2>Implementations</h2>
+                    <p>These concrete types are treated as definition-adjacent context for helper-like seeds.</p>
+                </div>
+
+                <ul class="detail-list">
+                    @foreach (var type in _response.ImplementationTypes)
+                    {
+                        <li><strong>@type.DisplayName</strong> <span>@type.Source.Path:@type.Source.Line</span></li>
+                    }
+                </ul>
+            }
 
             <div class="type-browser-grid">
                 @foreach (var type in _response.Types)
@@ -283,6 +384,14 @@
     public int? Depth { get; set; }
 
     [Parameter]
+    [SupplyParameterFromQuery(Name = "intent")]
+    public string? Intent { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "precision")]
+    public string? Precision { get; set; }
+
+    [Parameter]
     [SupplyParameterFromQuery(Name = "forceRefresh")]
     public bool ForceRefresh { get; set; }
 
@@ -319,7 +428,9 @@
                     _buildResponse.Snapshot.SnapshotId,
                     Depth: GetDepth(),
                     QueryText: QueryText,
-                    FocusTags: ParseDelimitedList(Tags)));
+                    FocusTags: ParseDelimitedList(Tags),
+                    Intent: GetIntent(),
+                    Precision: GetPrecision()));
         }
         catch (Exception exception) {
             _errorMessage = exception.Message;
@@ -338,6 +449,16 @@
         return Math.Clamp(Depth ?? 2, 0, 5);
     }
 
+    private FocusedContextIntent GetIntent()
+    {
+        return ParseEnumOrDefault(Intent, FocusedContextIntent.Auto);
+    }
+
+    private FocusedContextPrecision GetPrecision()
+    {
+        return ParseEnumOrDefault(Precision, FocusedContextPrecision.Auto);
+    }
+
     private static IReadOnlyList<string> ParseDelimitedList(string? value)
     {
         if (string.IsNullOrWhiteSpace(value)) {
@@ -348,6 +469,14 @@
             .Split([',', ';', '\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToArray();
+    }
+
+    private static TEnum ParseEnumOrDefault<TEnum>(string? value, TEnum fallback)
+        where TEnum : struct, Enum
+    {
+        return Enum.TryParse<TEnum>(value, ignoreCase: true, out var parsed)
+            ? parsed
+            : fallback;
     }
 
     private bool IsSeedFile(string path)
@@ -391,5 +520,27 @@
         var selectedRatio = (double)file.SelectedLineCount / file.TotalLineCount;
         return file.SelectedLineCount >= 140
             || (file.TotalLineCount >= 120 && selectedRatio >= 0.5);
+    }
+
+    private static string GetIntentLabel(FocusedContextIntent intent)
+    {
+        return intent switch
+        {
+            FocusedContextIntent.TroublePath => "Trouble path",
+            FocusedContextIntent.UsageSummary => "Usage summary",
+            FocusedContextIntent.RepresentativeConsumers => "Representative consumers",
+            _ => intent.ToString(),
+        };
+    }
+
+    private static string GetPrecisionLabel(FocusedContextPrecision precision)
+    {
+        return precision switch
+        {
+            FocusedContextPrecision.Auto => "Auto",
+            FocusedContextPrecision.Balanced => "Balanced",
+            FocusedContextPrecision.Surgical => "Surgical",
+            _ => precision.ToString(),
+        };
     }
 }

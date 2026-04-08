@@ -21,6 +21,12 @@ It is reopened again on 2026-04-07 after the direct SharpTools comparison expose
 - broad type and helper seeds still over-expand because constructor-heavy and type-only fallbacks are too generous,
 - the tuning UI needs clearer quality cues so noisy selections are easier to judge quickly.
 
+It is reopened again on 2026-04-08 after the helper-noise analysis showed that high-fan-in helpers such as `IClock` still need a more surgical mode:
+
+- the current traversal still treats ubiquitous helpers like broken workflow methods,
+- helper exploration needs definitions, implementations, and sampled usages instead of undirected consumer spread,
+- the next pass must land the minimal helper-precision change set first, then the maintainability refactor, then the broader helper-mode improvements.
+
 The naming map remains frozen:
 
 - Repo root: `CanDoItAll.CodeAnalsis`
@@ -43,6 +49,7 @@ The naming map remains frozen:
 - [02-structured-input.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\02-structured-input.md)
 - [03-focused-context-lab-request.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\03-focused-context-lab-request.md)
 - [04-sharptools-comparison-follow-up.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\04-sharptools-comparison-follow-up.md)
+- [05-helper-surgical-precision-follow-up.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\05-helper-surgical-precision-follow-up.md)
 - [01-current-state.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\01-current-state.md)
 - [01-target-solution.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\architecture\01-target-solution.md)
 - [01-phase-plan.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\plan\01-phase-plan.md)
@@ -51,22 +58,23 @@ The naming map remains frozen:
 
 ## Validation Summary
 
-- Bundle preparation status: `Repaired and rerun for the comparison-driven pass on 2026-04-08`
+- Bundle preparation status: `Completed and reopened helper scope is now implemented on 2026-04-08`
 - Bundle readiness gate: `Passed`
-- Execution status: `Completed with explicit residual helper-noise risk`
-- Subbundle gate review: `SB-15 through SB-19 are now closed; SB-16 remained trusted throughout`
-- Final closure gate: `Passed after build, full tests, browser rerun, and final bundle validation`
-- Browser validation analytics: `Rerun completed for the database, helper, and UI host cases`
+- Execution status: `Completed`
+- Subbundle gate review: `SB-00 through SB-19 remain trusted; SB-20 through SB-23 passed`
+- Final closure gate: `Passed`
+- Browser validation analytics: `Helper auto mode, helper usage-summary mode, database preserve, and UI preserve were rerun on 2026-04-08`
 
 ## Current Focus
 
-- The comparison-driven repair cycle is complete.
-- Focused-context seeding, excerpt assembly, and lab quality cues are now improved and revalidated.
-- The next follow-up, if scheduled, should focus on reducing consumer spread for ubiquitous helpers such as `IClock`.
+- The comparison-driven repair cycle remains the trusted baseline.
+- The helper-precision reopen is closed.
+- High-fan-in helpers now route through typed intent and precision controls, targeted strategy ownership, implementation-aware shaping, and clustered usage summaries.
+- The remaining residual issue is operational rather than feature correctness: the managed watch health probe stayed flaky during browser proof even though the page itself rendered correctly at `http://127.0.0.1:5501`.
 
 ## Notes
 
 - The original bundle artifacts are kept in place and are still referenced where they remain valid.
 - The bundle is now maintained as an `initiative` profile bundle with inventories, templates, and traceability.
 - Execution must not change anything under `C:\repositories\CanDoItAll`.
-- The standalone engine still preserves a thin future `CanDoItAll.Mcp.CodeAnalytics` seam. The remaining risk is heuristic tuning for high-reuse helper symbols, not transport redesign.
+- The standalone engine still preserves a thin future `CanDoItAll.Mcp.CodeAnalytics` seam. This reopen remains a heuristic and maintainability pass for high-reuse helper symbols, not a transport redesign.
