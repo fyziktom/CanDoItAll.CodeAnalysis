@@ -4,4 +4,5 @@ public enum FocusedContextPrecision {
     Auto,
     Balanced,
     Surgical,
+    Outline,
 }

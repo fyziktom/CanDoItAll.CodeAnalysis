@@ -28,3 +28,11 @@
 | Start with the minimal change set first | REQ-027, REQ-028, REQ-030 | SB-20 | Unit tests, focused host rerun, entry and closure gate notes | Sequencing matters; do not jump straight to a wider redesign |
 | Then refactor for maintainability | REQ-030 | SB-21 | Build, tests, code review, ownership review | Helper-mode logic must not become another tangled heuristic slice |
 | Then add the broader helper-mode improvements | REQ-029, REQ-031, REQ-032 | SB-22, SB-23 | UI proof, host rerun, final SharpTools comparison | Broader improvements come only after the minimal foundation is stable |
+| Implement the comparison-bundle improvements and revalidate | REQ-033, REQ-034, REQ-035, REQ-036, REQ-037, REQ-038 | SB-24, SB-25, SB-26, SB-27 | Unit tests, lab proof, rerun harness output, host comparison matrix | This reopen is driven by the closed SharpTools comparison bundle |
+
+## Closure note
+
+- Final proof for `REQ-033` through `REQ-038` is captured in:
+  - [03-post-implementation-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\03-post-implementation-comparison.md)
+  - [01-execution-report.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\reviews\01-execution-report.md)
+  - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-summary.json)

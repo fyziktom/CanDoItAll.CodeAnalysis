@@ -1,0 +1,639 @@
+{
+  "SnapshotId": "snap-20260408135949-123ebd81",
+  "Depth": 1,
+  "QueryText": "IClock",
+  "FocusTags": [],
+  "RequestedIntent": 0,
+  "ResolvedIntent": 2,
+  "RequestedPrecision": 0,
+  "ResolvedPrecision": 2,
+  "StrategyExplanation": "Auto resolved to surgical definition mode because CanDoItAll.SharedKernel.IClock spans 111 callers across 13 projects. Consumer expansion is capped to direct usages.",
+  "SeedExplanation": "Resolved from prompt text to member CanDoItAll.SharedKernel.IClock.GetUtcNow().",
+  "SeedType": {
+    "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+    "ProjectId": "proj-candoitall-sharedkernel",
+    "ModuleId": "mod-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+    "NamespaceId": "ns-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+    "DisplayName": "CanDoItAll.SharedKernel.IClock",
+    "Kind": 1,
+    "BaseTypeDisplayName": null,
+    "InterfaceDisplayNames": [],
+    "MemberIds": [
+      "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6"
+    ],
+    "XmlSummary": null,
+    "Source": {
+      "Path": "src/CanDoItAll.SharedKernel/IClock.cs",
+      "Line": 3,
+      "Column": 1,
+      "EndLine": 6,
+      "EndColumn": 2
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+    "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+    "DisplayName": "CanDoItAll.SharedKernel.IClock.GetUtcNow()",
+    "Kind": 1,
+    "ReturnTypeDisplayName": "System.DateTimeOffset",
+    "ParameterDisplayNames": [],
+    "Source": {
+      "Path": "src/CanDoItAll.SharedKernel/IClock.cs",
+      "Line": 5,
+      "Column": 5,
+      "EndLine": 5,
+      "EndColumn": 32
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [
+    {
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-systemclock",
+      "ProjectId": "proj-candoitall-sharedkernel",
+      "ModuleId": "mod-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "NamespaceId": "ns-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "DisplayName": "CanDoItAll.SharedKernel.SystemClock",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "CanDoItAll.SharedKernel.IClock"
+      ],
+      "MemberIds": [
+        "member-type-proj-candoitall-sharedkernel-candoitall-shared-a6f86f9fce9f"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/IClock.cs",
+        "Line": 8,
+        "Column": 1,
+        "EndLine": 11,
+        "EndColumn": 2
+      }
+    }
+  ],
+  "Types": [
+    {
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "ProjectId": "proj-candoitall-sharedkernel",
+      "ModuleId": "mod-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "NamespaceId": "ns-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "DisplayName": "CanDoItAll.SharedKernel.IClock",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/IClock.cs",
+        "Line": 3,
+        "Column": 1,
+        "EndLine": 6,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-systemclock",
+      "ProjectId": "proj-candoitall-sharedkernel",
+      "ModuleId": "mod-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "NamespaceId": "ns-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "DisplayName": "CanDoItAll.SharedKernel.SystemClock",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "CanDoItAll.SharedKernel.IClock"
+      ],
+      "MemberIds": [
+        "member-type-proj-candoitall-sharedkernel-candoitall-shared-a6f86f9fce9f"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/IClock.cs",
+        "Line": 8,
+        "Column": 1,
+        "EndLine": 11,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-77ba4ca1d4a3",
+      "ProjectId": "proj-candoitall-modules-automation",
+      "ModuleId": "mod-proj-candoitall-modules-automation-candoitall-modules-automation",
+      "NamespaceId": "ns-proj-candoitall-modules-automation-candoitall-modules-automation",
+      "DisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "CanDoItAll.Modules.Automation.IAutomationMessageDispatcher"
+      ],
+      "MemberIds": [
+        "member-type-proj-candoitall-modules-automation-candoitall-8e7fb441e0b4",
+        "member-type-proj-candoitall-modules-automation-candoitall-f3b74c5d2b11",
+        "member-type-proj-candoitall-modules-automation-candoitall-d566964f09cb",
+        "member-type-proj-candoitall-modules-automation-candoitall-116bfcbcf4fb",
+        "member-type-proj-candoitall-modules-automation-candoitall-e39fc8a6c73d",
+        "member-type-proj-candoitall-modules-automation-candoitall-1221176c2afd",
+        "member-type-proj-candoitall-modules-automation-candoitall-d257074fc99c",
+        "member-type-proj-candoitall-modules-automation-candoitall-0278b5144037",
+        "member-type-proj-candoitall-modules-automation-candoitall-b242011c5724",
+        "member-type-proj-candoitall-modules-automation-candoitall-4e543e695a9f"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Automation/AutomationMessagingServices.cs",
+        "Line": 156,
+        "Column": 1,
+        "EndLine": 524,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-2bd0efdb66cf",
+      "ProjectId": "proj-candoitall-modules-crmhr",
+      "ModuleId": "mod-proj-candoitall-modules-crmhr-candoitall-modules-crmhr",
+      "NamespaceId": "ns-proj-candoitall-modules-crmhr-candoitall-modules-crmhr",
+      "DisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-d7c7aa430d9b",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-5476c882a6cd",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-24ddef533c0d",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-05ad3a9b79b3",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-e6a1b0369d13",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-8cff7a0bb263",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-7f5f097f8992",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-92acb43eace3",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-cb95aa9c36cd",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-917ca10462d4",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-239eecbe3990",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-67c9224d3c88",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-00a48eb9f2ce",
+        "member-type-proj-candoitall-modules-crmhr-candoitall-modul-6c78b3c52b38"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.CrmHr/CrmHrCrossModuleIntegration.cs",
+        "Line": 315,
+        "Column": 1,
+        "EndLine": 364,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-modules-workbench-candoitall-module-bbadf5968743",
+      "ProjectId": "proj-candoitall-modules-workbench",
+      "ModuleId": "mod-proj-candoitall-modules-workbench-candoitall-modules-workbench",
+      "NamespaceId": "ns-proj-candoitall-modules-workbench-candoitall-modules-workbench",
+      "DisplayName": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-modules-workbench-candoitall-m-6293a4e4bb2a",
+        "member-type-proj-candoitall-modules-workbench-candoitall-m-995ec11e30de",
+        "member-type-proj-candoitall-modules-workbench-candoitall-m-49678a77f20e",
+        "member-type-proj-candoitall-modules-workbench-candoitall-m-8bd233fc2efb",
+        "member-type-proj-candoitall-modules-workbench-candoitall-m-126d285d10c0",
+        "member-type-proj-candoitall-modules-workbench-candoitall-m-32870086eb2d",
+        "member-type-proj-candoitall-modules-workbench-candoitall-m-54322b42e851"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Workbench/ProjectWorkbenchCrossModuleMutations.cs",
+        "Line": 73,
+        "Column": 1,
+        "EndLine": 129,
+        "EndColumn": 2
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "DisplayName": "CanDoItAll.SharedKernel.IClock.GetUtcNow()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.DateTimeOffset",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/IClock.cs",
+        "Line": 5,
+        "Column": 5,
+        "EndLine": 5,
+        "EndColumn": 32
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-a6f86f9fce9f",
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-systemclock",
+      "DisplayName": "CanDoItAll.SharedKernel.SystemClock.GetUtcNow()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.DateTimeOffset",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/IClock.cs",
+        "Line": 10,
+        "Column": 5,
+        "EndLine": 10,
+        "EndColumn": 64
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-f3b74c5d2b11",
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-77ba4ca1d4a3",
+      "DisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher.ClaimAndDispatchAsync(System.Guid, System.Threading.CancellationToken)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003Cbool\u003E",
+      "ParameterDisplayNames": [
+        "System.Guid",
+        "System.Threading.CancellationToken"
+      ],
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Automation/AutomationMessagingServices.cs",
+        "Line": 203,
+        "Column": 5,
+        "EndLine": 240,
+        "EndColumn": 6
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-239eecbe3990",
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-2bd0efdb66cf",
+      "DisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService.SaveAgentProfileAsync(CanDoItAll.Modules.CrmHr.AiAgentProfileEditorModel, System.Threading.CancellationToken)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.Threading.Tasks.Task\u003CCanDoItAll.SharedKernel.Result\u003CSystem.Guid\u003E\u003E",
+      "ParameterDisplayNames": [
+        "CanDoItAll.Modules.CrmHr.AiAgentProfileEditorModel",
+        "System.Threading.CancellationToken"
+      ],
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.CrmHr/CrmHrServices.cs",
+        "Line": 3995,
+        "Column": 5,
+        "EndLine": 4120,
+        "EndColumn": 6
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-modules-workbench-candoitall-m-6293a4e4bb2a",
+      "TypeId": "type-proj-candoitall-modules-workbench-candoitall-module-bbadf5968743",
+      "DisplayName": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator.Begin(System.Guid, string, CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationKind, string, CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationApprovalState)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationRecord",
+      "ParameterDisplayNames": [
+        "System.Guid",
+        "string",
+        "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationKind",
+        "string",
+        "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationApprovalState"
+      ],
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Workbench/ProjectWorkbenchCrossModuleMutations.cs",
+        "Line": 75,
+        "Column": 5,
+        "EndLine": 94,
+        "EndColumn": 6
+      }
+    }
+  ],
+  "MemberRelationships": [
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-candoitall-modules-auto-0e79c497509c",
+      "FromMemberId": "member-type-proj-candoitall-modules-automation-candoitall-f3b74c5d2b11",
+      "ToMemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Automation/AutomationMessagingServices.cs",
+        "Line": 206,
+        "Column": 19
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-candoitall-modules-crmh-55d70f200e75",
+      "FromMemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-239eecbe3990",
+      "ToMemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.CrmHr/CrmHrServices.cs",
+        "Line": 4089,
+        "Column": 30
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-candoitall-modules-work-725254f082e0",
+      "FromMemberId": "member-type-proj-candoitall-modules-workbench-candoitall-m-6293a4e4bb2a",
+      "ToMemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Workbench/ProjectWorkbenchCrossModuleMutations.cs",
+        "Line": 82,
+        "Column": 25
+      }
+    }
+  ],
+  "TypeRelationships": [
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-candoitall-modules-w-7e837c638665",
+      "FromTypeId": "type-proj-candoitall-modules-workbench-candoitall-module-bbadf5968743",
+      "ToTypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "Kind": 3,
+      "Weight": 12,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Workbench/ProjectWorkbenchCrossModuleMutations.cs",
+        "Line": 73,
+        "Column": 66
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-candoitall-modules-a-39fab736f088",
+      "FromTypeId": "type-proj-candoitall-modules-automation-candoitall-modul-77ba4ca1d4a3",
+      "ToTypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "Kind": 3,
+      "Weight": 10,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Automation/AutomationMessagingServices.cs",
+        "Line": 159,
+        "Column": 12
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-candoitall-modules-c-1f379274b859",
+      "FromTypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-2bd0efdb66cf",
+      "ToTypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "Kind": 3,
+      "Weight": 10,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.CrmHr/CrmHrServices.cs",
+        "Line": 3828,
+        "Column": 12
+      }
+    }
+  ],
+  "RelatedServices": [
+    {
+      "ServiceRegistrationId": "svc-addscoped-candoitall-modules-automation-iautomation-dfe151a0784f",
+      "ProjectId": "proj-candoitall-modules-automation",
+      "ModuleId": "mod-proj-candoitall-modules-automation-candoitall-modules-automation",
+      "Lifetime": 1,
+      "ServiceTypeDisplayName": "CanDoItAll.Modules.Automation.IAutomationMessageDispatcher",
+      "ImplementationTypeDisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher",
+      "RegistrationMethod": "AddScoped",
+      "UsesFactory": false,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Automation/AutomationModuleServiceCollectionExtensions.cs",
+        "Line": 27,
+        "Column": 9
+      }
+    },
+    {
+      "ServiceRegistrationId": "svc-addscoped-candoitall-modules-crmhr-aiagentservice-s-cc4b71a1fda8",
+      "ProjectId": "proj-candoitall-modules-crmhr",
+      "ModuleId": "mod-proj-candoitall-modules-crmhr-candoitall-modules-crmhr",
+      "Lifetime": 1,
+      "ServiceTypeDisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService",
+      "ImplementationTypeDisplayName": null,
+      "RegistrationMethod": "AddScoped",
+      "UsesFactory": false,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.CrmHr/CrmHrModuleServiceCollectionExtensions.cs",
+        "Line": 16,
+        "Column": 9
+      }
+    },
+    {
+      "ServiceRegistrationId": "svc-addscoped-candoitall-modules-workbench-projectcross-0cd082988ee6",
+      "ProjectId": "proj-candoitall-modules-workbench",
+      "ModuleId": "mod-proj-candoitall-modules-workbench-candoitall-modules-workbench",
+      "Lifetime": 1,
+      "ServiceTypeDisplayName": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator",
+      "ImplementationTypeDisplayName": null,
+      "RegistrationMethod": "AddScoped",
+      "UsesFactory": false,
+      "Source": {
+        "Path": "src/CanDoItAll.Modules.Workbench/WorkbenchModuleServiceCollectionExtensions.cs",
+        "Line": 12,
+        "Column": 9
+      }
+    },
+    {
+      "ServiceRegistrationId": "svc-addsingleton-candoitall-sharedkernel-iclock-tests-c-cde3c7158201",
+      "ProjectId": "proj-candoitall-tests-integration",
+      "ModuleId": "mod-proj-candoitall-tests-integration-candoitall-tests-integration",
+      "Lifetime": 0,
+      "ServiceTypeDisplayName": "CanDoItAll.SharedKernel.IClock",
+      "ImplementationTypeDisplayName": null,
+      "RegistrationMethod": "AddSingleton",
+      "UsesFactory": true,
+      "Source": {
+        "Path": "tests/CanDoItAll.Tests.Integration/AutomationRuntimeIntegrationTests.cs",
+        "Line": 1580,
+        "Column": 17
+      }
+    },
+    {
+      "ServiceRegistrationId": "svc-addsingleton-candoitall-sharedkernel-iclock-tests-c-4e75296c2622",
+      "ProjectId": "proj-candoitall-tests-integration",
+      "ModuleId": "mod-proj-candoitall-tests-integration-candoitall-tests-integration",
+      "Lifetime": 0,
+      "ServiceTypeDisplayName": "CanDoItAll.SharedKernel.IClock",
+      "ImplementationTypeDisplayName": null,
+      "RegistrationMethod": "AddSingleton",
+      "UsesFactory": true,
+      "Source": {
+        "Path": "tests/CanDoItAll.Tests.Integration/AutomationRuntimeIntegrationTests.cs",
+        "Line": 1619,
+        "Column": 17
+      }
+    },
+    {
+      "ServiceRegistrationId": "svc-addsingleton-candoitall-sharedkernel-iclock-candoit-6ea504bbf88e",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure",
+      "Lifetime": 0,
+      "ServiceTypeDisplayName": "CanDoItAll.SharedKernel.IClock",
+      "ImplementationTypeDisplayName": "CanDoItAll.SharedKernel.SystemClock",
+      "RegistrationMethod": "AddSingleton",
+      "UsesFactory": false,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+        "Line": 66,
+        "Column": 9
+      }
+    }
+  ],
+  "ReferenceTypes": [],
+  "UsageSummary": {
+    "TotalCallerCount": 111,
+    "TotalClusterCount": 16,
+    "OmittedCallerCount": 33,
+    "Clusters": [
+      {
+        "ProjectId": "proj-candoitall-modules-workbench",
+        "ProjectName": "CanDoItAll.Modules.Workbench",
+        "ModuleId": "mod-proj-candoitall-modules-workbench-candoitall-modules-workbench",
+        "ModuleName": "CanDoItAll.Modules.Workbench",
+        "CallerCount": 38,
+        "Samples": [
+          {
+            "TypeId": "type-proj-candoitall-modules-workbench-candoitall-module-bbadf5968743",
+            "TypeDisplayName": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator",
+            "MemberId": "member-type-proj-candoitall-modules-workbench-candoitall-m-6293a4e4bb2a",
+            "MemberDisplayName": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator.Begin(System.Guid, string, CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationKind, string, CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationApprovalState)",
+            "Path": "src/CanDoItAll.Modules.Workbench/ProjectWorkbenchCrossModuleMutations.cs",
+            "Line": 75,
+            "Reason": "Invocation usage sample."
+          }
+        ]
+      },
+      {
+        "ProjectId": "proj-candoitall-modules-crmhr",
+        "ProjectName": "CanDoItAll.Modules.CrmHr",
+        "ModuleId": "mod-proj-candoitall-modules-crmhr-candoitall-modules-crmhr",
+        "ModuleName": "CanDoItAll.Modules.CrmHr",
+        "CallerCount": 15,
+        "Samples": [
+          {
+            "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-2bd0efdb66cf",
+            "TypeDisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService",
+            "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-239eecbe3990",
+            "MemberDisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService.SaveAgentProfileAsync(CanDoItAll.Modules.CrmHr.AiAgentProfileEditorModel, System.Threading.CancellationToken)",
+            "Path": "src/CanDoItAll.Modules.CrmHr/CrmHrServices.cs",
+            "Line": 3995,
+            "Reason": "Invocation usage sample."
+          }
+        ]
+      },
+      {
+        "ProjectId": "proj-candoitall-modules-automation",
+        "ProjectName": "CanDoItAll.Modules.Automation",
+        "ModuleId": "mod-proj-candoitall-modules-automation-candoitall-modules-automation",
+        "ModuleName": "CanDoItAll.Modules.Automation",
+        "CallerCount": 13,
+        "Samples": [
+          {
+            "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-77ba4ca1d4a3",
+            "TypeDisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher",
+            "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-f3b74c5d2b11",
+            "MemberDisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher.ClaimAndDispatchAsync(System.Guid, System.Threading.CancellationToken)",
+            "Path": "src/CanDoItAll.Modules.Automation/AutomationMessagingServices.cs",
+            "Line": 203,
+            "Reason": "Invocation usage sample."
+          }
+        ]
+      },
+      {
+        "ProjectId": "proj-candoitall-modules-workspace",
+        "ProjectName": "CanDoItAll.Modules.Workspace",
+        "ModuleId": "mod-proj-candoitall-modules-workspace-candoitall-modules-workspace",
+        "ModuleName": "CanDoItAll.Modules.Workspace",
+        "CallerCount": 12,
+        "Samples": [
+          {
+            "TypeId": "type-proj-candoitall-modules-workspace-candoitall-module-b2328c9d6f19",
+            "TypeDisplayName": "CanDoItAll.Modules.Workspace.ConnectorCommandProcessor",
+            "MemberId": "member-type-proj-candoitall-modules-workspace-candoitall-m-1633ccb9a90d",
+            "MemberDisplayName": "CanDoItAll.Modules.Workspace.ConnectorCommandProcessor.ProcessAsync(System.Guid, string?, System.Threading.CancellationToken)",
+            "Path": "src/CanDoItAll.Modules.Workspace/ConnectorOutboxService.cs",
+            "Line": 14,
+            "Reason": "Invocation usage sample."
+          }
+        ]
+      }
+    ]
+  },
+  "Stats": {
+    "FileCount": 4,
+    "BlockCount": 6,
+    "SelectedLineCount": 209,
+    "TotalLineCount": 5756
+  },
+  "Files": [
+    {
+      "Path": "src/CanDoItAll.Modules.CrmHr/CrmHrServices.cs",
+      "TotalLineCount": 4969,
+      "SelectedLineCount": 141,
+      "TypeDisplayNames": [],
+      "Blocks": [
+        {
+          "Title": "CanDoItAll.Modules.CrmHr.AiAgentService.SaveAgentProfileAsync(CanDoItAll.Modules.CrmHr.AiAgentProfileEditorModel, System.Threading.CancellationToken)",
+          "Kind": "Method",
+          "StartLine": 3994,
+          "EndLine": 4121,
+          "Code": "\r\n    public async Task\u003CResult\u003CGuid\u003E\u003E SaveAgentProfileAsync(AiAgentProfileEditorModel model, CancellationToken cancellationToken = default)\r\n    {\r\n        ArgumentNullException.ThrowIfNull(model);\r\n\r\n        if (model.PartyId == Guid.Empty)\r\n        {\r\n            return Result\u003CGuid\u003E.Failure(Error.Validation(\u0022Choose an AI agent before saving the profile.\u0022, \u0022crmhr.ai-agent.party-required\u0022));\r\n        }\r\n\r\n        await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);\r\n        var party = await dbContext.Set\u003CParty\u003E()\r\n            .SingleOrDefaultAsync(item =\u003E item.Id == model.PartyId, cancellationToken);\r\n        if (party is null)\r\n        {\r\n            return Result\u003CGuid\u003E.Failure(Error.Failure(\u0022The selected AI agent party could not be found.\u0022, \u0022crmhr.ai-agent.party-not-found\u0022));\r\n        }\r\n\r\n        if (party.PartyType != PartyType.AiAgent)\r\n        {\r\n            return Result\u003CGuid\u003E.Failure(Error.Validation(\u0022Only AI agent parties can carry AI agent operational profiles.\u0022, \u0022crmhr.ai-agent.party-type-invalid\u0022));\r\n        }\r\n\r\n        if (model.OwnerPartyId == model.PartyId)\r\n        {\r\n            return Result\u003CGuid\u003E.Failure(Error.Validation(\u0022An AI agent cannot own itself.\u0022, \u0022crmhr.ai-agent.self-owner\u0022));\r\n        }\r\n\r\n        ProviderProfile? provider = null;\r\n        if (model.ProviderProfileId is Guid providerProfileId)\r\n        {\r\n            provider = await dbContext.Set\u003CProviderProfile\u003E()\r\n                .SingleOrDefaultAsync(item =\u003E item.Id == providerProfileId, cancellationToken);\r\n            if (provider is null)\r\n            {\r\n                return Result\u003CGuid\u003E.Failure(Error.Validation(\u0022Provider profile must reference an existing workspace provider.\u0022, \u0022crmhr.ai-agent.provider-invalid\u0022));\r\n            }\r\n        }\r\n\r\n        Party? owner = null;\r\n        if (model.OwnerPartyId is Guid ownerPartyId)\r\n        {\r\n            owner = await dbContext.Set\u003CParty\u003E()\r\n                .SingleOrDefaultAsync(item =\u003E item.Id == ownerPartyId, cancellationToken);\r\n            if (owner is null || owner.PartyType != PartyType.Person)\r\n            {\r\n                return Result\u003CGuid\u003E.Failure(Error.Validation(\u0022Owner must reference an existing person.\u0022, \u0022crmhr.ai-agent.owner-invalid\u0022));\r\n            }\r\n        }\r\n\r\n        var normalizedExtendedData = NormalizeJson(model.ExtendedDataJson, \u0022{}\u0022);\r\n        if (normalizedExtendedData is null)\r\n        {\r\n            return Result\u003CGuid\u003E.Failure(Error.Validation(\u0022Extended data must be valid JSON.\u0022, \u0022crmhr.ai-agent.extended-data-invalid\u0022));\r\n        }\r\n\r\n        var profile = await dbContext.Set\u003CAiAgentProfile\u003E()\r\n            .SingleOrDefaultAsync(item =\u003E item.PartyId == model.PartyId, cancellationToken);\r\n        if (profile is null)\r\n        {\r\n            profile = new AiAgentProfile\r\n            {\r\n                PartyId = model.PartyId\r\n            };\r\n            dbContext.Set\u003CAiAgentProfile\u003E().Add(profile);\r\n        }\r\n\r\n        profile.ProviderProfileId = model.ProviderProfileId;\r\n        profile.DefaultModel = ResolveDefaultModel(model.DefaultModel, provider?.DefaultModel);\r\n        profile.ExecutionMode = model.ExecutionMode;\r\n        profile.OwnerPartyId = model.OwnerPartyId;\r\n        profile.CapabilityJson = SerializeCapabilities(model.Capabilities);\r\n        profile.ValidationStatus = model.ValidationStatus;\r\n        profile.LastReviewedAtUtc = ToUtcDate(model.LastReviewedOn);\r\n        profile.Notes = model.Notes.Trim();\r\n        profile.ExtendedDataJson = normalizedExtendedData;\r\n\r\n        if (owner is not null)\r\n        {\r\n            var ownerRoles = await dbContext.Set\u003CPartyRoleAssignment\u003E()\r\n                .Where(item =\u003E item.PartyId == owner.Id)\r\n                .ToListAsync(cancellationToken);\r\n            if (!ownerRoles.Any(item =\u003E item.RoleKind == PartyRoleKind.AiSteward))\r\n            {\r\n                dbContext.Set\u003CPartyRoleAssignment\u003E().Add(new PartyRoleAssignment\r\n                {\r\n                    PartyId = owner.Id,\r\n                    RoleKind = PartyRoleKind.AiSteward,\r\n                    Title = \u0022AI steward\u0022,\r\n                    IsPrimary = ownerRoles.Count == 0\r\n                });\r\n            }\r\n        }\r\n\r\n        party.LastChangedBy = string.IsNullOrWhiteSpace(model.LastChangedBy) ? \u0022crm-hr-ui\u0022 : model.LastChangedBy.Trim();\r\n        party.UpdatedAtUtc = clock.GetUtcNow();\r\n        CrmHrAuditWriter.AddEntry(\r\n            dbContext,\r\n            nameof(AiAgentProfile),\r\n            party.Id,\r\n            \u0022AiAgentProfileSaved\u0022,\r\n            $\u0022Saved AI agent profile for \u0027{party.DisplayName}\u0027.\u0022,\r\n            new\r\n            {\r\n                profile.ExecutionMode,\r\n                profile.ValidationStatus,\r\n                profile.ProviderProfileId,\r\n                profile.OwnerPartyId\r\n            },\r\n            party.LastChangedBy,\r\n            party.IsSensitive,\r\n            party.UpdatedAtUtc);\r\n        await dbContext.SaveChangesAsync(cancellationToken);\r\n        await UpsertAiAgentSearchDocumentAsync(party.Id, cancellationToken);\r\n        await activityStream.RecordAsync(\r\n            new ActivityWriteRequest(\r\n                \u0022CRM / HR\u0022,\r\n                \u0022AiAgentProfileSaved\u0022,\r\n                $\u0022Saved AI agent profile for {party.DisplayName}\u0022,\r\n                $\u0022{profile.ExecutionMode} / {profile.ValidationStatus}\u0022,\r\n                ArtifactKind: nameof(AiAgentProfile),\r\n                ArtifactId: party.Id,\r\n                Route: $\u0022/crm-hr/agents?partyId={party.Id}\u0022,\r\n                Actor: party.LastChangedBy),\r\n            cancellationToken);\r\n        return Result\u003CGuid\u003E.Success(profile.Id);\r\n    }\r\n"
+        },
+        {
+          "Title": "CanDoItAll.Modules.CrmHr.AiAgentService.CloneCapability(CanDoItAll.Modules.CrmHr.AiCapabilityEditorModel)",
+          "Kind": "Method",
+          "StartLine": 4159,
+          "EndLine": 4171,
+          "Code": "\r\n    private static AiCapabilityEditorModel CloneCapability(AiCapabilityEditorModel capability)\r\n    {\r\n        return new AiCapabilityEditorModel\r\n        {\r\n            Name = capability.Name.Trim(),\r\n            Scope = capability.Scope.Trim(),\r\n            ToolAccess = capability.ToolAccess.Trim(),\r\n            Limitations = capability.Limitations.Trim(),\r\n            Notes = capability.Notes.Trim()\r\n        };\r\n    }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "src/CanDoItAll.Modules.Automation/AutomationMessagingServices.cs",
+      "TotalLineCount": 647,
+      "SelectedLineCount": 40,
+      "TypeDisplayNames": [
+        "CanDoItAll.Modules.Automation.AutomationMessageDispatcher"
+      ],
+      "Blocks": [
+        {
+          "Title": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher.ClaimAndDispatchAsync(System.Guid, System.Threading.CancellationToken)",
+          "Kind": "Method",
+          "StartLine": 202,
+          "EndLine": 241,
+          "Code": "\r\n    private async Task\u003Cbool\u003E ClaimAndDispatchAsync(Guid deliveryId, CancellationToken cancellationToken)\r\n    {\r\n        await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);\r\n        var now = clock.GetUtcNow();\r\n        var lockToken = Guid.NewGuid().ToString(\u0022N\u0022);\r\n        var leaseCutoff = now.Subtract(options.Value.DeliveryLeaseDuration);\r\n        var claimedCount = dbContext.Database.IsSqlite()\r\n            ? await TryClaimDeliveryForSqliteAsync(\r\n                dbContext,\r\n                deliveryId,\r\n                now,\r\n                leaseCutoff,\r\n                lockToken,\r\n                cancellationToken)\r\n            : await dbContext.Set\u003CAutomationEnvelopeDeliveryRecord\u003E()\r\n                .Where(item =\u003E item.Id == deliveryId)\r\n                .Where(item =\u003E item.AvailableAtUtc \u003C= now)\r\n                .Where(item =\u003E\r\n                    item.State == AutomationDeliveryState.Pending ||\r\n                    item.State == AutomationDeliveryState.RetryScheduled ||\r\n                    (item.State == AutomationDeliveryState.Running \u0026\u0026\r\n                     item.LockedAtUtc != null \u0026\u0026\r\n                     item.LockedAtUtc \u003C= leaseCutoff))\r\n                .ExecuteUpdateAsync(setters =\u003E setters\r\n                    .SetProperty(item =\u003E item.State, AutomationDeliveryState.Running)\r\n                    .SetProperty(item =\u003E item.AttemptCount, item =\u003E item.AttemptCount \u002B 1)\r\n                    .SetProperty(item =\u003E item.LastAttemptAtUtc, now)\r\n                    .SetProperty(item =\u003E item.UpdatedAtUtc, now)\r\n                    .SetProperty(item =\u003E item.CompletedAtUtc, (DateTimeOffset?)null)\r\n                    .SetProperty(item =\u003E item.LockedAtUtc, now)\r\n                    .SetProperty(item =\u003E item.LockToken, lockToken), cancellationToken);\r\n        if (claimedCount == 0)\r\n        {\r\n            return false;\r\n        }\r\n\r\n        return await DispatchClaimedAsync(deliveryId, lockToken, cancellationToken);\r\n    }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "src/CanDoItAll.Modules.Workbench/ProjectWorkbenchCrossModuleMutations.cs",
+      "TotalLineCount": 129,
+      "SelectedLineCount": 22,
+      "TypeDisplayNames": [
+        "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator"
+      ],
+      "Blocks": [
+        {
+          "Title": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator.Begin(System.Guid, string, CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationKind, string, CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationApprovalState)",
+          "Kind": "Method",
+          "StartLine": 74,
+          "EndLine": 95,
+          "Code": "{\r\n    internal ProjectCrossModuleMutationRecord Begin(\r\n        Guid projectId,\r\n        string scopeNodeKey,\r\n        ProjectCrossModuleMutationKind mutationKind,\r\n        string payloadJson,\r\n        ProjectCrossModuleMutationApprovalState approvalState = ProjectCrossModuleMutationApprovalState.NotRequired)\r\n    {\r\n        var timestamp = clock.GetUtcNow();\r\n        return new ProjectCrossModuleMutationRecord\r\n        {\r\n            ProjectId = projectId,\r\n            ScopeNodeKey = scopeNodeKey.Trim(),\r\n            MutationKind = mutationKind,\r\n            Status = ProjectCrossModuleMutationStatus.Pending,\r\n            ApprovalState = approvalState,\r\n            PayloadJson = string.IsNullOrWhiteSpace(payloadJson) ? \u0022{}\u0022 : payloadJson,\r\n            CreatedAtUtc = timestamp,\r\n            UpdatedAtUtc = timestamp\r\n        };\r\n    }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "src/CanDoItAll.SharedKernel/IClock.cs",
+      "TotalLineCount": 11,
+      "SelectedLineCount": 6,
+      "TypeDisplayNames": [
+        "CanDoItAll.SharedKernel.IClock",
+        "CanDoItAll.SharedKernel.SystemClock"
+      ],
+      "Blocks": [
+        {
+          "Title": "CanDoItAll.SharedKernel.IClock.GetUtcNow()",
+          "Kind": "Method",
+          "StartLine": 4,
+          "EndLine": 6,
+          "Code": "{\r\n    DateTimeOffset GetUtcNow();\r\n}"
+        },
+        {
+          "Title": "CanDoItAll.SharedKernel.SystemClock.GetUtcNow()",
+          "Kind": "Method",
+          "StartLine": 9,
+          "EndLine": 11,
+          "Code": "{\r\n    public DateTimeOffset GetUtcNow() =\u003E DateTimeOffset.UtcNow;\r\n}"
+        }
+      ]
+    }
+  ]
+}

@@ -25,5 +25,6 @@ public sealed record FocusedContextResponse(
     IReadOnlyList<ServiceRegistrationFact> RelatedServices,
     IReadOnlyList<TypeFact> ReferenceTypes,
     FocusedContextUsageSummary? UsageSummary,
+    IReadOnlyList<FocusedContextSelectionReason> SelectionReasons,
     FocusedContextStats Stats,
     IReadOnlyList<FocusedContextFileExcerpt> Files);

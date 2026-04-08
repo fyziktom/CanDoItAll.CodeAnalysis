@@ -161,6 +161,8 @@ public sealed partial class CodeAnalyticsApplicationService {
             _ => 0,
         };
 
+        score += GetRoleScoreBonus(ClassifyReferenceRole(member, type, relationshipKind));
+
         score += GetFocusTagScore(
             focusTags,
             member.DisplayName,

@@ -282,6 +282,61 @@ public sealed class ApplicationFacts {
                 or "type-cleanup-job");
     }
 
+    [Fact]
+    public async Task Application_returns_structured_selection_reasons_for_members_and_files() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        var service = ApplicationServiceFactory.Create(output.Path);
+
+        var build = await service.BuildSnapshotAsync(new BuildArchitectureSnapshotCommand(FixturePaths.GetFixtureSolutionPath(), ForceRefresh: true));
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                build.Snapshot.SnapshotId,
+                Depth: 2,
+                QueryText: "PlaceOrderAsync",
+                FocusTags: ["Db"]));
+
+        Assert.NotNull(response);
+        Assert.NotEmpty(response!.SelectionReasons);
+        Assert.Contains(
+            response.SelectionReasons,
+            item => item.TargetKind == FocusedContextSelectionTargetKind.Member
+                && string.Equals(item.TargetId, response.SeedMember!.MemberId, StringComparison.Ordinal)
+                && item.ReasonKind == FocusedContextSelectionReasonKind.Seed);
+        Assert.Contains(
+            response.SelectionReasons,
+            item => item.TargetKind == FocusedContextSelectionTargetKind.File
+                && item.TargetId.EndsWith("OrderService.cs", StringComparison.Ordinal)
+                && item.ReasonKind is FocusedContextSelectionReasonKind.Seed or FocusedContextSelectionReasonKind.SeedContext);
+    }
+
+    [Fact]
+    public async Task Application_supports_outline_precision_without_code_excerpts() {
+        using var workspace = new TemporaryDirectoryScope();
+        using var output = new TemporaryDirectoryScope();
+
+        var snapshot = await FocusedContextHelperSnapshotFactory.CreateHighFanInHelperSnapshotAsync(workspace.Path);
+        await StoreSnapshotAsync(snapshot, output.Path);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                snapshot.SnapshotId,
+                Depth: 2,
+                QueryText: "IClock",
+                Intent: FocusedContextIntent.Definition,
+                Precision: FocusedContextPrecision.Outline));
+
+        Assert.NotNull(response);
+        Assert.Equal(FocusedContextIntent.Definition, response!.ResolvedIntent);
+        Assert.Equal(FocusedContextPrecision.Outline, response.ResolvedPrecision);
+        Assert.NotEmpty(response.ImplementationTypes);
+        Assert.NotNull(response.UsageSummary);
+        Assert.Empty(response.Files);
+        Assert.Equal(0, response.Stats.SelectedLineCount);
+        Assert.NotEmpty(response.SelectionReasons);
+    }
+
     private static async Task StoreSnapshotAsync(ArchitectureSnapshot snapshot, string outputPath) {
         var repository = new FileSnapshotRepository(new SnapshotJsonSerializer());
         var pathResolver = new SnapshotPathResolver(outputPath);

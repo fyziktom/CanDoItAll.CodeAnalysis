@@ -1,3 +1,4 @@
+using CanDoItAll.CodeAnalytics.Abstractions;
 using CanDoItAll.CodeAnalytics.Domain.Facts;
 
 namespace CanDoItAll.CodeAnalytics.Application.Services;
@@ -188,6 +189,7 @@ public sealed partial class CodeAnalyticsApplicationService {
 
             score += Math.Min(relationship.Weight, 6);
             score += GetFocusTagScore(focusTags, candidateType.DisplayName, candidateType.XmlSummary, candidateType.Source.Path);
+            score += GetRoleScoreBonus(ClassifyTypeRole(candidateType));
 
             if (candidates.TryGetValue(candidateTypeId, out var existingScore)) {
                 if (score > existingScore) {
@@ -224,7 +226,7 @@ public sealed partial class CodeAnalyticsApplicationService {
             .Where(typesById.ContainsKey)
             .Select(typeId => typesById[typeId])
             .OrderBy(item => GetTargetedTypeBucket(item, seedType, implementationTypeIds))
-            .ThenByDescending(item => GetFocusTagScore(focusTags, CreateFocusTagText(item)))
+            .ThenByDescending(item => GetTargetedTypeScore(item, focusTags))
             .ThenBy(item => item.DisplayName, StringComparer.Ordinal)
             .Take(MaxFocusedTypes)
             .ToArray();
@@ -279,7 +281,13 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         score += Math.Min(relationship.Weight, 8);
         score += GetFocusTagScore(focusTags, CreateFocusTagText(candidateType));
+        score += GetRoleScoreBonus(ClassifyTypeRole(candidateType));
         return score;
+    }
+
+    private static int GetTargetedTypeScore(TypeFact type, IReadOnlyCollection<string> focusTags) {
+        return GetFocusTagScore(focusTags, CreateFocusTagText(type))
+            + GetRoleScoreBonus(ClassifyTypeRole(type));
     }
 
     private sealed record ScoredTypeCandidate(TypeFact Type, int Score);

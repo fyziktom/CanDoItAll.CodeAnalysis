@@ -47,7 +47,9 @@ public sealed partial class CodeAnalyticsApplicationService {
             or FocusedContextIntent.RepresentativeConsumers
             || helperAnalysis.IsHighFanInHelper && resolvedIntent == FocusedContextIntent.Definition);
         var includeRepresentativeConsumersInMembers = effectiveDepth > 0 && (resolvedIntent == FocusedContextIntent.RepresentativeConsumers
-            || helperAnalysis.IsHighFanInHelper && resolvedIntent == FocusedContextIntent.Definition);
+            || helperAnalysis.IsHighFanInHelper
+            && resolvedIntent == FocusedContextIntent.Definition
+            && resolvedPrecision == FocusedContextPrecision.Balanced);
         var strategyExplanation = BuildStrategyExplanation(
             requestedIntent,
             requestedPrecision,
@@ -81,6 +83,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                 ? MaxUsageSummaryClusters
                 : 0,
             resolvedIntent != FocusedContextIntent.TroublePath,
+            resolvedPrecision != FocusedContextPrecision.Outline,
             strategyExplanation);
     }
 
@@ -153,7 +156,10 @@ public sealed partial class CodeAnalyticsApplicationService {
             selectedMemberIds,
             implementationTypes,
             implementationMembers,
-            representativeConsumers,
+            representativeClusters
+                .SelectMany(item => item.Candidates)
+                .Where(item => representativeConsumers.Any(member => string.Equals(member.MemberId, item.Member.MemberId, StringComparison.Ordinal)))
+                .ToArray(),
             usageSummary);
 
         static void AddDistinctMemberIds(ICollection<string> target, IEnumerable<string> source) {
@@ -175,19 +181,20 @@ public sealed partial class CodeAnalyticsApplicationService {
         MemberFact? seedMember,
         IReadOnlyCollection<string> focusTags,
         IReadOnlyList<TypeFact> implementationTypes,
-        IReadOnlyList<MemberFact> representativeConsumers,
+        IReadOnlyList<RepresentativeConsumerCandidate> representativeConsumerCandidates,
+        IReadOnlyDictionary<string, TypeFact> typesById,
         FocusedContextStrategy strategy) {
         var implementationTypeIds = implementationTypes
             .Select(item => item.TypeId)
             .ToHashSet(StringComparer.Ordinal);
-        var representativeConsumerIds = representativeConsumers
-            .Select(item => item.MemberId)
+        var representativeConsumerIds = representativeConsumerCandidates
+            .Select(item => item.Member.MemberId)
             .ToHashSet(StringComparer.Ordinal);
         return selectedMemberIds
             .Where(membersById.ContainsKey)
             .Select(memberId => membersById[memberId])
             .OrderBy(item => GetSelectedMemberBucket(item, seedType, seedMember, implementationTypeIds, representativeConsumerIds, strategy))
-            .ThenByDescending(item => GetSelectedMemberScore(item, seedType, focusTags, implementationTypeIds, representativeConsumerIds))
+            .ThenByDescending(item => GetSelectedMemberScore(item, seedType, focusTags, implementationTypeIds, representativeConsumerIds, typesById))
             .ThenBy(item => item.DisplayName, StringComparer.Ordinal)
             .Take(MaxFocusedMembers)
             .ToArray();
@@ -224,7 +231,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         TypeFact? seedType,
         IReadOnlyCollection<string> focusTags,
         ISet<string> implementationTypeIds,
-        ISet<string> representativeConsumerIds) {
+        ISet<string> representativeConsumerIds,
+        IReadOnlyDictionary<string, TypeFact> typesById) {
         var score = GetFocusTagScore(
             focusTags,
             member.DisplayName,
@@ -240,6 +248,10 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         if (representativeConsumerIds.Contains(member.MemberId)) {
             score += 16;
+        }
+
+        if (typesById.TryGetValue(member.TypeId, out var memberType)) {
+            score += GetRoleScoreBonus(ClassifyReferenceRole(member, memberType, null));
         }
 
         return score;
@@ -533,6 +545,7 @@ public sealed partial class CodeAnalyticsApplicationService {
     }
 
     private static FocusedContextUsageSample CreateUsageSample(RepresentativeConsumerCandidate candidate) {
+        var roleKind = ClassifyReferenceRole(candidate.Member, candidate.Type, candidate.Relationship.Kind);
         return new FocusedContextUsageSample(
             candidate.Type.TypeId,
             candidate.Type.DisplayName,
@@ -540,7 +553,9 @@ public sealed partial class CodeAnalyticsApplicationService {
             candidate.Member.DisplayName,
             candidate.Member.Source.Path,
             candidate.Member.Source.Line,
-            $"{candidate.Relationship.Kind} usage sample.");
+            roleKind == FocusedContextReferenceRoleKind.None
+                ? $"{candidate.Relationship.Kind} usage sample."
+                : $"{roleKind} sample.");
     }
 
     private static int ScoreRepresentativeConsumer(
@@ -569,6 +584,7 @@ public sealed partial class CodeAnalyticsApplicationService {
             score += 6;
         }
 
+        score += GetRoleScoreBonus(ClassifyReferenceRole(member, type, relationship.Kind));
         score += GetFocusTagScore(
             focusTags,
             member.DisplayName,
@@ -603,13 +619,14 @@ public sealed partial class CodeAnalyticsApplicationService {
         int RepresentativeConsumersPerCluster,
         int UsageSummaryClusterLimit,
         bool DisableReferenceTypes,
+        bool EmitCodeExcerpts,
         string StrategyExplanation);
 
     private sealed record FocusedContextMemberSelectionResult(
         IReadOnlyList<string> SelectedMemberIds,
         IReadOnlyList<TypeFact> ImplementationTypes,
         IReadOnlyList<MemberFact> ImplementationMembers,
-        IReadOnlyList<MemberFact> RepresentativeConsumers,
+        IReadOnlyList<RepresentativeConsumerCandidate> RepresentativeConsumerCandidates,
         FocusedContextUsageSummary? UsageSummary);
 
     private sealed record HelperSeedAnalysis(

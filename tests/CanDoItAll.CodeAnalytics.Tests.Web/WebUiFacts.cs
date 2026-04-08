@@ -115,6 +115,7 @@ public sealed class WebUiFacts {
 
         Assert.Contains("Focused Context", context, StringComparison.Ordinal);
         Assert.Contains("Member relations", context, StringComparison.Ordinal);
+        Assert.Contains("Selection reasons", context, StringComparison.OrdinalIgnoreCase);
     }
 
     [Fact]
@@ -136,6 +137,21 @@ public sealed class WebUiFacts {
         Assert.Contains("Intent", html, StringComparison.Ordinal);
         Assert.Contains("Precision", html, StringComparison.Ordinal);
         Assert.Contains("Focused", html, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task Focused_context_lab_route_renders_outline_mode_without_code_excerpts() {
+        FixtureSolutionHost.EnsurePrepared();
+        using var output = new TemporaryDirectoryScope();
+        using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
+        using var client = factory.CreateClient();
+
+        var route = $"/context-lab?workspacePath={Uri.EscapeDataString(FixturePaths.GetFixtureSolutionPath())}&projectFilter={Uri.EscapeDataString("Fixture.Shop.Application")}&queryText={Uri.EscapeDataString("PlaceOrderAsync")}&tags={Uri.EscapeDataString("Db")}&depth=2&precision=Outline";
+        var html = await client.GetStringAsync(route);
+
+        Assert.Contains("Outline", html, StringComparison.Ordinal);
+        Assert.Contains("Selection Reasons", html, StringComparison.Ordinal);
+        Assert.Contains("Outline precision intentionally suppresses code excerpts", html, StringComparison.Ordinal);
     }
 
     private static async Task<string> StartAnalysisAsync(HttpClient client, string workspacePath) {

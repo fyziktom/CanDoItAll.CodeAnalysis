@@ -2,42 +2,49 @@
 
 ## Execution Order
 
-1. Confirm the repaired bundle passes the readiness gate.
-2. Keep `SB-00` through `SB-19` trusted unless the new helper-precision pass exposes weak proof.
-3. Execute `SB-20-helper-surgical-minimal-change-set`.
-4. Execute `SB-21-helper-context-maintainability-refactor`.
-5. Execute `SB-22-helper-precision-response-shaping-and-ui`.
-6. Execute `SB-23-helper-precision-validation-and-sharptools-rerun`.
+1. Confirm the repaired bundle passes the readiness gate. Completed.
+2. Keep `SB-00` through `SB-23` trusted unless the new comparison-driven refinement pass exposes weak proof. Completed.
+3. Execute `SB-24-definition-mode-payload-suppression-and-outline-precision`. Completed.
+4. Execute `SB-25-role-aware-ranking-and-selection-reasons`. Completed.
+5. Execute `SB-26-regression-harness-and-lab-proof`. Completed.
+6. Execute `SB-27-validation-and-comparison-rerun`. Completed.
 
-Completed phases `SB-00` through `SB-19` remain part of the trusted foundation unless they are reopened by a later gate.
+Completed phases `SB-00` through `SB-23` remain part of the trusted foundation unless they are reopened by a later gate.
 
 ## Subbundle Dependency Map
 
 ```mermaid
 flowchart TD
-    SB00[SB-00..SB-19 trusted baseline] --> SB20[SB-20 helper surgical minimal change set]
-    SB20 --> SB21[SB-21 helper context maintainability refactor]
-    SB21 --> SB22[SB-22 helper precision response shaping and UI]
-    SB22 --> SB23[SB-23 helper precision validation and SharpTools rerun]
-    SB20 --> SB23
+    SB00[SB-00..SB-23 trusted baseline] --> SB24[SB-24 definition payload suppression and outline precision]
+    SB24 --> SB25[SB-25 role-aware ranking and selection reasons]
+    SB25 --> SB26[SB-26 regression harness and lab proof]
+    SB26 --> SB27[SB-27 validation and comparison rerun]
+    SB24 --> SB27
+    SB25 --> SB27
 ```
 
 ## Critical Subbundles
 
-- `SB-20-helper-surgical-minimal-change-set`
-  - Critical foundation because helper precision needs a typed strategy boundary before later improvements can stay coherent.
-- `SB-21-helper-context-maintainability-refactor`
-  - Critical foundation because helper-mode logic must stay clearly owned instead of becoming another score-tweak cluster.
-- `SB-22-helper-precision-response-shaping-and-ui`
-  - Critical foundation for user-facing proof because surgical helper output is only useful if the response and lab UI present summaries and excerpts clearly.
-- `SB-23-helper-precision-validation-and-sharptools-rerun`
-  - Critical closure foundation because this reopen exists specifically to prove helper-mode noise is materially lower and the SharpTools handoff is better defined.
+- `SB-24-definition-mode-payload-suppression-and-outline-precision`
+  - Critical foundation because helper payload suppression and the new outline-style precision mode change the core response-shaping contract.
+- `SB-25-role-aware-ranking-and-selection-reasons`
+  - Critical foundation because infrastructure ranking and selection reasons must stay coherent and strongly typed instead of becoming ad hoc labels.
+- `SB-26-regression-harness-and-lab-proof`
+  - Critical foundation because the new rerun workflow must become repeatable and the lab must expose the new response shape clearly.
+- `SB-27-validation-and-comparison-rerun`
+  - Critical closure foundation because this reopen exists specifically to prove the post-implementation position against the same `AppDbContext`, `IClock`, and `CanvasSceneHost` cases.
 
 ## Phase Gates
 
 | Subbundle | Entry gate | Closure gate | Why it blocks later work |
 | --- | --- | --- | --- |
-| SB-20 | Bundle repaired, helper-noise findings modeled explicitly, trusted baseline confirmed | Helper seeds can switch into a surgical traversal path without regressing database and UI defaults | Later refactor and response shaping are too risky if the minimal helper mode is still fuzzy |
-| SB-21 | SB-20 passed | Strategy ownership is clearer, tests pass, and helper-mode logic no longer depends on tangled condition clusters | Broader helper-mode work should not deepen ownership confusion |
-| SB-22 | SB-21 passed | Helper outputs show implementations, sampled or summarized usages, and clear UI presentation with Playwright proof | Final comparison only matters if the user-facing helper result is understandable |
-| SB-23 | SB-20 through SB-22 passed | Helper rerun, SharpTools comparison, and final closure agree on the reduced-noise tradeoff | Closure cannot be trusted without rerunning the exact helper problem that triggered this reopen |
+| SB-24 | Bundle repaired, comparison findings modeled explicitly, trusted baseline confirmed | Helper definition mode suppresses broad consumer excerpts, outline precision exists, and tests cover the new shaping boundary | Later ranking and UI work are too risky if the new payload contract is still unstable |
+| SB-25 | SB-24 passed | Role-aware ranking and strongly typed selection reasons work without regressing helper or UI shaping | The lab and rerun are weak if the service cannot explain why items were selected |
+| SB-26 | SB-24 and SB-25 passed | Repeatable rerun tooling exists, the lab shows the new response metadata, and browser proof passes | Final comparison is not trustworthy if reruns remain ad hoc |
+| SB-27 | SB-24 through SB-26 passed | Build, tests, rerun metrics, and post-implementation comparison agree on the new standing | Closure cannot be trusted without rerunning the exact comparison set that motivated this reopen |
+
+## Completion note
+
+- All four reopened phases completed on 2026-04-08.
+- The tracked rerun path now exists under `tools/ComparisonHarness`.
+- The reopen closed with one clear residual risk: `AppDbContext` is more intentional but still slightly broader than the previous focused-context pass.

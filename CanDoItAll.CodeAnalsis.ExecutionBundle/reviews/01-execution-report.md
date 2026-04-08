@@ -2,104 +2,105 @@
 
 ## Status
 
-- The bundle is reopened again on 2026-04-07 for comparison-driven repairs after the direct SharpTools analysis exposed one correctness defect and two tuning defects.
-- The comparison-driven repair cycle completed on 2026-04-08 with updated build, test, browser, and SharpTools evidence.
-- Prior evidence from the earlier reopened pass is retained only as the baseline for before-versus-after comparison.
-- The bundle is reopened again on 2026-04-08 for helper-precision work after the residual `IClock` analysis showed that high-fan-in helpers still need a dedicated surgical mode.
-- The helper-precision reopen completed on 2026-04-08 with typed intent and precision controls, targeted helper strategy ownership, clustered usage summaries, refreshed browser proof, and full build and test validation.
+- The comparison-driven reopen completed on 2026-04-08.
+- This pass implemented:
+  - helper definition-mode payload suppression,
+  - outline precision,
+  - role-aware infrastructure ranking,
+  - strongly typed selection reasons,
+  - a tracked rerun harness under `tools/ComparisonHarness`,
+  - updated lab and focused-context UI proof surfaces,
+  - refreshed comparison evidence against `AppDbContext`, `IClock`, and `CanvasSceneHost`.
+- Build, tests, browser proof, and host rerun evidence all passed after the final code changes landed.
 
 ## Subbundle Gate Results
 
 | Subbundle | Entry gate | Closure gate | Downstream dependencies checked | Progression result | Notes |
 | --- | --- | --- | --- | --- | --- |
-| SB-15-refactor-foundation-and-canonical-ownership | Passed | Passed | Passed | Passed | Focused-context ownership is now split more clearly across seed resolution, member expansion, excerpt assembly, and lab quality helpers |
-| SB-16-scoped-diagrams-and-persistence-recovery | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopened pass |
-| SB-17-member-context-graph-and-query-api | Passed | Passed | Passed | Passed | Duplicate normalized-path crashes are covered, exact-type gating is tighter, and whole-type spill was replaced by representative excerpt selection |
-| SB-18-ui-focused-orientation-and-context-explorer | Passed | Passed | Passed | Passed | The lab now exposes selection-quality status and broad-selection warnings without regressing the clean UI case |
-| SB-19-validation-and-mcp-seam-review | Passed | Passed | Passed | Passed with residual risk | Three host cases were rerun against SharpTools. Database and UI value claims improved; common-helper fan-out still needs another tuning pass |
-| SB-20-helper-surgical-minimal-change-set | Passed | Passed | Passed | Passed | `FocusedContextIntent` and `FocusedContextPrecision` are strongly typed, high-fan-in helper seeds are detected, and helper mode no longer rides the default undirected traversal path |
-| SB-21-helper-context-maintainability-refactor | Passed | Passed | Passed | Passed | Strategy ownership is now explicit in `CodeAnalyticsApplicationService.Context.Strategy.cs`, and member ordering, implementation recovery, sampling, and usage clustering are separated cleanly from seed resolution |
-| SB-22-helper-precision-response-shaping-and-ui | Passed | Passed | Passed | Passed | Helper responses now carry strategy explanation, implementation types, usage summaries, and lab controls for intent and precision with browser proof on both auto and explicit usage-summary flows |
-| SB-23-helper-precision-validation-and-sharptools-rerun | Passed | Passed | Passed | Passed with operational caveat | Host reruns prove the narrower helper result and preserve DB/UI behavior; browser truth passed even though the managed watch health probe remained unreliable |
+| SB-15-refactor-foundation-and-canonical-ownership | Passed | Passed | Passed | Passed | Trusted refactor-first baseline |
+| SB-16-scoped-diagrams-and-persistence-recovery | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopen |
+| SB-17-member-context-graph-and-query-api | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopen |
+| SB-18-ui-focused-orientation-and-context-explorer | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopen |
+| SB-19-validation-and-mcp-seam-review | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopen |
+| SB-20-helper-surgical-minimal-change-set | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopen |
+| SB-21-helper-context-maintainability-refactor | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopen |
+| SB-22-helper-precision-response-shaping-and-ui | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopen |
+| SB-23-helper-precision-validation-and-sharptools-rerun | Passed | Passed | Passed | Passed | Trusted baseline from the earlier reopen |
+| SB-24-definition-mode-payload-suppression-and-outline-precision | Passed | Passed | Passed | Passed | `Outline` precision landed, helper definition mode no longer drags consumer excerpts into the main file set by default, and unit coverage proves the new boundary |
+| SB-25-role-aware-ranking-and-selection-reasons | Passed | Passed | Passed | Passed with residual tuning risk | Strongly typed reason and role metadata now flow through the response; infrastructure ranking became more intentional, though `AppDbContext` still needs one more tightening pass |
+| SB-26-regression-harness-and-lab-proof | Passed | Passed | Passed | Passed | The rerun path is now tracked under `tools/ComparisonHarness`, the lab shows selection reasons and outline behavior, and browser proof passed |
+| SB-27-validation-and-comparison-rerun | Passed | Passed | Passed | Passed | The same three host scenarios were rerun and written back into the bundle with an explicit before-vs-after judgment |
+
+## Validation commands
+
+- `dotnet build C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.slnx -nologo`
+- `dotnet test C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.slnx -nologo`
+- `dotnet run --project C:\repositories\CanDoItAll.CodeAnalsis\tools\ComparisonHarness\ComparisonHarness.csproj -- C:\repositories\CanDoItAll\CanDoItAll.slnx C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context C:\repositories\CanDoItAll.CodeAnalsis\output\ComparisonHarnessData`
 
 ## Browser Validation Analytics
 
 | Subbundle | Route | Viewport | Playwright MCP evidence | Screenshots | Result |
 | --- | --- | --- | --- | --- | --- |
-| SB-17-member-context-graph-and-query-api | `/context-lab?...AppDbContext...` and `/context-lab?...IClock...` | Default desktop | Final Playwright DOM extraction on 2026-04-08 captured seed, file, block, and line totals after the rebuilt app was running at `http://127.0.0.1:5501` | DOM snapshots and evaluation output only | Passed with residual helper-noise risk |
-| SB-18-ui-focused-orientation-and-context-explorer | `/context-lab?...CanvasSceneHost...` | Default desktop | Final Playwright DOM extraction on 2026-04-08 captured the preserved focused UI case and the new quality label | DOM snapshots and evaluation output only | Passed |
-| SB-19-validation-and-mcp-seam-review | `/context-lab` comparison matrix across the three host queries | Default desktop | Sequential Playwright rerun collected final results for `AppDbContext`, `IClock`, and `CanvasSceneHost` in one browser pass | DOM snapshots and evaluation output only | Passed |
-| SB-22-helper-precision-response-shaping-and-ui | `/context-lab?...IClock&intent=Auto...` and `/context-lab?...IClock&intent=UsageSummary...` | `1600x1000` | Playwright DOM extraction confirmed `Definition` + `Surgical` in auto mode, `Usage summary` + `Surgical` in explicit mode, implementation rendering, and clustered caller summaries | `focused-context-lab-iclock-auto.png`, `focused-context-lab-iclock-usage-summary.png` | Passed |
-| SB-23-helper-precision-validation-and-sharptools-rerun | `/context-lab?...AppDbContext...`, `/context-lab?...CanvasSceneHost...`, plus the two `IClock` runs above | `1600x1000` | Playwright DOM extraction captured preserve-case `AppDbContext` and `CanvasSceneHost` metrics plus the narrower helper modes on the same rerun day | Helper screenshots plus DOM evaluation output for DB and UI preserve cases | Passed with watch-health caveat |
+| SB-26 | `/context-lab?workspacePath=C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx&projectFilter=Fixture.Shop.Application&queryText=PlaceOrderAsync&tags=Db&depth=2&precision=Outline` | `1440x1200` | Playwright navigation, DOM snapshot, DOM evaluation, and full-page capture proved the new outline banner, empty-state message, and selection-reason section | `codeanalytics-contextlab-outline-proof.png` | Passed |
+| SB-27 | Same route as SB-26 plus rerun harness artifacts under `analysis/post-implementation-focused-context` | `1440x1200` for UI proof, host-solution rerun for scenario proof | Browser truth was used for the new UI surface and the tracked harness supplied the host scenario metrics for `AppDbContext`, `IClock`, and `CanvasSceneHost` | `codeanalytics-contextlab-outline-proof.png` plus focused-context rerun markdown artifacts | Passed |
 
 ## Analytics Review
 
-- Final rerun results versus the previous reopen baseline:
-  - Database case `AppDbContext` stayed healthy at `77 selected lines` with `Mixed` quality, `Trouble path` intent, and `Balanced` precision on the 2026-04-08 preserve rerun.
-  - Common-helper case `IClock` now auto-resolves to `Definition` + `Surgical` with `48 selected lines / 4 files / 6 blocks`, `111 callers`, `4 shown clusters`, and `33 omitted callers`. This is materially tighter than the prior `164 selected lines / 8 files / 17 blocks` baseline.
-  - Explicit helper `Usage summary` mode reduces the same `IClock` seed to `8 selected lines / 1 file / 2 blocks` while preserving the `111 callers` and `4 / 16` cluster summary in the UI.
-  - UI case `CanvasSceneHost` stayed healthy at `50 selected lines` with `Focused` quality, `Trouble path` intent, and `Balanced` precision on the preserve rerun.
-- The helper reopen is therefore closed as a real precision improvement rather than another scoring-only adjustment.
+- Detailed write-up: [03-post-implementation-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\03-post-implementation-comparison.md)
+- Current rerun artifacts:
+  - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-summary.json)
+  - [focused-context-app-db-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-app-db-context.md)
+  - [focused-context-i-clock.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-i-clock.md)
+  - [focused-context-canvas-scene-host.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-canvas-scene-host.md)
 
-## Host Validation Summary
+## Outcome summary
 
-- Baseline comparison findings before the helper reopen:
-  - Database case `AppDbContext` was already improved and needed preservation only.
-  - Common-helper case `IClock` was correct but still too broad.
-  - UI case `CanvasSceneHost` was already useful and had to remain untouched.
-- Final rerun after the helper-precision pass:
-  - Database: preserved. The result remains a compact first-pass bundle and did not drift into a broader helper-style payload.
-  - Common helper: improved. Auto mode now shows contract, implementation, and representative consumer files instead of indiscriminate consumer spread, while explicit `Usage summary` mode suppresses consumer excerpts entirely.
-  - UI: preserved. The result stayed focused and still behaves like a direct first-pass work surface.
+- `IClock` is the real win of this reopen:
+  - before: `209 selected lines / 4 files / 6 blocks`
+  - after: `6 selected lines / 1 file / 2 blocks`
+  - the breadth moved into usage-summary clusters instead of consumer excerpts
+- `CanvasSceneHost` stayed structurally stable:
+  - before: `59 selected lines / 3 files / 6 blocks`
+  - after: `59 selected lines / 3 files / 6 blocks`
+- `AppDbContext` became more intentional but slightly broader:
+  - before: `139 selected lines / 5 files / 8 blocks`
+  - after: `150 selected lines / 6 files / 10 blocks`
+  - the added breadth now includes DI registration and factory evidence, which was previously missing from the first-pass bundle
 
-## SharpTools Comparison
+## SharpTools standing
 
-- Final comparison after the helper-precision pass:
-  - Database case:
-    - Focused context still wins the first-pass context bundle. One lab query returns a bounded `AppDbContext` slice without requiring multiple tool calls.
-    - SharpTools remains the better follow-up once the operator wants one exact symbol body next.
-  - Common-helper case:
-    - SharpTools still wins absolute precision for single-symbol drill-down because `ViewDefinition(IClock)` plus `ListImplementations(IClock)` stays narrower than any bundled consumer view.
-    - Focused context now closes much more of the gap. Auto helper mode gives a useful first-pass bundle, and explicit `Usage summary` mode cleanly separates breadth from excerpts instead of blending the two.
-  - UI case:
-    - Focused context still wins on operator cost because the selected file cluster is already the relevant work surface.
-    - SharpTools remains the better second step after the first cluster is found.
-
-## Value Conclusion
-
-- The feature now supports the value claim for database, UI, and common-helper first-pass navigation:
-  - database and UI trouble paths remain compact and directly useful,
-  - high-fan-in helpers now have a real low-noise path instead of one blended consumer-heavy output.
-- The practical guidance is now clearer and stronger:
-  - Use focused context first for database and UI trouble paths.
-  - Use focused context auto mode for helper orientation when you want contract, implementation, and representative consumers together.
-  - Use focused context `Usage summary` mode when you want helper breadth without consumer excerpts.
-  - Hand off to SharpTools once you know the exact symbol body or implementation body you want next.
+- SharpTools still wins exact-symbol drill-down for `AppDbContext` and `CanvasSceneHost`.
+- SharpTools still wins absolute minimalism for `IClock`.
+- Focused-context now holds a stronger first-pass position:
+  - database trouble paths: still the better one-call bundle,
+  - helpers: now genuinely usable for first-pass orientation instead of obviously too noisy,
+  - UI: preserved as a good one-call mini-cluster.
 
 ## Raw Note Closure
 
 | Raw note | Status | Proof |
 | --- | --- | --- |
-| Start with detailed refactoring first | Partially solved | Refactor-first baseline exists, but the focused-context comparison exposed new readability work in the application and lab slices |
-| Implement the previous recommendations | Partially solved | The prior cycle shipped the requested features, but the direct comparison exposed one correctness defect and two tuning defects |
-| Add focused trouble-path code context | Partially solved | The feature exists, but broad database/helper cases still need tightening |
-| Start from exception or compile-error text | Solved | Unit coverage now exercises diagnostic-text and prompt-text seed resolution paths |
-| Allow tags to focus the result | Solved | Prior proof still stands, but rerun evidence is pending |
-| Show accordions grouped by file with selected code parts | Solved | Prior proof still stands, but rerun evidence is pending |
-| Show line-count stats for file groups and the full result | Solved | Prior proof still stands, but rerun evidence is pending |
-| Provide a dedicated page for tuning with workspace scope, prompt, and tags together | Solved | Prior proof still stands, but rerun evidence is pending |
-| Explain what feedback the tuning page should capture | Partially solved | The next pass must also surface quality cues faster and rerun the explicit three-case rubric |
-| Analyze the focused-context flow against SharpTools | Solved | The reopen captured database, helper, and UI baseline findings against SharpTools |
-| Compare helpfulness and noise, not only counts | Solved | The reopen defined the comparison problem and concrete baseline evidence |
-| Improve the feature based on the comparison | Solved with residual risk | Duplicate-path failures are fixed, exact-type seeding is tighter, whole-type spill is reduced, and the lab now shows quality cues; common-helper fan-out still remains the next tuning target |
-| Include generic readability and structure refactoring | Solved | The focused-context pipeline is now easier to explain by responsibility across seed resolution, member expansion, excerpt assembly, and lab quality evaluation |
-| Make helpers like `IClock` more surgical and precise | Solved | Auto `IClock` now lands at `48 selected lines / 4 files / 6 blocks` with clustered usage summary instead of the old broad spread |
-| Start with the minimal change set first | Solved | Typed intent and precision contracts plus helper-seed detection and targeted strategy routing landed before broader payload and UI work |
-| Then refactor for maintainability | Solved | Strategy ownership is now separated into a dedicated focused-context strategy partial with clearer responsibility boundaries |
-| Then add the broader helper-mode improvements | Solved | Implementation types, usage summaries, representative-consumer shaping, lab controls, and browser proof all shipped in the same reopen |
+| Start with detailed refactoring first | Solved | The focused-context service is now split across strategy, selection, reasons, and excerpt partials instead of one widening heuristic path |
+| Implement the previous recommendations | Solved | The follow-up pass implemented payload suppression, outline precision, role-aware ranking, selection reasons, tracked reruns, and revalidation |
+| Add focused trouble-path code context | Solved with residual risk | The feature remains useful for database and UI trouble paths; only the database case still needs another tightening pass |
+| Start from exception or compile-error text | Solved | Prior unit coverage still stands |
+| Allow tags to focus the result | Solved | Prior proof still stands and the rerun harness preserved tagged scenarios |
+| Show accordions grouped by file with selected code parts | Solved | The lab still renders file-based accordions when excerpts are present |
+| Show line-count stats for file groups and the full result | Solved | The lab still reports per-file and aggregate counts |
+| Provide a dedicated page for tuning with workspace scope, prompt, and tags together | Solved | `/context-lab` remains the tuning surface and now shows outline and reason metadata as well |
+| Explain what feedback is needed to tune the heuristics | Solved | The post-implementation comparison write-up now records where the algorithm improved and where it still over-expands |
+| Analyze the focused-context flow against SharpTools | Solved | The same three named scenarios were rerun and judged again against the SharpTools baseline |
+| Compare helpfulness and noise, not only counts | Solved | The new bundle analysis calls out why `IClock` is truly better and why `AppDbContext` is still mixed despite stronger intentionality |
+| Improve the feature based on the comparison | Solved with residual risk | The helper case is materially better and the response is more explainable; the database case still needs another ranking pass |
+| Include generic readability and structure refactoring | Solved | Strategy, ranking, reasons, UI rendering, and rerun tooling are now easier to read and modify |
+| Make helpers like `IClock` more surgical and precise | Solved | `IClock` now defaults to a definition bundle plus usage summary instead of carrying consumer excerpts |
+| Start with the minimal change set first | Solved | `Outline` precision and helper payload suppression landed before the ranking and rerun surface work |
+| Then refactor for maintainability | Solved | A new tracked runner and clearer partial ownership keep the feature easier to extend |
+| Then add the broader helper-mode improvements | Solved | Role-aware reasons, UI surfacing, and the rerun workflow all landed after the shaping baseline was stable |
+| Implement the comparison-bundle improvements and revalidate | Solved | The code changes shipped and the host comparison was rerun through the tracked harness |
 
-## Residual Risks
+## Residual risks
 
-- Helper auto mode is now materially narrower, but it still samples only the top `4 / 16` clusters for `IClock`, so deeper helper breadth still depends on follow-up queries rather than one all-in result.
-- Database broad-search behavior remains healthy, but it still carries a `Mixed` quality label rather than a fully `Focused` one on the preserve rerun.
-- The managed watch health probe remained flaky during browser proof, so route validation relied on direct browser checks against the served page rather than the probe alone.
+- `AppDbContext` is more intentional but structurally broader than the prior focused-context pass. The new DI and factory evidence is useful, but the ranking still needs a future tightening pass to reduce line count without dropping that intent.
+- Current artifact token counts are honest to the current payload because they include selection-reason metadata. That means structural metrics and usefulness still matter more than raw token totals alone.
+- Role classification is still heuristic. The new narrowing avoids obvious false positives from generic `Add*` and `Create*` business methods, but the standing comparison set should remain the guardrail for future changes.

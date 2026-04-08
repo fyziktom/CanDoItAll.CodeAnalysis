@@ -91,8 +91,16 @@ public sealed partial class CodeAnalyticsApplicationService {
             seedMember,
             focusTags,
             memberSelection.ImplementationTypes,
-            memberSelection.RepresentativeConsumers,
+            memberSelection.RepresentativeConsumerCandidates,
+            typesById,
             strategy);
+        var selectedMemberContexts = CreateSelectedMemberContexts(
+            selectedMembers,
+            seedType,
+            seedMember,
+            memberSelection.ImplementationTypes,
+            memberSelection.RepresentativeConsumerCandidates,
+            typesById);
         var selectedTypes = SelectRelevantTypes(
             seedType,
             memberSelection.ImplementationTypes,
@@ -120,16 +128,22 @@ public sealed partial class CodeAnalyticsApplicationService {
             seedType,
             focusTags,
             strategy);
-        var files = await BuildFocusedContextFilesAsync(
+        var fileBuild = await BuildFocusedContextFilesAsync(
             snapshot,
             seedType,
             seedMember,
             selectedTypes,
-            selectedMembers,
+            selectedMemberContexts,
             membersByTypeId,
+            relatedServices,
             focusTags,
+            strategy,
             cancellationToken);
-        var stats = BuildFocusedContextStats(files);
+        var selectionReasons = BuildMemberSelectionReasons(selectedMemberContexts)
+            .Concat(fileBuild.SelectionReasons)
+            .Distinct()
+            .ToArray();
+        var stats = BuildFocusedContextStats(fileBuild.Files);
 
         return new FocusedContextResponse(
             snapshot.SnapshotId,
@@ -153,8 +167,9 @@ public sealed partial class CodeAnalyticsApplicationService {
             relatedServices,
             referenceTypes,
             memberSelection.UsageSummary,
+            selectionReasons,
             stats,
-            files);
+            fileBuild.Files);
     }
 
     private static IReadOnlyList<string> ResolveSeedMemberIds(

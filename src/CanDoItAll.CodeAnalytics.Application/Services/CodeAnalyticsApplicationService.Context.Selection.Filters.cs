@@ -1,3 +1,4 @@
+using CanDoItAll.CodeAnalytics.Abstractions;
 using CanDoItAll.CodeAnalytics.Domain.Facts;
 
 namespace CanDoItAll.CodeAnalytics.Application.Services;
@@ -10,9 +11,12 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyDictionary<string, ProjectFact> projectsById,
         TypeFact? seedType,
         IReadOnlyCollection<string> focusTags) {
+        var selectedTypes = types
+            .Where(type => typeIdSet.Contains(type.TypeId))
+            .ToArray();
         return services
-            .Where(service => ServiceTouchesTypes(service, typeIdSet, types, projectsById, seedType))
-            .OrderByDescending(service => GetFocusTagScore(focusTags, service.ServiceTypeDisplayName, service.ImplementationTypeDisplayName, service.Source.Path))
+            .Where(service => ServiceTouchesTypes(service, typeIdSet, types, projectsById, seedType) || ServiceMentionsSelectedTypes(service, selectedTypes, seedType))
+            .OrderByDescending(service => ScoreRelevantService(service, selectedTypes, focusTags, seedType))
             .ThenBy(item => item.ServiceTypeDisplayName, StringComparer.Ordinal)
             .ThenBy(item => item.ImplementationTypeDisplayName, StringComparer.Ordinal)
             .Take(MaxRelatedServices)
@@ -29,6 +33,76 @@ public sealed partial class CodeAnalyticsApplicationService {
         return type is not null
             && typeIds.Contains(type.TypeId)
             && !ShouldExcludeFromFocusedContext(type, projectsById, seedType);
+    }
+
+    private static bool ServiceMentionsSelectedTypes(
+        ServiceRegistrationFact service,
+        IReadOnlyList<TypeFact> selectedTypes,
+        TypeFact? seedType) {
+        if (selectedTypes.Count == 0) {
+            return false;
+        }
+
+        var haystack = string.Join(
+            ' ',
+            service.ServiceTypeDisplayName,
+            service.ImplementationTypeDisplayName,
+            service.RegistrationMethod,
+            service.Source.Path);
+        foreach (var type in selectedTypes) {
+            if (seedType is not null
+                && !string.Equals(type.ProjectId, seedType.ProjectId, StringComparison.Ordinal)
+                && !string.Equals(type.ModuleId, seedType.ModuleId, StringComparison.Ordinal)) {
+                continue;
+            }
+
+            if (haystack.Contains(type.DisplayName, StringComparison.Ordinal)
+                || haystack.Contains(GetTrailingIdentifier(type.DisplayName), StringComparison.Ordinal)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static int ScoreRelevantService(
+        ServiceRegistrationFact service,
+        IReadOnlyList<TypeFact> selectedTypes,
+        IReadOnlyCollection<string> focusTags,
+        TypeFact? seedType) {
+        var score = GetFocusTagScore(focusTags, service.ServiceTypeDisplayName, service.ImplementationTypeDisplayName, service.Source.Path);
+        var haystack = string.Join(
+            ' ',
+            service.ServiceTypeDisplayName,
+            service.ImplementationTypeDisplayName,
+            service.RegistrationMethod,
+            service.Source.Path);
+        foreach (var type in selectedTypes) {
+            if (haystack.Contains(type.DisplayName, StringComparison.Ordinal)) {
+                score += 48;
+                continue;
+            }
+
+            if (haystack.Contains(GetTrailingIdentifier(type.DisplayName), StringComparison.Ordinal)) {
+                score += 36;
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(service.ImplementationTypeDisplayName)
+            && service.ImplementationTypeDisplayName.Contains("Factory", StringComparison.Ordinal)) {
+            score += GetRoleScoreBonus(FocusedContextReferenceRoleKind.Factory);
+        }
+
+        if (service.UsesFactory) {
+            score += 18;
+        }
+
+        if (seedType is not null && string.Equals(service.ProjectId, seedType.ProjectId, StringComparison.Ordinal)) {
+            score += 12;
+        }
+
+        score += GetRoleScoreBonus(FocusedContextReferenceRoleKind.Registration);
+        return score;
     }
 
     private static bool ShouldExcludeFromFocusedContext(

@@ -1,3 +1,4 @@
+using CanDoItAll.CodeAnalytics.Abstractions;
 using CanDoItAll.CodeAnalytics.Abstractions.Responses;
 using CanDoItAll.CodeAnalytics.Domain.Facts;
 using CanDoItAll.CodeAnalytics.Domain.Snapshot;
@@ -6,23 +7,29 @@ using CanDoItAll.CodeAnalytics.Domain.Sources;
 namespace CanDoItAll.CodeAnalytics.Application.Services;
 
 public sealed partial class CodeAnalyticsApplicationService {
-    private async Task<IReadOnlyList<FocusedContextFileExcerpt>> BuildFocusedContextFilesAsync(
+    private async Task<FocusedContextFileBuildResult> BuildFocusedContextFilesAsync(
         ArchitectureSnapshot snapshot,
         TypeFact? seedType,
         MemberFact? seedMember,
         IReadOnlyList<TypeFact> selectedTypes,
-        IReadOnlyList<MemberFact> selectedMembers,
+        IReadOnlyList<FocusedContextSelectedMemberContext> selectedMemberContexts,
         IReadOnlyDictionary<string, IReadOnlyList<MemberFact>> membersByTypeId,
+        IReadOnlyList<ServiceRegistrationFact> relatedServices,
         IReadOnlyCollection<string> focusTags,
+        FocusedContextStrategy strategy,
         CancellationToken cancellationToken) {
-        var fileCandidates = CreateExcerptCandidates(seedType, seedMember, selectedTypes, selectedMembers, membersByTypeId, focusTags)
+        if (!strategy.EmitCodeExcerpts) {
+            return new FocusedContextFileBuildResult([], []);
+        }
+
+        var fileCandidates = CreateExcerptCandidates(seedType, seedMember, selectedTypes, selectedMemberContexts, membersByTypeId, relatedServices, focusTags, strategy)
             .GroupBy(item => NormalizePath(item.Source.Path), StringComparer.OrdinalIgnoreCase)
             .OrderByDescending(group => group.Max(item => item.Priority))
             .ThenBy(group => group.Key, StringComparer.Ordinal)
             .Take(MaxFocusedFiles)
             .ToArray();
         if (fileCandidates.Length == 0) {
-            return [];
+            return new FocusedContextFileBuildResult([], []);
         }
 
         var workspaceRoot = Path.GetDirectoryName(snapshot.Request.SolutionPath)!;
@@ -42,6 +49,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                     .ToArray(),
                 StringComparer.OrdinalIgnoreCase);
         var files = new List<FocusedContextFileExcerpt>();
+        var selectionReasons = new List<FocusedContextSelectionReason>();
 
         foreach (var fileGroup in fileCandidates) {
             var absolutePath = ResolveAbsoluteSourcePath(workspaceRoot, fileGroup.Key);
@@ -74,13 +82,26 @@ public sealed partial class CodeAnalyticsApplicationService {
                         ? typeDisplayNames
                         : [],
                     blocks));
+            selectionReasons.AddRange(
+                fileGroup
+                    .Select(
+                        item => new FocusedContextSelectionReason(
+                            FocusedContextSelectionTargetKind.File,
+                            fileGroup.Key,
+                            item.ReasonKind,
+                            item.RoleKind))
+                    .Distinct());
         }
 
-        return files
+        return new FocusedContextFileBuildResult(
+            files
             .OrderByDescending(item => item.SelectedLineCount)
             .ThenBy(item => item.Path, StringComparer.Ordinal)
             .Take(MaxFocusedFiles)
-            .ToArray();
+            .ToArray(),
+            selectionReasons
+                .Distinct()
+                .ToArray());
     }
 
     private static FocusedContextStats BuildFocusedContextStats(IReadOnlyList<FocusedContextFileExcerpt> files) {
@@ -95,53 +116,97 @@ public sealed partial class CodeAnalyticsApplicationService {
         TypeFact? seedType,
         MemberFact? seedMember,
         IReadOnlyList<TypeFact> selectedTypes,
-        IReadOnlyList<MemberFact> selectedMembers,
+        IReadOnlyList<FocusedContextSelectedMemberContext> selectedMemberContexts,
         IReadOnlyDictionary<string, IReadOnlyList<MemberFact>> membersByTypeId,
-        IReadOnlyCollection<string> focusTags) {
+        IReadOnlyList<ServiceRegistrationFact> relatedServices,
+        IReadOnlyCollection<string> focusTags,
+        FocusedContextStrategy strategy) {
         var candidates = new List<ExcerptCandidate>();
+        var implementationTypeIds = selectedTypes
+            .Where(item => !string.Equals(item.TypeId, seedType?.TypeId, StringComparison.Ordinal))
+            .Select(item => item.TypeId)
+            .ToHashSet(StringComparer.Ordinal);
 
-        foreach (var member in selectedMembers.Take(MaxExcerptBlocks)) {
+        foreach (var memberContext in selectedMemberContexts.Take(MaxExcerptBlocks)) {
             candidates.Add(
                 new ExcerptCandidate(
-                    member.Source,
-                    member.DisplayName,
-                    member.Kind.ToString(),
-                    string.Equals(member.MemberId, seedMember?.MemberId, StringComparison.Ordinal)
-                        ? 400
-                        : string.Equals(member.TypeId, seedType?.TypeId, StringComparison.Ordinal)
-                            ? 320
-                            : 220));
+                    memberContext.ExcerptSource,
+                    memberContext.Member.DisplayName,
+                    memberContext.Member.Kind.ToString(),
+                    memberContext.Priority,
+                    memberContext.ReasonKind,
+                    memberContext.RoleKind));
         }
 
-        var representedPaths = selectedMembers
-            .Select(item => NormalizePath(item.Source.Path))
+        var representedPaths = selectedMemberContexts
+            .Select(item => NormalizePath(item.Member.Source.Path))
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
         foreach (var type in selectedTypes.Where(item => !representedPaths.Contains(NormalizePath(item.Source.Path))).Take(MaxExcerptBlocks)) {
             if (membersByTypeId.TryGetValue(type.TypeId, out var members)) {
                 foreach (var member in RankRepresentativeMembers(type, members, focusTags).Take(MaxRepresentativeMembersPerType)) {
+                    var reasonKind = ResolveTypeExcerptReasonKind(type, seedType, implementationTypeIds);
                     candidates.Add(
                         new ExcerptCandidate(
                             member.Source,
                             member.DisplayName,
                             member.Kind.ToString(),
-                            GetRepresentativeExcerptPriority(type, member, seedType, seedMember)));
+                            GetRepresentativeExcerptPriority(type, member, seedType, seedMember),
+                            reasonKind,
+                            ClassifyReferenceRole(member, type, null)));
                 }
 
                 continue;
             }
 
+            var typeReasonKind = ResolveTypeExcerptReasonKind(type, seedType, implementationTypeIds);
             candidates.Add(
                 new ExcerptCandidate(
                     CreateTypeHeaderSource(type.Source),
                     type.DisplayName,
                     type.Kind.ToString(),
-                    string.Equals(type.TypeId, seedType?.TypeId, StringComparison.Ordinal) ? 260 : 150));
+                    string.Equals(type.TypeId, seedType?.TypeId, StringComparison.Ordinal) ? 260 : 150,
+                    typeReasonKind,
+                    FocusedContextReferenceRoleKind.None));
+        }
+
+        if (strategy.ResolvedIntent == FocusedContextIntent.TroublePath) {
+            foreach (var service in relatedServices.Take(2)) {
+                candidates.Add(
+                    new ExcerptCandidate(
+                        service.Source,
+                        CreateServiceExcerptTitle(service),
+                        nameof(ServiceRegistrationFact),
+                        250 + GetRoleScoreBonus(FocusedContextReferenceRoleKind.Registration),
+                        FocusedContextSelectionReasonKind.ServiceRegistration,
+                        FocusedContextReferenceRoleKind.Registration));
+            }
         }
 
         return candidates
             .GroupBy(item => $"{NormalizePath(item.Source.Path)}::{item.Title}::{item.Source.Line}::{item.Kind}", StringComparer.OrdinalIgnoreCase)
             .Select(group => group.First())
             .ToArray();
+    }
+
+    private static FocusedContextSelectionReasonKind ResolveTypeExcerptReasonKind(
+        TypeFact type,
+        TypeFact? seedType,
+        ISet<string> implementationTypeIds) {
+        if (string.Equals(type.TypeId, seedType?.TypeId, StringComparison.Ordinal)) {
+            return FocusedContextSelectionReasonKind.SeedContext;
+        }
+
+        if (implementationTypeIds.Contains(type.TypeId)) {
+            return FocusedContextSelectionReasonKind.Implementation;
+        }
+
+        return FocusedContextSelectionReasonKind.RelatedContext;
+    }
+
+    private static string CreateServiceExcerptTitle(ServiceRegistrationFact service) {
+        return string.IsNullOrWhiteSpace(service.ImplementationTypeDisplayName)
+            ? service.ServiceTypeDisplayName
+            : $"{service.ServiceTypeDisplayName} -> {service.ImplementationTypeDisplayName}";
     }
 
     private static IReadOnlyList<MemberFact> RankRepresentativeMembers(
@@ -242,5 +307,11 @@ public sealed partial class CodeAnalyticsApplicationService {
         SourceReference Source,
         string Title,
         string Kind,
-        int Priority);
+        int Priority,
+        FocusedContextSelectionReasonKind ReasonKind,
+        FocusedContextReferenceRoleKind RoleKind);
+
+    private sealed record FocusedContextFileBuildResult(
+        IReadOnlyList<FocusedContextFileExcerpt> Files,
+        IReadOnlyList<FocusedContextSelectionReason> SelectionReasons);
 }

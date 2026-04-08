@@ -68,6 +68,30 @@ else
             }
         </section>
 
+        @if (_response.SelectionReasons.Count > 0)
+        {
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Selection reasons</h2>
+                    <p>Structured reasons explain why the focused graph kept each symbol inside the bounded neighborhood.</p>
+                </div>
+
+                <ul class="detail-list">
+                    @foreach (var reason in GetSelectionReasonsForDisplay())
+                    {
+                        <li>
+                            <strong>@GetSelectionTargetLabel(reason)</strong>
+                            <span>@GetReasonLabel(reason.ReasonKind)</span>
+                            @if (reason.RoleKind != FocusedContextReferenceRoleKind.None)
+                            {
+                                <span>@GetRoleLabel(reason.RoleKind)</span>
+                            }
+                        </li>
+                    }
+                </ul>
+            </section>
+        }
+
         @if (_response.UsageSummary is not null)
         {
             <section class="panel">
@@ -191,6 +215,13 @@ else
                             <p>Parameters: @string.Join(", ", member.ParameterDisplayNames)</p>
                         }
                         <p class="field-help">@member.Source.Path:@member.Source.Line</p>
+                        @{
+                            var memberReasonSummary = GetReasonSummary(FocusedContextSelectionTargetKind.Member, member.MemberId);
+                        }
+                        @if (!string.IsNullOrWhiteSpace(memberReasonSummary))
+                        {
+                            <p class="field-help">Selection: @memberReasonSummary</p>
+                        }
                     </article>
                 }
             </div>
@@ -343,7 +374,79 @@ else
             FocusedContextPrecision.Auto => "Auto",
             FocusedContextPrecision.Balanced => "Balanced",
             FocusedContextPrecision.Surgical => "Surgical",
+            FocusedContextPrecision.Outline => "Outline",
             _ => precision.ToString(),
+        };
+    }
+
+    private IEnumerable<FocusedContextSelectionReason> GetSelectionReasonsForDisplay()
+    {
+        return _response?.SelectionReasons
+            .OrderBy(item => item.TargetKind)
+            .ThenBy(item => item.TargetId, StringComparer.OrdinalIgnoreCase)
+            .ThenBy(item => item.ReasonKind)
+            .ThenBy(item => item.RoleKind)
+            .ToArray()
+            ?? [];
+    }
+
+    private string GetSelectionTargetLabel(FocusedContextSelectionReason reason)
+    {
+        if (_response is null || reason.TargetKind == FocusedContextSelectionTargetKind.File) {
+            return reason.TargetId;
+        }
+
+        return _response.Members.FirstOrDefault(item => string.Equals(item.MemberId, reason.TargetId, StringComparison.Ordinal))?.DisplayName
+            ?? reason.TargetId;
+    }
+
+    private string GetReasonSummary(FocusedContextSelectionTargetKind targetKind, string targetId)
+    {
+        if (_response is null) {
+            return string.Empty;
+        }
+
+        var comparer = targetKind == FocusedContextSelectionTargetKind.File
+            ? StringComparison.OrdinalIgnoreCase
+            : StringComparison.Ordinal;
+        return string.Join(
+            ", ",
+            _response.SelectionReasons
+                .Where(item => item.TargetKind == targetKind && string.Equals(item.TargetId, targetId, comparer))
+                .Select(FormatSelectionReason)
+                .Distinct(StringComparer.Ordinal));
+    }
+
+    private static string FormatSelectionReason(FocusedContextSelectionReason reason)
+    {
+        return reason.RoleKind == FocusedContextReferenceRoleKind.None
+            ? GetReasonLabel(reason.ReasonKind)
+            : $"{GetReasonLabel(reason.ReasonKind)} / {GetRoleLabel(reason.RoleKind)}";
+    }
+
+    private static string GetReasonLabel(FocusedContextSelectionReasonKind reasonKind)
+    {
+        return reasonKind switch
+        {
+            FocusedContextSelectionReasonKind.Seed => "Seed",
+            FocusedContextSelectionReasonKind.SeedContext => "Seed context",
+            FocusedContextSelectionReasonKind.Implementation => "Implementation",
+            FocusedContextSelectionReasonKind.RepresentativeConsumer => "Representative consumer",
+            FocusedContextSelectionReasonKind.ServiceRegistration => "Service registration",
+            _ => "Related context",
+        };
+    }
+
+    private static string GetRoleLabel(FocusedContextReferenceRoleKind roleKind)
+    {
+        return roleKind switch
+        {
+            FocusedContextReferenceRoleKind.Registration => "Registration",
+            FocusedContextReferenceRoleKind.Factory => "Factory",
+            FocusedContextReferenceRoleKind.SchemaBootstrap => "Schema bootstrap",
+            FocusedContextReferenceRoleKind.ConsumerService => "Consumer service",
+            FocusedContextReferenceRoleKind.PreviewLifecycle => "Preview lifecycle",
+            _ => "None",
         };
     }
 }
