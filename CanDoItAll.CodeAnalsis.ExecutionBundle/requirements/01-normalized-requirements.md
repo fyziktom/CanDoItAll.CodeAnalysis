@@ -26,6 +26,12 @@
 - `REQ-029`: Return surgical helper outputs that emphasize contract definition, implementation types, and sampled or summarized usages instead of bundling every consumer into the main excerpt set.
 - `REQ-030`: Refactor the focused-context pipeline so seed classification, traversal strategy, sampling, and response shaping remain maintainable and clearly owned.
 - `REQ-031`: Validate the helper-precision pass against the host helper cases and compare the resulting operator effort and noise against SharpTools again.
+- `REQ-039`: Add relation-hinted focused walking so agents can provide related function, class, component, namespace, project, or path hints alongside a seed symbol.
+- `REQ-040`: Use relation hints to narrow high-fan-in helper usage summaries and representative consumers without silently falling back to broad unrelated callers.
+- `REQ-041`: Expose relation hints through the standalone focused-context lab and the host `CanDoItAll.Mcp.CodeAnalytics` input contract.
+- `REQ-042`: Update the codeanalytics MCP skill so agents choose scoped snapshots, exact symbol tools, and relation-hinted focused context in the right order.
+- `REQ-043`: Quantify relation-hint impact with selected line counts, file counts, usage clusters, caller counts, characters, estimated tokens, and elapsed time.
+- `REQ-044`: Keep complete solution scans as deliberate snapshot-building operations; narrow questions should use scoped snapshots, exact symbols, document tools, or focused context first.
 
 ## Quality requirements
 
@@ -36,12 +42,13 @@
 - `REQ-014`: Validate with builds, tests, Mermaid rendering, Playwright proof, and host-solution comparison.
 - `REQ-026`: Validate the improvement pass with the same three-case comparison matrix so the benefit is measured instead of assumed.
 - `REQ-032`: Preserve the earlier improvements for database and UI trouble-path flows while adding the more surgical helper mode.
+- `REQ-045`: Preserve SharpTools-style read-only analysis parity for solution/project inventory, definitions, members, implementations, references, document source, and document symbol outlines.
 - `REQ-015`: Update the bundle, workbook, traceability, and execution evidence to the current workflow standard.
 
 ## Non-goals for this cycle
 
 - `NONGOAL-001`: Do not build a full replacement for SharpTools exact-source navigation.
-- `NONGOAL-002`: Do not modify the host CanDoItAll repo.
+- `NONGOAL-002`: Do not modify unrelated host CanDoItAll code; host edits are limited to the CodeAnalytics MCP wrapper and CodeAnalytics agent skill when contract exposure requires it.
 - `NONGOAL-003`: Do not implement runtime reflection-based or debugger-based live analysis.
 - `NONGOAL-004`: Do not build a general-purpose prompt interpreter or a persistent tag taxonomy engine in this cycle.
 - `NONGOAL-005`: Do not replace SharpTools exact-definition workflows; helper mode should complement SharpTools, not clone it.

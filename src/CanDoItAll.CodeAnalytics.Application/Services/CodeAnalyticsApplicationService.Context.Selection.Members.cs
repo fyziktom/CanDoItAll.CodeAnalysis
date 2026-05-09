@@ -12,6 +12,7 @@ public sealed partial class CodeAnalyticsApplicationService {
         TypeFact? seedType,
         int depth,
         IReadOnlyCollection<string> focusTags,
+        IReadOnlyCollection<string> relationHints,
         FocusedContextTraversalMode traversalMode) {
         var selected = seedMemberIds.ToHashSet(StringComparer.Ordinal);
         var frontier = seedMemberIds.ToHashSet(StringComparer.Ordinal);
@@ -80,7 +81,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                 return;
             }
 
-            var score = ScoreMemberCandidate(candidateMember, candidateType, seedTypeIds, relationshipKind, focusTags);
+            var score = ScoreMemberCandidate(candidateMember, candidateType, seedTypeIds, relationshipKind, focusTags, relationHints);
             if (candidates.TryGetValue(candidateMemberId, out var existingScore)) {
                 if (score > existingScore) {
                     candidates[candidateMemberId] = score;
@@ -139,7 +140,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         TypeFact type,
         ISet<string> seedTypeIds,
         MemberRelationshipKind relationshipKind,
-        IReadOnlyCollection<string> focusTags) {
+        IReadOnlyCollection<string> focusTags,
+        IReadOnlyCollection<string> relationHints) {
         var score = 0;
         if (seedTypeIds.Contains(type.TypeId)) {
             score += 50;
@@ -165,6 +167,13 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         score += GetFocusTagScore(
             focusTags,
+            member.DisplayName,
+            member.ReturnTypeDisplayName,
+            string.Join(' ', member.ParameterDisplayNames),
+            type.DisplayName,
+            type.Source.Path);
+        score += GetRelationHintScore(
+            relationHints,
             member.DisplayName,
             member.ReturnTypeDisplayName,
             string.Join(' ', member.ParameterDisplayNames),

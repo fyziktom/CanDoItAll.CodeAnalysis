@@ -22,7 +22,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyList<MemberRelationshipFact> relationships,
         IReadOnlyDictionary<string, MemberFact> membersById,
         IReadOnlyDictionary<string, TypeFact> typesById,
-        IReadOnlyDictionary<string, ProjectFact> projectsById) {
+        IReadOnlyDictionary<string, ProjectFact> projectsById,
+        IReadOnlyCollection<string> relationHints) {
         var requestedIntent = query.Intent;
         var normalizedRequestedIntent = requestedIntent == FocusedContextIntent.Behavior
             ? FocusedContextIntent.TroublePath
@@ -61,7 +62,8 @@ public sealed partial class CodeAnalyticsApplicationService {
             helperAnalysis,
             seedType,
             effectiveDepth,
-            query.Depth);
+            query.Depth,
+            relationHints);
         return new FocusedContextStrategy(
             requestedIntent,
             resolvedIntent,
@@ -102,7 +104,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyDictionary<string, ModuleFact> modulesById,
         IReadOnlyDictionary<string, IReadOnlyList<MemberFact>> membersByTypeId,
         FocusedContextStrategy strategy,
-        IReadOnlyCollection<string> focusTags) {
+        IReadOnlyCollection<string> focusTags,
+        IReadOnlyCollection<string> relationHints) {
         if (!strategy.UseTargetedSelection) {
             var expandedMemberIds = ExpandMemberNeighborhood(
                 seedMemberIds,
@@ -113,6 +116,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                 seedType,
                 strategy.EffectiveDepth,
                 focusTags,
+                relationHints,
                 strategy.TraversalMode);
             return new FocusedContextMemberSelectionResult(expandedMemberIds.ToArray(), [], [], [], null);
         }
@@ -137,7 +141,8 @@ public sealed partial class CodeAnalyticsApplicationService {
                 modulesById,
                 seedType,
                 implementationTypes,
-                focusTags)
+                focusTags,
+                relationHints)
             : [];
         var representativeConsumers = strategy.IncludeRepresentativeConsumersInMembers
             ? SelectRepresentativeConsumerMembers(
@@ -407,21 +412,27 @@ public sealed partial class CodeAnalyticsApplicationService {
         HelperSeedAnalysis helperAnalysis,
         TypeFact? seedType,
         int effectiveDepth,
-        int requestedDepth) {
+        int requestedDepth,
+        IReadOnlyCollection<string> relationHints) {
         var depthNote = effectiveDepth < requestedDepth
             ? " Consumer expansion is capped to direct usages."
             : string.Empty;
+        var relationNote = relationHints.Count > 0
+            ? " Relation hints constrain representative usage sampling."
+            : string.Empty;
         if (helperAnalysis.IsHighFanInHelper && seedType is not null && requestedIntent == FocusedContextIntent.Auto && requestedPrecision == FocusedContextPrecision.Auto) {
-            return $"Auto resolved to {NormalizeSearchToken(resolvedPrecision.ToString())} {NormalizeIntentText(resolvedIntent)} mode because {seedType.DisplayName} spans {helperAnalysis.IncomingCallerCount} callers across {helperAnalysis.CallerProjectCount} projects.{depthNote}";
+            return $"Auto resolved to {NormalizeSearchToken(resolvedPrecision.ToString())} {NormalizeIntentText(resolvedIntent)} mode because {seedType.DisplayName} spans {helperAnalysis.IncomingCallerCount} callers across {helperAnalysis.CallerProjectCount} projects.{depthNote}{relationNote}";
         }
 
         if (requestedIntent != FocusedContextIntent.Auto || requestedPrecision != FocusedContextPrecision.Auto) {
             return requestedIntent == FocusedContextIntent.Behavior
-                ? $"Mapped legacy behavior mode to {NormalizeIntentText(resolvedIntent)} with {NormalizeSearchToken(resolvedPrecision.ToString())} precision.{depthNote}"
-                : $"Used requested {NormalizeIntentText(resolvedIntent)} mode with {NormalizeSearchToken(resolvedPrecision.ToString())} precision.{depthNote}";
+                ? $"Mapped legacy behavior mode to {NormalizeIntentText(resolvedIntent)} with {NormalizeSearchToken(resolvedPrecision.ToString())} precision.{depthNote}{relationNote}"
+                : $"Used requested {NormalizeIntentText(resolvedIntent)} mode with {NormalizeSearchToken(resolvedPrecision.ToString())} precision.{depthNote}{relationNote}";
         }
 
-        return "Used default trouble-path expansion.";
+        return relationHints.Count > 0
+            ? "Used default trouble-path expansion. Relation hints bias related member and usage selection."
+            : "Used default trouble-path expansion.";
     }
 
     private static IReadOnlyList<RepresentativeConsumerCluster> CreateRepresentativeConsumerClusters(
@@ -433,7 +444,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         IReadOnlyDictionary<string, ModuleFact> modulesById,
         TypeFact? seedType,
         IReadOnlyList<TypeFact> implementationTypes,
-        IReadOnlyCollection<string> focusTags) {
+        IReadOnlyCollection<string> focusTags,
+        IReadOnlyCollection<string> relationHints) {
         if (targetMemberIds.Count == 0) {
             return [];
         }
@@ -459,7 +471,26 @@ public sealed partial class CodeAnalyticsApplicationService {
                 continue;
             }
 
-            var score = ScoreRepresentativeConsumer(callerMember, callerType, relationship, seedType, focusTags);
+            var projectName = projectsById.TryGetValue(callerType.ProjectId, out var project)
+                ? project.Name
+                : callerType.ProjectId;
+            var moduleName = !string.IsNullOrWhiteSpace(callerType.ModuleId) && modulesById.TryGetValue(callerType.ModuleId, out var module)
+                ? module.Name
+                : null;
+            var relationScore = GetRelationHintScore(
+                relationHints,
+                callerMember.DisplayName,
+                callerMember.ReturnTypeDisplayName,
+                string.Join(' ', callerMember.ParameterDisplayNames),
+                callerType.DisplayName,
+                callerType.Source.Path,
+                projectName,
+                moduleName);
+            if (relationHints.Count > 0 && relationScore <= 0) {
+                continue;
+            }
+
+            var score = ScoreRepresentativeConsumer(callerMember, callerType, relationship, seedType, focusTags) + relationScore;
             var candidate = new RepresentativeConsumerCandidate(callerMember, callerType, relationship, score);
             if (candidateByMemberId.TryGetValue(callerMember.MemberId, out var existingCandidate)) {
                 if (score > existingCandidate.Score) {

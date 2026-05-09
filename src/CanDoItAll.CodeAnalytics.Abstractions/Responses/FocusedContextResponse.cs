@@ -8,6 +8,7 @@ public sealed record FocusedContextResponse(
     int Depth,
     string? QueryText,
     IReadOnlyList<string> FocusTags,
+    IReadOnlyList<string> RelationHints,
     FocusedContextIntent RequestedIntent,
     FocusedContextIntent ResolvedIntent,
     FocusedContextPrecision RequestedPrecision,

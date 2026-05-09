@@ -11,4 +11,5 @@ public sealed record FocusedContextQuery(
     string? QueryText = null,
     IReadOnlyList<string>? FocusTags = null,
     FocusedContextIntent Intent = FocusedContextIntent.Auto,
-    FocusedContextPrecision Precision = FocusedContextPrecision.Auto);
+    FocusedContextPrecision Precision = FocusedContextPrecision.Auto,
+    IReadOnlyList<string>? RelationHints = null);

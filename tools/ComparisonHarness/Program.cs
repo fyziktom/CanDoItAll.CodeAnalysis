@@ -55,7 +55,8 @@ static async Task RunFocusedContextAsync(
                 QueryText: scenario.QueryText,
                 FocusTags: scenario.FocusTags,
                 Intent: scenario.Intent,
-                Precision: scenario.Precision));
+                Precision: scenario.Precision,
+                RelationHints: scenario.RelationHints));
         scenarioStopwatch.Stop();
 
         if (response is null) {
@@ -75,6 +76,7 @@ static async Task RunFocusedContextAsync(
                 scenario.Name,
                 scenario.QueryText,
                 scenario.FocusTags,
+                scenario.RelationHints,
                 scenario.Depth,
                 scenario.Intent,
                 scenario.Precision,
@@ -278,6 +280,7 @@ internal sealed record FocusedContextScenarioDefinition(
     string Name,
     string QueryText,
     IReadOnlyList<string> FocusTags,
+    IReadOnlyList<string> RelationHints,
     int Depth,
     FocusedContextIntent Intent,
     FocusedContextPrecision Precision) {
@@ -288,6 +291,7 @@ internal sealed record FocusedContextScenarioDefinition(
                 "Database scenario",
                 "AppDbContext",
                 ["Db"],
+                [],
                 2,
                 FocusedContextIntent.Auto,
                 FocusedContextPrecision.Auto),
@@ -296,6 +300,16 @@ internal sealed record FocusedContextScenarioDefinition(
                 "Common helper scenario",
                 "IClock",
                 [],
+                [],
+                2,
+                FocusedContextIntent.Auto,
+                FocusedContextPrecision.Auto),
+            new FocusedContextScenarioDefinition(
+                "i-clock-workbench-relation",
+                "Common helper with relation hint",
+                "IClock",
+                [],
+                ["Workbench"],
                 2,
                 FocusedContextIntent.Auto,
                 FocusedContextPrecision.Auto),
@@ -304,6 +318,7 @@ internal sealed record FocusedContextScenarioDefinition(
                 "UI scenario",
                 "CanvasSceneHost",
                 ["Ui"],
+                [],
                 2,
                 FocusedContextIntent.Auto,
                 FocusedContextPrecision.Auto),
@@ -361,6 +376,7 @@ internal sealed record FocusedContextScenarioReport(
     string Name,
     string QueryText,
     IReadOnlyList<string> FocusTags,
+    IReadOnlyList<string> RelationHints,
     int Depth,
     FocusedContextIntent RequestedIntent,
     FocusedContextPrecision RequestedPrecision,
@@ -429,6 +445,7 @@ internal static class FocusedContextMarkdownRenderer {
         builder.AppendLine();
         builder.AppendLine($"- Query text: `{scenario.QueryText}`");
         builder.AppendLine($"- Focus tags: {FormatList(scenario.FocusTags)}");
+        builder.AppendLine($"- Relation hints: {FormatList(scenario.RelationHints)}");
         builder.AppendLine($"- Depth: {scenario.Depth}");
         builder.AppendLine($"- Requested intent: `{scenario.Intent}`");
         builder.AppendLine($"- Requested precision: `{scenario.Precision}`");
@@ -440,6 +457,7 @@ internal static class FocusedContextMarkdownRenderer {
         builder.AppendLine($"- Seed member: {FormatNullable(response.SeedMember?.DisplayName)}");
         builder.AppendLine($"- Seed explanation: {FormatNullable(response.SeedExplanation)}");
         builder.AppendLine($"- Strategy explanation: {FormatNullable(response.StrategyExplanation)}");
+        builder.AppendLine($"- Resolved relation hints: {FormatList(response.RelationHints)}");
         builder.AppendLine($"- Resolved intent: `{response.ResolvedIntent}`");
         builder.AppendLine($"- Resolved precision: `{response.ResolvedPrecision}`");
         builder.AppendLine();

@@ -10,6 +10,8 @@
 - The dedicated lab page may build or reuse snapshots synchronously for now because cache reuse keeps repeated tuning runs practical in the standalone tool.
 - The next pass should reopen the existing bundle instead of creating a second bundle root because the new work is a direct consequence of the completed focused-context cycle.
 - The helper-precision pass can remain incremental if it introduces a typed traversal strategy instead of rewriting the full focused-context pipeline at once.
+- Relation hints should be treated as explicit narrowing hints, not as a persistent ontology or natural-language planner.
+- The host `CanDoItAll.Mcp.CodeAnalytics` wrapper and CodeAnalytics MCP skill may be edited for focused-context contract exposure, but unrelated dirty host MCP changes must be left alone.
 
 ## Critical Path Risks
 
@@ -23,6 +25,8 @@
 - Broad type queries can remain misleading if constructor-first seed selection keeps dragging the neighborhood toward factories and consumers instead of the most explanatory member.
 - High-fan-in helper symbols can remain noisy even after better seeding unless traversal and response shaping switch away from undirected neighborhood expansion.
 - A helper-specific response can become harder to reason about if usage sampling, implementation lookup, and trouble-path traversal are mixed without a clear strategy boundary.
+- Relation hints can create a false sense of precision if unmatched hints quietly fall back to broad helper consumers. SB-28 mitigates this for high-fan-in helper representative consumers by suppressing broad unrelated clusters when relation hints are present.
+- Updating only the engine without the host MCP input and agent skill would make the feature unavailable to its primary user.
 
 ## Validation Risks
 
@@ -34,6 +38,7 @@
 - Build and test validation can report false failures if lingering `testhost` processes keep binaries locked; clean reruns must isolate that tooling issue from product regressions.
 - The comparison can still be misleading if only line counts are measured. The reopen must score helpfulness, noise, and operator effort explicitly.
 - The helper-mode reopen can regress the strong database or UI cases if the new traversal strategy leaks into the default trouble-path path instead of being explicitly selected.
+- Relation-hint metrics can look better only because context disappeared. The validation must check selected usage clusters and samples, not only lower line counts.
 
 ## Reopen Triggers
 
@@ -45,3 +50,5 @@
 - Reopen `SB-19` if the future MCP seam thickens, the tuning feedback remains vague, or the snapshot versus SharpTools comparison still shows poor context savings.
 - Reopen `SB-20` or `SB-22` if helper seeds still explode into consumer-heavy bundles after the new strategy pass.
 - Reopen `SB-23` if the rerun still cannot explain where focused context should stop and hand over to SharpTools for helper exploration.
+- Reopen `SB-28` if relation hints are not visible in the response, lab, MCP input model, skill guidance, or harness metrics.
+- Reopen `SB-28` if relation-hinted helper runs return broad unrelated caller clusters or silently ignore unmatched hints.

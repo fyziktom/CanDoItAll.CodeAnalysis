@@ -607,6 +607,69 @@ public sealed class ApplicationFacts {
     }
 
     [Fact]
+    public async Task Application_filters_high_fan_in_helper_usage_summary_by_relation_hints() {
+        using var workspace = new TemporaryDirectoryScope();
+        using var output = new TemporaryDirectoryScope();
+
+        var snapshot = await FocusedContextHelperSnapshotFactory.CreateHighFanInHelperSnapshotAsync(workspace.Path);
+        await StoreSnapshotAsync(snapshot, output.Path);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                snapshot.SnapshotId,
+                Depth: 2,
+                QueryText: "IClock",
+                Intent: FocusedContextIntent.UsageSummary,
+                Precision: FocusedContextPrecision.Surgical,
+                RelationHints: ["DashboardPage"]));
+
+        Assert.NotNull(response);
+        Assert.Equal(["dashboardpage"], response!.RelationHints);
+        Assert.NotNull(response.UsageSummary);
+        Assert.Equal(1, response.UsageSummary!.TotalCallerCount);
+        Assert.Single(response.UsageSummary.Clusters);
+        Assert.Equal(0, response.UsageSummary.OmittedCallerCount);
+        var sample = Assert.Single(response.UsageSummary.Clusters[0].Samples);
+        Assert.Contains("DashboardPage", sample.TypeDisplayName, StringComparison.Ordinal);
+        Assert.DoesNotContain(
+            response.UsageSummary.Clusters.SelectMany(cluster => cluster.Samples),
+            item => item.TypeDisplayName.Contains("OrderService", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public async Task Application_does_not_fall_back_to_broad_helper_usage_when_relation_hints_do_not_match() {
+        using var workspace = new TemporaryDirectoryScope();
+        using var output = new TemporaryDirectoryScope();
+
+        var snapshot = await FocusedContextHelperSnapshotFactory.CreateHighFanInHelperSnapshotAsync(workspace.Path);
+        await StoreSnapshotAsync(snapshot, output.Path);
+
+        var service = ApplicationServiceFactory.Create(output.Path);
+        var response = await service.GetFocusedContextAsync(
+            new FocusedContextQuery(
+                snapshot.SnapshotId,
+                Depth: 2,
+                QueryText: "IClock",
+                Intent: FocusedContextIntent.UsageSummary,
+                Precision: FocusedContextPrecision.Surgical,
+                RelationHints: ["MissingWidget"]));
+
+        Assert.NotNull(response);
+        Assert.Equal(["missingwidget"], response!.RelationHints);
+        Assert.Null(response.UsageSummary);
+        Assert.DoesNotContain(
+            response.Members,
+            item => item.TypeId is "type-order-service"
+                or "type-invoice-service"
+                or "type-reminder-service"
+                or "type-digest-service"
+                or "type-dashboard-page"
+                or "type-report-builder"
+                or "type-cleanup-job");
+    }
+
+    [Fact]
     public async Task Application_returns_structured_selection_reasons_for_members_and_files() {
         FixtureSolutionHost.EnsurePrepared();
         using var output = new TemporaryDirectoryScope();

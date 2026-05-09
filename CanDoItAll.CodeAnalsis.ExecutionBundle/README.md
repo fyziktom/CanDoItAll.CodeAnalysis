@@ -34,6 +34,13 @@ It is reopened again on 2026-04-08 after the completed comparison bundle transla
 - the response still lacks explicit selection reasons,
 - a lighter outline-style precision mode and a repeatable rerun harness are now justified.
 
+It is reopened again on 2026-05-09 after the current review request made relation-hinted walking explicit:
+
+- agents need to ask for a seed symbol plus tags and related functions, classes, components, or architectural areas,
+- relation hints must narrow helper usages instead of forcing a whole-solution or broad tag-only scan,
+- the lab UI, MCP input model, comparison harness, and codeanalytics skill guidance must describe the same workflow,
+- results must be quantified so context savings can be tuned deliberately.
+
 The naming map remains frozen:
 
 - Repo root: `CanDoItAll.CodeAnalsis`
@@ -47,7 +54,7 @@ The naming map remains frozen:
 - Keep the future MCP seam thin.
 - Refactor before widening features.
 - Add context-focused analysis outputs that reduce agent call count and token waste versus raw file loading.
-- Keep the host CanDoItAll repository read-only and use it only as validation and compatibility reference.
+- Keep host `CanDoItAll` changes limited to the CodeAnalytics MCP wrapper and CodeAnalytics agent skill; use the rest of the host repository only as validation and compatibility reference.
 
 ## Key Inputs
 
@@ -66,24 +73,24 @@ The naming map remains frozen:
 
 ## Validation Summary
 
-- Bundle preparation status: `Completed; reopened phases executed and closed on 2026-04-08`
+- Bundle preparation status: `Reopened for SB-28 relation-hinted walking on 2026-05-09`
 - Bundle readiness gate: `Passed`
-- Execution status: `Completed`
-- Subbundle gate review: `SB-00 through SB-27 passed`
-- Final closure gate: `Pending completed-stage validator rerun`
-- Browser validation analytics: `Passed for the outline and selection-reason lab surface`
+- Execution status: `SB-28 completed`
+- Subbundle gate review: `SB-00 through SB-28 passed`
+- Final closure gate: `Passed completed-stage validator`
+- Browser validation analytics: `Passed for the outline, selection-reason, and relation-hint lab surfaces`
 
 ## Current Focus
 
-- The comparison-driven reopen is implemented and revalidated.
-- The tracked rerun entry point now lives under `tools/ComparisonHarness`.
-- The main remaining product risk is `AppDbContext` breadth: the result is more intentional because it now includes DI and factory evidence, but it is still slightly broader than the previous focused-context pass.
-- The main success of the reopen is helper precision: `IClock` is now structurally surgical while still preserving caller breadth through usage-summary clusters.
+- The latest reopen, `SB-28-relation-hinted-focused-walking-and-agent-skill`, is implemented and validated.
+- The comparison-driven SB-24 through SB-27 baseline remains trusted unless relation-hint validation exposes a regression.
+- The main product risk is still context overload in large projects. Relation hints now reduce helper usage breadth without losing the exact-symbol and scoped-snapshot paths that already work.
 
 ## Notes
 
 - The original bundle artifacts are kept in place and are still referenced where they remain valid.
 - The bundle is now maintained as an `initiative` profile bundle with inventories, templates, and traceability.
-- Execution must not change anything under `C:\repositories\CanDoItAll`.
+- Host edits in this pass are limited to `CanDoItAll.Mcp.CodeAnalytics` input mapping and the CodeAnalytics MCP skill guidance.
 - The standalone engine still preserves a thin future `CanDoItAll.Mcp.CodeAnalytics` seam. This reopen remains a focused-context ranking and payload-shaping pass, not a transport redesign.
 - Post-implementation comparison findings are captured in [03-post-implementation-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\03-post-implementation-comparison.md).
+- Relation-hinted focused-context findings are captured in [04-relation-hinted-focused-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\04-relation-hinted-focused-context.md).

@@ -36,6 +36,7 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         var depth = Math.Clamp(query.Depth, 0, 5);
         var focusTags = NormalizeFocusTags(query.FocusTags);
+        var relationHints = NormalizeRelationHints(query.RelationHints);
         var typesById = snapshot.Facts.Types.ToDictionary(item => item.TypeId, StringComparer.Ordinal);
         var membersById = snapshot.Facts.Members.ToDictionary(item => item.MemberId, StringComparer.Ordinal);
         var servicesById = snapshot.Facts.ServiceRegistrations.ToDictionary(item => item.ServiceRegistrationId, StringComparer.Ordinal);
@@ -70,7 +71,8 @@ public sealed partial class CodeAnalyticsApplicationService {
             snapshot.Facts.MemberRelationships,
             membersById,
             typesById,
-            projectsById);
+            projectsById,
+            relationHints);
         var memberSelection = SelectFocusedMembers(
             seedType,
             seedMember,
@@ -83,7 +85,8 @@ public sealed partial class CodeAnalyticsApplicationService {
             modulesById,
             membersByTypeId,
             strategy,
-            focusTags);
+            focusTags,
+            relationHints);
         var selectedMembers = OrderSelectedMembers(
             memberSelection.SelectedMemberIds,
             membersById,
@@ -150,6 +153,7 @@ public sealed partial class CodeAnalyticsApplicationService {
             strategy.EffectiveDepth,
             query.QueryText?.Trim(),
             focusTags,
+            relationHints,
             strategy.RequestedIntent,
             strategy.ResolvedIntent,
             strategy.RequestedPrecision,

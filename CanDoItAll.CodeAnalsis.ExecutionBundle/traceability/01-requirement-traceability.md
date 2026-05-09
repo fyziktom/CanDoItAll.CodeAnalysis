@@ -29,6 +29,12 @@
 | Then refactor for maintainability | REQ-030 | SB-21 | Build, tests, code review, ownership review | Helper-mode logic must not become another tangled heuristic slice |
 | Then add the broader helper-mode improvements | REQ-029, REQ-031, REQ-032 | SB-22, SB-23 | UI proof, host rerun, final SharpTools comparison | Broader improvements come only after the minimal foundation is stable |
 | Implement the comparison-bundle improvements and revalidate | REQ-033, REQ-034, REQ-035, REQ-036, REQ-037, REQ-038 | SB-24, SB-25, SB-26, SB-27 | Unit tests, lab proof, rerun harness output, host comparison matrix | This reopen is driven by the closed SharpTools comparison bundle |
+| Large projects overload agent context too easily | REQ-039, REQ-040, REQ-043, REQ-044 | SB-28 | Relation-hinted tests, harness metrics, browser proof | Relation hints must reduce context breadth without hiding caller breadth |
+| Complete scans should be specific cases | REQ-042, REQ-044, REQ-045 | SB-28 | Skill guidance, scoped snapshot UI/MCP review | Snapshot building can remain broad, but agents need a narrower default investigation sequence |
+| Ask for usages with tags like `db` or `EntityFramework` | REQ-039, REQ-040, REQ-041 | SB-28 | Unit tests and lab proof | Tag aliases and relation hints must be explicit request inputs |
+| Ask for a helper plus related classes or components | REQ-039, REQ-040, REQ-043 | SB-28 | High-fan-in helper relation-hint test and harness scenario | This is the main new walking behavior |
+| Combine tool and agent skill as a bundle | REQ-041, REQ-042, REQ-045 | SB-28 | Host MCP build and skill update | Skill guidance must match the shipped contract |
+| Add basic UI and measure results | REQ-041, REQ-043 | SB-28 | Web test, Playwright proof, comparison harness output | The lab is the no-restart control surface |
 
 ## Closure note
 
@@ -36,3 +42,8 @@
   - [03-post-implementation-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\03-post-implementation-comparison.md)
   - [01-execution-report.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\reviews\01-execution-report.md)
   - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-summary.json)
+- `REQ-039` through `REQ-045` are owned by SB-28 and are complete with relation-hint implementation proof recorded.
+- Final proof for `REQ-039` through `REQ-045` is captured in:
+  - [04-relation-hinted-focused-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\04-relation-hinted-focused-context.md)
+  - [01-execution-report.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\reviews\01-execution-report.md)
+  - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context\focused-context-summary.json)

@@ -1,0 +1,341 @@
+{
+  "SnapshotId": "snap-20260509220818-123ebd81",
+  "Depth": 1,
+  "QueryText": "IClock",
+  "FocusTags": [],
+  "RelationHints": [],
+  "RequestedIntent": 0,
+  "ResolvedIntent": 3,
+  "RequestedPrecision": 0,
+  "ResolvedPrecision": 2,
+  "StrategyExplanation": "Auto resolved to surgical definition mode because CanDoItAll.SharedKernel.IClock spans 167 callers across 16 projects. Consumer expansion is capped to direct usages.",
+  "SeedExplanation": "Resolved from prompt text to member CanDoItAll.SharedKernel.IClock.GetUtcNow().",
+  "SeedType": {
+    "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+    "ProjectId": "proj-candoitall-sharedkernel",
+    "ModuleId": "mod-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+    "NamespaceId": "ns-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+    "DisplayName": "CanDoItAll.SharedKernel.IClock",
+    "Kind": 1,
+    "BaseTypeDisplayName": null,
+    "InterfaceDisplayNames": [],
+    "MemberIds": [
+      "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6"
+    ],
+    "XmlSummary": null,
+    "Source": {
+      "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+      "Line": 3,
+      "Column": 1,
+      "EndLine": 6,
+      "EndColumn": 2
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+    "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+    "DisplayName": "CanDoItAll.SharedKernel.IClock.GetUtcNow()",
+    "Kind": 1,
+    "ReturnTypeDisplayName": "System.DateTimeOffset",
+    "ParameterDisplayNames": [],
+    "Source": {
+      "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+      "Line": 5,
+      "Column": 5,
+      "EndLine": 5,
+      "EndColumn": 32
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [
+    {
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-systemclock",
+      "ProjectId": "proj-candoitall-sharedkernel",
+      "ModuleId": "mod-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "NamespaceId": "ns-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "DisplayName": "CanDoItAll.SharedKernel.SystemClock",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "CanDoItAll.SharedKernel.IClock"
+      ],
+      "MemberIds": [
+        "member-type-proj-candoitall-sharedkernel-candoitall-shared-a6f86f9fce9f"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+        "Line": 8,
+        "Column": 1,
+        "EndLine": 11,
+        "EndColumn": 2
+      }
+    }
+  ],
+  "Types": [
+    {
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "ProjectId": "proj-candoitall-sharedkernel",
+      "ModuleId": "mod-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "NamespaceId": "ns-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "DisplayName": "CanDoItAll.SharedKernel.IClock",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+        "Line": 3,
+        "Column": 1,
+        "EndLine": 6,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-systemclock",
+      "ProjectId": "proj-candoitall-sharedkernel",
+      "ModuleId": "mod-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "NamespaceId": "ns-proj-candoitall-sharedkernel-candoitall-sharedkernel",
+      "DisplayName": "CanDoItAll.SharedKernel.SystemClock",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "CanDoItAll.SharedKernel.IClock"
+      ],
+      "MemberIds": [
+        "member-type-proj-candoitall-sharedkernel-candoitall-shared-a6f86f9fce9f"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+        "Line": 8,
+        "Column": 1,
+        "EndLine": 11,
+        "EndColumn": 2
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "DisplayName": "CanDoItAll.SharedKernel.IClock.GetUtcNow()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.DateTimeOffset",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+        "Line": 5,
+        "Column": 5,
+        "EndLine": 5,
+        "EndColumn": 32
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-a6f86f9fce9f",
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-systemclock",
+      "DisplayName": "CanDoItAll.SharedKernel.SystemClock.GetUtcNow()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.DateTimeOffset",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+        "Line": 10,
+        "Column": 5,
+        "EndLine": 10,
+        "EndColumn": 64
+      }
+    }
+  ],
+  "MemberRelationships": [],
+  "TypeRelationships": [],
+  "RelatedServices": [
+    {
+      "ServiceRegistrationId": "svc-addsingleton-candoitall-sharedkernel-iclock-candoit-6ea504bbf88e",
+      "ProjectId": "proj-candoitall-infrastructure",
+      "ModuleId": "mod-proj-candoitall-infrastructure-candoitall-infrastructure",
+      "Lifetime": 0,
+      "ServiceTypeDisplayName": "CanDoItAll.SharedKernel.IClock",
+      "ImplementationTypeDisplayName": "CanDoItAll.SharedKernel.SystemClock",
+      "RegistrationMethod": "AddSingleton",
+      "UsesFactory": false,
+      "Source": {
+        "Path": "src/CanDoItAll.Infrastructure/DependencyInjection/InfrastructureServiceCollectionExtensions.cs",
+        "Line": 66,
+        "Column": 9
+      }
+    },
+    {
+      "ServiceRegistrationId": "svc-addsingleton-candoitall-sharedkernel-iclock-tests-c-cde3c7158201",
+      "ProjectId": "proj-candoitall-tests-integration",
+      "ModuleId": "mod-proj-candoitall-tests-integration-candoitall-tests-integration",
+      "Lifetime": 0,
+      "ServiceTypeDisplayName": "CanDoItAll.SharedKernel.IClock",
+      "ImplementationTypeDisplayName": null,
+      "RegistrationMethod": "AddSingleton",
+      "UsesFactory": true,
+      "Source": {
+        "Path": "tests/CanDoItAll.Tests.Integration/AutomationRuntimeIntegrationTests.cs",
+        "Line": 1580,
+        "Column": 17
+      }
+    },
+    {
+      "ServiceRegistrationId": "svc-addsingleton-candoitall-sharedkernel-iclock-tests-c-4e75296c2622",
+      "ProjectId": "proj-candoitall-tests-integration",
+      "ModuleId": "mod-proj-candoitall-tests-integration-candoitall-tests-integration",
+      "Lifetime": 0,
+      "ServiceTypeDisplayName": "CanDoItAll.SharedKernel.IClock",
+      "ImplementationTypeDisplayName": null,
+      "RegistrationMethod": "AddSingleton",
+      "UsesFactory": true,
+      "Source": {
+        "Path": "tests/CanDoItAll.Tests.Integration/AutomationRuntimeIntegrationTests.cs",
+        "Line": 1619,
+        "Column": 17
+      }
+    }
+  ],
+  "ReferenceTypes": [],
+  "UsageSummary": {
+    "TotalCallerCount": 167,
+    "TotalClusterCount": 20,
+    "OmittedCallerCount": 50,
+    "Clusters": [
+      {
+        "ProjectId": "proj-candoitall-modules-processes",
+        "ProjectName": "CanDoItAll.Modules.Processes",
+        "ModuleId": "mod-proj-candoitall-modules-processes-candoitall-modules-processes",
+        "ModuleName": "CanDoItAll.Modules.Processes",
+        "CallerCount": 46,
+        "Samples": [
+          {
+            "TypeId": "type-proj-candoitall-modules-processes-candoitall-module-bc0530c41388",
+            "TypeDisplayName": "CanDoItAll.Modules.Processes.ProcessEscalationService",
+            "MemberId": "member-type-proj-candoitall-modules-processes-candoitall-m-564ae8084c87",
+            "MemberDisplayName": "CanDoItAll.Modules.Processes.ProcessEscalationService.AppendEscalationStateAsync(System.Guid, string, CanDoItAll.Modules.Processes.ProcessEscalationStatus, string?, string?, System.Guid?, string, System.Func\u003CCanDoItAll.Modules.Processes.ProcessEscalationViewModel, System.DateTimeOffset, CanDoItAll.Modules.Processes.ProcessDecisionRecord\u003E?, System.Threading.CancellationToken)",
+            "Path": "src/CanDoItAll.Modules.Processes/Runtime/ProcessOperatorControlPlane.cs",
+            "Line": 641,
+            "Reason": "ConsumerService sample."
+          }
+        ]
+      },
+      {
+        "ProjectId": "proj-candoitall-modules-workbench",
+        "ProjectName": "CanDoItAll.Modules.Workbench",
+        "ModuleId": "mod-proj-candoitall-modules-workbench-candoitall-modules-workbench",
+        "ModuleName": "CanDoItAll.Modules.Workbench",
+        "CallerCount": 42,
+        "Samples": [
+          {
+            "TypeId": "type-proj-candoitall-modules-workbench-candoitall-module-a747f8f9d71d",
+            "TypeDisplayName": "CanDoItAll.Modules.Workbench.ProjectGanttPreviewService",
+            "MemberId": "member-type-proj-candoitall-modules-workbench-candoitall-m-d766014346f9",
+            "MemberDisplayName": "CanDoItAll.Modules.Workbench.ProjectGanttPreviewService.BuildAsync(System.Guid, System.Threading.CancellationToken)",
+            "Path": "src/CanDoItAll.Modules.Workbench/Services/ProjectGanttPreviewService.cs",
+            "Line": 10,
+            "Reason": "PreviewLifecycle sample."
+          }
+        ]
+      },
+      {
+        "ProjectId": "proj-candoitall-modules-crmhr",
+        "ProjectName": "CanDoItAll.Modules.CrmHr",
+        "ModuleId": "mod-proj-candoitall-modules-crmhr-candoitall-modules-crmhr",
+        "ModuleName": "CanDoItAll.Modules.CrmHr",
+        "CallerCount": 16,
+        "Samples": [
+          {
+            "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-2bd0efdb66cf",
+            "TypeDisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService",
+            "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-239eecbe3990",
+            "MemberDisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService.SaveAgentProfileAsync(CanDoItAll.Modules.CrmHr.AiAgentProfileEditorModel, System.Threading.CancellationToken)",
+            "Path": "src/CanDoItAll.Modules.CrmHr/Services/CrmHrServices.cs",
+            "Line": 4228,
+            "Reason": "ConsumerService sample."
+          }
+        ]
+      },
+      {
+        "ProjectId": "proj-candoitall-modules-automation",
+        "ProjectName": "CanDoItAll.Modules.Automation",
+        "ModuleId": "mod-proj-candoitall-modules-automation-candoitall-modules-automation",
+        "ModuleName": "CanDoItAll.Modules.Automation",
+        "CallerCount": 13,
+        "Samples": [
+          {
+            "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-77ba4ca1d4a3",
+            "TypeDisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher",
+            "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-f3b74c5d2b11",
+            "MemberDisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher.ClaimAndDispatchAsync(System.Guid, System.Threading.CancellationToken)",
+            "Path": "src/CanDoItAll.Modules.Automation/Services/AutomationMessagingServices.cs",
+            "Line": 203,
+            "Reason": "ConsumerService sample."
+          }
+        ]
+      }
+    ]
+  },
+  "SelectionReasons": [
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-a6f86f9fce9f",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    }
+  ],
+  "Stats": {
+    "FileCount": 1,
+    "BlockCount": 2,
+    "SelectedLineCount": 6,
+    "TotalLineCount": 11
+  },
+  "Files": [
+    {
+      "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+      "TotalLineCount": 11,
+      "SelectedLineCount": 6,
+      "TypeDisplayNames": [
+        "CanDoItAll.SharedKernel.IClock",
+        "CanDoItAll.SharedKernel.SystemClock"
+      ],
+      "Blocks": [
+        {
+          "Title": "CanDoItAll.SharedKernel.IClock.GetUtcNow()",
+          "Kind": "Method",
+          "StartLine": 4,
+          "EndLine": 6,
+          "Code": "{\r\n    DateTimeOffset GetUtcNow();\r\n}"
+        },
+        {
+          "Title": "CanDoItAll.SharedKernel.SystemClock.GetUtcNow()",
+          "Kind": "Method",
+          "StartLine": 9,
+          "EndLine": 11,
+          "Code": "{\r\n    public DateTimeOffset GetUtcNow() =\u003E DateTimeOffset.UtcNow;\r\n}"
+        }
+      ]
+    }
+  ]
+}

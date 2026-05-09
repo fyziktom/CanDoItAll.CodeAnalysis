@@ -12,6 +12,8 @@
   - updated lab and focused-context UI proof surfaces,
   - refreshed comparison evidence against `AppDbContext`, `IClock`, and `CanvasSceneHost`.
 - Build, tests, browser proof, and host rerun evidence all passed after the final code changes landed.
+- Reopened on 2026-05-09 for relation-hinted focused walking, host MCP input exposure, agent skill guidance, and quantified context-saving proof.
+- SB-28 completed on 2026-05-09. Relation hints are now part of the standalone engine contract, lab UI, host MCP input model, comparison harness, and CodeAnalytics MCP skill guidance.
 
 ## Subbundle Gate Results
 
@@ -30,12 +32,17 @@
 | SB-25-role-aware-ranking-and-selection-reasons | Passed | Passed | Passed | Passed with residual tuning risk | Strongly typed reason and role metadata now flow through the response; infrastructure ranking became more intentional, though `AppDbContext` still needs one more tightening pass |
 | SB-26-regression-harness-and-lab-proof | Passed | Passed | Passed | Passed | The rerun path is now tracked under `tools/ComparisonHarness`, the lab shows selection reasons and outline behavior, and browser proof passed |
 | SB-27-validation-and-comparison-rerun | Passed | Passed | Passed | Passed | The same three host scenarios were rerun and written back into the bundle with an explicit before-vs-after judgment |
+| SB-28-relation-hinted-focused-walking-and-agent-skill | Passed | Passed | Passed | Passed | Relation hints narrow high-fan-in helper usage summaries, the lab and MCP wrapper expose the contract, and harness metrics quantify the context savings |
 
 ## Validation commands
 
 - `dotnet build C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.slnx -nologo`
 - `dotnet test C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.slnx -nologo`
 - `dotnet run --project C:\repositories\CanDoItAll.CodeAnalsis\tools\ComparisonHarness\ComparisonHarness.csproj -- C:\repositories\CanDoItAll\CanDoItAll.slnx C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context C:\repositories\CanDoItAll.CodeAnalsis\output\ComparisonHarnessData`
+- `dotnet test C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.slnx --no-build -nologo`
+- `dotnet build C:\repositories\CanDoItAll\src\CanDoItAll.Mcp.CodeAnalytics\CanDoItAll.Mcp.CodeAnalytics.csproj -nologo`
+- `dotnet run --project C:\repositories\CanDoItAll.CodeAnalsis\tools\ComparisonHarness\ComparisonHarness.csproj -- C:\repositories\CanDoItAll\CanDoItAll.slnx C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context C:\repositories\CanDoItAll.CodeAnalsis\output\ComparisonHarnessRelationData`
+- `python C:\Users\lucys\.codex\skills\candoitall-bundle-preparation\scripts\validate_bundle.py C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle --profile initiative --stage completed`
 
 ## Browser Validation Analytics
 
@@ -43,15 +50,21 @@
 | --- | --- | --- | --- | --- | --- |
 | SB-26 | `/context-lab?workspacePath=C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx&projectFilter=Fixture.Shop.Application&queryText=PlaceOrderAsync&tags=Db&depth=2&precision=Outline` | `1440x1200` | Playwright navigation, DOM snapshot, DOM evaluation, and full-page capture proved the new outline banner, empty-state message, and selection-reason section | `codeanalytics-contextlab-outline-proof.png` | Passed |
 | SB-27 | Same route as SB-26 plus rerun harness artifacts under `analysis/post-implementation-focused-context` | `1440x1200` for UI proof, host-solution rerun for scenario proof | Browser truth was used for the new UI surface and the tracked harness supplied the host scenario metrics for `AppDbContext`, `IClock`, and `CanvasSceneHost` | `codeanalytics-contextlab-outline-proof.png` plus focused-context rerun markdown artifacts | Passed |
+| SB-28 | `/context-lab?workspacePath=C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx&projectFilter=Fixture.Shop.Application&queryText=PlaceOrderAsync&tags=EntityFramework&relationHints=OrderService&depth=2` | `1440x1200` and `390x1000` | Playwright screenshots proved the relation-hints input, normalized run-summary chips, selected files, and supporting context remain readable without overlap | `codeanalytics-contextlab-relation-hints.png`, `codeanalytics-contextlab-relation-hints-mobile.png` | Passed |
 
 ## Analytics Review
 
 - Detailed write-up: [03-post-implementation-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\03-post-implementation-comparison.md)
+- Relation-hint write-up: [04-relation-hinted-focused-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\04-relation-hinted-focused-context.md)
 - Current rerun artifacts:
   - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-summary.json)
   - [focused-context-app-db-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-app-db-context.md)
   - [focused-context-i-clock.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-i-clock.md)
   - [focused-context-canvas-scene-host.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-canvas-scene-host.md)
+- Relation-hint rerun artifacts:
+  - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context\focused-context-summary.json)
+  - [focused-context-i-clock.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context\focused-context-i-clock.md)
+  - [focused-context-i-clock-workbench-relation.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context\focused-context-i-clock-workbench-relation.md)
 
 ## Outcome summary
 
@@ -66,6 +79,10 @@
   - before: `139 selected lines / 5 files / 8 blocks`
   - after: `150 selected lines / 6 files / 10 blocks`
   - the added breadth now includes DI registration and factory evidence, which was previously missing from the first-pass bundle
+- SB-28 relation hints make helper walking materially narrower on the current host snapshot:
+  - plain `IClock`: `20 usage clusters / 167 callers / 1181 estimated tokens`
+  - `IClock` plus `Workbench`: `1 usage cluster / 42 callers / 821 estimated tokens`
+  - the helper definition excerpt stayed stable at `6 selected lines / 1 file / 2 blocks`
 
 ## SharpTools standing
 
@@ -98,9 +115,16 @@
 | Then refactor for maintainability | Solved | A new tracked runner and clearer partial ownership keep the feature easier to extend |
 | Then add the broader helper-mode improvements | Solved | Role-aware reasons, UI surfacing, and the rerun workflow all landed after the shaping baseline was stable |
 | Implement the comparison-bundle improvements and revalidate | Solved | The code changes shipped and the host comparison was rerun through the tracked harness |
+| Large projects overload agent context too easily | Solved with residual tuning risk | SB-28 relation-hint metrics show a 30.5% estimated-token reduction and 95% usage-cluster reduction for the relation-hinted helper case |
+| Complete scans should be specific cases | Solved | The CodeAnalytics MCP skill now directs agents toward scoped snapshots, exact symbols, and focused context before broad scans |
+| Ask for usages with tags like `db` or `EntityFramework` | Solved | Tag aliases and relation-hint lab proof passed with `EntityFramework` |
+| Ask for a helper plus related classes or components | Solved | The `IClock` plus `Workbench` harness scenario proves relation-hinted helper narrowing |
+| Combine tool and agent skill as a bundle | Solved | The host MCP input model, coordinator, and CodeAnalytics MCP skill were updated together |
+| Add basic UI and measure results | Solved | `/context-lab` exposes relation hints and the harness records file, line, cluster, caller, character, token, and elapsed metrics |
 
 ## Residual risks
 
 - `AppDbContext` is more intentional but structurally broader than the prior focused-context pass. The new DI and factory evidence is useful, but the ranking still needs a future tightening pass to reduce line count without dropping that intent.
 - Current artifact token counts are honest to the current payload because they include selection-reason metadata. That means structural metrics and usefulness still matter more than raw token totals alone.
 - Role classification is still heuristic. The new narrowing avoids obvious false positives from generic `Add*` and `Create*` business methods, but the standing comparison set should remain the guardrail for future changes.
+- Relation hints are still explicit request hints, not a semantic ontology. The skill guidance must keep teaching agents to provide concrete related symbols, components, namespaces, projects, or paths.

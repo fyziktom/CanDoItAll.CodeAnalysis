@@ -58,6 +58,12 @@
                 <small class="field-help">Tags bias the traversal instead of expanding it without limits.</small>
             </label>
 
+            <label class="field">
+                <span>Relation hints</span>
+                <input type="text" name="relationHints" value="@RelationHints" placeholder="Optional related classes, methods, components, projects, or paths" />
+                <small class="field-help">Use this when you need a seed plus a related area, such as <code>IClock</code> with <code>Workbench</code> or <code>DashboardPage</code>.</small>
+            </label>
+
             <div class="summary-grid">
                 <label class="field">
                     <span>Intent</span>
@@ -196,6 +202,16 @@
                         @foreach (var focusTag in _response.FocusTags)
                         {
                             <span class="severity-pill severity-info">@focusTag</span>
+                        }
+                    </div>
+                }
+
+                @if (_response.RelationHints.Count > 0)
+                {
+                    <div class="chip-row">
+                        @foreach (var relationHint in _response.RelationHints)
+                        {
+                            <span class="severity-pill severity-info">@relationHint</span>
                         }
                     </div>
                 }
@@ -428,6 +444,10 @@
     public string? Tags { get; set; }
 
     [Parameter]
+    [SupplyParameterFromQuery(Name = "relationHints")]
+    public string? RelationHints { get; set; }
+
+    [Parameter]
     [SupplyParameterFromQuery(Name = "depth")]
     public int? Depth { get; set; }
 
@@ -477,6 +497,7 @@
                     Depth: GetDepth(),
                     QueryText: QueryText,
                     FocusTags: ParseDelimitedList(Tags),
+                    RelationHints: ParseDelimitedList(RelationHints),
                     Intent: GetIntent(),
                     Precision: GetPrecision()));
         }

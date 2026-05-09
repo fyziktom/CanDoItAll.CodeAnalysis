@@ -116,6 +116,10 @@ a {
     line-height: 0.95;
 }
 
+.hero h1:focus {
+    outline: none;
+}
+
 .hero p,
 .panel-heading p,
 .empty-state,

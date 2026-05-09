@@ -127,10 +127,13 @@ public sealed class WebUiFacts {
         using var factory = new CodeAnalyticsWebFactory(output.Path, FixturePaths.GetFixtureSolutionPath());
         using var client = factory.CreateClient();
 
-        var route = $"/context-lab?workspacePath={Uri.EscapeDataString(FixturePaths.GetFixtureSolutionPath())}&projectFilter={Uri.EscapeDataString("Fixture.Shop.Application")}&queryText={Uri.EscapeDataString("PlaceOrderAsync")}&tags={Uri.EscapeDataString("Db")}&depth=2";
+        var route = $"/context-lab?workspacePath={Uri.EscapeDataString(FixturePaths.GetFixtureSolutionPath())}&projectFilter={Uri.EscapeDataString("Fixture.Shop.Application")}&queryText={Uri.EscapeDataString("PlaceOrderAsync")}&tags={Uri.EscapeDataString("EntityFramework")}&relationHints={Uri.EscapeDataString("OrderService")}&depth=2";
         var html = await client.GetStringAsync(route);
 
         Assert.Contains("Focused Context Lab", html, StringComparison.Ordinal);
+        Assert.Contains("Relation hints", html, StringComparison.Ordinal);
+        Assert.Contains("entityframework", html, StringComparison.Ordinal);
+        Assert.Contains("orderservice", html, StringComparison.Ordinal);
         Assert.Contains("Selected Files", html, StringComparison.Ordinal);
         Assert.Contains("OrderService.cs", html, StringComparison.Ordinal);
         Assert.Contains("PlaceOrderAsync", html, StringComparison.Ordinal);
