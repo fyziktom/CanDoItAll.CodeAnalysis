@@ -1,0 +1,68 @@
+{
+  "SnapshotId": "snap-20260509224001-c6e27f85",
+  "SearchText": "EnumUtils",
+  "ProjectName": null,
+  "SearchMode": 0,
+  "AvailableProjects": [
+    "ConsoleApp",
+    "MBus",
+    "Tests"
+  ],
+  "ValidationError": null,
+  "Results": [
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Helpers",
+      "NamespaceName": "MBus.Helpers",
+      "Path": "MbusParser/Helpers/EnumUtils.cs",
+      "Line": 22,
+      "DisplayName": "MBus.Helpers.EnumUtils.GetEnumOrDefault\u003CT\u003E(object, T)",
+      "Declaration": "MBus.Helpers.EnumUtils.GetEnumOrDefault\u003CT\u003E(object, T)",
+      "ContainerTypeDisplayName": "MBus.Helpers.EnumUtils",
+      "TypeId": "type-proj-mbus-mbus-helpers-enumutils",
+      "MemberId": "member-type-proj-mbus-mbus-helpers-enumutils-mbus-helpers-0a0bf4bc6faa",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Helpers",
+      "NamespaceName": "MBus.Helpers",
+      "Path": "MbusParser/Helpers/EnumUtils.cs",
+      "Line": 38,
+      "DisplayName": "MBus.Helpers.EnumUtils.TryGetEnum\u003CT\u003E(object)",
+      "Declaration": "MBus.Helpers.EnumUtils.TryGetEnum\u003CT\u003E(object)",
+      "ContainerTypeDisplayName": "MBus.Helpers.EnumUtils",
+      "TypeId": "type-proj-mbus-mbus-helpers-enumutils",
+      "MemberId": "member-type-proj-mbus-mbus-helpers-enumutils-mbus-helpers-7dd4141e835d",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 0,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Helpers",
+      "NamespaceName": "MBus.Helpers",
+      "Path": "MbusParser/Helpers/EnumUtils.cs",
+      "Line": 13,
+      "DisplayName": "MBus.Helpers.EnumUtils",
+      "Declaration": "class MBus.Helpers.EnumUtils",
+      "ContainerTypeDisplayName": null,
+      "TypeId": "type-proj-mbus-mbus-helpers-enumutils",
+      "MemberId": null,
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    }
+  ]
+}

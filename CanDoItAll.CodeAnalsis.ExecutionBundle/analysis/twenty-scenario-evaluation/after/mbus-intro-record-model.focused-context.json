@@ -1,0 +1,1853 @@
+{
+  "SnapshotId": "snap-20260509225640-c6e27f85",
+  "Depth": 2,
+  "QueryText": "VariableDataRecord",
+  "FocusTags": [
+    "protocol",
+    "model"
+  ],
+  "RelationHints": [
+    "datainformationfield",
+    "valueinformationfield",
+    "valuedescription"
+  ],
+  "RequestedIntent": 2,
+  "ResolvedIntent": 2,
+  "RequestedPrecision": 3,
+  "ResolvedPrecision": 3,
+  "StrategyExplanation": "Used requested trouble-path mode with outline precision. Relation hints constrain representative usage sampling.",
+  "SeedExplanation": "Resolved from prompt text to type MBus.DataRecord.VariableDataRecord.",
+  "SeedType": {
+    "TypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+    "ProjectId": "proj-mbus",
+    "ModuleId": "mod-proj-mbus-mbus-datarecord",
+    "NamespaceId": "ns-proj-mbus-mbus-datarecord",
+    "DisplayName": "MBus.DataRecord.VariableDataRecord",
+    "Kind": 0,
+    "BaseTypeDisplayName": null,
+    "InterfaceDisplayNames": [],
+    "MemberIds": [
+      "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-82bcddf109e9",
+      "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-aaf28fbae465",
+      "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-154f6518feeb",
+      "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-57e5ca6f3109",
+      "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-1de36aad2356",
+      "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-b6d3f6c7e329",
+      "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-d9094f4c7060"
+    ],
+    "XmlSummary": "An MBus DataRecord.",
+    "Source": {
+      "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+      "Line": 12,
+      "Column": 5,
+      "EndLine": 58,
+      "EndColumn": 6
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-d9094f4c7060",
+    "TypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+    "DisplayName": "MBus.DataRecord.VariableDataRecord.VariableDataRecord(MBus.DataRecord.DataBlock, double?)",
+    "Kind": 0,
+    "ReturnTypeDisplayName": "VariableDataRecord",
+    "ParameterDisplayNames": [
+      "MBus.DataRecord.DataBlock",
+      "double?"
+    ],
+    "Source": {
+      "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+      "Line": 23,
+      "Column": 9,
+      "EndLine": 27,
+      "EndColumn": 10
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [],
+  "Types": [
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord",
+      "DisplayName": "MBus.DataRecord.VariableDataRecord",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-82bcddf109e9",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-aaf28fbae465",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-154f6518feeb",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-57e5ca6f3109",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-1de36aad2356",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-b6d3f6c7e329",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-d9094f4c7060"
+      ],
+      "XmlSummary": "An MBus DataRecord.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 12,
+        "Column": 5,
+        "EndLine": 58,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord",
+      "DisplayName": "MBus.DataRecord.DataBlock",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-3edc34231bf6",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-acc26347793f",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-7db107816268",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-b61c75d68b25",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-5410ed8f6a80",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-21289982faae",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-13e2880753fc",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-29608e99e87a",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-773ee0628625",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-97137879ffa1",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-bcf4035ca456",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-eafb5e07981d",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-7102e4bd6934",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-6b297eaf721a",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-63b47ea0c3ba",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-5a42a653a6f3",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-21379b1295ce",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-1cd0a56b36b3",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-09f9b362eeb2",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-3326baaadadd",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-3073a3028d8b",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-abb8fb682bed",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-1681d13d214d",
+        "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-31d006803262"
+      ],
+      "XmlSummary": "An mbus datablock.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 22,
+        "Column": 5,
+        "EndLine": 430,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-datainformationblock",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.DataInformationBlock.DataInformationField",
+      "Kind": 0,
+      "BaseTypeDisplayName": "MBus.DataRecord.DataRecordHeader.InformationField",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-1200dc4046fc",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-b338407b7bbe",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-68670c8664fd",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-9e0f6d827c5e",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-2d676dd75f10",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-443c502f904d",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-be1c3b2f8f74",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-0429d3589c67",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-6058b409b4e3",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-ec64d93cdc86"
+      ],
+      "XmlSummary": "Specifies information about the data it self.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/DataInformationField.cs",
+        "Line": 13,
+        "Column": 5,
+        "EndLine": 93,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-valueinformationblock",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.PrimaryValueInformationField",
+      "Kind": 0,
+      "BaseTypeDisplayName": "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.ValueInformationField",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-48a5ba8deeb0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c919260c1687",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-57b1cda07777",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-e935cf5163ca",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-66bf4f2cd88f",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-2e0b64bc4d23",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-1ba62760d67b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-547bd4da512b"
+      ],
+      "XmlSummary": "Specifies information about the intrepretation of the data.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformationField.cs",
+        "Line": 15,
+        "Column": 5,
+        "EndLine": 231,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-header",
+      "NamespaceId": "ns-proj-mbus-mbus-header",
+      "DisplayName": "MBus.Header.ControlInformationLookup",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-header-controlinformationlookup-8eddcdbd4f8f",
+        "member-type-proj-mbus-mbus-header-controlinformationlookup-4eaca9f99389",
+        "member-type-proj-mbus-mbus-header-controlinformationlookup-95db0c2f6288"
+      ],
+      "XmlSummary": "Helper class for looking up and",
+      "Source": {
+        "Path": "MbusParser/Header/ControlInformationLookup.cs",
+        "Line": 10,
+        "Column": 5,
+        "EndLine": 86,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-mbusparser",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus",
+      "NamespaceId": "ns-proj-mbus-mbus",
+      "DisplayName": "MBus.MBusParser",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-calc-86ed7e70e642",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-comp-d7e4cdea36df",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-29248c51af5a",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-2e2ff57dd725",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-3b7641eb329a",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-gene-dd7d4d2691b7",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-gene-9070f0d291b0",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-gene-6e904d12beaf",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-04903c833319",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-78f5e7d377ed",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-2f190411c4d9",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423"
+      ],
+      "XmlSummary": "Parser for both wired and wireless mbus telegrams.",
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 22,
+        "Column": 5,
+        "EndLine": 497,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-48b56c35aaee",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-datainformationblock",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.DataInformationBlock.DataField",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-5f1b3e4d62b0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-21566c1be896",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-3af76f72328b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-2164eacb3b84",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-51b516d01f0b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-0ebaa22d6317",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-37f0e70c3fe8",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-e6232ca83e43",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-cb46d5b7c229",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-c9d283364eff",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-46faa53148d4",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-ffc8c75abe34",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-101c96557fd0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-80268372f4dd",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-2dc7d4477446",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-c44e2fdc9555"
+      ],
+      "XmlSummary": "The data field shows how the data from the master shall be interpreted in respect of length and coding.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/DataField.cs",
+        "Line": 11,
+        "Column": 5,
+        "EndLine": 94,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-03d668c4cb36",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-datainformationblock",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.DataInformationBlock.DataInformationExtensionField",
+      "Kind": 0,
+      "BaseTypeDisplayName": "MBus.DataRecord.DataRecordHeader.InformationField",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-8ededc6752e7",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-9b15e5e5f8c9",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-e179675e4fb1",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-01df0f1f30f2",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-621c5b8fb166",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-86da5668984c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-d38d67448083"
+      ],
+      "XmlSummary": "Each DIFE (maximum ten) contains again an extension bit to show whether a further DIFE is being sent. Besides giving the next most significant bits of the storage number, DIFEs allow the transmission of information about the tariff and the subunit of the device.In this way, exactly as with the storage number, the next most significant bit or bits will be transmitted.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/DataInformationExtensionField.cs",
+        "Line": 14,
+        "Column": 5,
+        "EndLine": 60,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-6d4dfddf324d",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-valueinf-19e136957dde",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.Extension.ValueInformationExtensionField",
+      "Kind": 0,
+      "BaseTypeDisplayName": "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.ValueInformationField",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-2abcfe37bb85"
+      ],
+      "XmlSummary": "Base class for value information extension fields",
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/Extension/ValueInformationExtensionField.cs",
+        "Line": 11,
+        "Column": 5,
+        "EndLine": 21,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-unit",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.Unit",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-046cd3cd96f8",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-e766e73b020d",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-f3728313c328",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-aaf8535629fc",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-bc105837f211",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-15bb6a943832",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-1368e852573a",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-7e02b1b5d29a",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-7bd0323ff4a3",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-9c0f5e21d7fc",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-0259886c804c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-6d50d5676f0d",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-7a3a046077c9",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-8a61c7b93d1f",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-9a49dd1cb710",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-11b12d8930e0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-de4ba07349ce",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-c3a6172b503a",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-d5dfbb36c1a5",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-0073d20374e7",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-bc2bd9fef0bf",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-b411f22bd799",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-0b8c8e333a09",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-349cdbce02f4",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-8e25fb9658da",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-c5123f6782ee",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-220a5cc52b72",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-c1ff7cebb26b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-ad45e545e69a",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-35238b8e4e69",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-85b6f9b6edfe",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-cf89e812a3dc",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-d266683c3b8e",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-da9e8fd8b808",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-e5a36dd10c41",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-b2bf4ad1834b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-4d603e1057ab",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-3357a9094b4c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-4390a8f2eeaa",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-uni-34e8ab40ebe1"
+      ],
+      "XmlSummary": "SI-Units and filthy imperial units.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/Unit.cs",
+        "Line": 11,
+        "Column": 5,
+        "EndLine": 58,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-13d054241096",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-valueinf-19e136957dde",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.Extension.FBValueInformationExtension",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-4434257debec",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-3d0333f785c3",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-cbd36472d8c5",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c36ee9e8e085",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-60119e683953",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-bea2383d352a",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-9ca17476b166",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-3025b60032ae",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-02585c19fa36",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-481c8b76a346",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-4c73fef6f212",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-b58ac4d9cf86",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-9d2d1f8dd7b5",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c493a15b6e4b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-ac561e660bc1",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-ab05f98231e0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-e468f4323c19",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-2def98048cff",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-abe4005a4905",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-a06932a156cb",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-2247f35b8da3",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-0d5048076671",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-546bae804780",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-278c2757c6f0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-fe4ee854b9c4",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-11624b4e52dc",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-3937cf0aef58",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c24b62dfa1e4",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-7d2cb59331ab",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-a5fcf815712b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-760d64e31121"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/Extension/FBValueInformationExtension.cs",
+        "Line": 7,
+        "Column": 5,
+        "EndLine": 68,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-e5954fa2b6c8",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-valueinf-19e136957dde",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.Extension.FDValueInformationExtension",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-6a3c497b807c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-1e69343e08d6",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-57bdb4ee7247",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-34943ad8051c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-4ceffb00c410",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-b81e6fede08d",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-720d9cf7a941",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-6c2180f52917",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-109b14b183bd",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-be730f647b46",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-91583194e294",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-ecbb38535129",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-a9bbc2c884e3",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-8788330dec40",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-b0fdef5ddec0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-f42a083a2ab1",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-b69de498a527",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-e9c838bc2456",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-6434cf12d17d",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-64c81a7d6fbe",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-b1b9e30a4069",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-6659ef33844a",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-4b7709458e51",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-0f4baad9a0bc",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c5c7c11386af",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-799369ba9af4",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-6930ffb2bf91",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-6416f278de9a",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-e7b2118467ce",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-181e7bbc0338",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-7d609e5d7359",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c2fc04561bc0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-26b254088373",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-4e29d8bf6caa",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-46439aad1dad",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-bb776c0c6b70",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-b0dc27a79a4f",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-93d4f126c8e5",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-da9c7c7c9882",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c573fa76fb24",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-b9ea4850e145",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-ce675ebf2b0c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-375b2da89d1c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-0387b7de11e6",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-3017e1c38367",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-bd7c630efe3b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-5ab148b6b1dc",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c08311a6358c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-48b1ac5c3274",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-fcca35020ff2",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-9ca35a5313bb",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-7a055a385f1c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-8700a2dde708",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-7443e9d82403"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/Extension/FDValueInformationExtension.cs",
+        "Line": 7,
+        "Column": 5,
+        "EndLine": 79,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-19b5f1d188d0",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-valueinformationblock",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.PrimaryValueInformation",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-b9efe1f5f6e1",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-7aea947b2714",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c9c18bf588b0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-8c85dc6f28d3",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-cc2ec36f45bd",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-27842d275000",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-36745c84cf6e",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-af55ef9e5ed0",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-fc561ed149ee",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-d7dbbcd2db53",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-2a4d19d5b4a3",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c9e82ca91a72",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-e0192d2a0605",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-a5b1e66a75bd",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-4c5f1b3e8f38",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-1c3275d12216",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-61a5b4aa59a9",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-53959e6e9bea",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-6a35f58e2003",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-6b3436210e6d",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-68e04251a416",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c5764f0690c9",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-2593c316b3de",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-7129a3f46ce8",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-4d6858741208",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-a3f5592ad70b",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-cc21280a13d2",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-5d23187a3043",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-78a83bc492ff",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-cc05f414e305",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-d95458111c06",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-177ffedd789d",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-d79bf2bc6505",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-ce7b2f24ed8c",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-a8713556d965",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-52e3481a5384",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-a6c5747115af",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-f0361c8083df",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-c878cdfb5854",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-bd7ebb21fda0"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformation.cs",
+        "Line": 3,
+        "Column": 5,
+        "EndLine": 52,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-valuedescription",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord",
+      "DisplayName": "MBus.DataRecord.ValueDescription",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-a03c38ca00c5",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-61ddfdbfc2d3",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-8b0387949804",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-90bd37ac7156",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-98a8e9bda1c0",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-132461b0450e",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-612108f407c0",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-824ffd09a377",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-57098c393b12",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-2d5848443680",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-88b040ec4b6d",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-a949073613f2",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-0c00cabe7a99",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-988b161fe8fd",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-46d1b317556a",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-0e86016987e8",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-9489ce3d0b49",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-2e380f2a13b9",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-61d253bce5b4",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-0304a4237878",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-8f9ec3824ac5",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-ab5727ea0a83",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-908c3018e5ca",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-ab9ae86aa3e7",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-aa858cdad525",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-917e7bb8d906",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-8433acd5a850",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-ff0d87ccdc98",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-9a74f2d6b05d",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-5858bf06886c",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-0faadeabd686",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-a1cbec5785f9",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-57b34ed22a22",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-004d599fda37",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-110a9d1a6d71",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-4be38c1973e9",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-aecfe3e63377",
+        "member-type-proj-mbus-mbus-datarecord-valuedescription-mbu-e450d01158fd"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "MbusParser/DataRecord/ValueDescription.cs",
+        "Line": 8,
+        "Column": 5,
+        "EndLine": 50,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-704b837a9e48",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord-datarecordheader-datainformationblock",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.DataInformationBlock.FunctionField",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-e6634dd46993",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-e8d46f78a6ea",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-07710669c7d5",
+        "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-5eb20b95dbd9"
+      ],
+      "XmlSummary": "The function field gives the type of data.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/FunctionField.cs",
+        "Line": 11,
+        "Column": 5,
+        "EndLine": 32,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-header-encryptionscheme",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-header",
+      "NamespaceId": "ns-proj-mbus-mbus-header",
+      "DisplayName": "MBus.Header.EncryptionScheme",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-1ddd724de5ad",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-9ea8355fa38e",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-7fa9b2952160",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-42f535e0293a",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-2d58474868ab",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-1f42cc3a00d1"
+      ],
+      "XmlSummary": "Defines which encryption shceme is used for the data.",
+      "Source": {
+        "Path": "MbusParser/Header/EncryptionScheme.cs",
+        "Line": 10,
+        "Column": 5,
+        "EndLine": 41,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-header",
+      "NamespaceId": "ns-proj-mbus-mbus-header",
+      "DisplayName": "MBus.Header.MBusHeader",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-404b50e94bd6",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-f67ec57f1815",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-e83d45fad8e4",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-a3df25b609a0",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-c577bf2bbe78",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-3fb4f3f8274b",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-8b9852e2ba5f",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-9881f8660273",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-0214610e049d",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-52cf66ac16bf",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-ab60810f071c",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-fc9087aaf91f",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-bb0417c2c443",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-e9aa96b017aa",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-213daacfc4e5",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-779b534048d3",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-22b1b9322fda",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-da29e1ced18b",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-d972e1696b92",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-050853c8775c",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-c97703d6e237",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-0c0f5e065715",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-f88549daac27",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-b07e70c557dc",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-bafddacfa603",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-0b4931e6acd2",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-9ff6679e9752",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-24cc169c5987",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-d8e3d109a939",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-5c69b7f8ec62",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-ae2acd699292"
+      ],
+      "XmlSummary": "Logical encapsulation of both wired and wireless mbus-header.",
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 19,
+        "Column": 5,
+        "EndLine": 223,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-frametype",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus",
+      "NamespaceId": "ns-proj-mbus-mbus",
+      "DisplayName": "MBus.FrameType",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-frametype-mbus-frametype-compact",
+        "member-type-proj-mbus-mbus-frametype-mbus-frametype-extend-7935693e6a59",
+        "member-type-proj-mbus-mbus-frametype-mbus-frametype-extend-deb575cae1a2",
+        "member-type-proj-mbus-mbus-frametype-mbus-frametype-extend-34073355ea8a",
+        "member-type-proj-mbus-mbus-frametype-mbus-frametype-extend-c6114dd63423",
+        "member-type-proj-mbus-mbus-frametype-mbus-frametype-format",
+        "member-type-proj-mbus-mbus-frametype-mbus-frametype-full"
+      ],
+      "XmlSummary": "The header frame type.",
+      "Source": {
+        "Path": "MbusParser/Header/FrameType.cs",
+        "Line": 13,
+        "Column": 5,
+        "EndLine": 50,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-headertype",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus",
+      "NamespaceId": "ns-proj-mbus-mbus",
+      "DisplayName": "MBus.HeaderType",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-headertype-mbus-headertype-extendedlinklayer",
+        "member-type-proj-mbus-mbus-headertype-mbus-headertype-long",
+        "member-type-proj-mbus-mbus-headertype-mbus-headertype-nodata",
+        "member-type-proj-mbus-mbus-headertype-mbus-headertype-short"
+      ],
+      "XmlSummary": "mbus header type.",
+      "Source": {
+        "Path": "MbusParser/Header/HeaderType.cs",
+        "Line": 11,
+        "Column": 5,
+        "EndLine": 32,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus",
+      "NamespaceId": "ns-proj-mbus-mbus",
+      "DisplayName": "MBus.MBusTelegram",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-mbustelegram-mbus-mbustelegram-header",
+        "member-type-proj-mbus-mbus-mbustelegram-mbus-mbustelegram-2d89a98026c1",
+        "member-type-proj-mbus-mbus-mbustelegram-mbus-mbustelegram-records",
+        "member-type-proj-mbus-mbus-mbustelegram-mbus-mbustelegram-rssi"
+      ],
+      "XmlSummary": "a wrapper for an entire parsed mbus telegram.",
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 15,
+        "Column": 5,
+        "EndLine": 45,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-extensions-extensions",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-extensions",
+      "NamespaceId": "ns-proj-mbus-mbus-extensions",
+      "DisplayName": "MBus.Extensions.Extensions",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-extensions-extensions-mbus-exte-2435d1c95017"
+      ],
+      "XmlSummary": "General extensions",
+      "Source": {
+        "Path": "MbusParser/Extensions/Extensions.cs",
+        "Line": 12,
+        "Column": 5,
+        "EndLine": 29,
+        "EndColumn": 6
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-d9094f4c7060",
+      "TypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "DisplayName": "MBus.DataRecord.VariableDataRecord.VariableDataRecord(MBus.DataRecord.DataBlock, double?)",
+      "Kind": 0,
+      "ReturnTypeDisplayName": "VariableDataRecord",
+      "ParameterDisplayNames": [
+        "MBus.DataRecord.DataBlock",
+        "double?"
+      ],
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 23,
+        "Column": 9,
+        "EndLine": 27,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-acc26347793f",
+      "TypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "DisplayName": "MBus.DataRecord.DataBlock.DataBlock(byte[], MBus.DataRecord.DataRecordHeader.DataInformationBlock.DataInformationField, System.Collections.Generic.List\u003CMBus.DataRecord.DataRecordHeader.DataInformationBlock.DataInformationExtensionField\u003E, MBus.DataRecord.DataRecordHeader.ValueInformationBlock.PrimaryValueInformationField, System.Collections.Generic.List\u003CMBus.DataRecord.DataRecordHeader.ValueInformationBlock.Extension.ValueInformationExtensionField\u003E)",
+      "Kind": 0,
+      "ReturnTypeDisplayName": "DataBlock",
+      "ParameterDisplayNames": [
+        "byte[]",
+        "MBus.DataRecord.DataRecordHeader.DataInformationBlock.DataInformationField",
+        "System.Collections.Generic.List\u003CMBus.DataRecord.DataRecordHeader.DataInformationBlock.DataInformationExtensionField\u003E",
+        "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.PrimaryValueInformationField",
+        "System.Collections.Generic.List\u003CMBus.DataRecord.DataRecordHeader.ValueInformationBlock.Extension.ValueInformationExtensionField\u003E"
+      ],
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 49,
+        "Column": 9,
+        "EndLine": 58,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-68670c8664fd",
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.DataInformationBlock.DataInformationField.DataInformationField(byte)",
+      "Kind": 0,
+      "ReturnTypeDisplayName": "DataInformationField",
+      "ParameterDisplayNames": [
+        "byte"
+      ],
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/DataInformationField.cs",
+        "Line": 25,
+        "Column": 9,
+        "EndLine": 28,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-66bf4f2cd88f",
+      "TypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "DisplayName": "MBus.DataRecord.DataRecordHeader.ValueInformationBlock.PrimaryValueInformationField.PrimaryValueInformationField(byte, MBus.DataRecord.DataRecordHeader.DataInformationBlock.DataField)",
+      "Kind": 0,
+      "ReturnTypeDisplayName": "PrimaryValueInformationField",
+      "ParameterDisplayNames": [
+        "byte",
+        "MBus.DataRecord.DataRecordHeader.DataInformationBlock.DataField"
+      ],
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformationField.cs",
+        "Line": 24,
+        "Column": 9,
+        "EndLine": 29,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423",
+      "TypeId": "type-proj-mbus-mbus-mbusparser",
+      "DisplayName": "MBus.MBusParser.ParseRecords(MBus.Header.MBusHeader, System.Collections.Generic.IList\u003Cbyte\u003E, byte[])",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.Collections.Generic.IList\u003CMBus.DataRecord.VariableDataRecord\u003E",
+      "ParameterDisplayNames": [
+        "MBus.Header.MBusHeader",
+        "System.Collections.Generic.IList\u003Cbyte\u003E",
+        "byte[]"
+      ],
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 87,
+        "Column": 9,
+        "EndLine": 262,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-header-controlinformationlookup-8eddcdbd4f8f",
+      "TypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "DisplayName": "MBus.Header.ControlInformationLookup.Find(byte)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "(MBus.FrameType frameType, MBus.HeaderType headerType)",
+      "ParameterDisplayNames": [
+        "byte"
+      ],
+      "Source": {
+        "Path": "MbusParser/Header/ControlInformationLookup.cs",
+        "Line": 50,
+        "Column": 9,
+        "EndLine": 53,
+        "EndColumn": 10
+      }
+    }
+  ],
+  "MemberRelationships": [
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-mbus-mbus-mbusparser-mb-fccc4c37a22e",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423",
+      "ToMemberId": "member-type-proj-mbus-mbus-header-controlinformationlookup-8eddcdbd4f8f",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 119,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "memberrel-objectcreation-member-type-proj-mbus-mbus-mbusparse-5399cb234dad",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423",
+      "ToMemberId": "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-acc26347793f",
+      "Kind": 1,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 254,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "memberrel-objectcreation-member-type-proj-mbus-mbus-mbusparse-fe92deb3fd74",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423",
+      "ToMemberId": "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-68670c8664fd",
+      "Kind": 1,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 153,
+        "Column": 44
+      }
+    },
+    {
+      "RelationshipId": "memberrel-objectcreation-member-type-proj-mbus-mbus-mbusparse-ff8e77567cd7",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423",
+      "ToMemberId": "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-66bf4f2cd88f",
+      "Kind": 1,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 172,
+        "Column": 45
+      }
+    },
+    {
+      "RelationshipId": "memberrel-objectcreation-member-type-proj-mbus-mbus-mbusparse-0bff2a4443dd",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423",
+      "ToMemberId": "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-d9094f4c7060",
+      "Kind": 1,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 257,
+        "Column": 26
+      }
+    }
+  ],
+  "TypeRelationships": [
+    {
+      "RelationshipId": "typerel-field-type-proj-mbus-mbus-datarecord-datarecordhead-a99ee18919b0",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-48b56c35aaee",
+      "Kind": 0,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformationField.cs",
+        "Line": 17,
+        "Column": 36
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-mbus-mbus-header-controlinformation-1ed94383b257",
+      "FromTypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "ToTypeId": "type-proj-mbus-mbus-frametype",
+      "Kind": 0,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/ControlInformationLookup.cs",
+        "Line": 12,
+        "Column": 105
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-mbus-mbus-header-controlinformation-1165cfcdb2e9",
+      "FromTypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "ToTypeId": "type-proj-mbus-mbus-headertype",
+      "Kind": 0,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/ControlInformationLookup.cs",
+        "Line": 12,
+        "Column": 105
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datablock-t-558b9ec279f5",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-03d668c4cb36",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 37,
+        "Column": 54
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datablock-t-0b75563dd5d5",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 32,
+        "Column": 39
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datablock-t-b280b2a938f4",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-unit",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 24,
+        "Column": 21
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datablock-t-d2bcd5d2ff0e",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-6d4dfddf324d",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 47,
+        "Column": 55
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datablock-t-71e5723392e2",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 42,
+        "Column": 47
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datablock-t-a493d939c5d7",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-valuedescription",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 28,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datarecordh-7ea6df7aa327",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-48b56c35aaee",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/DataInformationField.cs",
+        "Line": 33,
+        "Column": 26
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datarecordh-5f8c3ffd8d2e",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-704b837a9e48",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/DataInformationField.cs",
+        "Line": 38,
+        "Column": 30
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-datarecordh-a7099bb4a12c",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-19b5f1d188d0",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformationField.cs",
+        "Line": 31,
+        "Column": 42
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-variabledat-d16be2abb420",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 52,
+        "Column": 26
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-variabledat-689789bb0dc1",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-03d668c4cb36",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 37,
+        "Column": 52
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-variabledat-ae19c8f7829e",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 32,
+        "Column": 37
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-variabledat-d6981cab2499",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-6d4dfddf324d",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 47,
+        "Column": 53
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-datarecord-variabledat-a886c1adef16",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 42,
+        "Column": 45
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-mbustelegram-type-proj-364610236da5",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 39,
+        "Column": 43
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-datarecord-f9e3fe8a2de8",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-03d668c4cb36",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 49,
+        "Column": 118
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-datarecord-ad18ebfcb610",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 49,
+        "Column": 60
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-datarecord-e91302695471",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-6d4dfddf324d",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 49,
+        "Column": 239
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-datarecord-88c8db8f814d",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 49,
+        "Column": 179
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-datarecord-038af0f61969",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-48b56c35aaee",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformationField.cs",
+        "Line": 24,
+        "Column": 71
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-datarecord-3f33173328a6",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 23,
+        "Column": 45
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-mbustelegr-d3bcccb53b98",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 24,
+        "Column": 75
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-datarecord-data-b49f1dea6225",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-unit",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 24,
+        "Column": 41
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-datarecord-data-1eb6e9e97ed7",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-13d054241096",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 372,
+        "Column": 79
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-datarecord-data-e07058bfd904",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-19b5f1d188d0",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 189,
+        "Column": 80
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-datarecord-data-024e208d1530",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-e5954fa2b6c8",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 417,
+        "Column": 79
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-datarecord-data-997969e9eb70",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-valuedescription",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 28,
+        "Column": 65
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-datarecord-data-ce700ef83d6a",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-48b56c35aaee",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformationField.cs",
+        "Line": 189,
+        "Column": 45
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-datarecord-data-737970f591d0",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-19b5f1d188d0",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformationField.cs",
+        "Line": 31,
+        "Column": 62
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-extensions-exte-cb52b849af36",
+      "FromTypeId": "type-proj-mbus-mbus-extensions-extensions",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Extensions/Extensions.cs",
+        "Line": 19,
+        "Column": 71
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-mbusparser-type-a69a9e1e813c",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-header-encryptionscheme",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 351,
+        "Column": 85
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-mbusparser-type-91312b7e1493",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 42,
+        "Column": 53
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-mbustelegram-ty-404db7f05385",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 39,
+        "Column": 67
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datablo-de5116d30fed",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-03d668c4cb36",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 37,
+        "Column": 87
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datablo-1a29bf1c9cd8",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 32,
+        "Column": 62
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datablo-0851251dd582",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-unit",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 24,
+        "Column": 28
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datablo-76c84bb09fec",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-6d4dfddf324d",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 47,
+        "Column": 89
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datablo-5bc682804ac2",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 42,
+        "Column": 71
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datablo-aac00eefc2c8",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-valuedescription",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataBlock.cs",
+        "Line": 28,
+        "Column": 52
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datarec-127c48cd2608",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-48b56c35aaee",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/DataInformationField.cs",
+        "Line": 33,
+        "Column": 39
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datarec-10eaeb2a3fdb",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-704b837a9e48",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/DataInformationBlock/DataInformationField.cs",
+        "Line": 38,
+        "Column": 47
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-datarec-71084fd949ac",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-19b5f1d188d0",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/DataRecordHeader/ValueInformationBlock/PrimaryValueInformationField.cs",
+        "Line": 31,
+        "Column": 49
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-variabl-de47c0366386",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datablock",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 52,
+        "Column": 38
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-variabl-092c9d0bffe2",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-03d668c4cb36",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 37,
+        "Column": 86
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-variabl-4032a2769b6a",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-datainfo-23500e0b5068",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 32,
+        "Column": 61
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-variabl-102368e92833",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-6d4dfddf324d",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 47,
+        "Column": 88
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-datarecord-variabl-7f0e34eb3d53",
+      "FromTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-datarecordheader-valueinf-90cc92d65852",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 42,
+        "Column": 70
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-header-controlinfo-d051408cdada",
+      "FromTypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "ToTypeId": "type-proj-mbus-mbus-frametype",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/ControlInformationLookup.cs",
+        "Line": 50,
+        "Column": 68
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-header-controlinfo-057c3e768fdc",
+      "FromTypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "ToTypeId": "type-proj-mbus-mbus-headertype",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/ControlInformationLookup.cs",
+        "Line": 50,
+        "Column": 68
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbusparser-type-pr-038502c54865",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 87,
+        "Column": 43
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbusparser-type-pr-52160092f43e",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 29,
+        "Column": 27
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbusparser-type-pr-92b95ba7e9c8",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 42,
+        "Column": 29
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbustelegram-type-7e609257fce2",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 39,
+        "Column": 53
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-header-mbusheader-type-c9cc028e16f1",
+      "FromTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ToTypeId": "type-proj-mbus-mbus-frametype",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 144,
+        "Column": 26
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-header-mbusheader-type-8375fa8c1e38",
+      "FromTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ToTypeId": "type-proj-mbus-mbus-header-encryptionscheme",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 159,
+        "Column": 35
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-header-mbusheader-type-8f4c80fd6867",
+      "FromTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ToTypeId": "type-proj-mbus-mbus-headertype",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 149,
+        "Column": 27
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-mbustelegram-type-proj-7f4986a63035",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 34,
+        "Column": 27
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-mbustelegr-68f3b407d0f4",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 24,
+        "Column": 40
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-mbustelegram-ty-952e52854838",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 34,
+        "Column": 50
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-header-mbusheader-13a076a39786",
+      "FromTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ToTypeId": "type-proj-mbus-mbus-frametype",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 144,
+        "Column": 39
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-header-mbusheader-e1daff42b474",
+      "FromTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ToTypeId": "type-proj-mbus-mbus-header-encryptionscheme",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 159,
+        "Column": 55
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-header-mbusheader-0cf533ceb8e2",
+      "FromTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ToTypeId": "type-proj-mbus-mbus-headertype",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 149,
+        "Column": 41
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbustelegram-type-5283062858cd",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 34,
+        "Column": 36
+      }
+    }
+  ],
+  "RelatedServices": [],
+  "ReferenceTypes": [],
+  "UsageSummary": null,
+  "SelectionReasons": [
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-d9094f4c7060",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-datarecord-datablock-mbus-datar-acc26347793f",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-datarecord-datarecordheader-dat-68670c8664fd",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-datarecord-datarecordheader-val-66bf4f2cd88f",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-header-controlinformationlookup-8eddcdbd4f8f",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    }
+  ],
+  "Stats": {
+    "FileCount": 0,
+    "BlockCount": 0,
+    "SelectedLineCount": 0,
+    "TotalLineCount": 0
+  },
+  "Files": []
+}

@@ -35,6 +35,11 @@
 | Ask for a helper plus related classes or components | REQ-039, REQ-040, REQ-043 | SB-28 | High-fan-in helper relation-hint test and harness scenario | This is the main new walking behavior |
 | Combine tool and agent skill as a bundle | REQ-041, REQ-042, REQ-045 | SB-28 | Host MCP build and skill update | Skill guidance must match the shipped contract |
 | Add basic UI and measure results | REQ-041, REQ-043 | SB-28 | Web test, Playwright proof, comparison harness output | The lab is the no-restart control surface |
+| Analyze at least 20 real-world-looking problems | REQ-046, REQ-049, REQ-050, REQ-051 | SB-29 | Baseline and after-change scenario evaluation artifacts | Must run against read-only target repos and produce before/after evidence |
+| Simulate prompts and standard detail-gathering approach | REQ-046, REQ-048 | SB-29 | Scenario definition records and per-scenario markdown | Each scenario must include prompt and intended CodeAnalytics call sequence |
+| Include at least 5 project introduction scenarios | REQ-047 | SB-29 | Scenario set summary | These test broad orientation without full-context overload |
+| Judge helpful and non-useful context | REQ-049 | SB-29 | Scored scenario summaries and comparison report | Must include qualitative and metric-based scoring |
+| Implement improvements and retest | REQ-050 | SB-29 | Code changes, tests, rerun comparison | Same scenarios must be rerun after improvements |
 
 ## Closure note
 
@@ -47,3 +52,7 @@
   - [04-relation-hinted-focused-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\04-relation-hinted-focused-context.md)
   - [01-execution-report.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\reviews\01-execution-report.md)
   - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context\focused-context-summary.json)
+- `REQ-046` through `REQ-051` are owned by SB-29 and are complete with before/after evaluation proof recorded in:
+  - [05-twenty-scenario-evaluation.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\05-twenty-scenario-evaluation.md)
+  - [before-after-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\before-after-comparison.md)
+  - [scenario-evaluation-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\after\scenario-evaluation-summary.json)

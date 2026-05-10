@@ -1,0 +1,742 @@
+{
+  "SnapshotId": "snap-20260509225700-9766615f",
+  "SearchText": "QueryApi",
+  "ProjectName": null,
+  "SearchMode": 0,
+  "AvailableProjects": [
+    "Client(netstandard2.0)",
+    "Client.Core(netstandard2.0)",
+    "Client.Core.Test(netcoreapp3.1)",
+    "Client.Legacy(netstandard2.0)",
+    "Client.Legacy.Test(netcoreapp3.1)",
+    "Client.Linq(netstandard2.0)",
+    "Client.Linq.Test(netcoreapp3.1)",
+    "Client.Test(netcoreapp3.1)",
+    "ExampleBlazor",
+    "Examples(netcoreapp3.1)"
+  ],
+  "ValidationError": null,
+  "Results": [
+    {
+      "TargetKind": 0,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApiSync.cs",
+      "Line": 83,
+      "DisplayName": "InfluxDB.Client.QueryApiSync",
+      "Declaration": "class InfluxDB.Client.QueryApiSync : InfluxDB.Client.Core.Internal.AbstractQueryClient, InfluxDB.Client.IQueryApiSync",
+      "ContainerTypeDisplayName": null,
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapisync",
+      "MemberId": null,
+      "MatchFields": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 114,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Action\u003CInfluxDB.Client.Core.Flux.Domain.FluxRecord\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Action\u003CInfluxDB.Client.Core.Flux.Domain.FluxRecord\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-788b89c51765",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 211,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Type, Action\u003Cobject\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Type, Action\u003Cobject\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-ce54f15d5c8a",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 180,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Type, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Type, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-66897bf6ed1f",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 50,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-5ec743f5e803",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 100,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync(string, Action\u003CInfluxDB.Client.Core.Flux.Domain.FluxRecord\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync(string, Action\u003CInfluxDB.Client.Core.Flux.Domain.FluxRecord\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-1e740d54f3a0",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 195,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync(string, Type, Action\u003Cobject\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync(string, Type, Action\u003Cobject\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-0b6b3a75914a",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 162,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync(string, Type, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync(string, Type, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-e4ab3da1c0f8",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 33,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync(string, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync(string, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-2a245941cb68",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 144,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, Action\u003CT\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, Action\u003CT\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-c3b1d90bd820",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 86,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-0e9c88d1a4b2",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 129,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync\u003CT\u003E(string, Action\u003CT\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync\u003CT\u003E(string, Action\u003CT\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-2e80a19265db",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 68,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsync\u003CT\u003E(string, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsync\u003CT\u003E(string, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-9a218816f808",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 236,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsyncEnumerable\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsyncEnumerable\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-3c4bcea6d6e2",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 224,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryAsyncEnumerable\u003CT\u003E(string, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryAsyncEnumerable\u003CT\u003E(string, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-7fe9b052aea0",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 301,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryRawAsync(InfluxDB.Client.Api.Domain.Query, Action\u003Cstring\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryRawAsync(InfluxDB.Client.Api.Domain.Query, Action\u003Cstring\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-af9c18cbe9d7",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 271,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryRawAsync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryRawAsync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-6e73698891fb",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 286,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryRawAsync(string, Action\u003Cstring\u003E, InfluxDB.Client.Api.Domain.Dialect, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryRawAsync(string, Action\u003Cstring\u003E, InfluxDB.Client.Api.Domain.Dialect, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-9c722ffba1e7",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 254,
+      "DisplayName": "InfluxDB.Client.IQueryApi.QueryRawAsync(string, InfluxDB.Client.Api.Domain.Dialect, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApi.QueryRawAsync(string, InfluxDB.Client.Api.Domain.Dialect, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-0255ea5f05a5",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApiSync.cs",
+      "Line": 73,
+      "DisplayName": "InfluxDB.Client.IQueryApiSync.QuerySync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApiSync.QuerySync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApiSync",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapisync",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-314d07b71c34",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApiSync.cs",
+      "Line": 59,
+      "DisplayName": "InfluxDB.Client.IQueryApiSync.QuerySync(string, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApiSync.QuerySync(string, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApiSync",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapisync",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-cfda13c29527",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApiSync.cs",
+      "Line": 45,
+      "DisplayName": "InfluxDB.Client.IQueryApiSync.QuerySync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApiSync.QuerySync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApiSync",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapisync",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-04f373c3fafa",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApiSync.cs",
+      "Line": 30,
+      "DisplayName": "InfluxDB.Client.IQueryApiSync.QuerySync\u003CT\u003E(string, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.IQueryApiSync.QuerySync\u003CT\u003E(string, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.IQueryApiSync",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iqueryapisync",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-iqu-b9692d8e3c68",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 768,
+      "DisplayName": "InfluxDB.Client.QueryApi.AfterIntercept\u003CT\u003E(int, Func\u003CIEnumerable\u003CHeaderParameter\u003E\u003E, T)",
+      "Declaration": "InfluxDB.Client.QueryApi.AfterIntercept\u003CT\u003E(int, Func\u003CIEnumerable\u003CHeaderParameter\u003E\u003E, T)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-e042d8741b71",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 763,
+      "DisplayName": "InfluxDB.Client.QueryApi.BeforeIntercept(RestRequest)",
+      "Declaration": "InfluxDB.Client.QueryApi.BeforeIntercept(RestRequest)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-d66a8586b090",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 799,
+      "DisplayName": "InfluxDB.Client.QueryApi.CreateQuery(string, InfluxDB.Client.Api.Domain.Dialect)",
+      "Declaration": "InfluxDB.Client.QueryApi.CreateQuery(string, InfluxDB.Client.Api.Domain.Dialect)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-31f6c4ba72b3",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 786,
+      "DisplayName": "InfluxDB.Client.QueryApi.CreateRequest(InfluxDB.Client.Api.Domain.Query, string)",
+      "Declaration": "InfluxDB.Client.QueryApi.CreateRequest(InfluxDB.Client.Api.Domain.Query, string)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-f4bff421e8c6",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 307,
+      "DisplayName": "InfluxDB.Client.QueryApi.Dialect",
+      "Declaration": "InfluxDB.Client.QueryApi.Dialect",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-e8cc340aec6c",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 323,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryApi(InfluxDB.Client.InfluxDBClientOptions, InfluxDB.Client.Api.Service.QueryService, InfluxDB.Client.Core.Flux.Internal.IFluxResultMapper)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryApi(InfluxDB.Client.InfluxDBClientOptions, InfluxDB.Client.Api.Service.QueryService, InfluxDB.Client.Core.Flux.Internal.IFluxResultMapper)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-da90e4540654",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 512,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Action\u003CInfluxDB.Client.Core.Flux.Domain.FluxRecord\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Action\u003CInfluxDB.Client.Core.Flux.Domain.FluxRecord\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-973711341797",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 773,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, InfluxDB.Client.Core.Flux.Internal.FluxCsvParser.IFluxResponseConsumer, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, InfluxDB.Client.Core.Flux.Internal.FluxCsvParser.IFluxResponseConsumer, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-8a5901177a0f",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 650,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Type, Action\u003Cobject\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Type, Action\u003Cobject\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-a96a0caf1c59",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 606,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Type, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, Type, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-52752246ae20",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 370,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-446fec8c1033",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 489,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(string, Action\u003CInfluxDB.Client.Core.Flux.Domain.FluxRecord\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(string, Action\u003CInfluxDB.Client.Core.Flux.Domain.FluxRecord\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-f412a4943f1b",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 630,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(string, Type, Action\u003Cobject\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(string, Type, Action\u003Cobject\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-dcee9e2010d9",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 585,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(string, Type, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(string, Type, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-cdf76b17deb3",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 348,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync(string, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync(string, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-8f0da0f213fa",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 559,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, Action\u003CT\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, Action\u003CT\u003E, Action\u003CException\u003E, Action, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-b728453458a9",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/QueryApi.cs",
+      "Line": 421,
+      "DisplayName": "InfluxDB.Client.QueryApi.QueryAsync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "Declaration": "InfluxDB.Client.QueryApi.QueryAsync\u003CT\u003E(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.QueryApi",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-que-987a6a18313b",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    }
+  ]
+}

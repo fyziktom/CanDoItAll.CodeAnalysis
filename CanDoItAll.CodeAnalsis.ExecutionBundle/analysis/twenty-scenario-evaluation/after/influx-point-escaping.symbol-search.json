@@ -1,0 +1,741 @@
+{
+  "SnapshotId": "snap-20260509225700-9766615f",
+  "SearchText": "PointData",
+  "ProjectName": null,
+  "SearchMode": 0,
+  "AvailableProjects": [
+    "Client(netstandard2.0)",
+    "Client.Core(netstandard2.0)",
+    "Client.Core.Test(netcoreapp3.1)",
+    "Client.Legacy(netstandard2.0)",
+    "Client.Legacy.Test(netcoreapp3.1)",
+    "Client.Linq(netstandard2.0)",
+    "Client.Linq.Test(netcoreapp3.1)",
+    "Client.Test(netcoreapp3.1)",
+    "ExampleBlazor",
+    "Examples(netcoreapp3.1)"
+  ],
+  "ValidationError": null,
+  "Results": [
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 11,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.BuilderValuesToPoint()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.BuilderValuesToPoint()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-36b6d47e501c",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 145,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.DateTimeMustBeUtc()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.DateTimeMustBeUtc()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-f8e7262d8c41",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 119,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.FieldNullValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.FieldNullValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-c47809c3b82e",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 157,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.HasFields()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.HasFields()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-27d051b3b5cf",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 106,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.MultipleFields()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.MultipleFields()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-ed81891ac7ab",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 93,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.ReplaceFieldValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.ReplaceFieldValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-8e4527cd81c3",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 36,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.ReplaceTagValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.ReplaceTagValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-26b58b68935e",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 49,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.ReplaceTagValueInNewPoint()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.ReplaceTagValueInNewPoint()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-aee2ada69c93",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 67,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.TagEmptyKey()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.TagEmptyKey()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-86c8e396dacf",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 23,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.TagEmptyRemovesTagValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.TagEmptyRemovesTagValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-4dfdc2356f65",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 80,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.TagEmptyValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.TagEmptyValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-b29e19c62b66",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 132,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.Time()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.Time()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-2879e6a5d4f3",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataBuilderTest.cs",
+      "Line": 167,
+      "DisplayName": "InfluxDB.Client.Test.PointDataBuilderTest.UseGenericObjectAsFieldValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataBuilderTest.UseGenericObjectAsFieldValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataBuilderTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-a367590bcb04",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-524428a1b33b",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 237,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DateTimeFormatting()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DateTimeFormatting()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-2317cd718fc4",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 288,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DateTimeLocal()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DateTimeLocal()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-f364c0db1855",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 309,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DateTimeOffsetFormatting()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DateTimeOffsetFormatting()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-e1383b274e38",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 275,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DateTimeUnspecified()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DateTimeUnspecified()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-4a44dc5cc38c",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 335,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DefaultTags()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DefaultTags()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-9b9fa0067267",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 375,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DefaultTagsNotOverride()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DefaultTagsNotOverride()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-f026e35210ee",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 348,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DefaultTagsOverride()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DefaultTagsOverride()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-fee5afc4ae2c",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 362,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DefaultTagsOverrideNull()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DefaultTagsOverrideNull()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-16608fcebc17",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 389,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.DefaultTagsSorted()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.DefaultTagsSorted()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-8d90f9837779",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 38,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.EqualSignEscaping()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.EqualSignEscaping()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-90220f6ee5b3",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 168,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.FieldEscape()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.FieldEscape()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-335cc4edd5a9",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 157,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.FieldNullValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.FieldNullValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-8a94557f2c37",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 131,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.FieldTypes()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.FieldTypes()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-4e8ad1f525f9",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 404,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.HasFields()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.HasFields()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-6983f2959c40",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 48,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.Immutability()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.Immutability()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-1c21eb4202b4",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 413,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.InfinityValues()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.InfinityValues()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-b817880a05ba",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 322,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.InstantFormatting()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.InstantFormatting()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-da80a6092d7c",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 72,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.MeasurementEscape()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.MeasurementEscape()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-3a1c8e76262c",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 429,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.OnlyInfinityValues()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.OnlyInfinityValues()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-f8a6833c7c8e",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 119,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.OverrideTagField()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.OverrideTagField()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-9d2355ff1e01",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 97,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.TagEmptyKey()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.TagEmptyKey()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-58d0630d4cd4",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 12,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.TagEmptyTagValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.TagEmptyTagValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-2dc4ee57cec7",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 108,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.TagEmptyValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.TagEmptyValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-47169837a087",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 24,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.TagEscapingKeyAndValue()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.TagEscapingKeyAndValue()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-48f0229c60cf",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 184,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.Time()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.Time()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-958e630b9afe",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 195,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.TimePrecisionDefault()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.TimePrecisionDefault()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-d7b73ad36d6f",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/PointDataTest.cs",
+      "Line": 205,
+      "DisplayName": "InfluxDB.Client.Test.PointDataTest.TimeSpanFormatting()",
+      "Declaration": "InfluxDB.Client.Test.PointDataTest.TimeSpanFormatting()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.PointDataTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-2cd99bfe7ea5",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-f1629729b839",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "SnapshotId": "snap-20260509225700-9766615f",
+  "Depth": 1,
+  "QueryText": "InfluxDBClientFactory",
+  "FocusTags": [
+    "client"
+  ],
+  "RelationHints": [
+    "influxdbclientoptions",
+    "influxdbclient"
+  ],
+  "RequestedIntent": 0,
+  "ResolvedIntent": 3,
+  "RequestedPrecision": 0,
+  "ResolvedPrecision": 2,
+  "StrategyExplanation": "Auto resolved to surgical definition mode because InfluxDB.Client.InfluxDBClientFactory spans 8 callers across 2 projects. Consumer expansion is capped to direct usages. Relation hints constrain representative usage sampling.",
+  "SeedExplanation": "Resolved from prompt text to member InfluxDB.Client.InfluxDBClientFactory.Create(InfluxDB.Client.InfluxDBClientOptions).",
+  "SeedType": {
+    "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+    "ProjectId": "proj-client-netstandard2-0",
+    "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+    "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+    "DisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+    "Kind": 0,
+    "BaseTypeDisplayName": null,
+    "InterfaceDisplayNames": [],
+    "MemberIds": [
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-72dbbab000a4",
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-d3f4983f547c",
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-df04cb5eba24",
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-a2835b073a59",
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-08fb645b4f87",
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-6c2af872cf1d",
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-b0cec18e2070",
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-c8c0efc08ac7",
+      "member-type-proj-client-netstandard2-0-influxdb-client-inf-54d1efea1564"
+    ],
+    "XmlSummary": null,
+    "Source": {
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 8,
+      "Column": 5,
+      "EndLine": 185,
+      "EndColumn": 6
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-d3f4983f547c",
+    "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+    "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Create(InfluxDB.Client.InfluxDBClientOptions)",
+    "Kind": 1,
+    "ReturnTypeDisplayName": "InfluxDB.Client.InfluxDBClient",
+    "ParameterDisplayNames": [
+      "InfluxDB.Client.InfluxDBClientOptions"
+    ],
+    "Source": {
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 139,
+      "Column": 9,
+      "EndLine": 145,
+      "EndColumn": 10
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [],
+  "Types": [
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-72dbbab000a4",
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-d3f4983f547c",
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-df04cb5eba24",
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-a2835b073a59",
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-08fb645b4f87",
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-6c2af872cf1d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-b0cec18e2070",
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-c8c0efc08ac7",
+        "member-type-proj-client-netstandard2-0-influxdb-client-inf-54d1efea1564"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/InfluxDBClientFactory.cs",
+        "Line": 8,
+        "Column": 5,
+        "EndLine": 185,
+        "EndColumn": 6
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-d3f4983f547c",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Create(InfluxDB.Client.InfluxDBClientOptions)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "InfluxDB.Client.InfluxDBClient",
+      "ParameterDisplayNames": [
+        "InfluxDB.Client.InfluxDBClientOptions"
+      ],
+      "Source": {
+        "Path": "Client/InfluxDBClientFactory.cs",
+        "Line": 139,
+        "Column": 9,
+        "EndLine": 145,
+        "EndColumn": 10
+      }
+    }
+  ],
+  "MemberRelationships": [],
+  "TypeRelationships": [],
+  "RelatedServices": [],
+  "ReferenceTypes": [],
+  "UsageSummary": {
+    "TotalCallerCount": 2,
+    "TotalClusterCount": 1,
+    "OmittedCallerCount": 0,
+    "Clusters": [
+      {
+        "ProjectId": "proj-client-test-netcoreapp3-1",
+        "ProjectName": "Client.Test(netcoreapp3.1)",
+        "ModuleId": "mod-proj-client-test-netcoreapp3-1-client-test-netcoreapp3-1",
+        "ModuleName": "Client.Test(netcoreapp3.1)",
+        "CallerCount": 2,
+        "Samples": [
+          {
+            "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+            "TypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+            "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-d8c7501b02cd",
+            "MemberDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CertificatesFactory()",
+            "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+            "Line": 503,
+            "Reason": "Factory sample."
+          }
+        ]
+      }
+    ]
+  },
+  "SelectionReasons": [
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-d3f4983f547c",
+      "ReasonKind": 0,
+      "RoleKind": 2
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/InfluxDBClientFactory.cs",
+      "ReasonKind": 0,
+      "RoleKind": 2
+    }
+  ],
+  "Stats": {
+    "FileCount": 1,
+    "BlockCount": 1,
+    "SelectedLineCount": 9,
+    "TotalLineCount": 186
+  },
+  "Files": [
+    {
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "TotalLineCount": 186,
+      "SelectedLineCount": 9,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.InfluxDBClientFactory"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.InfluxDBClientFactory.Create(InfluxDB.Client.InfluxDBClientOptions)",
+          "Kind": "Method",
+          "StartLine": 138,
+          "EndLine": 146,
+          "Code": "        /// \u003Cremarks\u003EDeprecated - please use use object initializer \u003Csee cref=\u0022InfluxDBClient(InfluxDBClientOptions)\u0022/\u003E\u003C/remarks\u003E\r\n        [Obsolete(\u0022This method is deprecated. Call \u0027InfluxDBClient\u0027 initializer instead.\u0022, false)]\r\n        public static InfluxDBClient Create(InfluxDBClientOptions options)\r\n        {\r\n            Arguments.CheckNotNull(options, nameof(options));\r\n\r\n            return new InfluxDBClient(options);\r\n        }\r\n"
+        }
+      ]
+    }
+  ]
+}

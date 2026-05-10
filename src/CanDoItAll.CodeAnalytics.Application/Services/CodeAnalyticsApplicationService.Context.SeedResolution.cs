@@ -122,9 +122,7 @@ public sealed partial class CodeAnalyticsApplicationService {
                 continue;
             }
 
-            if (exactTypeIds.Count > 0
-                && !exactTypeIds.Contains(type.TypeId)
-                && !MemberNameMatchesQuery(member, queryText)) {
+            if (exactTypeIds.Count > 0 && !exactTypeIds.Contains(type.TypeId)) {
                 continue;
             }
 
@@ -153,6 +151,10 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         foreach (var type in snapshot.Facts.Types) {
             if (ShouldExcludeFromFocusedContext(type, projectsById, null)) {
+                continue;
+            }
+
+            if (exactTypeIds.Count > 0 && !exactTypeIds.Contains(type.TypeId)) {
                 continue;
             }
 
@@ -357,11 +359,9 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         score += GetFocusTagScore(
             focusTags,
-            member.DisplayName,
+            GetTrailingIdentifier(member.DisplayName),
             member.ReturnTypeDisplayName,
-            string.Join(' ', member.ParameterDisplayNames),
-            type.DisplayName,
-            type.Source.Path);
+            string.Join(' ', member.ParameterDisplayNames));
 
         return score;
     }

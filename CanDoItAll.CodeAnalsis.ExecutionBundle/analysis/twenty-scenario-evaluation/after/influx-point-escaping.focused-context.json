@@ -1,0 +1,1500 @@
+{
+  "SnapshotId": "snap-20260509225700-9766615f",
+  "Depth": 2,
+  "QueryText": "PointData",
+  "FocusTags": [
+    "write",
+    "model"
+  ],
+  "RelationHints": [
+    "pointdata.builder",
+    "pointdatatest"
+  ],
+  "RequestedIntent": 0,
+  "ResolvedIntent": 2,
+  "RequestedPrecision": 0,
+  "ResolvedPrecision": 1,
+  "StrategyExplanation": "Used default trouble-path expansion. Relation hints bias related member and usage selection.",
+  "SeedExplanation": "Resolved from prompt text to member InfluxDB.Client.Writes.PointData.Timestamp(DateTime, InfluxDB.Client.Api.Domain.WritePrecision).",
+  "SeedType": {
+    "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+    "ProjectId": "proj-client-netstandard2-0",
+    "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+    "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-writes",
+    "DisplayName": "InfluxDB.Client.Writes.PointData",
+    "Kind": 0,
+    "BaseTypeDisplayName": "IEquatable\u003CInfluxDB.Client.Writes.PointData\u003E",
+    "InterfaceDisplayNames": [],
+    "MemberIds": [
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-a7d90f500cd0",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-511384287ed7",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-c36e5605f271",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-c16603461446",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-a82c335cbbf4",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-03df425bdf97",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-cb753151b8af",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-3200a4d7fc8c",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-55653eee136e",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-0ec995b39674",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-0169a7f9746c",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-eee102337118",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-48da3d1a961b",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-b7e2755cf033",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-a7c74ff9426e",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-0c69cf3c97a5",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-77daecd5f6b5",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-75435f5d1afd",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-29be8fa0f199",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-f51ae3e7946e",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-02c08c8b3f81",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-4265712e9225",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-691e3b78c3b7",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-ae6640bc416c",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-524419f71eed",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-f913210221b6",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-5eb8db1f98a5",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-dde9aedb0a7e",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-9ee96c80db02",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-013a0a6e6792",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-6c216da88577",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-e20d3a4c4093",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-a5b749ddd357",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-9dd19a30c735",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-809a039086fd",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-67a188e18586",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-7e353672e1e7",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-ea15ab58f591",
+      "member-type-proj-client-netstandard2-0-influxdb-client-wri-cbddaa429ba4"
+    ],
+    "XmlSummary": "Point defines the values that will be written to the database. See Go Implementation.",
+    "Source": {
+      "Path": "Client/Writes/PointData.Builder.cs",
+      "Line": 12,
+      "Column": 5,
+      "EndLine": 277,
+      "EndColumn": 6
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-013a0a6e6792",
+    "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+    "DisplayName": "InfluxDB.Client.Writes.PointData.Timestamp(DateTime, InfluxDB.Client.Api.Domain.WritePrecision)",
+    "Kind": 1,
+    "ReturnTypeDisplayName": "InfluxDB.Client.Writes.PointData",
+    "ParameterDisplayNames": [
+      "DateTime",
+      "InfluxDB.Client.Api.Domain.WritePrecision"
+    ],
+    "Source": {
+      "Path": "Client/Writes/PointData.cs",
+      "Line": 253,
+      "Column": 9,
+      "EndLine": 265,
+      "EndColumn": 10
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [],
+  "Types": [
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-writes",
+      "DisplayName": "InfluxDB.Client.Writes.PointData",
+      "Kind": 0,
+      "BaseTypeDisplayName": "IEquatable\u003CInfluxDB.Client.Writes.PointData\u003E",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-a7d90f500cd0",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-511384287ed7",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-c36e5605f271",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-c16603461446",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-a82c335cbbf4",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-03df425bdf97",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-cb753151b8af",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-3200a4d7fc8c",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-55653eee136e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-0ec995b39674",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-0169a7f9746c",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-eee102337118",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-48da3d1a961b",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-b7e2755cf033",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-a7c74ff9426e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-0c69cf3c97a5",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-77daecd5f6b5",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-75435f5d1afd",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-29be8fa0f199",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-f51ae3e7946e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-02c08c8b3f81",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-4265712e9225",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-691e3b78c3b7",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-ae6640bc416c",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-524419f71eed",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-f913210221b6",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-5eb8db1f98a5",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-dde9aedb0a7e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-9ee96c80db02",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-013a0a6e6792",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-6c216da88577",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-e20d3a4c4093",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-a5b749ddd357",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-9dd19a30c735",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-809a039086fd",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-67a188e18586",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-7e353672e1e7",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-ea15ab58f591",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-cbddaa429ba4"
+      ],
+      "XmlSummary": "Point defines the values that will be written to the database. See Go Implementation.",
+      "Source": {
+        "Path": "Client/Writes/PointData.Builder.cs",
+        "Line": 12,
+        "Column": 5,
+        "EndLine": 277,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-73fcfe4922a9",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-internal",
+      "DisplayName": "InfluxDB.Client.Internal.DefaultDomainObjectMapper",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "InfluxDB.Client.IDomainObjectMapper"
+      ],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-29a5fb9d5820",
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-0ab33e348488",
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-9cbf65949e4d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-8f6977399495",
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-52822246f507"
+      ],
+      "XmlSummary": "Default implementation of DomainObject mapper.",
+      "Source": {
+        "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+        "Line": 12,
+        "Column": 5,
+        "EndLine": 31,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a024f223be90",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-internal",
+      "DisplayName": "InfluxDB.Client.Internal.MeasurementMapper",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-fff8148cd217",
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-1a4425d0d520",
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 27,
+        "Column": 5,
+        "EndLine": 177,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-e4214089e623",
+      "ProjectId": "proj-client-test-netcoreapp3-1",
+      "ModuleId": "mod-proj-client-test-netcoreapp3-1-client-test-netcoreapp3-1",
+      "NamespaceId": "ns-proj-client-test-netcoreapp3-1-influxdb-client-test",
+      "DisplayName": "InfluxDB.Client.Test.MeasurementMapperTest",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-test-netcoreapp3-1-influxdb-client-ab0881bb3a16",
+        "member-type-proj-client-test-netcoreapp3-1-influxdb-client-bb022a188dba",
+        "member-type-proj-client-test-netcoreapp3-1-influxdb-client-a0b310ae125d",
+        "member-type-proj-client-test-netcoreapp3-1-influxdb-client-94a625d230d0",
+        "member-type-proj-client-test-netcoreapp3-1-influxdb-client-0a36a16e2a42",
+        "member-type-proj-client-test-netcoreapp3-1-influxdb-client-0ebb7952ab2a",
+        "member-type-proj-client-test-netcoreapp3-1-influxdb-client-591f8300327c",
+        "member-type-proj-client-test-netcoreapp3-1-influxdb-client-14312b321c3d"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client.Test/MeasurementMapperTest.cs",
+        "Line": 13,
+        "Column": 5,
+        "EndLine": 171,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointsettings",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-writes",
+      "DisplayName": "InfluxDB.Client.Writes.PointSettings",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-13fa5816d050",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-74e1920fcf21",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-74bddd4ec9b9",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-90bf94c38371",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-831733573c4d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-f2b385065111"
+      ],
+      "XmlSummary": "The setting for store data point: default values, threshold, ...",
+      "Source": {
+        "Path": "Client/Writes/PointSettings.cs",
+        "Line": 14,
+        "Column": 5,
+        "EndLine": 100,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-api-domain",
+      "DisplayName": "InfluxDB.Client.Api.Domain.WritePrecision",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-b4a97300d589",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-4ff79960e504",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-fc16108bce48",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-bdd858267c4d"
+      ],
+      "XmlSummary": "Defines WritePrecision",
+      "Source": {
+        "Path": "Client/InfluxDB.Client.Api/Domain/WritePrecision.cs",
+        "Line": 29,
+        "Column": 5,
+        "EndLine": 51,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-p-1705676436e8",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-writes",
+      "DisplayName": "InfluxDB.Client.Writes.PointData.Builder",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-9b1473a70a4e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-bcf72f14ccde",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-d4a549665dce",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-e15ec10d1a6c",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-e79d53646e6d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-1c7eba63014f",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-5226a178c30e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-acc89b7b4447",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-5fbe779a5a2d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-381cff85e0c1",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-ce41d8389015",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-f5866de7af28",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-1d577bad1e2c",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-68098f9799e8",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-ea0ef9296dfb",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-9e575f6ee93b",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-82bc793bd549",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-3b7c944e6c2a",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-7e4a9b2fafea",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-5943a147e354",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-103525290a48",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-bf7555b30cb0",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-bbdbf3ba1a9a",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-b3faab9cfd99",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-274c6fbbec57",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-db2fe4cc2ef3"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/Writes/PointData.Builder.cs",
+        "Line": 14,
+        "Column": 9,
+        "EndLine": 276,
+        "EndColumn": 10
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-batchwritepoint",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.BatchWritePoint",
+      "Kind": 0,
+      "BaseTypeDisplayName": "InfluxDB.Client.BatchWriteData",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-bat-5e9a1abb2af6",
+        "member-type-proj-client-netstandard2-0-influxdb-client-bat-ecdd2e357b5f",
+        "member-type-proj-client-netstandard2-0-influxdb-client-bat-724e50895183",
+        "member-type-proj-client-netstandard2-0-influxdb-client-bat-3e720d3c60dc"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 562,
+        "Column": 5,
+        "EndLine": 588,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iwriteapi",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.IWriteApi",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "IDisposable"
+      ],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-b3dc551e9456",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-c5837275c7f1",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-f758bbea4942",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-9423c4b24c9b",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-5bd303cf2ea2",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-824fa45ac0e2",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-1417ecd56e8f",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-7f7040aed877",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-421a672cf856",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-812dada8337c"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 23,
+        "Column": 5,
+        "EndLine": 119,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-iwriteapiasync",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.IWriteApiAsync",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-282774b9aa0e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-0b4d3c0a3aa5",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-93fa9c9b5c3a",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-3924b7605cc0",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-3b9fa681dfe0",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-26bbd71233fd",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-8a9a6f235cdf",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-241febe3fb8c",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-2cd025de83eb",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-33989348c73b",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-4774fbdc3ae2",
+        "member-type-proj-client-netstandard2-0-influxdb-client-iwr-cbeed3947990"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/WriteApiAsync.cs",
+        "Line": 16,
+        "Column": 5,
+        "EndLine": 155,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapi",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.WriteApi",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "InfluxDB.Client.IWriteApi"
+      ],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-182ea0a20071",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-8629dccf480d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-45bf97f2003d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-f25eecb192dc",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-005d5c60ed20",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-e08e1b1f2051",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-9eafa14e14de",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-5d2f8fa552ad",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-e4295e4b2c30",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-bc8cfeb7628f",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-264a584ff0a2",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-c9bc0ea7c52d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-1d9b551ae4d8",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-0208cf689fe4",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-30657b7a19f2",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-582377bf7ffc",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-f973ea005d08",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-c8ca8939ee39",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-23c28b6708ec",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-02bb70abb859",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-0bfc9e23c2d3",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-973caac4c986",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-250de6874c61",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-3c3955800de6",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-51849b9da0b0",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-7df3c5712804"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 121,
+        "Column": 5,
+        "EndLine": 529,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapiasync",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.WriteApiAsync",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "InfluxDB.Client.IWriteApiAsync"
+      ],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-6366a3bfb1d5",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-1d93da78ce8e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-19f2a94792d3",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-0547e471bfdc",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-c94e77b7bed6",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-b2607cd2e706",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-c26a0c1d7326",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-b1cc8828b722",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-83ad63f82db9",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-f387a03c0329",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-b8e9b77b94d4",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-7425a0a08f31",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-c42d75cfb944",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-a6cccad4b74b",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-d2750c29acbe",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-86bddbb6622e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-ca3d745ea186",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-5262c24c9d41",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-3ec0502bace1",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-8dd96c989e78",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-fd1bfc60029a",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-1bf83e22905f",
+        "member-type-proj-client-netstandard2-0-influxdb-client-wri-06314261c7a1"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/WriteApiAsync.cs",
+        "Line": 157,
+        "Column": 5,
+        "EndLine": 467,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a4ff4059a8d8",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-internal",
+      "DisplayName": "InfluxDB.Client.Internal.PropertyInfoColumn",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-f4a6977e5c54",
+        "member-type-proj-client-netstandard2-0-influxdb-client-int-99066b2f17f9"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 21,
+        "Column": 5,
+        "EndLine": 25,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-idomainobjectmapper",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.IDomainObjectMapper",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "InfluxDB.Client.Core.Flux.Internal.IFluxResultMapper"
+      ],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-ido-9a5317776113"
+      ],
+      "XmlSummary": "An implementation of this class is used to convert DomainObject entity into and back to DomainObject.",
+      "Source": {
+        "Path": "Client/IDomainObjectMapper.cs",
+        "Line": 11,
+        "Column": 5,
+        "EndLine": 21,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-core-netstandard2-0-influxdb-client-cor-1144f4d804fc",
+      "ProjectId": "proj-client-core-netstandard2-0",
+      "ModuleId": "mod-proj-client-core-netstandard2-0-client-core-netstandard2-0",
+      "NamespaceId": "ns-proj-client-core-netstandard2-0-influxdb-client-core-flux-domain",
+      "DisplayName": "InfluxDB.Client.Core.Flux.Domain.FluxRecord",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-b3c44d3e0f01",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-e1ce5bb4fb5a",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-adf6db9efa37",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-a0d4f0a37564",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-1cc4caf8a617",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-7f5660cb1e85",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-d305ea55e7b6",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-987c50d2962a",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-8daa0de8f33a",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-1115fc9c8f7a",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-98ab6b3e402c",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-5865549da3d3",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-95624cff03c4",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-1f38cc092cb3"
+      ],
+      "XmlSummary": "A record is a tuple of values. Each record in the table represents a single point in the series. Specification.",
+      "Source": {
+        "Path": "Client.Core/Flux/Domain/FluxRecord.cs",
+        "Line": 14,
+        "Column": 5,
+        "EndLine": 121,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-core-netstandard2-0-influxdb-client-cor-4d9a64751fc2",
+      "ProjectId": "proj-client-core-netstandard2-0",
+      "ModuleId": "mod-proj-client-core-netstandard2-0-client-core-netstandard2-0",
+      "NamespaceId": "ns-proj-client-core-netstandard2-0-influxdb-client-cor-a7b4b4dd6620",
+      "DisplayName": "InfluxDB.Client.Core.Flux.Internal.FluxResultMapper",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "InfluxDB.Client.Core.Flux.Internal.IFluxResultMapper"
+      ],
+      "MemberIds": [
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-037733f1bf1f",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-f1135c81e6b1",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-881f0a881690",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-d8ea330f4ced",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-e3ec9072d2c7",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-8bdbf6ab47c4",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-32ba0bad581a",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-f1b67803eea9",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-a45cac2d2bcd",
+        "member-type-proj-client-core-netstandard2-0-influxdb-clien-32fb63b96805"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client.Core/Flux/Internal/FluxResultMapper.cs",
+        "Line": 33,
+        "Column": 5,
+        "EndLine": 268,
+        "EndColumn": 6
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-013a0a6e6792",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "DisplayName": "InfluxDB.Client.Writes.PointData.Timestamp(DateTime, InfluxDB.Client.Api.Domain.WritePrecision)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "InfluxDB.Client.Writes.PointData",
+      "ParameterDisplayNames": [
+        "DateTime",
+        "InfluxDB.Client.Api.Domain.WritePrecision"
+      ],
+      "Source": {
+        "Path": "Client/Writes/PointData.cs",
+        "Line": 253,
+        "Column": 9,
+        "EndLine": 265,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-6c216da88577",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "DisplayName": "InfluxDB.Client.Writes.PointData.Timestamp(DateTimeOffset, InfluxDB.Client.Api.Domain.WritePrecision)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "InfluxDB.Client.Writes.PointData",
+      "ParameterDisplayNames": [
+        "DateTimeOffset",
+        "InfluxDB.Client.Api.Domain.WritePrecision"
+      ],
+      "Source": {
+        "Path": "Client/Writes/PointData.cs",
+        "Line": 273,
+        "Column": 9,
+        "EndLine": 276,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-e20d3a4c4093",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "DisplayName": "InfluxDB.Client.Writes.PointData.Timestamp(Instant, InfluxDB.Client.Api.Domain.WritePrecision)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "InfluxDB.Client.Writes.PointData",
+      "ParameterDisplayNames": [
+        "Instant",
+        "InfluxDB.Client.Api.Domain.WritePrecision"
+      ],
+      "Source": {
+        "Path": "Client/Writes/PointData.cs",
+        "Line": 284,
+        "Column": 9,
+        "EndLine": 292,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-9cbf65949e4d",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-73fcfe4922a9",
+      "DisplayName": "InfluxDB.Client.Internal.DefaultDomainObjectMapper.ConvertToPointData\u003CT\u003E(T, InfluxDB.Client.Api.Domain.WritePrecision)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "InfluxDB.Client.Writes.PointData",
+      "ParameterDisplayNames": [
+        "T",
+        "InfluxDB.Client.Api.Domain.WritePrecision"
+      ],
+      "Source": {
+        "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+        "Line": 27,
+        "Column": 9,
+        "EndLine": 30,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a024f223be90",
+      "DisplayName": "InfluxDB.Client.Internal.MeasurementMapper.ToPoint\u003CTM\u003E(TM, InfluxDB.Client.Api.Domain.WritePrecision)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "InfluxDB.Client.Writes.PointData",
+      "ParameterDisplayNames": [
+        "TM",
+        "InfluxDB.Client.Api.Domain.WritePrecision"
+      ],
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 32,
+        "Column": 9,
+        "EndLine": 162,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-ab0881bb3a16",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-e4214089e623",
+      "DisplayName": "InfluxDB.Client.Test.MeasurementMapperTest.ColumnWithoutName()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "void",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "Client.Test/MeasurementMapperTest.cs",
+        "Line": 46,
+        "Column": 9,
+        "EndLine": 62,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-bb022a188dba",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-e4214089e623",
+      "DisplayName": "InfluxDB.Client.Test.MeasurementMapperTest.DefaultToString()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "void",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "Client.Test/MeasurementMapperTest.cs",
+        "Line": 64,
+        "Column": 9,
+        "EndLine": 76,
+        "EndColumn": 10
+      }
+    }
+  ],
+  "MemberRelationships": [
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-netstandard2-0-i-19e04758c9f7",
+      "FromMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771",
+      "ToMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-013a0a6e6792",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 88,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-netstandard2-0-i-6519ce65f10d",
+      "FromMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771",
+      "ToMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-6c216da88577",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 92,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-netstandard2-0-i-def345d7c871",
+      "FromMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771",
+      "ToMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-e20d3a4c4093",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 96,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-netstandard2-0-i-3452fb6ecb6f",
+      "FromMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-9cbf65949e4d",
+      "ToMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+        "Line": 29,
+        "Column": 20
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-test-netcoreapp3-0a24e7481d5b",
+      "FromMemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-ab0881bb3a16",
+      "ToMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client.Test/MeasurementMapperTest.cs",
+        "Line": 58,
+        "Column": 32
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-test-netcoreapp3-4c4677130482",
+      "FromMemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-bb022a188dba",
+      "ToMemberId": "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client.Test/MeasurementMapperTest.cs",
+        "Line": 73,
+        "Column": 32
+      }
+    }
+  ],
+  "TypeRelationships": [
+    {
+      "RelationshipId": "typerel-field-type-proj-client-netstandard2-0-influxdb-clie-f7d58247b30b",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-batchwritepoint",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 0,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 564,
+        "Column": 36
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-client-netstandard2-0-influxdb-clie-9d53f08b07a1",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-73fcfe4922a9",
+      "ToTypeId": "type-proj-client-core-netstandard2-0-influxdb-client-cor-4d9a64751fc2",
+      "Kind": 0,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+        "Line": 14,
+        "Column": 43
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-client-netstandard2-0-influxdb-clie-f14780f8e58a",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-73fcfe4922a9",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a024f223be90",
+      "Kind": 0,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+        "Line": 15,
+        "Column": 44
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-client-netstandard2-0-influxdb-clie-8b2ae3b74301",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 0,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Writes/PointData.cs",
+        "Line": 31,
+        "Column": 40
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-client-netstandard2-2a1a6d3bf3ae",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-batchwritepoint",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 3,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 567,
+        "Column": 108
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-client-netstandard2-6048858bcb3f",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 3,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Writes/PointData.cs",
+        "Line": 53,
+        "Column": 28
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-2381cb6e6286",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-73fcfe4922a9",
+      "ToTypeId": "type-proj-client-core-netstandard2-0-influxdb-client-cor-1144f4d804fc",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+        "Line": 17,
+        "Column": 48
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-179626257170",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-73fcfe4922a9",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+        "Line": 27,
+        "Column": 73
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-58ac23b13765",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a024f223be90",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 32,
+        "Column": 71
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-b0427af30620",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-iwriteapi",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 64,
+        "Column": 35
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-d0b1d5f5a576",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-iwriteapiasync",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApiAsync.cs",
+        "Line": 71,
+        "Column": 40
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-6f74abc01e61",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapi",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 416,
+        "Column": 42
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-14c0b5c56cdd",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapiasync",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApiAsync.cs",
+        "Line": 254,
+        "Column": 47
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-c058cbba1914",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Writes/PointData.cs",
+        "Line": 222,
+        "Column": 67
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-154c3b2855f2",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointsettings",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Writes/PointData.cs",
+        "Line": 308,
+        "Column": 52
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-client-netstandard2-0-influx-0186e4f07357",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-idomainobjectmapper",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 5,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/IDomainObjectMapper.cs",
+        "Line": 20,
+        "Column": 19
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-client-netstandard2-0-influx-f5622238ec32",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-73fcfe4922a9",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 5,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+        "Line": 27,
+        "Column": 26
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-client-netstandard2-0-influx-c9968c95ba64",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a024f223be90",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 5,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 32,
+        "Column": 28
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-client-netstandard2-0-influx-e4007b5f0bb5",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-p-1705676436e8",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-pointdata",
+      "Kind": 5,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Writes/PointData.Builder.cs",
+        "Line": 262,
+        "Column": 30
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-client-netstandard2-0-influxdb-clie-1bf3c16a93d7",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a024f223be90",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a4ff4059a8d8",
+      "Kind": 0,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client/Internal/MeasurementMapper.cs",
+        "Line": 29,
+        "Column": 59
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-client-test-netcoreapp3-1-influxdb-864a45bca764",
+      "FromTypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-e4214089e623",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-internal-a024f223be90",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client.Test/MeasurementMapperTest.cs",
+        "Line": 16,
+        "Column": 35
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-client-netstandard2-0-influxdb-clie-54fbe56cdbd1",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapi",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-idomainobjectmapper",
+      "Kind": 0,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 126,
+        "Column": 46
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-client-netstandard2-0-influxdb-clie-005af7e29403",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapiasync",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-idomainobjectmapper",
+      "Kind": 0,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApiAsync.cs",
+        "Line": 162,
+        "Column": 46
+      }
+    },
+    {
+      "RelationshipId": "typerel-field-type-proj-client-netstandard2-0-influxdb-clie-c17296d56591",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-p-1705676436e8",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 0,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Writes/PointData.Builder.cs",
+        "Line": 20,
+        "Column": 36
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-client-netstandard2-b683b838a1e6",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapi",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-idomainobjectmapper",
+      "Kind": 3,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 143,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-client-netstandard2-389c59c0b05a",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapiasync",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-idomainobjectmapper",
+      "Kind": 3,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApiAsync.cs",
+        "Line": 168,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-1eb7d393a10f",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-idomainobjectmapper",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/IDomainObjectMapper.cs",
+        "Line": 20,
+        "Column": 66
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-4f37efdc0cea",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-iwriteapi",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 35,
+        "Column": 56
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-ff9486681a98",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-iwriteapiasync",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApiAsync.cs",
+        "Line": 26,
+        "Column": 61
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-b0b4901a60cf",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapi",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApi.cs",
+        "Line": 377,
+        "Column": 63
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-ac37f9eaedce",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writeapiasync",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/WriteApiAsync.cs",
+        "Line": 189,
+        "Column": 68
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-87ff3db85bf5",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-writes-p-1705676436e8",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-doma-94a0b47f2ec2",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/Writes/PointData.Builder.cs",
+        "Line": 187,
+        "Column": 69
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-core-netstandard2-b97effa5e712",
+      "FromTypeId": "type-proj-client-core-netstandard2-0-influxdb-client-cor-4d9a64751fc2",
+      "ToTypeId": "type-proj-client-core-netstandard2-0-influxdb-client-cor-1144f4d804fc",
+      "Kind": 4,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Core/Flux/Internal/FluxResultMapper.cs",
+        "Line": 40,
+        "Column": 48
+      }
+    }
+  ],
+  "RelatedServices": [],
+  "ReferenceTypes": [],
+  "UsageSummary": null,
+  "SelectionReasons": [
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-013a0a6e6792",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-6c216da88577",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-netstandard2-0-influxdb-client-wri-e20d3a4c4093",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-netstandard2-0-influxdb-client-int-9cbf65949e4d",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-netstandard2-0-influxdb-client-int-320f4df3e771",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-ab0881bb3a16",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-bb022a188dba",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/Writes/PointData.cs",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/Writes/PointData.cs",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client.Test/MeasurementMapperTest.cs",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/Internal/DefaultDomainObjectMapper.cs",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/Internal/MeasurementMapper.cs",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client.Core/Flux/Domain/FluxRecord.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client.Core/Flux/Internal/FluxResultMapper.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/IDomainObjectMapper.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/WriteApi.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    }
+  ],
+  "Stats": {
+    "FileCount": 8,
+    "BlockCount": 13,
+    "SelectedLineCount": 245,
+    "TotalLineCount": 2189
+  },
+  "Files": [
+    {
+      "Path": "Client/Internal/MeasurementMapper.cs",
+      "TotalLineCount": 178,
+      "SelectedLineCount": 133,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.Internal.MeasurementMapper",
+        "InfluxDB.Client.Internal.PropertyInfoColumn"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Internal.MeasurementMapper.ToPoint\u003CTM\u003E(TM, InfluxDB.Client.Api.Domain.WritePrecision)",
+          "Kind": "Method",
+          "StartLine": 31,
+          "EndLine": 163,
+          "Code": "\r\n        internal PointData ToPoint\u003CTM\u003E(TM measurement, WritePrecision precision)\r\n        {\r\n            Arguments.CheckNotNull(measurement, nameof(measurement));\r\n            Arguments.CheckNotNull(precision, nameof(precision));\r\n\r\n            var measurementType = measurement.GetType();\r\n            CacheMeasurementClass(measurementType);\r\n\r\n            var measurementAttribute = (Measurement)measurementType.GetCustomAttribute(typeof(Measurement));\r\n            var measurementColumn = CACHE[measurementType.Name].SingleOrDefault(p =\u003E p.Column.IsMeasurement);\r\n\r\n            if (((measurementAttribute == null) ^ (measurementColumn == null)) == false)\r\n            {\r\n                throw new InvalidOperationException(\r\n                    $\u0022Unable to determine Measurement for {measurement}. Does it have a {typeof(Measurement)} or IsMeasurement {typeof(Column)} attribute?\u0022);\r\n            }\r\n\r\n            var measurementName =\r\n                measurementAttribute == null\r\n                    ? (string)measurementColumn.Property.GetValue(measurement)\r\n                    : measurementAttribute.Name;\r\n\r\n            var point = PointData.Measurement(measurementName);\r\n\r\n            foreach (var propertyInfo in CACHE[measurementType.Name])\r\n            {\r\n                if (propertyInfo.Column.IsMeasurement)\r\n                {\r\n                    continue;\r\n                }\r\n\r\n                var value = propertyInfo.Property.GetValue(measurement);\r\n                if (value == null)\r\n                {\r\n                    continue;\r\n                }\r\n\r\n                var name = !string.IsNullOrEmpty(propertyInfo.Column.Name)\r\n                    ? propertyInfo.Column.Name\r\n                    : propertyInfo.Property.Name;\r\n                if (propertyInfo.Column.IsTag)\r\n                {\r\n                    point = point.Tag(name, value.ToString());\r\n                }\r\n                else if (propertyInfo.Column.IsTimestamp)\r\n                {\r\n                    if (value is long l)\r\n                    {\r\n                        point = point.Timestamp(l, precision);\r\n                    }\r\n                    else if (value is TimeSpan span)\r\n                    {\r\n                        point = point.Timestamp(span, precision);\r\n                    }\r\n                    else if (value is DateTime date)\r\n                    {\r\n                        point = point.Timestamp(date, precision);\r\n                    }\r\n                    else if (value is DateTimeOffset offset)\r\n                    {\r\n                        point = point.Timestamp(offset, precision);\r\n                    }\r\n                    else if (value is Instant instant)\r\n                    {\r\n                        point = point.Timestamp(instant, precision);\r\n                    }\r\n                    else\r\n                    {\r\n                        Trace.WriteLine($\u0022{value} is not supported as Timestamp\u0022,\r\n                            InfluxDBTraceFilter.CategoryInfluxError);\r\n                    }\r\n                }\r\n                else\r\n                {\r\n                    if (value is bool b)\r\n                    {\r\n                        point = point.Field(name, b);\r\n                    }\r\n                    else if (value is double d)\r\n                    {\r\n                        point = point.Field(name, d);\r\n                    }\r\n                    else if (value is float f)\r\n                    {\r\n                        point = point.Field(name, f);\r\n                    }\r\n                    else if (value is decimal dec)\r\n                    {\r\n                        point = point.Field(name, dec);\r\n                    }\r\n                    else if (value is long lng)\r\n                    {\r\n                        point = point.Field(name, lng);\r\n                    }\r\n                    else if (value is ulong ulng)\r\n                    {\r\n                        point = point.Field(name, ulng);\r\n                    }\r\n                    else if (value is int i)\r\n                    {\r\n                        point = point.Field(name, i);\r\n                    }\r\n                    else if (value is byte bt)\r\n                    {\r\n                        point = point.Field(name, bt);\r\n                    }\r\n                    else if (value is sbyte sb)\r\n                    {\r\n                        point = point.Field(name, sb);\r\n                    }\r\n                    else if (value is short sh)\r\n                    {\r\n                        point = point.Field(name, sh);\r\n                    }\r\n                    else if (value is uint ui)\r\n                    {\r\n                        point = point.Field(name, ui);\r\n                    }\r\n                    else if (value is ushort us)\r\n                    {\r\n                        point = point.Field(name, us);\r\n                    }\r\n                    else\r\n                    {\r\n                        point = point.Field(name, value.ToString());\r\n                    }\r\n                }\r\n            }\r\n\r\n            return point;\r\n        }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "Client.Test/MeasurementMapperTest.cs",
+      "TotalLineCount": 172,
+      "SelectedLineCount": 33,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.Test.MeasurementMapperTest"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Test.MeasurementMapperTest.ColumnWithoutName()",
+          "Kind": "Method",
+          "StartLine": 45,
+          "EndLine": 63,
+          "Code": "\r\n        [Test]\r\n        public void ColumnWithoutName()\r\n        {\r\n            var poco = new Poco\r\n            {\r\n                Tag = \u0022tag val\u0022,\r\n                Value = 15.444,\r\n                ValueWithoutDefaultName = 20,\r\n                ValueWithEmptyName = 25d,\r\n                Timestamp = TimeSpan.FromDays(10)\r\n            };\r\n\r\n            var lineProtocol = _mapper.ToPoint(poco, WritePrecision.S).ToLineProtocol();\r\n\r\n            Assert.AreEqual(\u0022poco,tag=tag\\\\ val value=15.444,ValueWithEmptyName=25,ValueWithoutDefaultName=20i 864000\u0022,\r\n                lineProtocol);\r\n        }\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.Test.MeasurementMapperTest.DefaultToString()",
+          "Kind": "Method",
+          "StartLine": 63,
+          "EndLine": 77,
+          "Code": "\r\n        [Test]\r\n        public void DefaultToString()\r\n        {\r\n            var poco = new Poco\r\n            {\r\n                Tag = \u0022value\u0022,\r\n                Value = new MyClass()\r\n            };\r\n\r\n            var lineProtocol = _mapper.ToPoint(poco, WritePrecision.S).ToLineProtocol();\r\n\r\n            Assert.AreEqual(\u0022poco,tag=value value=\\\u0022to-string\\\u0022\u0022, lineProtocol);\r\n        }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "Client/Writes/PointData.cs",
+      "TotalLineCount": 718,
+      "SelectedLineCount": 32,
+      "TypeDisplayNames": [],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Writes.PointData.Timestamp(DateTime, InfluxDB.Client.Api.Domain.WritePrecision)",
+          "Kind": "Method",
+          "StartLine": 252,
+          "EndLine": 266,
+          "Code": "        /// \u003Creturns\u003E\u003C/returns\u003E\r\n        public PointData Timestamp(DateTime timestamp, WritePrecision timeUnit)\r\n        {\r\n            var utcTimestamp = timestamp.Kind switch\r\n            {\r\n                DateTimeKind.Local =\u003E timestamp.ToUniversalTime(),\r\n                DateTimeKind.Unspecified =\u003E DateTime.SpecifyKind(timestamp, DateTimeKind.Utc),\r\n                var _ =\u003E timestamp\r\n            };\r\n\r\n            var timeSpan = utcTimestamp.Subtract(EpochStart);\r\n\r\n            return Timestamp(timeSpan, timeUnit);\r\n        }\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.Writes.PointData.Timestamp(DateTimeOffset, InfluxDB.Client.Api.Domain.WritePrecision)",
+          "Kind": "Method",
+          "StartLine": 272,
+          "EndLine": 277,
+          "Code": "        /// \u003Creturns\u003E\u003C/returns\u003E\r\n        public PointData Timestamp(DateTimeOffset timestamp, WritePrecision timeUnit)\r\n        {\r\n            return Timestamp(timestamp.UtcDateTime, timeUnit);\r\n        }\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.Writes.PointData.Timestamp(Instant, InfluxDB.Client.Api.Domain.WritePrecision)",
+          "Kind": "Method",
+          "StartLine": 283,
+          "EndLine": 293,
+          "Code": "        /// \u003Creturns\u003E\u003C/returns\u003E\r\n        public PointData Timestamp(Instant timestamp, WritePrecision timeUnit)\r\n        {\r\n            var time = InstantToBigInteger(timestamp, timeUnit);\r\n            return new PointData(_measurementName,\r\n                timeUnit,\r\n                time,\r\n                _tags,\r\n                _fields);\r\n        }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "Client/WriteApi.cs",
+      "TotalLineCount": 676,
+      "SelectedLineCount": 26,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.BatchWritePoint",
+        "InfluxDB.Client.IWriteApi",
+        "InfluxDB.Client.WriteApi"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.IWriteApi.WriteRecord(string, InfluxDB.Client.Api.Domain.WritePrecision, string, string)",
+          "Kind": "Method",
+          "StartLine": 34,
+          "EndLine": 37,
+          "Code": "        /// \u003Cparam name=\u0022org\u0022\u003Especifies the destination organization for writes. If the org is not specified then is used config from \u003Csee cref=\u0022InfluxDBClientOptions.Org\u0022 /\u003E.\u003C/param\u003E\r\n        void WriteRecord(string record, WritePrecision precision = WritePrecision.Ns, string bucket = null,\r\n            string org = null);\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.WriteApi.WriteRecord(string, InfluxDB.Client.Api.Domain.WritePrecision, string, string)",
+          "Kind": "Method",
+          "StartLine": 376,
+          "EndLine": 383,
+          "Code": "        /// \u003Cparam name=\u0022org\u0022\u003Especifies the destination organization for writes. If the org is not specified then is used config from \u003Csee cref=\u0022InfluxDBClientOptions.Org\u0022 /\u003E.\u003C/param\u003E\r\n        public void WriteRecord(string record, WritePrecision precision = WritePrecision.Ns, string bucket = null,\r\n            string org = null)\r\n        {\r\n            var options = new BatchWriteOptions(bucket ?? _options.Bucket, org ?? _options.Org, precision);\r\n            _subject.OnNext(new BatchWriteRecord(options, record));\r\n        }\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.BatchWritePoint.ToLineProtocol()",
+          "Kind": "Method",
+          "StartLine": 575,
+          "EndLine": 588,
+          "Code": "\r\n        internal override string ToLineProtocol()\r\n        {\r\n            if (!_point.HasFields())\r\n            {\r\n                Trace.WriteLine($\u0022The point: ${_point} doesn\u0027t contains any fields, skipping\u0022,\r\n                    InfluxDBTraceFilter.CategoryInfluxWrite);\r\n\r\n                return null;\r\n            }\r\n\r\n            return _point.ToLineProtocol(_clientOptions.PointSettings);\r\n        }\r\n    }"
+        }
+      ]
+    },
+    {
+      "Path": "Client.Core/Flux/Domain/FluxRecord.cs",
+      "TotalLineCount": 122,
+      "SelectedLineCount": 6,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.Core.Flux.Domain.FluxRecord"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Core.Flux.Domain.FluxRecord.GetValue()",
+          "Kind": "Method",
+          "StartLine": 68,
+          "EndLine": 73,
+          "Code": "        /// \u003Creturns\u003Ethe value of the record\u003C/returns\u003E\r\n        public object GetValue()\r\n        {\r\n            return GetValueByKey(\u0022_value\u0022);\r\n        }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "Client.Core/Flux/Internal/FluxResultMapper.cs",
+      "TotalLineCount": 269,
+      "SelectedLineCount": 6,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.Core.Flux.Internal.FluxResultMapper"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Core.Flux.Internal.FluxResultMapper.ConvertToEntity(InfluxDB.Client.Core.Flux.Domain.FluxRecord, Type)",
+          "Kind": "Method",
+          "StartLine": 44,
+          "EndLine": 49,
+          "Code": "\r\n        public object ConvertToEntity(FluxRecord fluxRecord, Type type)\r\n        {\r\n            return ToPoco(fluxRecord, type);\r\n        }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "Client/Internal/DefaultDomainObjectMapper.cs",
+      "TotalLineCount": 32,
+      "SelectedLineCount": 6,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.Internal.DefaultDomainObjectMapper"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Internal.DefaultDomainObjectMapper.ConvertToPointData\u003CT\u003E(T, InfluxDB.Client.Api.Domain.WritePrecision)",
+          "Kind": "Method",
+          "StartLine": 26,
+          "EndLine": 31,
+          "Code": "\r\n        public PointData ConvertToPointData\u003CT\u003E(T entity, WritePrecision precision)\r\n        {\r\n            return _measurementMapper.ToPoint(entity, precision);\r\n        }\r\n    }"
+        }
+      ]
+    },
+    {
+      "Path": "Client/IDomainObjectMapper.cs",
+      "TotalLineCount": 22,
+      "SelectedLineCount": 3,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.IDomainObjectMapper"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.IDomainObjectMapper.ConvertToPointData\u003CT\u003E(T, InfluxDB.Client.Api.Domain.WritePrecision)",
+          "Kind": "Method",
+          "StartLine": 19,
+          "EndLine": 21,
+          "Code": "        /// \u003Creturns\u003EConverted DataPoint\u003C/returns\u003E\r\n        PointData ConvertToPointData\u003CT\u003E(T entity, WritePrecision precision);\r\n    }"
+        }
+      ]
+    }
+  ]
+}

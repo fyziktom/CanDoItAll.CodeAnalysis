@@ -9,6 +9,7 @@
 5. Execute `SB-26-regression-harness-and-lab-proof`. Completed.
 6. Execute `SB-27-validation-and-comparison-rerun`. Completed.
 7. Execute `SB-28-relation-hinted-focused-walking-and-agent-skill`. Completed.
+8. Execute `SB-29-twenty-scenario-real-world-evaluation-and-tuning`. Completed.
 
 Completed phases `SB-00` through `SB-23` remain part of the trusted foundation unless they are reopened by a later gate.
 
@@ -23,6 +24,7 @@ flowchart TD
     SB24 --> SB27
     SB25 --> SB27
     SB27 --> SB28[SB-28 relation-hinted focused walking and agent skill]
+    SB28 --> SB29[SB-29 twenty-scenario real-world evaluation and tuning]
 ```
 
 ## Critical Subbundles
@@ -37,6 +39,8 @@ flowchart TD
   - Critical closure foundation because this reopen exists specifically to prove the post-implementation position against the same `AppDbContext`, `IClock`, and `CanvasSceneHost` cases.
 - `SB-28-relation-hinted-focused-walking-and-agent-skill`
   - Critical tuning foundation because relation hints become the primary way to ask for seed-plus-related-context walks without overloading agent context on large projects.
+- `SB-29-twenty-scenario-real-world-evaluation-and-tuning`
+  - Critical evidence foundation because scenario breadth must prove whether focused context is useful across realistic prompts rather than only handpicked examples.
 
 ## Phase Gates
 
@@ -47,6 +51,7 @@ flowchart TD
 | SB-26 | SB-24 and SB-25 passed | Repeatable rerun tooling exists, the lab shows the new response metadata, and browser proof passes | Final comparison is not trustworthy if reruns remain ad hoc |
 | SB-27 | SB-24 through SB-26 passed | Build, tests, rerun metrics, and post-implementation comparison agree on the new standing | Closure cannot be trusted without rerunning the exact comparison set that motivated this reopen |
 | SB-28 | SB-24 through SB-27 remain trusted and the relation-hint raw input is modeled | Relation hints narrow helper usages, UI and MCP expose the contract, skill guidance matches the tool, and metrics quantify context savings | This is the next context-saving primitive; weak proof would invalidate the new agent workflow guidance |
+| SB-29 | SB-28 remains trusted and target repositories are confirmed read-only inputs | 20+ scenarios have baseline and after-change scored results, measured improvements are implemented, and external repos remain unchanged | Future tuning needs a wider benchmark instead of one-off manual judgment |
 
 ## Completion note
 
@@ -55,3 +60,5 @@ flowchart TD
 - The reopen closed with one clear residual risk: `AppDbContext` is more intentional but still slightly broader than the previous focused-context pass.
 - The 2026-05-09 reopen added and completed SB-28 for relation-hinted focused walking and agent skill guidance.
 - SB-28 reduced the host `IClock` helper scenario from 20 usage clusters to 1 when the `Workbench` relation hint is supplied, with estimated tokens dropping from 1181 to 821.
+- The latest 2026-05-09 reopen added and completed SB-29 for a 22-scenario real-world evaluation and tuning pass.
+- SB-29 reduced failed scenarios from 9 to 0 and improved average helpfulness from 0.434 to 0.714.

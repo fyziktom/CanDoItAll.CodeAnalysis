@@ -14,8 +14,16 @@ public sealed partial class CodeAnalyticsApplicationService {
             ["component"] = ["ui", "page", "component", "razor", "view", "render", "layout", "web"],
             ["service"] = ["service", "handler", "command", "query", "application"],
             ["domain"] = ["domain", "aggregate", "entity", "value", "model"],
+            ["model"] = ["domain", "aggregate", "entity", "value", "model", "record", "dto"],
             ["infra"] = ["infra", "infrastructure", "storage", "persistence", "hosting", "adapter"],
-            ["test"] = ["test", "spec", "fixture", "mock"],
+            ["client"] = ["client", "api", "http", "request", "response", "options", "configuration", "factory"],
+            ["crypto"] = ["crypto", "decrypt", "decryption", "encrypt", "encryption", "aes", "des", "cipher", "key", "iv"],
+            ["linq"] = ["linq", "queryable", "expression", "provider", "translator"],
+            ["parser"] = ["parse", "parser", "parsing", "reader", "decode", "decoder", "token", "field"],
+            ["protocol"] = ["protocol", "frame", "telegram", "header", "record", "field", "byte", "payload", "parse", "parser"],
+            ["query"] = ["query", "flux", "parser", "result", "record", "table", "response"],
+            ["test"] = ["test", "tests", "spec", "fixture", "mock", "fact", "theory", "assert"],
+            ["write"] = ["write", "writer", "batch", "flush", "retry", "point", "line", "protocol", "options"],
         };
 
     private static IReadOnlyList<string> NormalizeFocusTags(IReadOnlyList<string>? focusTags) {

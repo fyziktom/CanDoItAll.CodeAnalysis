@@ -14,6 +14,8 @@
 - Build, tests, browser proof, and host rerun evidence all passed after the final code changes landed.
 - Reopened on 2026-05-09 for relation-hinted focused walking, host MCP input exposure, agent skill guidance, and quantified context-saving proof.
 - SB-28 completed on 2026-05-09. Relation hints are now part of the standalone engine contract, lab UI, host MCP input model, comparison harness, and CodeAnalytics MCP skill guidance.
+- Reopened again on 2026-05-09 for SB-29: a 20+ scenario real-world evaluation, measured tuning pass, and before/after rerun.
+- SB-29 completed on 2026-05-09. The scenario harness ran 22 simulated prompts across three read-only repositories, implemented measured loader/seed/tag improvements, and reran the exact same scenario set.
 
 ## Subbundle Gate Results
 
@@ -33,6 +35,7 @@
 | SB-26-regression-harness-and-lab-proof | Passed | Passed | Passed | Passed | The rerun path is now tracked under `tools/ComparisonHarness`, the lab shows selection reasons and outline behavior, and browser proof passed |
 | SB-27-validation-and-comparison-rerun | Passed | Passed | Passed | Passed | The same three host scenarios were rerun and written back into the bundle with an explicit before-vs-after judgment |
 | SB-28-relation-hinted-focused-walking-and-agent-skill | Passed | Passed | Passed | Passed | Relation hints narrow high-fan-in helper usage summaries, the lab and MCP wrapper expose the contract, and harness metrics quantify the context savings |
+| SB-29-twenty-scenario-real-world-evaluation-and-tuning | Passed | Passed | Passed | Passed | 22 scenarios ran before and after; failed scenarios dropped from 9 to 0 and average helpfulness improved from 0.434 to 0.714 |
 
 ## Validation commands
 
@@ -43,6 +46,9 @@
 - `dotnet build C:\repositories\CanDoItAll\src\CanDoItAll.Mcp.CodeAnalytics\CanDoItAll.Mcp.CodeAnalytics.csproj -nologo`
 - `dotnet run --project C:\repositories\CanDoItAll.CodeAnalsis\tools\ComparisonHarness\ComparisonHarness.csproj -- C:\repositories\CanDoItAll\CanDoItAll.slnx C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context C:\repositories\CanDoItAll.CodeAnalsis\output\ComparisonHarnessRelationData`
 - `python C:\Users\lucys\.codex\skills\candoitall-bundle-preparation\scripts\validate_bundle.py C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle --profile initiative --stage completed`
+- `dotnet run --project C:\repositories\CanDoItAll.CodeAnalsis\tools\ScenarioEvaluationHarness\ScenarioEvaluationHarness.csproj -- run C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\baseline C:\repositories\CanDoItAll.CodeAnalsis\output\ScenarioEvaluationBaselineSnapshots`
+- `dotnet run --project C:\repositories\CanDoItAll.CodeAnalsis\tools\ScenarioEvaluationHarness\ScenarioEvaluationHarness.csproj -- run C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\after C:\repositories\CanDoItAll.CodeAnalsis\output\ScenarioEvaluationAfterSnapshots`
+- `dotnet run --project C:\repositories\CanDoItAll.CodeAnalsis\tools\ScenarioEvaluationHarness\ScenarioEvaluationHarness.csproj -- compare C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\baseline\scenario-evaluation-summary.json C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\after\scenario-evaluation-summary.json C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation`
 
 ## Browser Validation Analytics
 
@@ -56,6 +62,7 @@
 
 - Detailed write-up: [03-post-implementation-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\03-post-implementation-comparison.md)
 - Relation-hint write-up: [04-relation-hinted-focused-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\04-relation-hinted-focused-context.md)
+- Twenty-scenario write-up: [05-twenty-scenario-evaluation.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\05-twenty-scenario-evaluation.md)
 - Current rerun artifacts:
   - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-summary.json)
   - [focused-context-app-db-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\post-implementation-focused-context\focused-context-app-db-context.md)
@@ -65,6 +72,10 @@
   - [focused-context-summary.json](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context\focused-context-summary.json)
   - [focused-context-i-clock.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context\focused-context-i-clock.md)
   - [focused-context-i-clock-workbench-relation.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\relation-hinted-focused-context\focused-context-i-clock-workbench-relation.md)
+- Twenty-scenario artifacts:
+  - [scenario-evaluation-summary.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\baseline\scenario-evaluation-summary.md)
+  - [scenario-evaluation-summary.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\after\scenario-evaluation-summary.md)
+  - [before-after-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\twenty-scenario-evaluation\before-after-comparison.md)
 
 ## Outcome summary
 
@@ -83,6 +94,10 @@
   - plain `IClock`: `20 usage clusters / 167 callers / 1181 estimated tokens`
   - `IClock` plus `Workbench`: `1 usage cluster / 42 callers / 821 estimated tokens`
   - the helper definition excerpt stayed stable at `6 selected lines / 1 file / 2 blocks`
+- SB-29 real-world scenario evaluation widened the evidence set:
+  - baseline: `22 scenarios / 6 introduction / 9 failed / average helpfulness 0.434`
+  - after: `22 scenarios / 6 introduction / 0 failed / average helpfulness 0.714`
+  - the primary fixed defect was duplicate project paths in MSBuildWorkspace results, which made `influxdb-client-csharp` load as an empty snapshot
 
 ## SharpTools standing
 
@@ -121,6 +136,11 @@
 | Ask for a helper plus related classes or components | Solved | The `IClock` plus `Workbench` harness scenario proves relation-hinted helper narrowing |
 | Combine tool and agent skill as a bundle | Solved | The host MCP input model, coordinator, and CodeAnalytics MCP skill were updated together |
 | Add basic UI and measure results | Solved | `/context-lab` exposes relation hints and the harness records file, line, cluster, caller, character, token, and elapsed metrics |
+| Analyze at least 20 real-world-looking problems | Solved | SB-29 ran 22 scenarios across `MBusParser`, `influxdb-client-csharp`, and `CanDoItAll` |
+| Simulate prompts and standard detail-gathering approach | Solved | Every scenario artifact records the simulated prompt and intended agent approach |
+| Include at least 5 project introduction scenarios | Solved | The suite includes 6 introduction scenarios |
+| Judge helpful and non-useful context | Solved | The harness scores term coverage, file coverage, non-useful file ratio, token budget ratio, and helpfulness |
+| Implement improvements and retest | Solved | Loader dedupe, tag aliases, exact-type seed anchoring, and member-signature seed scoring were implemented and rerun against the same scenarios |
 
 ## Residual risks
 
@@ -128,3 +148,4 @@
 - Current artifact token counts are honest to the current payload because they include selection-reason metadata. That means structural metrics and usefulness still matter more than raw token totals alone.
 - Role classification is still heuristic. The new narrowing avoids obvious false positives from generic `Add*` and `Create*` business methods, but the standing comparison set should remain the guardrail for future changes.
 - Relation hints are still explicit request hints, not a semantic ontology. The skill guidance must keep teaching agents to provide concrete related symbols, components, namespaces, projects, or paths.
+- The remaining poor scenario is a prompt-quality mismatch: `mbus-enum-utils-dif` asks for DIF/VIF usages of `EnumUtils`, but actual usages are in header/parser code. A future skill improvement should tell agents to verify references when relation-hinted context contradicts the prompt assumption.

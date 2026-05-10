@@ -1,0 +1,68 @@
+{
+  "SnapshotId": "snap-20260509225640-c6e27f85",
+  "SearchText": "BcdDateTimeParser",
+  "ProjectName": null,
+  "SearchMode": 0,
+  "AvailableProjects": [
+    "ConsoleApp",
+    "MBus",
+    "Tests"
+  ],
+  "ValidationError": null,
+  "Results": [
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Drivers",
+      "NamespaceName": "MBus.Drivers",
+      "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+      "Line": 9,
+      "DisplayName": "MBus.Drivers.BcdDateTimeParser.Parse(byte[])",
+      "Declaration": "MBus.Drivers.BcdDateTimeParser.Parse(byte[])",
+      "ContainerTypeDisplayName": "MBus.Drivers.BcdDateTimeParser",
+      "TypeId": "type-proj-mbus-mbus-drivers-bcddatetimeparser",
+      "MemberId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-dc9dfd3bf7cf",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Drivers",
+      "NamespaceName": "MBus.Drivers",
+      "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+      "Line": 21,
+      "DisplayName": "MBus.Drivers.BcdDateTimeParser.ParseBcdByte(byte)",
+      "Declaration": "MBus.Drivers.BcdDateTimeParser.ParseBcdByte(byte)",
+      "ContainerTypeDisplayName": "MBus.Drivers.BcdDateTimeParser",
+      "TypeId": "type-proj-mbus-mbus-drivers-bcddatetimeparser",
+      "MemberId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-23a72c88671b",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 0,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Drivers",
+      "NamespaceName": "MBus.Drivers",
+      "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+      "Line": 7,
+      "DisplayName": "MBus.Drivers.BcdDateTimeParser",
+      "Declaration": "class MBus.Drivers.BcdDateTimeParser : MBus.Drivers.IDateTimeParser",
+      "ContainerTypeDisplayName": null,
+      "TypeId": "type-proj-mbus-mbus-drivers-bcddatetimeparser",
+      "MemberId": null,
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    }
+  ]
+}

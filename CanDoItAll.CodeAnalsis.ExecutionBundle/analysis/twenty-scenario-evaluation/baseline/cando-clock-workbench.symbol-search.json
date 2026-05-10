@@ -1,0 +1,760 @@
+{
+  "SnapshotId": "snap-20260509224204-7a3e598f",
+  "SearchText": "IClock",
+  "ProjectName": null,
+  "SearchMode": 0,
+  "AvailableProjects": [
+    "CanDoItAll.AgentFramework.Components",
+    "CanDoItAll.AgentFramework.Core",
+    "CanDoItAll.AgentFramework.Hosting",
+    "CanDoItAll.AgentFramework.Maf",
+    "CanDoItAll.AgentFramework.Models",
+    "CanDoItAll.AgentFramework.Persistence",
+    "CanDoItAll.CodeAnalytics.Abstractions",
+    "CanDoItAll.CodeAnalytics.Analysis",
+    "CanDoItAll.CodeAnalytics.Application",
+    "CanDoItAll.CodeAnalytics.Domain",
+    "CanDoItAll.CodeAnalytics.Facts",
+    "CanDoItAll.CodeAnalytics.Rendering",
+    "CanDoItAll.CodeAnalytics.Storage",
+    "CanDoItAll.CodeAnalytics.Workspace",
+    "CanDoItAll.Components",
+    "CanDoItAll.Components.BaseLib",
+    "CanDoItAll.Components.CanvasLib",
+    "CanDoItAll.Components.Charts",
+    "CanDoItAll.Components.Common",
+    "CanDoItAll.Components.Mermaid",
+    "CanDoItAll.Components.OverlayLib",
+    "CanDoItAll.Components.Sandbox",
+    "CanDoItAll.Components.WebGlLib",
+    "CanDoItAll.Components.WebGlSandbox",
+    "CanDoItAll.Composition",
+    "CanDoItAll.Infrastructure",
+    "CanDoItAll.Manager",
+    "CanDoItAll.Mcp.CodeAnalytics",
+    "CanDoItAll.Mcp.Components",
+    "CanDoItAll.Mcp.Components.Tests",
+    "CanDoItAll.Mcp.Core",
+    "CanDoItAll.Mcp.DotNetWatch",
+    "CanDoItAll.Mcp.DotNetWatch.IntegrationTests",
+    "CanDoItAll.Mcp.DotNetWatch.Tests",
+    "CanDoItAll.Mcp.DotNetWatch.Tray",
+    "CanDoItAll.Mcp.LocalRuntime",
+    "CanDoItAll.Mcp.Mermaid",
+    "CanDoItAll.Mcp.Mermaid.Tests",
+    "CanDoItAll.Mcp.SshOps",
+    "CanDoItAll.Migrations.PostgreSql",
+    "CanDoItAll.Migrations.Sqlite",
+    "CanDoItAll.Modules.Activity",
+    "CanDoItAll.Modules.AgentFramework",
+    "CanDoItAll.Modules.Automation",
+    "CanDoItAll.Modules.Collaboration",
+    "CanDoItAll.Modules.CrmHr",
+    "CanDoItAll.Modules.Factory",
+    "CanDoItAll.Modules.Processes",
+    "CanDoItAll.Modules.Projects",
+    "CanDoItAll.Modules.Prompts",
+    "CanDoItAll.Modules.Resources",
+    "CanDoItAll.Modules.Security",
+    "CanDoItAll.Modules.TestLab",
+    "CanDoItAll.Modules.Validation",
+    "CanDoItAll.Modules.Workbench",
+    "CanDoItAll.Modules.Workspace",
+    "CanDoItAll.ScenarioSeeder",
+    "CanDoItAll.SharedKernel",
+    "CanDoItAll.Space3D.Mouse.Components",
+    "CanDoItAll.Space3D.Mouse.Driver",
+    "CanDoItAll.Space3D.Mouse.Sandbox",
+    "CanDoItAll.Tests.Components",
+    "CanDoItAll.Tests.Integration",
+    "CanDoItAll.Tests.Playwright",
+    "CanDoItAll.Tests.Support",
+    "CanDoItAll.Tests.Unit",
+    "CanDoItAll.Web"
+  ],
+  "ValidationError": null,
+  "Results": [
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.SharedKernel",
+      "ModuleName": "CanDoItAll.SharedKernel",
+      "NamespaceName": "CanDoItAll.SharedKernel",
+      "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+      "Line": 5,
+      "DisplayName": "CanDoItAll.SharedKernel.IClock.GetUtcNow()",
+      "Declaration": "CanDoItAll.SharedKernel.IClock.GetUtcNow()",
+      "ContainerTypeDisplayName": "CanDoItAll.SharedKernel.IClock",
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "MemberId": "member-type-proj-candoitall-sharedkernel-candoitall-shared-d8c5842cdfa6",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 0,
+      "ProjectName": "CanDoItAll.SharedKernel",
+      "ModuleName": "CanDoItAll.SharedKernel",
+      "NamespaceName": "CanDoItAll.SharedKernel",
+      "Path": "src/CanDoItAll.SharedKernel/Time/IClock.cs",
+      "Line": 3,
+      "DisplayName": "CanDoItAll.SharedKernel.IClock",
+      "Declaration": "interface CanDoItAll.SharedKernel.IClock",
+      "ContainerTypeDisplayName": null,
+      "TypeId": "type-proj-candoitall-sharedkernel-candoitall-sharedkernel-iclock",
+      "MemberId": null,
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Infrastructure",
+      "ModuleName": "CanDoItAll.Infrastructure.BackgroundJobs",
+      "NamespaceName": "CanDoItAll.Infrastructure.BackgroundJobs",
+      "Path": "src/CanDoItAll.Infrastructure/BackgroundJobs/BackgroundJobs.cs",
+      "Line": 125,
+      "DisplayName": "CanDoItAll.Infrastructure.BackgroundJobs.BackgroundJobTracker.BackgroundJobTracker(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Infrastructure.BackgroundJobs.IBackgroundJobQueue, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Infrastructure.BackgroundJobs.BackgroundJobTracker.BackgroundJobTracker(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Infrastructure.BackgroundJobs.IBackgroundJobQueue, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Infrastructure.BackgroundJobs.BackgroundJobTracker",
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-255181bab12f",
+      "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-05068b175cfa",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Infrastructure",
+      "ModuleName": "CanDoItAll.Infrastructure.ControlPlane",
+      "NamespaceName": "CanDoItAll.Infrastructure.ControlPlane",
+      "Path": "src/CanDoItAll.Infrastructure/ControlPlane/DatabaseProfileControlPlaneService.cs",
+      "Line": 26,
+      "DisplayName": "CanDoItAll.Infrastructure.ControlPlane.DatabaseProfileControlPlaneService.DatabaseProfileControlPlaneService(Microsoft.Extensions.Configuration.IConfiguration, Microsoft.Extensions.Options.IOptions\u003CCanDoItAll.Infrastructure.Configuration.StorageOptions\u003E, Microsoft.Extensions.Hosting.IHostEnvironment, CanDoItAll.Infrastructure.ControlPlane.IControlPlanePathResolver, CanDoItAll.Infrastructure.ControlPlane.IControlPlaneSecretProtector, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.ControlPlane.DatabaseProfileControlPlaneService\u003E)",
+      "Declaration": "CanDoItAll.Infrastructure.ControlPlane.DatabaseProfileControlPlaneService.DatabaseProfileControlPlaneService(Microsoft.Extensions.Configuration.IConfiguration, Microsoft.Extensions.Options.IOptions\u003CCanDoItAll.Infrastructure.Configuration.StorageOptions\u003E, Microsoft.Extensions.Hosting.IHostEnvironment, CanDoItAll.Infrastructure.ControlPlane.IControlPlanePathResolver, CanDoItAll.Infrastructure.ControlPlane.IControlPlaneSecretProtector, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.ControlPlane.DatabaseProfileControlPlaneService\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Infrastructure.ControlPlane.DatabaseProfileControlPlaneService",
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-ead7fe748464",
+      "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-973857fb3b52",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Infrastructure",
+      "ModuleName": "CanDoItAll.Infrastructure.ControlPlane",
+      "NamespaceName": "CanDoItAll.Infrastructure.ControlPlane",
+      "Path": "src/CanDoItAll.Infrastructure/ControlPlane/DatabaseSnapshots.cs",
+      "Line": 126,
+      "DisplayName": "CanDoItAll.Infrastructure.ControlPlane.DatabaseSnapshotService.DatabaseSnapshotService(CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileRuntimeAccessor, CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileService, CanDoItAll.Infrastructure.ControlPlane.IAppDatabaseBootstrapper, CanDoItAll.Infrastructure.Persistence.ISwitchableAppDbContextFactory, CanDoItAll.Infrastructure.ControlPlane.IControlPlanePathResolver, CanDoItAll.Infrastructure.Storage.IStorageTransferPipeline, Microsoft.Extensions.Options.IOptions\u003CCanDoItAll.Infrastructure.Configuration.ControlPlaneOptions\u003E, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.ControlPlane.DatabaseSnapshotService\u003E)",
+      "Declaration": "CanDoItAll.Infrastructure.ControlPlane.DatabaseSnapshotService.DatabaseSnapshotService(CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileRuntimeAccessor, CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileService, CanDoItAll.Infrastructure.ControlPlane.IAppDatabaseBootstrapper, CanDoItAll.Infrastructure.Persistence.ISwitchableAppDbContextFactory, CanDoItAll.Infrastructure.ControlPlane.IControlPlanePathResolver, CanDoItAll.Infrastructure.Storage.IStorageTransferPipeline, Microsoft.Extensions.Options.IOptions\u003CCanDoItAll.Infrastructure.Configuration.ControlPlaneOptions\u003E, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Infrastructure.ControlPlane.DatabaseSnapshotService\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Infrastructure.ControlPlane.DatabaseSnapshotService",
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-91e0f286db84",
+      "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-158cdc3c283d",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Infrastructure",
+      "ModuleName": "CanDoItAll.Infrastructure.Search",
+      "NamespaceName": "CanDoItAll.Infrastructure.Search",
+      "Path": "src/CanDoItAll.Infrastructure/Search/SearchIndexing.cs",
+      "Line": 85,
+      "DisplayName": "CanDoItAll.Infrastructure.Search.SearchIndexService.SearchIndexService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Infrastructure.Search.SearchIndexService.SearchIndexService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Infrastructure.Search.SearchIndexService",
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-5e3e3d6e4ebe",
+      "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-f328a7d146a7",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Infrastructure",
+      "ModuleName": "CanDoItAll.Infrastructure.Storage",
+      "NamespaceName": "CanDoItAll.Infrastructure.Storage",
+      "Path": "src/CanDoItAll.Infrastructure/Storage/Persistence/StorageCatalogService.cs",
+      "Line": 7,
+      "DisplayName": "CanDoItAll.Infrastructure.Storage.StorageCatalogService.StorageCatalogService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Infrastructure.Storage.IWorkspacePathResolver, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Infrastructure.Storage.StorageCatalogService.StorageCatalogService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Infrastructure.Storage.IWorkspacePathResolver, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Infrastructure.Storage.StorageCatalogService",
+      "TypeId": "type-proj-candoitall-infrastructure-candoitall-infrastru-46fd56667623",
+      "MemberId": "member-type-proj-candoitall-infrastructure-candoitall-infr-a7d826582d72",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Activity",
+      "ModuleName": "CanDoItAll.Modules.Activity",
+      "NamespaceName": "CanDoItAll.Modules.Activity",
+      "Path": "src/CanDoItAll.Modules.Activity/ActivityModels.cs",
+      "Line": 77,
+      "DisplayName": "CanDoItAll.Modules.Activity.ActivityService.ActivityService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Infrastructure.Search.ISearchIndexService, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Activity.ActivityService\u003E)",
+      "Declaration": "CanDoItAll.Modules.Activity.ActivityService.ActivityService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Infrastructure.Search.ISearchIndexService, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Activity.ActivityService\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Activity.ActivityService",
+      "TypeId": "type-proj-candoitall-modules-activity-candoitall-modules-bc9161cb1aeb",
+      "MemberId": "member-type-proj-candoitall-modules-activity-candoitall-mo-45b61bc4b591",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.AgentFramework",
+      "ModuleName": "CanDoItAll.Modules.AgentFramework",
+      "NamespaceName": "CanDoItAll.Modules.AgentFramework",
+      "Path": "src/CanDoItAll.Modules.AgentFramework/Bridge/AgentFrameworkAiTechnicalAgentBridge.cs",
+      "Line": 11,
+      "DisplayName": "CanDoItAll.Modules.AgentFramework.AgentFrameworkAiTechnicalAgentBridge.AgentFrameworkAiTechnicalAgentBridge(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.AgentFramework.ICanDoItAllAgentWorkspaceFactory, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.AgentFramework.AgentFrameworkAiTechnicalAgentBridge.AgentFrameworkAiTechnicalAgentBridge(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.AgentFramework.ICanDoItAllAgentWorkspaceFactory, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.AgentFramework.AgentFrameworkAiTechnicalAgentBridge",
+      "TypeId": "type-proj-candoitall-modules-agentframework-candoitall-m-96e70708f510",
+      "MemberId": "member-type-proj-candoitall-modules-agentframework-candoit-a71595382e8c",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Automation",
+      "ModuleName": "CanDoItAll.Modules.Automation",
+      "NamespaceName": "CanDoItAll.Modules.Automation",
+      "Path": "src/CanDoItAll.Modules.Automation/Services/AutomationMessagingServices.cs",
+      "Line": 156,
+      "DisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher.AutomationMessageDispatcher(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Automation.AutomationSubscriptionRegistry, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Options.IOptions\u003CCanDoItAll.Modules.Automation.AutomationRuntimeOptions\u003E, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher)",
+      "Declaration": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher.AutomationMessageDispatcher(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Automation.AutomationSubscriptionRegistry, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Options.IOptions\u003CCanDoItAll.Modules.Automation.AutomationRuntimeOptions\u003E, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Automation.AutomationMessageDispatcher",
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-77ba4ca1d4a3",
+      "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-8e7fb441e0b4",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Automation",
+      "ModuleName": "CanDoItAll.Modules.Automation",
+      "NamespaceName": "CanDoItAll.Modules.Automation",
+      "Path": "src/CanDoItAll.Modules.Automation/Services/AutomationMessagingServices.cs",
+      "Line": 29,
+      "DisplayName": "CanDoItAll.Modules.Automation.AutomationMessagePublisher.AutomationMessagePublisher(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Automation.AutomationSubscriptionRegistry, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher)",
+      "Declaration": "CanDoItAll.Modules.Automation.AutomationMessagePublisher.AutomationMessagePublisher(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Automation.AutomationSubscriptionRegistry, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Automation.AutomationMessagePublisher",
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-770799163fc7",
+      "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-4d459de139f1",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Automation",
+      "ModuleName": "CanDoItAll.Modules.Automation",
+      "NamespaceName": "CanDoItAll.Modules.Automation",
+      "Path": "src/CanDoItAll.Modules.Automation/Services/AutomationTelemetryServices.cs",
+      "Line": 16,
+      "DisplayName": "CanDoItAll.Modules.Automation.AutomationTelemetryPublisher.AutomationTelemetryPublisher(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, System.Collections.Generic.IEnumerable\u003CCanDoItAll.Modules.Automation.IAutomationTelemetryBridge\u003E)",
+      "Declaration": "CanDoItAll.Modules.Automation.AutomationTelemetryPublisher.AutomationTelemetryPublisher(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, System.Collections.Generic.IEnumerable\u003CCanDoItAll.Modules.Automation.IAutomationTelemetryBridge\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Automation.AutomationTelemetryPublisher",
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-1b3497f41f78",
+      "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-7293671b61a4",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Automation",
+      "ModuleName": "CanDoItAll.Modules.Automation",
+      "NamespaceName": "CanDoItAll.Modules.Automation",
+      "Path": "src/CanDoItAll.Modules.Automation/Triggers/AutomationTriggering.cs",
+      "Line": 301,
+      "DisplayName": "CanDoItAll.Modules.Automation.AutomationTriggerQuartzJob.AutomationTriggerQuartzJob(CanDoItAll.Modules.Automation.IAutomationMessagePublisher, Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.Automation.AutomationTriggerQuartzJob.AutomationTriggerQuartzJob(CanDoItAll.Modules.Automation.IAutomationMessagePublisher, Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Automation.AutomationTriggerQuartzJob",
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-12e45a668fc1",
+      "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-d25603a79e2d",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Automation",
+      "ModuleName": "CanDoItAll.Modules.Automation",
+      "NamespaceName": "CanDoItAll.Modules.Automation",
+      "Path": "src/CanDoItAll.Modules.Automation/Triggers/AutomationTriggering.cs",
+      "Line": 10,
+      "DisplayName": "CanDoItAll.Modules.Automation.AutomationTriggerRegistry.AutomationTriggerRegistry(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Automation.QuartzAutomationSchedulerBridge, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.Automation.AutomationTriggerRegistry.AutomationTriggerRegistry(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Automation.QuartzAutomationSchedulerBridge, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Automation.AutomationTriggerRegistry",
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-14b7e577ea13",
+      "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-521a4d917a16",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Automation",
+      "ModuleName": "CanDoItAll.Modules.Automation",
+      "NamespaceName": "CanDoItAll.Modules.Automation",
+      "Path": "src/CanDoItAll.Modules.Automation/Services/AutomationIngressService.cs",
+      "Line": 7,
+      "DisplayName": "CanDoItAll.Modules.Automation.PluginIngressInbox.PluginIngressInbox(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, System.Collections.Generic.IEnumerable\u003CCanDoItAll.Modules.Automation.IPluginIngressMaterializer\u003E, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.Automation.PluginIngressInbox.PluginIngressInbox(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, System.Collections.Generic.IEnumerable\u003CCanDoItAll.Modules.Automation.IPluginIngressMaterializer\u003E, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Automation.PluginIngressInbox",
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-ec1c43f8e1f2",
+      "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-7687c2eea5a2",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Automation",
+      "ModuleName": "CanDoItAll.Modules.Automation",
+      "NamespaceName": "CanDoItAll.Modules.Automation",
+      "Path": "src/CanDoItAll.Modules.Automation/Triggers/AutomationTriggering.cs",
+      "Line": 134,
+      "DisplayName": "CanDoItAll.Modules.Automation.QuartzAutomationSchedulerBridge.QuartzAutomationSchedulerBridge(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, Quartz.ISchedulerFactory, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher)",
+      "Declaration": "CanDoItAll.Modules.Automation.QuartzAutomationSchedulerBridge.QuartzAutomationSchedulerBridge(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, Quartz.ISchedulerFactory, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Automation.IAutomationTelemetryPublisher)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Automation.QuartzAutomationSchedulerBridge",
+      "TypeId": "type-proj-candoitall-modules-automation-candoitall-modul-945dd761f1a0",
+      "MemberId": "member-type-proj-candoitall-modules-automation-candoitall-97068b274b4a",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Collaboration",
+      "ModuleName": "CanDoItAll.Modules.Collaboration",
+      "NamespaceName": "CanDoItAll.Modules.Collaboration",
+      "Path": "src/CanDoItAll.Modules.Collaboration/CollaborationService.cs",
+      "Line": 8,
+      "DisplayName": "CanDoItAll.Modules.Collaboration.CollaborationService.CollaborationService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Collaboration.CollaborationService\u003E)",
+      "Declaration": "CanDoItAll.Modules.Collaboration.CollaborationService.CollaborationService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Collaboration.CollaborationService\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Collaboration.CollaborationService",
+      "TypeId": "type-proj-candoitall-modules-collaboration-candoitall-mo-e558b3c082cd",
+      "MemberId": "member-type-proj-candoitall-modules-collaboration-candoita-0499213d6f8d",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.CrmHr",
+      "ModuleName": "CanDoItAll.Modules.CrmHr",
+      "NamespaceName": "CanDoItAll.Modules.CrmHr",
+      "Path": "src/CanDoItAll.Modules.CrmHr/Services/CrmHrServices.cs",
+      "Line": 3851,
+      "DisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService.AiAgentService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.CrmHr.PartyDirectoryService, CanDoItAll.Modules.CrmHr.IAiTechnicalAgentBridge)",
+      "Declaration": "CanDoItAll.Modules.CrmHr.AiAgentService.AiAgentService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.CrmHr.PartyDirectoryService, CanDoItAll.Modules.CrmHr.IAiTechnicalAgentBridge)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.CrmHr.AiAgentService",
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-2bd0efdb66cf",
+      "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-f7b8fd9a0203",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.CrmHr",
+      "ModuleName": "CanDoItAll.Modules.CrmHr",
+      "NamespaceName": "CanDoItAll.Modules.CrmHr",
+      "Path": "src/CanDoItAll.Modules.CrmHr/Automation/CrmHrAutomationSignals.cs",
+      "Line": 7,
+      "DisplayName": "CanDoItAll.Modules.CrmHr.CrmHrAutomationSignalProvider.CrmHrAutomationSignalProvider(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.CrmHr.CrmHrAutomationSignalProvider.CrmHrAutomationSignalProvider(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.CrmHr.CrmHrAutomationSignalProvider",
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-712915a70d45",
+      "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-8e988d122f4b",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.CrmHr",
+      "ModuleName": "CanDoItAll.Modules.CrmHr",
+      "NamespaceName": "CanDoItAll.Modules.CrmHr",
+      "Path": "src/CanDoItAll.Modules.CrmHr/Services/CrmHrServices.cs",
+      "Line": 1088,
+      "DisplayName": "CanDoItAll.Modules.CrmHr.CrmService.CrmService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.Projects.ProjectsService, CanDoItAll.Modules.Projects.IProjectPartyIntegrationBridge)",
+      "Declaration": "CanDoItAll.Modules.CrmHr.CrmService.CrmService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.Projects.ProjectsService, CanDoItAll.Modules.Projects.IProjectPartyIntegrationBridge)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.CrmHr.CrmService",
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-afebc28f2e07",
+      "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-6ed3b9466811",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.CrmHr",
+      "ModuleName": "CanDoItAll.Modules.CrmHr",
+      "NamespaceName": "CanDoItAll.Modules.CrmHr",
+      "Path": "src/CanDoItAll.Modules.CrmHr/Services/CrmHrServices.cs",
+      "Line": 2653,
+      "DisplayName": "CanDoItAll.Modules.CrmHr.HrService.HrService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "Declaration": "CanDoItAll.Modules.CrmHr.HrService.HrService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.CrmHr.HrService",
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-crmhr-hrservice",
+      "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-817ebcf89ef6",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.CrmHr",
+      "ModuleName": "CanDoItAll.Modules.CrmHr",
+      "NamespaceName": "CanDoItAll.Modules.CrmHr",
+      "Path": "src/CanDoItAll.Modules.CrmHr/Agents/AiTechnicalAgentBridge.cs",
+      "Line": 119,
+      "DisplayName": "CanDoItAll.Modules.CrmHr.LegacyAiTechnicalAgentBridge.LegacyAiTechnicalAgentBridge(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.CrmHr.LegacyAiTechnicalAgentBridge.LegacyAiTechnicalAgentBridge(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.CrmHr.LegacyAiTechnicalAgentBridge",
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-c90df4cbf57c",
+      "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-65903be7b2d8",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.CrmHr",
+      "ModuleName": "CanDoItAll.Modules.CrmHr",
+      "NamespaceName": "CanDoItAll.Modules.CrmHr",
+      "Path": "src/CanDoItAll.Modules.CrmHr/Services/PartyDirectoryManagementService.cs",
+      "Line": 10,
+      "DisplayName": "CanDoItAll.Modules.CrmHr.PartyDirectoryManagementService.PartyDirectoryManagementService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.CrmHr.PartyDirectoryService)",
+      "Declaration": "CanDoItAll.Modules.CrmHr.PartyDirectoryManagementService.PartyDirectoryManagementService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.CrmHr.PartyDirectoryService)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.CrmHr.PartyDirectoryManagementService",
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-e8819f7482bb",
+      "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-55af3c4747cf",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.CrmHr",
+      "ModuleName": "CanDoItAll.Modules.CrmHr",
+      "NamespaceName": "CanDoItAll.Modules.CrmHr",
+      "Path": "src/CanDoItAll.Modules.CrmHr/Services/CrmHrServices.cs",
+      "Line": 665,
+      "DisplayName": "CanDoItAll.Modules.CrmHr.PartyDirectoryService.PartyDirectoryService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "Declaration": "CanDoItAll.Modules.CrmHr.PartyDirectoryService.PartyDirectoryService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.CrmHr.PartyDirectoryService",
+      "TypeId": "type-proj-candoitall-modules-crmhr-candoitall-modules-cr-8cad2654f691",
+      "MemberId": "member-type-proj-candoitall-modules-crmhr-candoitall-modul-220e84e1b84e",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Factory",
+      "ModuleName": "CanDoItAll.Modules.Factory",
+      "NamespaceName": "CanDoItAll.Modules.Factory",
+      "Path": "src/CanDoItAll.Modules.Factory/PromptFactoryService.cs",
+      "Line": 27,
+      "DisplayName": "CanDoItAll.Modules.Factory.PromptFactoryService.PromptFactoryService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Projects.ProjectsService, CanDoItAll.Modules.Resources.ResourcesService, CanDoItAll.Modules.Workspace.WorkspaceService, CanDoItAll.Modules.Workspace.ProviderExecutionService, CanDoItAll.Modules.Prompts.PromptsService, CanDoItAll.Infrastructure.Storage.IStoragePlacementService, CanDoItAll.Modules.Factory.PromptLibraryPackLoader, CanDoItAll.Infrastructure.BackgroundJobs.IBackgroundJobTracker, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.Factory.PromptFactoryService.PromptFactoryService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Projects.ProjectsService, CanDoItAll.Modules.Resources.ResourcesService, CanDoItAll.Modules.Workspace.WorkspaceService, CanDoItAll.Modules.Workspace.ProviderExecutionService, CanDoItAll.Modules.Prompts.PromptsService, CanDoItAll.Infrastructure.Storage.IStoragePlacementService, CanDoItAll.Modules.Factory.PromptLibraryPackLoader, CanDoItAll.Infrastructure.BackgroundJobs.IBackgroundJobTracker, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Factory.PromptFactoryService",
+      "TypeId": "type-proj-candoitall-modules-factory-candoitall-modules-51ed38609f0c",
+      "MemberId": "member-type-proj-candoitall-modules-factory-candoitall-mod-93d332dc573f",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Processes",
+      "ModuleName": "CanDoItAll.Modules.Processes",
+      "NamespaceName": "CanDoItAll.Modules.Processes",
+      "Path": "src/CanDoItAll.Modules.Processes/Runtime/ProcessOperatorControlPlane.cs",
+      "Line": 255,
+      "DisplayName": "CanDoItAll.Modules.Processes.ProcessEscalationService.ProcessEscalationService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Processes.ProcessesService)",
+      "Declaration": "CanDoItAll.Modules.Processes.ProcessEscalationService.ProcessEscalationService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Processes.ProcessesService)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Processes.ProcessEscalationService",
+      "TypeId": "type-proj-candoitall-modules-processes-candoitall-module-bc0530c41388",
+      "MemberId": "member-type-proj-candoitall-modules-processes-candoitall-m-39032801d921",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Processes",
+      "ModuleName": "CanDoItAll.Modules.Processes",
+      "NamespaceName": "CanDoItAll.Modules.Processes",
+      "Path": "src/CanDoItAll.Modules.Processes/Runtime/ProcessOutbox.cs",
+      "Line": 105,
+      "DisplayName": "CanDoItAll.Modules.Processes.ProcessOutboxService.ProcessOutboxService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.Processes.IProcessRunAutomationDispatchService, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Processes.ProcessOutboxService\u003E)",
+      "Declaration": "CanDoItAll.Modules.Processes.ProcessOutboxService.ProcessOutboxService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.Processes.IProcessRunAutomationDispatchService, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Processes.ProcessOutboxService\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Processes.ProcessOutboxService",
+      "TypeId": "type-proj-candoitall-modules-processes-candoitall-module-ccb7474e2b8f",
+      "MemberId": "member-type-proj-candoitall-modules-processes-candoitall-m-9f153820f876",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Processes",
+      "ModuleName": "CanDoItAll.Modules.Processes",
+      "NamespaceName": "CanDoItAll.Modules.Processes",
+      "Path": "src/CanDoItAll.Modules.Processes/Automation/Dispatch/ProcessRunAutomationDispatchService.cs",
+      "Line": 33,
+      "DisplayName": "CanDoItAll.Modules.Processes.ProcessRunAutomationDispatchService.ProcessRunAutomationDispatchService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, Microsoft.Extensions.DependencyInjection.IServiceScopeFactory, CanDoItAll.Modules.CrmHr.IAiTechnicalAgentBridge, CanDoItAll.AgentFramework.Core.IAgentFrameworkWorkspaceService, CanDoItAll.Infrastructure.Storage.IStoragePlacementService, CanDoItAll.Infrastructure.Storage.IWorkspacePathResolver, CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileRuntimeAccessor, Microsoft.Extensions.Options.IOptions\u003CCanDoItAll.Modules.Processes.ProcessRuntimeOptions\u003E, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Processes.ProcessRunAutomationDispatchService\u003E)",
+      "Declaration": "CanDoItAll.Modules.Processes.ProcessRunAutomationDispatchService.ProcessRunAutomationDispatchService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, Microsoft.Extensions.DependencyInjection.IServiceScopeFactory, CanDoItAll.Modules.CrmHr.IAiTechnicalAgentBridge, CanDoItAll.AgentFramework.Core.IAgentFrameworkWorkspaceService, CanDoItAll.Infrastructure.Storage.IStoragePlacementService, CanDoItAll.Infrastructure.Storage.IWorkspacePathResolver, CanDoItAll.Infrastructure.ControlPlane.IDatabaseProfileRuntimeAccessor, Microsoft.Extensions.Options.IOptions\u003CCanDoItAll.Modules.Processes.ProcessRuntimeOptions\u003E, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Processes.ProcessRunAutomationDispatchService\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Processes.ProcessRunAutomationDispatchService",
+      "TypeId": "type-proj-candoitall-modules-processes-candoitall-module-98987e09bf3a",
+      "MemberId": "member-type-proj-candoitall-modules-processes-candoitall-m-db455e9aef4d",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Processes",
+      "ModuleName": "CanDoItAll.Modules.Processes",
+      "NamespaceName": "CanDoItAll.Modules.Processes",
+      "Path": "src/CanDoItAll.Modules.Processes/Automation/Recovery/ProcessRunRecoveryWorker.cs",
+      "Line": 12,
+      "DisplayName": "CanDoItAll.Modules.Processes.ProcessRunRecoveryService.ProcessRunRecoveryService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Processes.ProcessOutboxService, CanDoItAll.AgentFramework.Core.IAgentFrameworkWorkspaceService, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Processes.ProcessRunRecoveryService\u003E)",
+      "Declaration": "CanDoItAll.Modules.Processes.ProcessRunRecoveryService.ProcessRunRecoveryService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Processes.ProcessOutboxService, CanDoItAll.AgentFramework.Core.IAgentFrameworkWorkspaceService, CanDoItAll.SharedKernel.IClock, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Processes.ProcessRunRecoveryService\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Processes.ProcessRunRecoveryService",
+      "TypeId": "type-proj-candoitall-modules-processes-candoitall-module-ddf1578dd63e",
+      "MemberId": "member-type-proj-candoitall-modules-processes-candoitall-m-5e2bacdea2e2",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Processes",
+      "ModuleName": "CanDoItAll.Modules.Processes",
+      "NamespaceName": "CanDoItAll.Modules.Processes",
+      "Path": "src/CanDoItAll.Modules.Processes/Runtime/ProcessRuntimeSession.cs",
+      "Line": 7,
+      "DisplayName": "CanDoItAll.Modules.Processes.ProcessRuntimeSession.ProcessRuntimeSession(CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.Processes.ProcessRuntimeSession.ProcessRuntimeSession(CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Processes.ProcessRuntimeSession",
+      "TypeId": "type-proj-candoitall-modules-processes-candoitall-module-160ae56fa43a",
+      "MemberId": "member-type-proj-candoitall-modules-processes-candoitall-m-819dbd665630",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Processes",
+      "ModuleName": "CanDoItAll.Modules.Processes",
+      "NamespaceName": "CanDoItAll.Modules.Processes",
+      "Path": "src/CanDoItAll.Modules.Processes/Services/ProcessesService.cs",
+      "Line": 11,
+      "DisplayName": "CanDoItAll.Modules.Processes.ProcessesService.ProcessesService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Processes.ProcessOutboxService, CanDoItAll.Modules.Processes.IProcessDefinitionListQueryService, CanDoItAll.Modules.Processes.IProcessRuntimeReadQueryService, CanDoItAll.Modules.Projects.IProjectPartyIntegrationBridge, CanDoItAll.Modules.Processes.IProcessExecutorRegistryBridge, CanDoItAll.Modules.Processes.IProcessProjectStructureBridge, CanDoItAll.Modules.CrmHr.HrService, CanDoItAll.Modules.CrmHr.AiAgentService, CanDoItAll.Modules.Collaboration.CollaborationService, CanDoItAll.Modules.Processes.IProcessObservationInvalidator, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Processes.ProcessesService\u003E)",
+      "Declaration": "CanDoItAll.Modules.Processes.ProcessesService.ProcessesService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.Modules.Processes.ProcessOutboxService, CanDoItAll.Modules.Processes.IProcessDefinitionListQueryService, CanDoItAll.Modules.Processes.IProcessRuntimeReadQueryService, CanDoItAll.Modules.Projects.IProjectPartyIntegrationBridge, CanDoItAll.Modules.Processes.IProcessExecutorRegistryBridge, CanDoItAll.Modules.Processes.IProcessProjectStructureBridge, CanDoItAll.Modules.CrmHr.HrService, CanDoItAll.Modules.CrmHr.AiAgentService, CanDoItAll.Modules.Collaboration.CollaborationService, CanDoItAll.Modules.Processes.IProcessObservationInvalidator, Microsoft.Extensions.Logging.ILogger\u003CCanDoItAll.Modules.Processes.ProcessesService\u003E)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Processes.ProcessesService",
+      "TypeId": "type-proj-candoitall-modules-processes-candoitall-module-1b6046fb8e13",
+      "MemberId": "member-type-proj-candoitall-modules-processes-candoitall-m-46f5ddf548b5",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Projects",
+      "ModuleName": "CanDoItAll.Modules.Projects",
+      "NamespaceName": "CanDoItAll.Modules.Projects",
+      "Path": "src/CanDoItAll.Modules.Projects/ProjectModels.cs",
+      "Line": 230,
+      "DisplayName": "CanDoItAll.Modules.Projects.ProjectsService.ProjectsService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.Projects.IProjectPartyIntegrationBridge)",
+      "Declaration": "CanDoItAll.Modules.Projects.ProjectsService.ProjectsService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.Projects.IProjectPartyIntegrationBridge)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Projects.ProjectsService",
+      "TypeId": "type-proj-candoitall-modules-projects-candoitall-modules-9ce8cbe8074f",
+      "MemberId": "member-type-proj-candoitall-modules-projects-candoitall-mo-108484002d52",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Prompts",
+      "ModuleName": "CanDoItAll.Modules.Prompts",
+      "NamespaceName": "CanDoItAll.Modules.Prompts",
+      "Path": "src/CanDoItAll.Modules.Prompts/PromptModels.cs",
+      "Line": 216,
+      "DisplayName": "CanDoItAll.Modules.Prompts.PromptsService.PromptsService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "Declaration": "CanDoItAll.Modules.Prompts.PromptsService.PromptsService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Prompts.PromptsService",
+      "TypeId": "type-proj-candoitall-modules-prompts-candoitall-modules-b3b5cfc3a2d1",
+      "MemberId": "member-type-proj-candoitall-modules-prompts-candoitall-mod-a840fd176892",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Resources",
+      "ModuleName": "CanDoItAll.Modules.Resources",
+      "NamespaceName": "CanDoItAll.Modules.Resources",
+      "Path": "src/CanDoItAll.Modules.Resources/ResourceModels.cs",
+      "Line": 172,
+      "DisplayName": "CanDoItAll.Modules.Resources.ResourcesService.ResourcesService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.Resources.ResourceConnectorPluginRegistry)",
+      "Declaration": "CanDoItAll.Modules.Resources.ResourcesService.ResourcesService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService, CanDoItAll.Modules.Resources.ResourceConnectorPluginRegistry)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Resources.ResourcesService",
+      "TypeId": "type-proj-candoitall-modules-resources-candoitall-module-10c2514321d5",
+      "MemberId": "member-type-proj-candoitall-modules-resources-candoitall-m-0ef2c34dc85e",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Security",
+      "ModuleName": "CanDoItAll.Modules.Security",
+      "NamespaceName": "CanDoItAll.Modules.Security",
+      "Path": "src/CanDoItAll.Modules.Security/SecurityModels.cs",
+      "Line": 114,
+      "DisplayName": "CanDoItAll.Modules.Security.SecretService.SecretService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Security.ISecretProtector, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream)",
+      "Declaration": "CanDoItAll.Modules.Security.SecretService.SecretService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.Modules.Security.ISecretProtector, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Security.SecretService",
+      "TypeId": "type-proj-candoitall-modules-security-candoitall-modules-15624e31ee6b",
+      "MemberId": "member-type-proj-candoitall-modules-security-candoitall-mo-5cb5bd2f54d6",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.TestLab",
+      "ModuleName": "CanDoItAll.Modules.TestLab",
+      "NamespaceName": "CanDoItAll.Modules.TestLab",
+      "Path": "src/CanDoItAll.Modules.TestLab/TestLabModels.cs",
+      "Line": 216,
+      "DisplayName": "CanDoItAll.Modules.TestLab.TestLabService.TestLabService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "Declaration": "CanDoItAll.Modules.TestLab.TestLabService.TestLabService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.TestLab.TestLabService",
+      "TypeId": "type-proj-candoitall-modules-testlab-candoitall-modules-af1909bb1ff2",
+      "MemberId": "member-type-proj-candoitall-modules-testlab-candoitall-mod-a2615e347b47",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Validation",
+      "ModuleName": "CanDoItAll.Modules.Validation",
+      "NamespaceName": "CanDoItAll.Modules.Validation",
+      "Path": "src/CanDoItAll.Modules.Validation/ValidationModels.cs",
+      "Line": 188,
+      "DisplayName": "CanDoItAll.Modules.Validation.ValidationService.ValidationService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "Declaration": "CanDoItAll.Modules.Validation.ValidationService.ValidationService(Microsoft.EntityFrameworkCore.IDbContextFactory\u003CCanDoItAll.Infrastructure.Persistence.AppDbContext\u003E, CanDoItAll.SharedKernel.IClock, CanDoItAll.SharedKernel.IActivityStream, CanDoItAll.Infrastructure.Search.ISearchIndexService)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Validation.ValidationService",
+      "TypeId": "type-proj-candoitall-modules-validation-candoitall-modul-86d973a9dd35",
+      "MemberId": "member-type-proj-candoitall-modules-validation-candoitall-dfcd5dac3089",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Workbench",
+      "ModuleName": "CanDoItAll.Modules.Workbench",
+      "NamespaceName": "CanDoItAll.Modules.Workbench",
+      "Path": "src/CanDoItAll.Modules.Workbench/Workbench/ProjectWorkbenchCrossModuleMutations.cs",
+      "Line": 74,
+      "DisplayName": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator.ProjectCrossModuleMutationCoordinator(CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator.ProjectCrossModuleMutationCoordinator(CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Workbench.ProjectCrossModuleMutationCoordinator",
+      "TypeId": "type-proj-candoitall-modules-workbench-candoitall-module-bbadf5968743",
+      "MemberId": "member-type-proj-candoitall-modules-workbench-candoitall-m-32870086eb2d",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Workbench",
+      "ModuleName": "CanDoItAll.Modules.Workbench",
+      "NamespaceName": "CanDoItAll.Modules.Workbench",
+      "Path": "src/CanDoItAll.Modules.Workbench/Services/ProjectGanttPreviewService.cs",
+      "Line": 6,
+      "DisplayName": "CanDoItAll.Modules.Workbench.ProjectGanttPreviewService.ProjectGanttPreviewService(CanDoItAll.Modules.Workbench.ProjectWorkbenchService, CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.Workbench.ProjectGanttPreviewService.ProjectGanttPreviewService(CanDoItAll.Modules.Workbench.ProjectWorkbenchService, CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Workbench.ProjectGanttPreviewService",
+      "TypeId": "type-proj-candoitall-modules-workbench-candoitall-module-a747f8f9d71d",
+      "MemberId": "member-type-proj-candoitall-modules-workbench-candoitall-m-249ec07e8040",
+      "MatchFields": [
+        0,
+        1
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "CanDoItAll.Modules.Workbench",
+      "ModuleName": "CanDoItAll.Modules.Workbench",
+      "NamespaceName": "CanDoItAll.Modules.Workbench",
+      "Path": "src/CanDoItAll.Modules.Workbench/ProjectStructure/ProjectStructureAssemblyService.cs",
+      "Line": 421,
+      "DisplayName": "CanDoItAll.Modules.Workbench.ProjectHierarchyProjectionContributor.ProjectHierarchyProjectionContributor(CanDoItAll.SharedKernel.IClock)",
+      "Declaration": "CanDoItAll.Modules.Workbench.ProjectHierarchyProjectionContributor.ProjectHierarchyProjectionContributor(CanDoItAll.SharedKernel.IClock)",
+      "ContainerTypeDisplayName": "CanDoItAll.Modules.Workbench.ProjectHierarchyProjectionContributor",
+      "TypeId": "type-proj-candoitall-modules-workbench-candoitall-module-6838815e1c95",
+      "MemberId": "member-type-proj-candoitall-modules-workbench-candoitall-m-be318575c474",
+      "MatchFields": [
+        0,
+        1
+      ]
+    }
+  ]
+}

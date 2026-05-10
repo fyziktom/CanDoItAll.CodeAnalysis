@@ -1,0 +1,396 @@
+{
+  "SnapshotId": "snap-20260509224204-7a3e598f",
+  "Depth": 2,
+  "QueryText": "CanvasSceneHost",
+  "FocusTags": [
+    "ui",
+    "razor"
+  ],
+  "RelationHints": [
+    "commandhistorystore",
+    "invalidationscheduler",
+    "layerstack"
+  ],
+  "RequestedIntent": 2,
+  "ResolvedIntent": 2,
+  "RequestedPrecision": 3,
+  "ResolvedPrecision": 3,
+  "StrategyExplanation": "Used requested trouble-path mode with outline precision. Relation hints constrain representative usage sampling.",
+  "SeedExplanation": "Resolved from prompt text to member CanDoItAll.Components.CanvasLib.CanvasSceneHost.MarkApplied().",
+  "SeedType": {
+    "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-caf1c5bc3411",
+    "ProjectId": "proj-candoitall-components-canvaslib",
+    "ModuleId": "mod-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+    "NamespaceId": "ns-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+    "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHost",
+    "Kind": 0,
+    "BaseTypeDisplayName": null,
+    "InterfaceDisplayNames": [],
+    "MemberIds": [
+      "member-type-proj-candoitall-components-canvaslib-candoital-8e9020e15bef",
+      "member-type-proj-candoitall-components-canvaslib-candoital-84bb8182b823",
+      "member-type-proj-candoitall-components-canvaslib-candoital-c2133707cf2f",
+      "member-type-proj-candoitall-components-canvaslib-candoital-dc3c0e41d432",
+      "member-type-proj-candoitall-components-canvaslib-candoital-ca4739ccdc44",
+      "member-type-proj-candoitall-components-canvaslib-candoital-eda3ffa0d9da",
+      "member-type-proj-candoitall-components-canvaslib-candoital-47e942b222c2",
+      "member-type-proj-candoitall-components-canvaslib-candoital-34e7280974ce",
+      "member-type-proj-candoitall-components-canvaslib-candoital-04087694d446"
+    ],
+    "XmlSummary": null,
+    "Source": {
+      "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+      "Line": 3,
+      "Column": 1,
+      "EndLine": 37,
+      "EndColumn": 2
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-candoitall-components-canvaslib-candoital-c2133707cf2f",
+    "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-caf1c5bc3411",
+    "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHost.MarkApplied()",
+    "Kind": 1,
+    "ReturnTypeDisplayName": "void",
+    "ParameterDisplayNames": [],
+    "Source": {
+      "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+      "Line": 23,
+      "Column": 5,
+      "EndLine": 28,
+      "EndColumn": 6
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [],
+  "Types": [
+    {
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-caf1c5bc3411",
+      "ProjectId": "proj-candoitall-components-canvaslib",
+      "ModuleId": "mod-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "NamespaceId": "ns-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHost",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-components-canvaslib-candoital-8e9020e15bef",
+        "member-type-proj-candoitall-components-canvaslib-candoital-84bb8182b823",
+        "member-type-proj-candoitall-components-canvaslib-candoital-c2133707cf2f",
+        "member-type-proj-candoitall-components-canvaslib-candoital-dc3c0e41d432",
+        "member-type-proj-candoitall-components-canvaslib-candoital-ca4739ccdc44",
+        "member-type-proj-candoitall-components-canvaslib-candoital-eda3ffa0d9da",
+        "member-type-proj-candoitall-components-canvaslib-candoital-47e942b222c2",
+        "member-type-proj-candoitall-components-canvaslib-candoital-34e7280974ce",
+        "member-type-proj-candoitall-components-canvaslib-candoital-04087694d446"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 3,
+        "Column": 1,
+        "EndLine": 37,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-4c0b62c3199f",
+      "ProjectId": "proj-candoitall-components-canvaslib",
+      "ModuleId": "mod-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "NamespaceId": "ns-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHostPreviewFactory",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-components-canvaslib-candoital-0f9f6b836f0b"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 54,
+        "Column": 1,
+        "EndLine": 89,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-743fbe07ece8",
+      "ProjectId": "proj-candoitall-components-canvaslib",
+      "ModuleId": "mod-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "NamespaceId": "ns-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.SerializationPersistencePack",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-components-canvaslib-candoital-6a265089f388",
+        "member-type-proj-candoitall-components-canvaslib-candoital-dac8a2a0bcf7",
+        "member-type-proj-candoitall-components-canvaslib-candoital-f46f06a38a59"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/SerializationPersistencePack.cs",
+        "Line": 5,
+        "Column": 1,
+        "EndLine": 31,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-a5652aba9790",
+      "ProjectId": "proj-candoitall-components-canvaslib",
+      "ModuleId": "mod-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "NamespaceId": "ns-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasWorkbenchSurface",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-components-canvaslib-candoital-b144db650d02",
+        "member-type-proj-candoitall-components-canvaslib-candoital-62e4c0471df0",
+        "member-type-proj-candoitall-components-canvaslib-candoital-b2b9ab89ea96",
+        "member-type-proj-candoitall-components-canvaslib-candoital-10e5aa318652",
+        "member-type-proj-candoitall-components-canvaslib-candoital-c218049487dd",
+        "member-type-proj-candoitall-components-canvaslib-candoital-0517e4df86d8",
+        "member-type-proj-candoitall-components-canvaslib-candoital-8dfe566c8e0c"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Workbench/CanvasWorkbenchSurface.cs",
+        "Line": 3,
+        "Column": 1,
+        "EndLine": 18,
+        "EndColumn": 2
+      }
+    },
+    {
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-666fdaedf253",
+      "ProjectId": "proj-candoitall-components-canvaslib",
+      "ModuleId": "mod-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "NamespaceId": "ns-proj-candoitall-components-canvaslib-candoitall-com-31467bfb8279",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHostPreviewSnapshot",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-candoitall-components-canvaslib-candoital-5ee9c0556ae3",
+        "member-type-proj-candoitall-components-canvaslib-candoital-c22c7888e87f",
+        "member-type-proj-candoitall-components-canvaslib-candoital-bb14e7490ba4",
+        "member-type-proj-candoitall-components-canvaslib-candoital-ba6962608ed0",
+        "member-type-proj-candoitall-components-canvaslib-candoital-da3b6f138944",
+        "member-type-proj-candoitall-components-canvaslib-candoital-3d0b0fe3a6e1"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 39,
+        "Column": 1,
+        "EndLine": 52,
+        "EndColumn": 2
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-candoitall-components-canvaslib-candoital-c2133707cf2f",
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-caf1c5bc3411",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHost.MarkApplied()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "void",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 23,
+        "Column": 5,
+        "EndLine": 28,
+        "EndColumn": 6
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-components-canvaslib-candoital-ca4739ccdc44",
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-caf1c5bc3411",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHost.QueueSync(string?, bool)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "void",
+      "ParameterDisplayNames": [
+        "string?",
+        "bool"
+      ],
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 13,
+        "Column": 5,
+        "EndLine": 17,
+        "EndColumn": 6
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-components-canvaslib-candoital-47e942b222c2",
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-caf1c5bc3411",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHost.ShouldCreate()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "bool",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 19,
+        "Column": 5,
+        "EndLine": 19,
+        "EndColumn": 50
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-components-canvaslib-candoital-0f9f6b836f0b",
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-4c0b62c3199f",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHostPreviewFactory.CreateForWorkbench(CanDoItAll.Components.CanvasLib.CanvasWorkbenchSurface)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "CanDoItAll.Components.CanvasLib.CanvasSceneHostPreviewSnapshot",
+      "ParameterDisplayNames": [
+        "CanDoItAll.Components.CanvasLib.CanvasWorkbenchSurface"
+      ],
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 56,
+        "Column": 5,
+        "EndLine": 88,
+        "EndColumn": 6
+      }
+    },
+    {
+      "MemberId": "member-type-proj-candoitall-components-canvaslib-candoital-f46f06a38a59",
+      "TypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-743fbe07ece8",
+      "DisplayName": "CanDoItAll.Components.CanvasLib.SerializationPersistencePack.Serialize\u003CT\u003E(T)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "string",
+      "ParameterDisplayNames": [
+        "T"
+      ],
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/SerializationPersistencePack.cs",
+        "Line": 12,
+        "Column": 5,
+        "EndLine": 13,
+        "EndColumn": 60
+      }
+    }
+  ],
+  "MemberRelationships": [
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-candoitall-components-c-882e15181409",
+      "FromMemberId": "member-type-proj-candoitall-components-canvaslib-candoital-0f9f6b836f0b",
+      "ToMemberId": "member-type-proj-candoitall-components-canvaslib-candoital-47e942b222c2",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 70,
+        "Column": 26
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-candoitall-components-c-261204ff6f26",
+      "FromMemberId": "member-type-proj-candoitall-components-canvaslib-candoital-0f9f6b836f0b",
+      "ToMemberId": "member-type-proj-candoitall-components-canvaslib-candoital-c2133707cf2f",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 71,
+        "Column": 9
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-candoitall-components-c-668ae9947470",
+      "FromMemberId": "member-type-proj-candoitall-components-canvaslib-candoital-0f9f6b836f0b",
+      "ToMemberId": "member-type-proj-candoitall-components-canvaslib-candoital-ca4739ccdc44",
+      "Kind": 0,
+      "Weight": 2,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 69,
+        "Column": 9
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-candoitall-components-c-1ab4f81a1537",
+      "FromMemberId": "member-type-proj-candoitall-components-canvaslib-candoital-0f9f6b836f0b",
+      "ToMemberId": "member-type-proj-candoitall-components-canvaslib-candoital-f46f06a38a59",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 60,
+        "Column": 24
+      }
+    }
+  ],
+  "TypeRelationships": [
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-candoitall-components-can-a0cf6162f317",
+      "FromTypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-4c0b62c3199f",
+      "ToTypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-a5652aba9790",
+      "Kind": 4,
+      "Weight": 24,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 56,
+        "Column": 92
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-candoitall-components-canvas-ceb132e241a0",
+      "FromTypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-4c0b62c3199f",
+      "ToTypeId": "type-proj-candoitall-components-canvaslib-candoitall-com-666fdaedf253",
+      "Kind": 5,
+      "Weight": 24,
+      "Source": {
+        "Path": "src/CanDoItAll.Components.CanvasLib/Canvas/Core/CanvasSceneHost.cs",
+        "Line": 56,
+        "Column": 50
+      }
+    }
+  ],
+  "RelatedServices": [],
+  "ReferenceTypes": [],
+  "UsageSummary": null,
+  "SelectionReasons": [
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-candoitall-components-canvaslib-candoital-c2133707cf2f",
+      "ReasonKind": 0,
+      "RoleKind": 5
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-candoitall-components-canvaslib-candoital-ca4739ccdc44",
+      "ReasonKind": 1,
+      "RoleKind": 5
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-candoitall-components-canvaslib-candoital-47e942b222c2",
+      "ReasonKind": 1,
+      "RoleKind": 5
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-candoitall-components-canvaslib-candoital-0f9f6b836f0b",
+      "ReasonKind": 4,
+      "RoleKind": 2
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-candoitall-components-canvaslib-candoital-f46f06a38a59",
+      "ReasonKind": 4,
+      "RoleKind": 5
+    }
+  ],
+  "Stats": {
+    "FileCount": 0,
+    "BlockCount": 0,
+    "SelectedLineCount": 0,
+    "TotalLineCount": 0
+  },
+  "Files": []
+}

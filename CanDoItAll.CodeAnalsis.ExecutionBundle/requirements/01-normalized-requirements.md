@@ -32,6 +32,11 @@
 - `REQ-042`: Update the codeanalytics MCP skill so agents choose scoped snapshots, exact symbol tools, and relation-hinted focused context in the right order.
 - `REQ-043`: Quantify relation-hint impact with selected line counts, file counts, usage clusters, caller counts, characters, estimated tokens, and elapsed time.
 - `REQ-044`: Keep complete solution scans as deliberate snapshot-building operations; narrow questions should use scoped snapshots, exact symbols, document tools, or focused context first.
+- `REQ-046`: Evaluate CodeAnalytics against at least 20 real-world-looking simulated agent prompts across read-only target repositories.
+- `REQ-047`: Include at least 5 first-step project introduction or orientation scenarios that need larger-section context before implementation work.
+- `REQ-048`: For every scenario, record the simulated user prompt and the agent's intended detail-gathering approach.
+- `REQ-049`: Score baseline and after-change outputs for helpful context, non-useful context, missing context, overload risk, and output metrics.
+- `REQ-050`: Implement only measured CodeAnalytics improvements and rerun the same scenario set to prove whether results improved.
 
 ## Quality requirements
 
@@ -43,6 +48,7 @@
 - `REQ-026`: Validate the improvement pass with the same three-case comparison matrix so the benefit is measured instead of assumed.
 - `REQ-032`: Preserve the earlier improvements for database and UI trouble-path flows while adding the more surgical helper mode.
 - `REQ-045`: Preserve SharpTools-style read-only analysis parity for solution/project inventory, definitions, members, implementations, references, document source, and document symbol outlines.
+- `REQ-051`: Keep external evaluation repositories read-only; all artifacts and code changes must stay in the CodeAnalytics repository.
 - `REQ-015`: Update the bundle, workbook, traceability, and execution evidence to the current workflow standard.
 
 ## Non-goals for this cycle

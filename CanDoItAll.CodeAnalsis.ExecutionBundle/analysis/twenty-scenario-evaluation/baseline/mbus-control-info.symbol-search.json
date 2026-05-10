@@ -1,0 +1,86 @@
+{
+  "SnapshotId": "snap-20260509224001-c6e27f85",
+  "SearchText": "ControlInformationLookup",
+  "ProjectName": null,
+  "SearchMode": 0,
+  "AvailableProjects": [
+    "ConsoleApp",
+    "MBus",
+    "Tests"
+  ],
+  "ValidationError": null,
+  "Results": [
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Header",
+      "NamespaceName": "MBus.Header",
+      "Path": "MbusParser/Header/ControlInformationLookup.cs",
+      "Line": 50,
+      "DisplayName": "MBus.Header.ControlInformationLookup.Find(byte)",
+      "Declaration": "MBus.Header.ControlInformationLookup.Find(byte)",
+      "ContainerTypeDisplayName": "MBus.Header.ControlInformationLookup",
+      "TypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "MemberId": "member-type-proj-mbus-mbus-header-controlinformationlookup-8eddcdbd4f8f",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Header",
+      "NamespaceName": "MBus.Header",
+      "Path": "MbusParser/Header/ControlInformationLookup.cs",
+      "Line": 55,
+      "DisplayName": "MBus.Header.ControlInformationLookup.HeaderLength(byte)",
+      "Declaration": "MBus.Header.ControlInformationLookup.HeaderLength(byte)",
+      "ContainerTypeDisplayName": "MBus.Header.ControlInformationLookup",
+      "TypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "MemberId": "member-type-proj-mbus-mbus-header-controlinformationlookup-4eaca9f99389",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Header",
+      "NamespaceName": "MBus.Header",
+      "Path": "MbusParser/Header/ControlInformationLookup.cs",
+      "Line": 12,
+      "DisplayName": "MBus.Header.ControlInformationLookup._lookup",
+      "Declaration": "MBus.Header.ControlInformationLookup._lookup",
+      "ContainerTypeDisplayName": "MBus.Header.ControlInformationLookup",
+      "TypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "MemberId": "member-type-proj-mbus-mbus-header-controlinformationlookup-95db0c2f6288",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 0,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Header",
+      "NamespaceName": "MBus.Header",
+      "Path": "MbusParser/Header/ControlInformationLookup.cs",
+      "Line": 10,
+      "DisplayName": "MBus.Header.ControlInformationLookup",
+      "Declaration": "class MBus.Header.ControlInformationLookup",
+      "ContainerTypeDisplayName": null,
+      "TypeId": "type-proj-mbus-mbus-header-controlinformationlookup",
+      "MemberId": null,
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    }
+  ]
+}

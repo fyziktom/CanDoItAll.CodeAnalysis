@@ -1,0 +1,199 @@
+{
+  "SnapshotId": "snap-20260509224001-c6e27f85",
+  "Depth": 2,
+  "QueryText": "BcdDateTimeParser",
+  "FocusTags": [
+    "parser"
+  ],
+  "RelationHints": [
+    "datetimeparserregistry",
+    "idatetimeparser"
+  ],
+  "RequestedIntent": 0,
+  "ResolvedIntent": 2,
+  "RequestedPrecision": 0,
+  "ResolvedPrecision": 1,
+  "StrategyExplanation": "Used default trouble-path expansion. Relation hints bias related member and usage selection.",
+  "SeedExplanation": "Resolved from prompt text to member MBus.Drivers.BcdDateTimeParser.Parse(byte[]).",
+  "SeedType": {
+    "TypeId": "type-proj-mbus-mbus-drivers-bcddatetimeparser",
+    "ProjectId": "proj-mbus",
+    "ModuleId": "mod-proj-mbus-mbus-drivers",
+    "NamespaceId": "ns-proj-mbus-mbus-drivers",
+    "DisplayName": "MBus.Drivers.BcdDateTimeParser",
+    "Kind": 0,
+    "BaseTypeDisplayName": null,
+    "InterfaceDisplayNames": [
+      "MBus.Drivers.IDateTimeParser"
+    ],
+    "MemberIds": [
+      "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-dc9dfd3bf7cf",
+      "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-23a72c88671b"
+    ],
+    "XmlSummary": null,
+    "Source": {
+      "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+      "Line": 7,
+      "Column": 5,
+      "EndLine": 31,
+      "EndColumn": 6
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-dc9dfd3bf7cf",
+    "TypeId": "type-proj-mbus-mbus-drivers-bcddatetimeparser",
+    "DisplayName": "MBus.Drivers.BcdDateTimeParser.Parse(byte[])",
+    "Kind": 1,
+    "ReturnTypeDisplayName": "System.DateTime",
+    "ParameterDisplayNames": [
+      "byte[]"
+    ],
+    "Source": {
+      "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+      "Line": 9,
+      "Column": 9,
+      "EndLine": 20,
+      "EndColumn": 10
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [],
+  "Types": [
+    {
+      "TypeId": "type-proj-mbus-mbus-drivers-bcddatetimeparser",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-drivers",
+      "NamespaceId": "ns-proj-mbus-mbus-drivers",
+      "DisplayName": "MBus.Drivers.BcdDateTimeParser",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "MBus.Drivers.IDateTimeParser"
+      ],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-dc9dfd3bf7cf",
+        "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-23a72c88671b"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+        "Line": 7,
+        "Column": 5,
+        "EndLine": 31,
+        "EndColumn": 6
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-dc9dfd3bf7cf",
+      "TypeId": "type-proj-mbus-mbus-drivers-bcddatetimeparser",
+      "DisplayName": "MBus.Drivers.BcdDateTimeParser.Parse(byte[])",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.DateTime",
+      "ParameterDisplayNames": [
+        "byte[]"
+      ],
+      "Source": {
+        "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+        "Line": 9,
+        "Column": 9,
+        "EndLine": 20,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-23a72c88671b",
+      "TypeId": "type-proj-mbus-mbus-drivers-bcddatetimeparser",
+      "DisplayName": "MBus.Drivers.BcdDateTimeParser.ParseBcdByte(byte)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "int",
+      "ParameterDisplayNames": [
+        "byte"
+      ],
+      "Source": {
+        "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+        "Line": 21,
+        "Column": 9,
+        "EndLine": 30,
+        "EndColumn": 10
+      }
+    }
+  ],
+  "MemberRelationships": [
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-mbus-mbus-drivers-bcdda-4a92f4e94c8d",
+      "FromMemberId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-dc9dfd3bf7cf",
+      "ToMemberId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-23a72c88671b",
+      "Kind": 0,
+      "Weight": 4,
+      "Source": {
+        "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+        "Line": 14,
+        "Column": 24
+      }
+    }
+  ],
+  "TypeRelationships": [],
+  "RelatedServices": [],
+  "ReferenceTypes": [],
+  "UsageSummary": null,
+  "SelectionReasons": [
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-dc9dfd3bf7cf",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-drivers-bcddatetimeparser-mbus-23a72c88671b",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "MbusParser/Drivers/BcdDateTimeParser.cs",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "MbusParser/Drivers/BcdDateTimeParser.cs",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    }
+  ],
+  "Stats": {
+    "FileCount": 1,
+    "BlockCount": 2,
+    "SelectedLineCount": 24,
+    "TotalLineCount": 32
+  },
+  "Files": [
+    {
+      "Path": "MbusParser/Drivers/BcdDateTimeParser.cs",
+      "TotalLineCount": 32,
+      "SelectedLineCount": 24,
+      "TypeDisplayNames": [
+        "MBus.Drivers.BcdDateTimeParser"
+      ],
+      "Blocks": [
+        {
+          "Title": "MBus.Drivers.BcdDateTimeParser.Parse(byte[])",
+          "Kind": "Method",
+          "StartLine": 8,
+          "EndLine": 21,
+          "Code": "    {\r\n        public DateTime Parse(byte[] data)\r\n        {\r\n            if (data.Length \u003C 4)\r\n                throw new ArgumentException(\u0022Data must have at least 4 bytes\u0022);\r\n\r\n            int hour = ParseBcdByte(data[0]);   // 0x33 = 33\r\n            int day = ParseBcdByte(data[1]);    // 0x04 = 4\r\n            int month = ParseBcdByte(data[2]);  // \u26A0\uFE0F 0x3A \u2192 invalid\r\n            int year = 2000 \u002B ParseBcdByte(data[3]);  // 0x31 = 31 \u2192 2031\r\n\r\n            return new DateTime(year, month, day, hour, 0, 0);\r\n        }\r\n        private int ParseBcdByte(byte b)"
+        },
+        {
+          "Title": "MBus.Drivers.BcdDateTimeParser.ParseBcdByte(byte)",
+          "Kind": "Method",
+          "StartLine": 20,
+          "EndLine": 31,
+          "Code": "        }\r\n        private int ParseBcdByte(byte b)\r\n        {\r\n            int high = (b \u003E\u003E 4);\r\n            int low = b \u0026 0x0F;\r\n\r\n            if (high \u003E 9 || low \u003E 9)\r\n                throw new FormatException($\u0022Invalid BCD value: 0x{b:X2}\u0022);\r\n\r\n            return high * 10 \u002B low;\r\n        }\r\n    }"
+        }
+      ]
+    }
+  ]
+}

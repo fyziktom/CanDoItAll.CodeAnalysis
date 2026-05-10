@@ -1,0 +1,719 @@
+{
+  "SnapshotId": "snap-20260509225640-c6e27f85",
+  "Depth": 2,
+  "QueryText": "MbusCryptoProvider",
+  "FocusTags": [
+    "crypto"
+  ],
+  "RelationHints": [
+    "aesctrcrypto",
+    "aescbccrypto",
+    "descbccrypto"
+  ],
+  "RequestedIntent": 2,
+  "ResolvedIntent": 2,
+  "RequestedPrecision": 3,
+  "ResolvedPrecision": 3,
+  "StrategyExplanation": "Used requested trouble-path mode with outline precision. Relation hints constrain representative usage sampling.",
+  "SeedExplanation": "Resolved from prompt text to type MBus.Extensions.Decryption.MbusCryptoProvider.",
+  "SeedType": {
+    "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+    "ProjectId": "proj-mbus",
+    "ModuleId": "mod-proj-mbus-mbus-extensions",
+    "NamespaceId": "ns-proj-mbus-mbus-extensions-decryption",
+    "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider",
+    "Kind": 0,
+    "BaseTypeDisplayName": null,
+    "InterfaceDisplayNames": [],
+    "MemberIds": [
+      "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+      "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-9c1091c90b78",
+      "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-67fb834ca4de"
+    ],
+    "XmlSummary": null,
+    "Source": {
+      "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+      "Line": 3,
+      "Column": 5,
+      "EndLine": 40,
+      "EndColumn": 6
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+    "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+    "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptAes128Cbc(byte[], byte[], byte[])",
+    "Kind": 1,
+    "ReturnTypeDisplayName": "byte[]",
+    "ParameterDisplayNames": [
+      "byte[]",
+      "byte[]",
+      "byte[]"
+    ],
+    "Source": {
+      "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+      "Line": 12,
+      "Column": 9,
+      "EndLine": 15,
+      "EndColumn": 10
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [],
+  "Types": [
+    {
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-extensions",
+      "NamespaceId": "ns-proj-mbus-mbus-extensions-decryption",
+      "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+        "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-9c1091c90b78",
+        "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-67fb834ca4de"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+        "Line": 3,
+        "Column": 5,
+        "EndLine": 40,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-aescbccrypto",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-extensions",
+      "NamespaceId": "ns-proj-mbus-mbus-extensions-decryption",
+      "DisplayName": "MBus.Extensions.Decryption.AesCbcCrypto",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [
+        "MBus.Extensions.Decryption.IMbusCrypto"
+      ],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-68b7586a0997",
+        "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-2130949cfaec",
+        "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-f52061d93380",
+        "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-a392c703b5fc",
+        "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-3152081ebc6e",
+        "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-b64cd984efc1"
+      ],
+      "XmlSummary": "AES-128 CBC Encryper/Decrypter",
+      "Source": {
+        "Path": "MbusParser/Decryption/AesCbcCrypto.cs",
+        "Line": 8,
+        "Column": 5,
+        "EndLine": 37,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-mbusparser",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus",
+      "NamespaceId": "ns-proj-mbus-mbus",
+      "DisplayName": "MBus.MBusParser",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-calc-86ed7e70e642",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-comp-d7e4cdea36df",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-29248c51af5a",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-2e2ff57dd725",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-3b7641eb329a",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-gene-dd7d4d2691b7",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-gene-9070f0d291b0",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-gene-6e904d12beaf",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-04903c833319",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-78f5e7d377ed",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-2f190411c4d9",
+        "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-pars-1ad8ce519423"
+      ],
+      "XmlSummary": "Parser for both wired and wireless mbus telegrams.",
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 22,
+        "Column": 5,
+        "EndLine": 497,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus",
+      "NamespaceId": "ns-proj-mbus-mbus",
+      "DisplayName": "MBus.MBusTelegram",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-mbustelegram-mbus-mbustelegram-header",
+        "member-type-proj-mbus-mbus-mbustelegram-mbus-mbustelegram-2d89a98026c1",
+        "member-type-proj-mbus-mbus-mbustelegram-mbus-mbustelegram-records",
+        "member-type-proj-mbus-mbus-mbustelegram-mbus-mbustelegram-rssi"
+      ],
+      "XmlSummary": "a wrapper for an entire parsed mbus telegram.",
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 15,
+        "Column": 5,
+        "EndLine": 45,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-header-encryptionscheme",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-header",
+      "NamespaceId": "ns-proj-mbus-mbus-header",
+      "DisplayName": "MBus.Header.EncryptionScheme",
+      "Kind": 4,
+      "BaseTypeDisplayName": "System.Enum",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-1ddd724de5ad",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-9ea8355fa38e",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-7fa9b2952160",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-42f535e0293a",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-2d58474868ab",
+        "member-type-proj-mbus-mbus-header-encryptionscheme-mbus-he-1f42cc3a00d1"
+      ],
+      "XmlSummary": "Defines which encryption shceme is used for the data.",
+      "Source": {
+        "Path": "MbusParser/Header/EncryptionScheme.cs",
+        "Line": 10,
+        "Column": 5,
+        "EndLine": 41,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-header",
+      "NamespaceId": "ns-proj-mbus-mbus-header",
+      "DisplayName": "MBus.Header.MBusHeader",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-404b50e94bd6",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-f67ec57f1815",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-e83d45fad8e4",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-a3df25b609a0",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-c577bf2bbe78",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-3fb4f3f8274b",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-8b9852e2ba5f",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-9881f8660273",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-0214610e049d",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-52cf66ac16bf",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-ab60810f071c",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-fc9087aaf91f",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-bb0417c2c443",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-e9aa96b017aa",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-213daacfc4e5",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-779b534048d3",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-22b1b9322fda",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-da29e1ced18b",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-d972e1696b92",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-050853c8775c",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-c97703d6e237",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-0c0f5e065715",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-f88549daac27",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-b07e70c557dc",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-bafddacfa603",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-0b4931e6acd2",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-9ff6679e9752",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-24cc169c5987",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-d8e3d109a939",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-5c69b7f8ec62",
+        "member-type-proj-mbus-mbus-header-mbusheader-mbus-header-m-ae2acd699292"
+      ],
+      "XmlSummary": "Logical encapsulation of both wired and wireless mbus-header.",
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 19,
+        "Column": 5,
+        "EndLine": 223,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "ProjectId": "proj-mbus",
+      "ModuleId": "mod-proj-mbus-mbus-datarecord",
+      "NamespaceId": "ns-proj-mbus-mbus-datarecord",
+      "DisplayName": "MBus.DataRecord.VariableDataRecord",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-82bcddf109e9",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-aaf28fbae465",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-154f6518feeb",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-57e5ca6f3109",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-1de36aad2356",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-b6d3f6c7e329",
+        "member-type-proj-mbus-mbus-datarecord-variabledatarecord-m-d9094f4c7060"
+      ],
+      "XmlSummary": "An MBus DataRecord.",
+      "Source": {
+        "Path": "MbusParser/DataRecord/VariableDataRecord.cs",
+        "Line": 12,
+        "Column": 5,
+        "EndLine": 58,
+        "EndColumn": 6
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+      "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptAes128Cbc(byte[], byte[], byte[])",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "byte[]",
+      "ParameterDisplayNames": [
+        "byte[]",
+        "byte[]",
+        "byte[]"
+      ],
+      "Source": {
+        "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+        "Line": 12,
+        "Column": 9,
+        "EndLine": 15,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-9c1091c90b78",
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+      "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptAes128Ctr(byte[], byte[], byte[])",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "byte[]",
+      "ParameterDisplayNames": [
+        "byte[]",
+        "byte[]",
+        "byte[]"
+      ],
+      "Source": {
+        "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+        "Line": 24,
+        "Column": 9,
+        "EndLine": 27,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-67fb834ca4de",
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+      "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptDes(byte[], byte[], byte[])",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "byte[]",
+      "ParameterDisplayNames": [
+        "byte[]",
+        "byte[]",
+        "byte[]"
+      ],
+      "Source": {
+        "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+        "Line": 36,
+        "Column": 9,
+        "EndLine": 39,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-68b7586a0997",
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-aescbccrypto",
+      "DisplayName": "MBus.Extensions.Decryption.AesCbcCrypto.AesCbcCrypto(byte[], byte[])",
+      "Kind": 0,
+      "ReturnTypeDisplayName": "AesCbcCrypto",
+      "ParameterDisplayNames": [
+        "byte[]",
+        "byte[]"
+      ],
+      "Source": {
+        "Path": "MbusParser/Decryption/AesCbcCrypto.cs",
+        "Line": 15,
+        "Column": 9,
+        "EndLine": 24,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-f52061d93380",
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-aescbccrypto",
+      "DisplayName": "MBus.Extensions.Decryption.AesCbcCrypto.Decrypt(byte[])",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "byte[]",
+      "ParameterDisplayNames": [
+        "byte[]"
+      ],
+      "Source": {
+        "Path": "MbusParser/Decryption/AesCbcCrypto.cs",
+        "Line": 26,
+        "Column": 9,
+        "EndLine": 30,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-29248c51af5a",
+      "TypeId": "type-proj-mbus-mbus-mbusparser",
+      "DisplayName": "MBus.MBusParser.DecryptBytes(byte[], byte[], System.Collections.Generic.IEnumerable\u003Cbyte\u003E, MBus.Header.EncryptionScheme)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.Collections.Generic.List\u003Cbyte\u003E",
+      "ParameterDisplayNames": [
+        "byte[]",
+        "byte[]",
+        "System.Collections.Generic.IEnumerable\u003Cbyte\u003E",
+        "MBus.Header.EncryptionScheme"
+      ],
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 418,
+        "Column": 9,
+        "EndLine": 433,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-2e2ff57dd725",
+      "TypeId": "type-proj-mbus-mbus-mbusparser",
+      "DisplayName": "MBus.MBusParser.DecryptPayload(MBus.Header.MBusHeader, System.Collections.Generic.List\u003Cbyte\u003E, byte[])",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "System.Collections.Generic.List\u003Cbyte\u003E",
+      "ParameterDisplayNames": [
+        "MBus.Header.MBusHeader",
+        "System.Collections.Generic.List\u003Cbyte\u003E",
+        "byte[]"
+      ],
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 264,
+        "Column": 9,
+        "EndLine": 349,
+        "EndColumn": 10
+      }
+    }
+  ],
+  "MemberRelationships": [
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-mbus-mbus-extensions-de-2774ca8bfda8",
+      "FromMemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+      "ToMemberId": "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-f52061d93380",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+        "Line": 14,
+        "Column": 20
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-mbus-mbus-mbusparser-mb-957141a45f6a",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-29248c51af5a",
+      "ToMemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 427,
+        "Column": 28
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-mbus-mbus-mbusparser-mb-c2cfb6141bb0",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-29248c51af5a",
+      "ToMemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-67fb834ca4de",
+      "Kind": 0,
+      "Weight": 2,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 423,
+        "Column": 28
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-mbus-mbus-mbusparser-mb-13ca00158f53",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-29248c51af5a",
+      "ToMemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-9c1091c90b78",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 429,
+        "Column": 28
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-mbus-mbus-mbusparser-mb-caa01fa01fd7",
+      "FromMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-2e2ff57dd725",
+      "ToMemberId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-29248c51af5a",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 324,
+        "Column": 32
+      }
+    },
+    {
+      "RelationshipId": "memberrel-objectcreation-member-type-proj-mbus-mbus-extension-59fdf6cea8c2",
+      "FromMemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+      "ToMemberId": "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-68b7586a0997",
+      "Kind": 1,
+      "Weight": 1,
+      "Source": {
+        "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+        "Line": 14,
+        "Column": 20
+      }
+    }
+  ],
+  "TypeRelationships": [
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-mbusparser-type-a69a9e1e813c",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-header-encryptionscheme",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 351,
+        "Column": 85
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-mbusparser-type-91312b7e1493",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 42,
+        "Column": 53
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbusparser-type-pr-038502c54865",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 87,
+        "Column": 43
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbusparser-type-pr-52160092f43e",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 29,
+        "Column": 27
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbusparser-type-pr-92b95ba7e9c8",
+      "FromTypeId": "type-proj-mbus-mbus-mbusparser",
+      "ToTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusParser.cs",
+        "Line": 42,
+        "Column": 29
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-header-mbusheader-type-8375fa8c1e38",
+      "FromTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ToTypeId": "type-proj-mbus-mbus-header-encryptionscheme",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 159,
+        "Column": 35
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-mbustelegram-type-proj-364610236da5",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 39,
+        "Column": 43
+      }
+    },
+    {
+      "RelationshipId": "typerel-property-type-proj-mbus-mbus-mbustelegram-type-proj-7f4986a63035",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 1,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 34,
+        "Column": 27
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-mbustelegr-d3bcccb53b98",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 24,
+        "Column": 75
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-mbus-mbus-mbustelegr-68f3b407d0f4",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 3,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 24,
+        "Column": 40
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-mbustelegram-ty-404db7f05385",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 39,
+        "Column": 67
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-mbus-mbus-mbustelegram-ty-952e52854838",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 4,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 34,
+        "Column": 50
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-header-mbusheader-e1daff42b474",
+      "FromTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "ToTypeId": "type-proj-mbus-mbus-header-encryptionscheme",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/Header/MBusHeader.cs",
+        "Line": 159,
+        "Column": 55
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbustelegram-type-7e609257fce2",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-datarecord-variabledatarecord",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 39,
+        "Column": 53
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-mbus-mbus-mbustelegram-type-5283062858cd",
+      "FromTypeId": "type-proj-mbus-mbus-mbustelegram",
+      "ToTypeId": "type-proj-mbus-mbus-header-mbusheader",
+      "Kind": 5,
+      "Weight": 3,
+      "Source": {
+        "Path": "MbusParser/MBusTelegram.cs",
+        "Line": 34,
+        "Column": 36
+      }
+    }
+  ],
+  "RelatedServices": [],
+  "ReferenceTypes": [],
+  "UsageSummary": null,
+  "SelectionReasons": [
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-9c1091c90b78",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-67fb834ca4de",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-68b7586a0997",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-extensions-decryption-aescbccry-f52061d93380",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-29248c51af5a",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-mbus-mbus-mbusparser-mbus-mbusparser-decr-2e2ff57dd725",
+      "ReasonKind": 4,
+      "RoleKind": 0
+    }
+  ],
+  "Stats": {
+    "FileCount": 0,
+    "BlockCount": 0,
+    "SelectedLineCount": 0,
+    "TotalLineCount": 0
+  },
+  "Files": []
+}

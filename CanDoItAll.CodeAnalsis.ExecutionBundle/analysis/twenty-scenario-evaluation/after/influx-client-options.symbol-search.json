@@ -1,0 +1,741 @@
+{
+  "SnapshotId": "snap-20260509225700-9766615f",
+  "SearchText": "InfluxDBClientFactory",
+  "ProjectName": null,
+  "SearchMode": 0,
+  "AvailableProjects": [
+    "Client(netstandard2.0)",
+    "Client.Core(netstandard2.0)",
+    "Client.Core.Test(netcoreapp3.1)",
+    "Client.Legacy(netstandard2.0)",
+    "Client.Legacy.Test(netcoreapp3.1)",
+    "Client.Linq(netstandard2.0)",
+    "Client.Linq.Test(netcoreapp3.1)",
+    "Client.Test(netcoreapp3.1)",
+    "ExampleBlazor",
+    "Examples(netcoreapp3.1)"
+  ],
+  "ValidationError": null,
+  "Results": [
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 17,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Create()",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.Create()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-72dbbab000a4",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 139,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Create(InfluxDB.Client.InfluxDBClientOptions)",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.Create(InfluxDB.Client.InfluxDBClientOptions)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-d3f4983f547c",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 37,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Create(string)",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.Create(string)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-df04cb5eba24",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 75,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Create(string, char[])",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.Create(string, char[])",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-a2835b073a59",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 94,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Create(string, string)",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.Create(string, string)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-08fb645b4f87",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 56,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Create(string, string, char[])",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.Create(string, string, char[])",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-6c2af872cf1d",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 116,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.CreateV1(string, string, char[], string, string)",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.CreateV1(string, string, char[], string, string)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-b0cec18e2070",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 177,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Onboarding(string, InfluxDB.Client.Api.Domain.OnboardingRequest)",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.Onboarding(string, InfluxDB.Client.Api.Domain.OnboardingRequest)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-c8c0efc08ac7",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client(netstandard2.0)",
+      "ModuleName": "Client(netstandard2.0)",
+      "NamespaceName": "InfluxDB.Client",
+      "Path": "Client/InfluxDBClientFactory.cs",
+      "Line": 156,
+      "DisplayName": "InfluxDB.Client.InfluxDBClientFactory.Onboarding(string, string, string, string, string)",
+      "Declaration": "InfluxDB.Client.InfluxDBClientFactory.Onboarding(string, string, string, string, string)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.InfluxDBClientFactory",
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-influxdbclientfactory",
+      "MemberId": "member-type-proj-client-netstandard2-0-influxdb-client-inf-54d1efea1564",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 438,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.AnonymousSchema()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.AnonymousSchema()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-adb5a708a9d2",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 445,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.AnonymousSchemaFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.AnonymousSchemaFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-4cff52fc6d96",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 455,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.Certificates()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.Certificates()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-a5344d1b8310",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 503,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CertificatesFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CertificatesFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-d8c7501b02cd",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 588,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CopyAppConfig()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CopyAppConfig()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-2321ebce15da",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 28,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstance()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstance()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-c5e28ccd94da",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 108,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceEmptyToken()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceEmptyToken()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-084379c54b33",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 117,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceEmptyTokenFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceEmptyTokenFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-53529733bb2e",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 39,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-14eedb61c7b8",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 91,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceToken()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceToken()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-f0b84a27d942",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 99,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceTokenFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceTokenFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-cc3bb68eabf9",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 74,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceUsername()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceUsername()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-88951d1ffd50",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 82,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceUsernameFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceUsernameFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-8ed5defba7a6",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 51,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceVerifySsl()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceVerifySsl()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-c8c8311905a2",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 62,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceVerifySslFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.CreateInstanceVerifySslFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-75b4533d4c0f",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 580,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.GetDeclaredField\u003CT\u003E(System.Reflection.IReflect, object, string)",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.GetDeclaredField\u003CT\u003E(System.Reflection.IReflect, object, string)",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-dcf7039959da",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 552,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.InjectHttpClient()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.InjectHttpClient()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-21e06e006f02",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 283,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConfiguration()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConfiguration()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-8c04887e77db",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 351,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConfigurationNotExist()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConfigurationNotExist()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-f19538d0ec2b",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 311,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConfigurationOptions()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConfigurationOptions()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-d1871fb1f29b",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 338,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConfigurationWithoutUrl()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConfigurationWithoutUrl()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-521c5f7eb177",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 240,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionNotValidDuration()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionNotValidDuration()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-5811f99ce500",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 251,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionNotValidDurationFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionNotValidDurationFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-17aebbe6b1be",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 127,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionString()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionString()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-5b08f2e1832d",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 146,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-b2cb5f4cd498",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 166,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringUnitsMillisecondsSeconds()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringUnitsMillisecondsSeconds()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-fce4f0a9d932",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 184,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringUnitsMillisecondsSecondsFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringUnitsMillisecondsSecondsFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-92f4c7c5d462",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 203,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringUnitsMinutes()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringUnitsMinutes()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-b78c679b4ebf",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 221,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringUnitsMinutesFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionStringUnitsMinutesFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-3d5140fb4364",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 262,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionUnknownUnit()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionUnknownUnit()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-0f65dbda28e4",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "Client.Test(netcoreapp3.1)",
+      "ModuleName": "Client.Test(netcoreapp3.1)",
+      "NamespaceName": "InfluxDB.Client.Test",
+      "Path": "Client.Test/InfluxDbClientFactoryTest.cs",
+      "Line": 272,
+      "DisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionUnknownUnitFactory()",
+      "Declaration": "InfluxDB.Client.Test.InfluxDbClientFactoryTest.LoadFromConnectionUnknownUnitFactory()",
+      "ContainerTypeDisplayName": "InfluxDB.Client.Test.InfluxDbClientFactoryTest",
+      "TypeId": "type-proj-client-test-netcoreapp3-1-influxdb-client-test-6e8c587a0788",
+      "MemberId": "member-type-proj-client-test-netcoreapp3-1-influxdb-client-e1056fdbbbb9",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    }
+  ]
+}

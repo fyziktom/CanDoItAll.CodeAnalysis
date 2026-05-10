@@ -41,6 +41,13 @@ It is reopened again on 2026-05-09 after the current review request made relatio
 - the lab UI, MCP input model, comparison harness, and codeanalytics skill guidance must describe the same workflow,
 - results must be quantified so context savings can be tuned deliberately.
 
+It is reopened again on 2026-05-09 for a wider real-world evaluation request:
+
+- at least 20 simulated agent prompts must run against read-only repositories,
+- at least 5 prompts must represent first-step project introduction/orientation work,
+- outputs must be scored for helpful context, non-useful context, missing context, and overload signals,
+- improvements must be implemented only after baseline measurement and rerun against the same scenario set.
+
 The naming map remains frozen:
 
 - Repo root: `CanDoItAll.CodeAnalsis`
@@ -65,6 +72,8 @@ The naming map remains frozen:
 - [04-sharptools-comparison-follow-up.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\04-sharptools-comparison-follow-up.md)
 - [05-helper-surgical-precision-follow-up.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\05-helper-surgical-precision-follow-up.md)
 - [06-comparison-implementation-follow-up.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\06-comparison-implementation-follow-up.md)
+- [07-relation-hinted-walking-follow-up.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\07-relation-hinted-walking-follow-up.md)
+- [08-twenty-scenario-real-world-evaluation.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\inputs\08-twenty-scenario-real-world-evaluation.md)
 - [01-current-state.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\01-current-state.md)
 - [01-target-solution.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\architecture\01-target-solution.md)
 - [01-phase-plan.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\plan\01-phase-plan.md)
@@ -73,16 +82,16 @@ The naming map remains frozen:
 
 ## Validation Summary
 
-- Bundle preparation status: `Reopened for SB-28 relation-hinted walking on 2026-05-09`
+- Bundle preparation status: `Reopened for SB-29 twenty-scenario real-world evaluation on 2026-05-09`
 - Bundle readiness gate: `Passed`
-- Execution status: `SB-28 completed`
-- Subbundle gate review: `SB-00 through SB-28 passed`
+- Execution status: `SB-29 completed`
+- Subbundle gate review: `SB-00 through SB-29 passed`
 - Final closure gate: `Passed completed-stage validator`
 - Browser validation analytics: `Passed for the outline, selection-reason, and relation-hint lab surfaces`
 
 ## Current Focus
 
-- The latest reopen, `SB-28-relation-hinted-focused-walking-and-agent-skill`, is implemented and validated.
+- The latest reopen, `SB-29-twenty-scenario-real-world-evaluation-and-tuning`, is implemented and validated.
 - The comparison-driven SB-24 through SB-27 baseline remains trusted unless relation-hint validation exposes a regression.
 - The main product risk is still context overload in large projects. Relation hints now reduce helper usage breadth without losing the exact-symbol and scoped-snapshot paths that already work.
 
@@ -94,3 +103,4 @@ The naming map remains frozen:
 - The standalone engine still preserves a thin future `CanDoItAll.Mcp.CodeAnalytics` seam. This reopen remains a focused-context ranking and payload-shaping pass, not a transport redesign.
 - Post-implementation comparison findings are captured in [03-post-implementation-comparison.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\03-post-implementation-comparison.md).
 - Relation-hinted focused-context findings are captured in [04-relation-hinted-focused-context.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\04-relation-hinted-focused-context.md).
+- Twenty-scenario evaluation findings are captured in [05-twenty-scenario-evaluation.md](C:\repositories\CanDoItAll.CodeAnalsis\CanDoItAll.CodeAnalsis.ExecutionBundle\analysis\05-twenty-scenario-evaluation.md).

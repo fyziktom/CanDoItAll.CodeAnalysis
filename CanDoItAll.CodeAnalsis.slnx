@@ -17,4 +17,7 @@
     <Project Path="tests/CanDoItAll.CodeAnalytics.Tests.Unit/CanDoItAll.CodeAnalytics.Tests.Unit.csproj" />
     <Project Path="tests/CanDoItAll.CodeAnalytics.Tests.Web/CanDoItAll.CodeAnalytics.Tests.Web.csproj" />
   </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/ScenarioEvaluationHarness/ScenarioEvaluationHarness.csproj" />
+  </Folder>
 </Solution>

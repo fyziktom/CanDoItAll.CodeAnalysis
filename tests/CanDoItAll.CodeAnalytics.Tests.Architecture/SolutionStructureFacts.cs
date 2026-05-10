@@ -55,7 +55,8 @@ public sealed class SolutionStructureFacts {
             "tests/CanDoItAll.CodeAnalytics.Tests.Integration/CanDoItAll.CodeAnalytics.Tests.Integration.csproj",
             "tests/CanDoItAll.CodeAnalytics.Tests.Support/CanDoItAll.CodeAnalytics.Tests.Support.csproj",
             "tests/CanDoItAll.CodeAnalytics.Tests.Unit/CanDoItAll.CodeAnalytics.Tests.Unit.csproj",
-            "tests/CanDoItAll.CodeAnalytics.Tests.Web/CanDoItAll.CodeAnalytics.Tests.Web.csproj"
+            "tests/CanDoItAll.CodeAnalytics.Tests.Web/CanDoItAll.CodeAnalytics.Tests.Web.csproj",
+            "tools/ScenarioEvaluationHarness/ScenarioEvaluationHarness.csproj"
         };
 
         var document = XDocument.Load(solutionPath);

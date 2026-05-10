@@ -71,6 +71,8 @@ public sealed class MsBuildWorkspaceLoader {
             var sourceProjects = openResult.Solution.Projects
                 .Where(project => string.Equals(project.Language, LanguageNames.CSharp, StringComparison.Ordinal))
                 .Where(project => !string.IsNullOrWhiteSpace(project.FilePath))
+                .GroupBy(project => Path.GetFullPath(project.FilePath!), StringComparer.OrdinalIgnoreCase)
+                .Select(group => group.First())
                 .OrderBy(project => project.Name, StringComparer.OrdinalIgnoreCase)
                 .ToArray();
 

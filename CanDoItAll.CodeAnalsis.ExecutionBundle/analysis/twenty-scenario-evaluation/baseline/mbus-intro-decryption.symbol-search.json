@@ -1,0 +1,86 @@
+{
+  "SnapshotId": "snap-20260509224001-c6e27f85",
+  "SearchText": "MbusCryptoProvider",
+  "ProjectName": null,
+  "SearchMode": 0,
+  "AvailableProjects": [
+    "ConsoleApp",
+    "MBus",
+    "Tests"
+  ],
+  "ValidationError": null,
+  "Results": [
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Extensions",
+      "NamespaceName": "MBus.Extensions.Decryption",
+      "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+      "Line": 12,
+      "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptAes128Cbc(byte[], byte[], byte[])",
+      "Declaration": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptAes128Cbc(byte[], byte[], byte[])",
+      "ContainerTypeDisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider",
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+      "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-25a96911c93c",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Extensions",
+      "NamespaceName": "MBus.Extensions.Decryption",
+      "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+      "Line": 24,
+      "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptAes128Ctr(byte[], byte[], byte[])",
+      "Declaration": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptAes128Ctr(byte[], byte[], byte[])",
+      "ContainerTypeDisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider",
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+      "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-9c1091c90b78",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 1,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Extensions",
+      "NamespaceName": "MBus.Extensions.Decryption",
+      "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+      "Line": 36,
+      "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptDes(byte[], byte[], byte[])",
+      "Declaration": "MBus.Extensions.Decryption.MbusCryptoProvider.DecryptDes(byte[], byte[], byte[])",
+      "ContainerTypeDisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider",
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+      "MemberId": "member-type-proj-mbus-mbus-extensions-decryption-mbuscrypt-67fb834ca4de",
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "TargetKind": 0,
+      "ProjectName": "MBus",
+      "ModuleName": "MBus.Extensions",
+      "NamespaceName": "MBus.Extensions.Decryption",
+      "Path": "MbusParser/Decryption/MbusCryptoProvider.cs",
+      "Line": 3,
+      "DisplayName": "MBus.Extensions.Decryption.MbusCryptoProvider",
+      "Declaration": "class MBus.Extensions.Decryption.MbusCryptoProvider",
+      "ContainerTypeDisplayName": null,
+      "TypeId": "type-proj-mbus-mbus-extensions-decryption-mbuscryptoprovider",
+      "MemberId": null,
+      "MatchFields": [
+        0,
+        1,
+        3
+      ]
+    }
+  ]
+}

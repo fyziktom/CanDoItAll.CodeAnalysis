@@ -1,0 +1,797 @@
+{
+  "SnapshotId": "snap-20260509225700-9766615f",
+  "Depth": 2,
+  "QueryText": "InfluxDBQueryable",
+  "FocusTags": [
+    "linq",
+    "query"
+  ],
+  "RelationHints": [
+    "expression",
+    "provider"
+  ],
+  "RequestedIntent": 0,
+  "ResolvedIntent": 2,
+  "RequestedPrecision": 0,
+  "ResolvedPrecision": 1,
+  "StrategyExplanation": "Used default trouble-path expansion. Relation hints bias related member and usage selection.",
+  "SeedExplanation": "Resolved from prompt text to member InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.Queryable(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.IMemberNameResolver, InfluxDB.Client.Linq.QueryableOptimizerSettings).",
+  "SeedType": {
+    "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+    "ProjectId": "proj-client-linq-netstandard2-0",
+    "ModuleId": "mod-proj-client-linq-netstandard2-0-client-linq-netstandard2-0",
+    "NamespaceId": "ns-proj-client-linq-netstandard2-0-influxdb-client-linq",
+    "DisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E",
+    "Kind": 0,
+    "BaseTypeDisplayName": "QueryableBase\u003CT\u003E",
+    "InterfaceDisplayNames": [],
+    "MemberIds": [
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ce9565e4e280",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-96967da09cac",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ccad0c2d900c",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-8e00a058bce6",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-3e1a2beed1db",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-0f03a23afe85",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-1e4704cc76d8",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-94fb36ea58b4",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-8b7a344bc934",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-806e80af8de4",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-bb8362d01ccc",
+      "member-type-proj-client-linq-netstandard2-0-influxdb-clien-24d640db8117"
+    ],
+    "XmlSummary": "Main entry point to query InfluxDB by LINQ",
+    "Source": {
+      "Path": "Client.Linq/InfluxDBQueryable.cs",
+      "Line": 102,
+      "Column": 5,
+      "EndLine": 261,
+      "EndColumn": 6
+    }
+  },
+  "SeedMember": {
+    "MemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-94fb36ea58b4",
+    "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+    "DisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.Queryable(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.IMemberNameResolver, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+    "Kind": 1,
+    "ReturnTypeDisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E",
+    "ParameterDisplayNames": [
+      "string",
+      "string",
+      "InfluxDB.Client.QueryApi",
+      "InfluxDB.Client.Linq.IMemberNameResolver",
+      "InfluxDB.Client.Linq.QueryableOptimizerSettings"
+    ],
+    "Source": {
+      "Path": "Client.Linq/InfluxDBQueryable.cs",
+      "Line": 156,
+      "Column": 9,
+      "EndLine": 160,
+      "EndColumn": 10
+    }
+  },
+  "SeedService": null,
+  "ImplementationTypes": [],
+  "Types": [
+    {
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ProjectId": "proj-client-linq-netstandard2-0",
+      "ModuleId": "mod-proj-client-linq-netstandard2-0-client-linq-netstandard2-0",
+      "NamespaceId": "ns-proj-client-linq-netstandard2-0-influxdb-client-linq",
+      "DisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E",
+      "Kind": 0,
+      "BaseTypeDisplayName": "QueryableBase\u003CT\u003E",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ce9565e4e280",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-96967da09cac",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ccad0c2d900c",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-8e00a058bce6",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-3e1a2beed1db",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-0f03a23afe85",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-1e4704cc76d8",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-94fb36ea58b4",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-8b7a344bc934",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-806e80af8de4",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-bb8362d01ccc",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-24d640db8117"
+      ],
+      "XmlSummary": "Main entry point to query InfluxDB by LINQ",
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 102,
+        "Column": 5,
+        "EndLine": 261,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-f213ca01efa0",
+      "ProjectId": "proj-client-linq-netstandard2-0",
+      "ModuleId": "mod-proj-client-linq-netstandard2-0-client-linq-netstandard2-0",
+      "NamespaceId": "ns-proj-client-linq-netstandard2-0-influxdb-client-linq",
+      "DisplayName": "InfluxDB.Client.Linq.QueryableOptimizerSettings",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-00d30b499172",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-50e912d16d19",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-d4da745e0ee0",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-0ad55e1e671d",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-69c84d8fabee",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-2466da55ac67",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-e0981ef19d4f",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-04b7e430753e",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-4ae5b262d13a"
+      ],
+      "XmlSummary": "The settings for a Query optimization.",
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 18,
+        "Column": 5,
+        "EndLine": 97,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-aa518c031696",
+      "ProjectId": "proj-client-linq-netstandard2-0",
+      "ModuleId": "mod-proj-client-linq-netstandard2-0-client-linq-netstandard2-0",
+      "NamespaceId": "ns-proj-client-linq-netstandard2-0-influxdb-client-linq",
+      "DisplayName": "InfluxDB.Client.Linq.QueryableExtensions",
+      "Kind": 0,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-4d0d2e9fac6d",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-bf37fa47dd9e"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 263,
+        "Column": 5,
+        "EndLine": 305,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-0ca013e734ab",
+      "ProjectId": "proj-client-linq-netstandard2-0",
+      "ModuleId": "mod-proj-client-linq-netstandard2-0-client-linq-netstandard2-0",
+      "NamespaceId": "ns-proj-client-linq-netstandard2-0-influxdb-client-linq",
+      "DisplayName": "InfluxDB.Client.Linq.IMemberNameResolver",
+      "Kind": 1,
+      "BaseTypeDisplayName": null,
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-bf22ad805eac",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-a498da6fc4f9",
+        "member-type-proj-client-linq-netstandard2-0-influxdb-clien-3a5d9ed01026"
+      ],
+      "XmlSummary": "Resolver to use customized tag and field names in LINQ queries.",
+      "Source": {
+        "Path": "Client.Linq/IMemberNameResolver.cs",
+        "Line": 9,
+        "Column": 5,
+        "EndLine": 32,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.QueryApi",
+      "Kind": 0,
+      "BaseTypeDisplayName": "InfluxDB.Client.Core.Internal.AbstractQueryClient",
+      "InterfaceDisplayNames": [
+        "InfluxDB.Client.IQueryApi"
+      ],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-e042d8741b71",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-d66a8586b090",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-31f6c4ba72b3",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-f4bff421e8c6",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-e8cc340aec6c",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-da90e4540654",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-973711341797",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-8a5901177a0f",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-a96a0caf1c59",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-52752246ae20",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-446fec8c1033",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-f412a4943f1b",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-dcee9e2010d9",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-cdf76b17deb3",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-8f0da0f213fa",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-b728453458a9",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-987a6a18313b",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-da82253a89f8",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-cea558809094",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-358386b9f2db",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-61bcd05dfc40",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-8ef31c6141fa",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-4e900f6826df",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-da3ba4e35678",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-c18d8bf534eb",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-bf717596878b",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-50d68c1a04e2"
+      ],
+      "XmlSummary": null,
+      "Source": {
+        "Path": "Client/QueryApi.cs",
+        "Line": 305,
+        "Column": 5,
+        "EndLine": 807,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapisync",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client",
+      "DisplayName": "InfluxDB.Client.QueryApiSync",
+      "Kind": 0,
+      "BaseTypeDisplayName": "InfluxDB.Client.Core.Internal.AbstractQueryClient",
+      "InterfaceDisplayNames": [
+        "InfluxDB.Client.IQueryApiSync"
+      ],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-777cd973b048",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-635e1831f057",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-c307a5b688d6",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-8418a01d13dd",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-f7a09bcfc924",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-c79db9ec5e8d",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-5d47b613f2cc",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-1eedec359572",
+        "member-type-proj-client-netstandard2-0-influxdb-client-que-0720eb49ac14"
+      ],
+      "XmlSummary": "The synchronous version of QueryApi. The client uses to send the request and parse responses to InfluxDB 2.0. The \u0060HttpClient\u0060 is supposed to use maximus size of the body to int.MaxValue. If you want to query large data, use method.",
+      "Source": {
+        "Path": "Client/QueryApiSync.cs",
+        "Line": 83,
+        "Column": 5,
+        "EndLine": 218,
+        "EndColumn": 6
+      }
+    },
+    {
+      "TypeId": "type-proj-client-netstandard2-0-influxdb-client-api-domain-query",
+      "ProjectId": "proj-client-netstandard2-0",
+      "ModuleId": "mod-proj-client-netstandard2-0-client-netstandard2-0",
+      "NamespaceId": "ns-proj-client-netstandard2-0-influxdb-client-api-domain",
+      "DisplayName": "InfluxDB.Client.Api.Domain.Query",
+      "Kind": 0,
+      "BaseTypeDisplayName": "IEquatable\u003CInfluxDB.Client.Api.Domain.Query\u003E",
+      "InterfaceDisplayNames": [],
+      "MemberIds": [
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-793aecbb9032",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-21b744369159",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-1d3ae62b0bb4",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-922115865951",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-7760c840bf34",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-59f72f73ca46",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-f4ef29bf2306",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-e2b39c9b521e",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-d8924d03b081",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-b3e2208c397f",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-090806b847c8",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-b6af48fd7dff",
+        "member-type-proj-client-netstandard2-0-influxdb-client-api-9d37135d76ef"
+      ],
+      "XmlSummary": "Query influx using the Flux language",
+      "Source": {
+        "Path": "Client/InfluxDB.Client.Api/Domain/Query.cs",
+        "Line": 29,
+        "Column": 5,
+        "EndLine": 228,
+        "EndColumn": 6
+      }
+    }
+  ],
+  "Members": [
+    {
+      "MemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-94fb36ea58b4",
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "DisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.Queryable(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.IMemberNameResolver, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E",
+      "ParameterDisplayNames": [
+        "string",
+        "string",
+        "InfluxDB.Client.QueryApi",
+        "InfluxDB.Client.Linq.IMemberNameResolver",
+        "InfluxDB.Client.Linq.QueryableOptimizerSettings"
+      ],
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 156,
+        "Column": 9,
+        "EndLine": 160,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ce9565e4e280",
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "DisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.CreateExecutor(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.IMemberNameResolver, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "IQueryExecutor",
+      "ParameterDisplayNames": [
+        "string",
+        "string",
+        "InfluxDB.Client.QueryApi",
+        "InfluxDB.Client.Linq.IMemberNameResolver",
+        "InfluxDB.Client.Linq.QueryableOptimizerSettings"
+      ],
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 230,
+        "Column": 9,
+        "EndLine": 239,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ccad0c2d900c",
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "DisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.CreateQueryParser()",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "QueryParser",
+      "ParameterDisplayNames": [],
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 241,
+        "Column": 9,
+        "EndLine": 247,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-0f03a23afe85",
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "DisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.InfluxDBQueryable(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.IMemberNameResolver, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+      "Kind": 0,
+      "ReturnTypeDisplayName": "InfluxDBQueryable",
+      "ParameterDisplayNames": [
+        "string",
+        "string",
+        "InfluxDB.Client.QueryApi",
+        "InfluxDB.Client.Linq.IMemberNameResolver",
+        "InfluxDB.Client.Linq.QueryableOptimizerSettings"
+      ],
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 184,
+        "Column": 9,
+        "EndLine": 188,
+        "EndColumn": 10
+      }
+    },
+    {
+      "MemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-8b7a344bc934",
+      "TypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "DisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.Queryable(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+      "Kind": 1,
+      "ReturnTypeDisplayName": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E",
+      "ParameterDisplayNames": [
+        "string",
+        "string",
+        "InfluxDB.Client.QueryApi",
+        "InfluxDB.Client.Linq.QueryableOptimizerSettings"
+      ],
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 126,
+        "Column": 9,
+        "EndLine": 130,
+        "EndColumn": 10
+      }
+    }
+  ],
+  "MemberRelationships": [
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-linq-netstandard-290d3f51443f",
+      "FromMemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-0f03a23afe85",
+      "ToMemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ccad0c2d900c",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 185,
+        "Column": 85
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-linq-netstandard-b7f2d6329bd0",
+      "FromMemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-0f03a23afe85",
+      "ToMemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ce9565e4e280",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 186,
+        "Column": 13
+      }
+    },
+    {
+      "RelationshipId": "memberrel-invocation-member-type-proj-client-linq-netstandard-1fc86d31a1c8",
+      "FromMemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-8b7a344bc934",
+      "ToMemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-94fb36ea58b4",
+      "Kind": 0,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 129,
+        "Column": 20
+      }
+    },
+    {
+      "RelationshipId": "memberrel-objectcreation-member-type-proj-client-linq-netstan-8ae02c1ca494",
+      "FromMemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-94fb36ea58b4",
+      "ToMemberId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-0f03a23afe85",
+      "Kind": 1,
+      "Weight": 1,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 159,
+        "Column": 20
+      }
+    }
+  ],
+  "TypeRelationships": [
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-client-linq-netstand-bac9aa7d281c",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-0ca013e734ab",
+      "Kind": 3,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 170,
+        "Column": 104
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-client-linq-netstand-42ee21215e94",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-f213ca01efa0",
+      "Kind": 3,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 171,
+        "Column": 40
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-client-linq-netstand-8a0e17e02824",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "Kind": 3,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 184,
+        "Column": 70
+      }
+    },
+    {
+      "RelationshipId": "typerel-constructorparameter-type-proj-client-linq-netstand-7043b9f09e33",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapisync",
+      "Kind": 3,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 170,
+        "Column": 74
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-linq-netstandard2-5f6581ffec95",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-0ca013e734ab",
+      "Kind": 4,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 142,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-linq-netstandard2-72cd871bf030",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-f213ca01efa0",
+      "Kind": 4,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 113,
+        "Column": 40
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-linq-netstandard2-13406c2230ba",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "Kind": 4,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 126,
+        "Column": 90
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-linq-netstandard2-6dc3ed9dced8",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapisync",
+      "Kind": 4,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 112,
+        "Column": 94
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-client-linq-netstandard2-0-i-7688c9d3e184",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-domain-query",
+      "Kind": 5,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 203,
+        "Column": 33
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-client-linq-netstandard2-0-i-bf7355b05278",
+      "FromTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-aa518c031696",
+      "ToTypeId": "type-proj-client-linq-netstandard2-0-influxdb-client-lin-968fa65f37be",
+      "Kind": 5,
+      "Weight": 4,
+      "Source": {
+        "Path": "Client.Linq/InfluxDBQueryable.cs",
+        "Line": 265,
+        "Column": 44
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-91c8a8ca0f58",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-domain-query",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/QueryApi.cs",
+        "Line": 370,
+        "Column": 61
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodparameter-type-proj-client-netstandard2-0-inf-57e2d6680e4b",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapisync",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-domain-query",
+      "Kind": 4,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/QueryApiSync.cs",
+        "Line": 132,
+        "Column": 43
+      }
+    },
+    {
+      "RelationshipId": "typerel-methodreturn-type-proj-client-netstandard2-0-influx-150e6d9bb88f",
+      "FromTypeId": "type-proj-client-netstandard2-0-influxdb-client-queryapi",
+      "ToTypeId": "type-proj-client-netstandard2-0-influxdb-client-api-domain-query",
+      "Kind": 5,
+      "Weight": 5,
+      "Source": {
+        "Path": "Client/QueryApi.cs",
+        "Line": 799,
+        "Column": 31
+      }
+    }
+  ],
+  "RelatedServices": [],
+  "ReferenceTypes": [],
+  "UsageSummary": null,
+  "SelectionReasons": [
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-94fb36ea58b4",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ce9565e4e280",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-ccad0c2d900c",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-0f03a23afe85",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 0,
+      "TargetId": "member-type-proj-client-linq-netstandard2-0-influxdb-clien-8b7a344bc934",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client.Linq/InfluxDBQueryable.cs",
+      "ReasonKind": 0,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client.Linq/InfluxDBQueryable.cs",
+      "ReasonKind": 1,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client.Linq/IMemberNameResolver.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/InfluxDB.Client.Api/Domain/Query.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/QueryApi.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    },
+    {
+      "TargetKind": 1,
+      "TargetId": "Client/QueryApiSync.cs",
+      "ReasonKind": 2,
+      "RoleKind": 0
+    }
+  ],
+  "Stats": {
+    "FileCount": 5,
+    "BlockCount": 9,
+    "SelectedLineCount": 105,
+    "TotalLineCount": 1652
+  },
+  "Files": [
+    {
+      "Path": "Client.Linq/InfluxDBQueryable.cs",
+      "TotalLineCount": 306,
+      "SelectedLineCount": 41,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E",
+        "InfluxDB.Client.Linq.QueryableExtensions",
+        "InfluxDB.Client.Linq.QueryableOptimizerSettings"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.Queryable(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.IMemberNameResolver, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+          "Kind": "Method",
+          "StartLine": 155,
+          "EndLine": 161,
+          "Code": "        /// \u003Creturns\u003Enew instance for of Queryable\u003C/returns\u003E\r\n        public static InfluxDBQueryable\u003CT\u003E Queryable(string bucket, string org, QueryApi queryApi,\r\n            IMemberNameResolver memberResolver, QueryableOptimizerSettings queryableOptimizerSettings = default)\r\n        {\r\n            return new InfluxDBQueryable\u003CT\u003E(bucket, org, queryApi, memberResolver, queryableOptimizerSettings);\r\n        }\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.Queryable(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+          "Kind": "Method",
+          "StartLine": 125,
+          "EndLine": 131,
+          "Code": "        /// \u003Creturns\u003Enew instance for of Queryable\u003C/returns\u003E\r\n        public static InfluxDBQueryable\u003CT\u003E Queryable(string bucket, string org, QueryApi queryApi,\r\n            QueryableOptimizerSettings queryableOptimizerSettings = default)\r\n        {\r\n            return Queryable(bucket, org, queryApi, new DefaultMemberNameResolver(), queryableOptimizerSettings);\r\n        }\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.InfluxDBQueryable(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.IMemberNameResolver, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+          "Kind": "Constructor",
+          "StartLine": 183,
+          "EndLine": 189,
+          "Code": "        /// \u003Cparam name=\u0022queryableOptimizerSettings\u0022\u003ESettings for a Query optimization\u003C/param\u003E\r\n        public InfluxDBQueryable(string bucket, string org, QueryApi queryApi, IMemberNameResolver memberResolver,\r\n            QueryableOptimizerSettings queryableOptimizerSettings = default) : base(CreateQueryParser(),\r\n            CreateExecutor(bucket, org, queryApi, memberResolver, queryableOptimizerSettings))\r\n        {\r\n        }\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.CreateExecutor(string, string, InfluxDB.Client.QueryApi, InfluxDB.Client.Linq.IMemberNameResolver, InfluxDB.Client.Linq.QueryableOptimizerSettings)",
+          "Kind": "Method",
+          "StartLine": 229,
+          "EndLine": 240,
+          "Code": "\r\n        private static IQueryExecutor CreateExecutor(string bucket, string org, QueryApi queryApi,\r\n            IMemberNameResolver memberResolver, QueryableOptimizerSettings queryableOptimizerSettings = default)\r\n        {\r\n            Arguments.CheckNonEmptyString(bucket, nameof(bucket));\r\n            Arguments.CheckNonEmptyString(org, nameof(org));\r\n            Arguments.CheckNotNull(queryApi, nameof(queryApi));\r\n\r\n            return new InfluxDBQueryExecutor(bucket, org, queryApi, memberResolver,\r\n                queryableOptimizerSettings ?? new QueryableOptimizerSettings());\r\n        }\r\n"
+        },
+        {
+          "Title": "InfluxDB.Client.Linq.InfluxDBQueryable\u003CT\u003E.CreateQueryParser()",
+          "Kind": "Method",
+          "StartLine": 240,
+          "EndLine": 248,
+          "Code": "\r\n        internal static QueryParser CreateQueryParser()\r\n        {\r\n            var queryParser = QueryParser.CreateDefault();\r\n            var compoundNodeTypeProvider = queryParser.NodeTypeProvider as CompoundNodeTypeProvider;\r\n            compoundNodeTypeProvider?.InnerProviders.Add(new InfluxDBNodeTypeProvider());\r\n            return queryParser;\r\n        }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "Client/InfluxDB.Client.Api/Domain/Query.cs",
+      "TotalLineCount": 229,
+      "SelectedLineCount": 28,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.Api.Domain.Query"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Api.Domain.Query.Equals(InfluxDB.Client.Api.Domain.Query)",
+          "Kind": "Method",
+          "StartLine": 161,
+          "EndLine": 188,
+          "Code": "        /// \u003Creturns\u003EBoolean\u003C/returns\u003E\r\n        public bool Equals(Query input)\r\n        {\r\n            if (input == null)\r\n            {\r\n                return false;\r\n            }\r\n\r\n            return\r\n                Extern != null \u0026\u0026 Extern.Equals(input.Extern) \u0026\u0026\r\n                (\r\n                    _Query == input._Query ||\r\n                    _Query != null \u0026\u0026 _Query.Equals(input._Query)\r\n                ) \u0026\u0026\r\n                (\r\n                    Type == input.Type ||\r\n                    Type.Equals(input.Type)\r\n                ) \u0026\u0026\r\n                (\r\n                    Params == input.Params ||\r\n                    Params != null \u0026\u0026\r\n                    Params.SequenceEqual(input.Params)\r\n                ) \u0026\u0026 Dialect != null \u0026\u0026 Dialect.Equals(input.Dialect) \u0026\u0026 (\r\n                    Now == input.Now ||\r\n                    Now != null \u0026\u0026 Now.Equals(input.Now)\r\n                );\r\n        }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "Client/QueryApiSync.cs",
+      "TotalLineCount": 219,
+      "SelectedLineCount": 23,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.QueryApiSync"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.QueryApiSync.QuerySync(InfluxDB.Client.Api.Domain.Query, string, CancellationToken)",
+          "Kind": "Method",
+          "StartLine": 186,
+          "EndLine": 208,
+          "Code": "        /// \u003Creturns\u003EFluxTables that are matched the query\u003C/returns\u003E\r\n        public List\u003CFluxTable\u003E QuerySync(Query query, string org = null, CancellationToken cancellationToken = default)\r\n        {\r\n            Arguments.CheckNotNull(query, nameof(query));\r\n\r\n            var consumer = new FluxCsvParser.FluxResponseConsumerTable();\r\n\r\n            var optionsOrg = org ?? _options.Org;\r\n            Arguments.CheckNonEmptyString(optionsOrg, OrgArgumentValidation);\r\n\r\n            RestRequest QueryFn(Func\u003CHttpResponseMessage, RestRequest, RestResponse\u003E advancedResponseWriter)\r\n            {\r\n                return _service\r\n                    .PostQueryWithRestRequest(null, \u0022application/json\u0022, null, optionsOrg, null, query,\r\n                        HttpCompletionOption.ResponseHeadersRead)\r\n                    .AddAdvancedResponseHandler(advancedResponseWriter);\r\n            }\r\n\r\n            QuerySync(QueryFn, consumer, ErrorConsumer, EmptyAction, cancellationToken);\r\n\r\n            return consumer.Tables;\r\n        }\r\n"
+        }
+      ]
+    },
+    {
+      "Path": "Client/QueryApi.cs",
+      "TotalLineCount": 808,
+      "SelectedLineCount": 10,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.QueryApi"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.QueryApi.CreateQuery(string, InfluxDB.Client.Api.Domain.Dialect)",
+          "Kind": "Method",
+          "StartLine": 798,
+          "EndLine": 807,
+          "Code": "\r\n        internal static Query CreateQuery(string query, Dialect dialect = null)\r\n        {\r\n            Arguments.CheckNonEmptyString(query, nameof(query));\r\n\r\n            var created = new Query(query: query, dialect: dialect ?? Dialect);\r\n\r\n            return created;\r\n        }\r\n    }"
+        }
+      ]
+    },
+    {
+      "Path": "Client.Linq/IMemberNameResolver.cs",
+      "TotalLineCount": 90,
+      "SelectedLineCount": 3,
+      "TypeDisplayNames": [
+        "InfluxDB.Client.Linq.IMemberNameResolver"
+      ],
+      "Blocks": [
+        {
+          "Title": "InfluxDB.Client.Linq.IMemberNameResolver.ResolveMemberType(MemberInfo)",
+          "Kind": "Method",
+          "StartLine": 15,
+          "EndLine": 17,
+          "Code": "        /// \u003Creturns\u003EType of member for actual member\u003C/returns\u003E\r\n        MemberType ResolveMemberType(MemberInfo memberInfo);\r\n"
+        }
+      ]
+    }
+  ]
+}
