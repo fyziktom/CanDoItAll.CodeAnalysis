@@ -1,0 +1,36 @@
+﻿Command: .\eng\Validate-FileLengths.ps1
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T11:46:26.9928002-04:00
+EndTime: 2026-06-30T11:46:31.8606566-04:00
+ExitCode: 1
+Output:
+WARNING: src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.SeedResolution.cs 
+has 429 lines and should be reviewed before the next slice.
+WARNING: src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Strategy.cs has 362 
+lines and should be reviewed before the next slice.
+WARNING: src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Symbols.razor has 400 lines and should be reviewed
+ before the next slice.
+ErrorOutput:
+C:\repositories\CanDoItAll.CodeAnalsis\eng\Validate-FileLengths.ps1 : 
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\ContextLab.razor has 703 lines and exceeds the hard limit of 450.
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Validate-FileLengths.ps1
+ 
+C:\repositories\CanDoItAll.CodeAnalsis\eng\Validate-FileLengths.ps1 : 
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Context.razor has 452 lines and exceeds the hard limit of 
+450.
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Validate-FileLengths.ps1
+ 
+C:\repositories\CanDoItAll.CodeAnalsis\eng\Validate-FileLengths.ps1 : 
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\ApplicationFacts.cs has 781 lines and exceeds the hard limit of 450.
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Validate-FileLengths.ps1
+ 
+File-length validation failed.
+At C:\repositories\CanDoItAll.CodeAnalsis\eng\Validate-FileLengths.ps1:71 char:5
++     throw "File-length validation failed."
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (File-length validation failed.:String) [], RuntimeException
+    + FullyQualifiedErrorId : File-length validation failed.
+ 

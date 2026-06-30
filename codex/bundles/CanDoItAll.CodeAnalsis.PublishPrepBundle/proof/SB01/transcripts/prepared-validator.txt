@@ -1,0 +1,7 @@
+﻿Command: python "C:\Users\dell\.codex\skills\candoitall-bundle-preparation\scripts\validate_bundle.py" "codex\bundles\CanDoItAll.CodeAnalsis.PublishPrepBundle" --profile initiative --stage prepared --repo-root .
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T10:32:12.5724967-04:00
+EndTime: 2026-06-30T10:32:13.7272650-04:00
+ExitCode: 0
+Output:
+Bundle is valid for stage 'prepared': C:\repositories\CanDoItAll.CodeAnalsis\codex\bundles\CanDoItAll.CodeAnalsis.PublishPrepBundle

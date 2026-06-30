@@ -4,6 +4,8 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+    <Description>Roslyn fact collectors for projects, symbols, dependency injection, and static EF Core persistence metadata.</Description>
 </PropertyGroup>
 
   <ItemGroup>

@@ -1,0 +1,217 @@
+﻿### Page
+- Page URL: http://127.0.0.1:5294/operations/op-20260630162901-bc271945
+- Page Title: Analysis Operation
+### Snapshot
+```yaml
+- generic [ref=f35e2]:
+  - banner [ref=f35e3]:
+    - link "CanDoItAll Code Analytics" [ref=f35e4] [cursor=pointer]:
+      - /url: /
+    - navigation "Primary navigation" [ref=f35e5]:
+      - link "Focused Context Lab" [ref=f35e6] [cursor=pointer]:
+        - /url: /context-lab
+  - main [ref=f35e7]:
+    - generic [ref=f35e8]:
+      - generic [ref=f35e9]:
+        - generic [ref=f35e10]:
+          - heading "Analysis operation" [active] [level=1] [ref=f35e11]
+          - paragraph [ref=f35e12]: Progress and diagnostics stay visible even when the run finishes with partial errors.
+        - generic [ref=f35e13]:
+          - generic [ref=f35e14]:
+            - text: Status
+            - generic [ref=f35e15]: Completed
+          - generic [ref=f35e16]:
+            - text: Workspace
+            - strong [ref=f35e17]: C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+          - generic [ref=f35e18]:
+            - text: Started
+            - generic [ref=f35e19]: 2026-06-30 16:29:01Z
+          - generic [ref=f35e20]:
+            - text: Finished
+            - generic [ref=f35e21]: 2026-06-30 16:29:58Z
+        - paragraph [ref=f35e22]:
+          - text: "Snapshot ready:"
+          - link "snap-20260630162957-4843c386" [ref=f35e23] [cursor=pointer]:
+            - /url: /snapshots/snap-20260630162957-4843c386
+      - generic [ref=f35e24]:
+        - generic [ref=f35e25]:
+          - heading "Progress" [level=2] [ref=f35e26]
+          - paragraph [ref=f35e27]: Each collector stage reports explicit started, completed, and failed events.
+        - generic [ref=f35e28]:
+          - article [ref=f35e29]:
+            - generic [ref=f35e30]:
+              - generic [ref=f35e31]: Started
+              - strong [ref=f35e32]: build
+              - generic [ref=f35e33]: 12:29:01
+            - paragraph [ref=f35e34]: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.
+          - article [ref=f35e35]:
+            - generic [ref=f35e36]:
+              - generic [ref=f35e37]: Started
+              - strong [ref=f35e38]: cache
+              - generic [ref=f35e39]: 12:29:01
+            - paragraph [ref=f35e40]: Checking the deterministic file cache.
+          - article [ref=f35e41]:
+            - generic [ref=f35e42]:
+              - generic [ref=f35e43]: Info
+              - strong [ref=f35e44]: cache
+              - generic [ref=f35e45]: 12:29:01
+            - paragraph [ref=f35e46]: No cached snapshot matched the current request.
+          - article [ref=f35e47]:
+            - generic [ref=f35e48]:
+              - generic [ref=f35e49]: Started
+              - strong [ref=f35e50]: workspace
+              - generic [ref=f35e51]: 12:29:01
+            - paragraph [ref=f35e52]: Loading the MSBuild workspace.
+          - article [ref=f35e53]:
+            - generic [ref=f35e54]:
+              - generic [ref=f35e55]: Completed
+              - strong [ref=f35e56]: workspace
+              - generic [ref=f35e57]: 12:29:26
+            - paragraph [ref=f35e58]: Workspace load completed with 4 source projects.
+          - article [ref=f35e59]:
+            - generic [ref=f35e60]:
+              - generic [ref=f35e61]: Started
+              - strong [ref=f35e62]: symbols
+              - generic [ref=f35e63]: 12:29:26
+            - paragraph [ref=f35e64]: Collecting source symbols and XML documentation.
+          - article [ref=f35e65]:
+            - generic [ref=f35e66]:
+              - generic [ref=f35e67]: Completed
+              - strong [ref=f35e68]: symbols
+              - generic [ref=f35e69]: 12:29:53
+            - paragraph [ref=f35e70]: Collecting source symbols and XML documentation. Completed in 26505 ms.
+          - article [ref=f35e71]:
+            - generic [ref=f35e72]:
+              - generic [ref=f35e73]: Started
+              - strong [ref=f35e74]: member-context
+              - generic [ref=f35e75]: 12:29:53
+            - paragraph [ref=f35e76]: Collecting member-level invocation and construction relationships.
+          - article [ref=f35e77]:
+            - generic [ref=f35e78]:
+              - generic [ref=f35e79]: Completed
+              - strong [ref=f35e80]: member-context
+              - generic [ref=f35e81]: 12:29:55
+            - paragraph [ref=f35e82]: Collecting member-level invocation and construction relationships. Completed in 1969 ms.
+          - article [ref=f35e83]:
+            - generic [ref=f35e84]:
+              - generic [ref=f35e85]: Started
+              - strong [ref=f35e86]: dependencies
+              - generic [ref=f35e87]: 12:29:55
+            - paragraph [ref=f35e88]: Collecting project, module, namespace, and type dependencies.
+          - article [ref=f35e89]:
+            - generic [ref=f35e90]:
+              - generic [ref=f35e91]: Completed
+              - strong [ref=f35e92]: dependencies
+              - generic [ref=f35e93]: 12:29:55
+            - paragraph [ref=f35e94]: Collecting project, module, namespace, and type dependencies. Completed in 392 ms.
+          - article [ref=f35e95]:
+            - generic [ref=f35e96]:
+              - generic [ref=f35e97]: Started
+              - strong [ref=f35e98]: services
+              - generic [ref=f35e99]: 12:29:55
+            - paragraph [ref=f35e100]: Collecting dependency-injection registrations.
+          - article [ref=f35e101]:
+            - generic [ref=f35e102]:
+              - generic [ref=f35e103]: Completed
+              - strong [ref=f35e104]: services
+              - generic [ref=f35e105]: 12:29:55
+            - paragraph [ref=f35e106]: Collecting dependency-injection registrations. Completed in 245 ms.
+          - article [ref=f35e107]:
+            - generic [ref=f35e108]:
+              - generic [ref=f35e109]: Started
+              - strong [ref=f35e110]: persistence
+              - generic [ref=f35e111]: 12:29:55
+            - paragraph [ref=f35e112]: Collecting EF Core persistence facts.
+          - article [ref=f35e113]:
+            - generic [ref=f35e114]:
+              - generic [ref=f35e115]: Completed
+              - strong [ref=f35e116]: persistence
+              - generic [ref=f35e117]: 12:29:57
+            - paragraph [ref=f35e118]: Collecting EF Core persistence facts. Completed in 1472 ms.
+          - article [ref=f35e119]:
+            - generic [ref=f35e120]:
+              - generic [ref=f35e121]: Started
+              - strong [ref=f35e122]: insights
+              - generic [ref=f35e123]: 12:29:57
+            - paragraph [ref=f35e124]: Deriving architectural findings and summary insights.
+          - article [ref=f35e125]:
+            - generic [ref=f35e126]:
+              - generic [ref=f35e127]: Completed
+              - strong [ref=f35e128]: insights
+              - generic [ref=f35e129]: 12:29:57
+            - paragraph [ref=f35e130]: Deriving architectural findings and summary insights. Completed in 210 ms.
+          - article [ref=f35e131]:
+            - generic [ref=f35e132]:
+              - generic [ref=f35e133]: Started
+              - strong [ref=f35e134]: exports
+              - generic [ref=f35e135]: 12:29:57
+            - paragraph [ref=f35e136]: Rendering Markdown and Mermaid exports.
+          - article [ref=f35e137]:
+            - generic [ref=f35e138]:
+              - generic [ref=f35e139]: Completed
+              - strong [ref=f35e140]: exports
+              - generic [ref=f35e141]: 12:29:57
+            - paragraph [ref=f35e142]: Rendering Markdown and Mermaid exports. Completed in 206 ms.
+          - article [ref=f35e143]:
+            - generic [ref=f35e144]:
+              - generic [ref=f35e145]: Started
+              - strong [ref=f35e146]: persist
+              - generic [ref=f35e147]: 12:29:57
+            - paragraph [ref=f35e148]: Persisting snapshot snap-20260630162957-4843c386.
+          - article [ref=f35e149]:
+            - generic [ref=f35e150]:
+              - generic [ref=f35e151]: Completed
+              - strong [ref=f35e152]: persist
+              - generic [ref=f35e153]: 12:29:58
+            - paragraph [ref=f35e154]: Persisted snapshot snap-20260630162957-4843c386.
+          - article [ref=f35e155]:
+            - generic [ref=f35e156]:
+              - generic [ref=f35e157]: Completed
+              - strong [ref=f35e158]: build
+              - generic [ref=f35e159]: 12:29:58
+            - paragraph [ref=f35e160]: Snapshot snap-20260630162957-4843c386 completed.
+      - generic [ref=f35e161]:
+        - generic [ref=f35e162]:
+          - heading "Diagnostics" [level=2] [ref=f35e163]
+          - paragraph [ref=f35e164]: Errors and warnings are preserved instead of being swallowed behind generic fallback behavior.
+        - generic [ref=f35e165]:
+          - article [ref=f35e166]:
+            - generic [ref=f35e167]:
+              - generic [ref=f35e168]: Info
+              - strong [ref=f35e169]: DI0001
+              - generic [ref=f35e170]: src/Fixture.Shop.Web/Program.cs
+            - paragraph [ref=f35e171]: Factory-based registration at src/Fixture.Shop.Web/Program.cs is only partially interpreted.
+          - article [ref=f35e172]:
+            - generic [ref=f35e173]:
+              - generic [ref=f35e174]: Info
+              - strong [ref=f35e175]: DI0001
+              - generic [ref=f35e176]: src/Fixture.Shop.Web/Program.cs
+            - paragraph [ref=f35e177]: Factory-based registration at src/Fixture.Shop.Web/Program.cs is only partially interpreted.
+          - article [ref=f35e178]:
+            - generic [ref=f35e179]:
+              - generic [ref=f35e180]: Info
+              - strong [ref=f35e181]: EF0003
+              - generic [ref=f35e182]: src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs
+            - paragraph [ref=f35e183]: Persistence pattern HasConversion is only partially interpreted.
+          - article [ref=f35e184]:
+            - generic [ref=f35e185]:
+              - generic [ref=f35e186]: Info
+              - strong [ref=f35e187]: EF0003
+              - generic [ref=f35e188]: src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs
+            - paragraph [ref=f35e189]: Persistence pattern OwnsOne is only partially interpreted.
+          - article [ref=f35e190]:
+            - generic [ref=f35e191]:
+              - generic [ref=f35e192]: Warning
+              - strong [ref=f35e193]: WS0002
+            - paragraph [ref=f35e194]: "Msbuild failed when processing the file 'C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Application\\Fixture.Shop.Application.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q"
+          - article [ref=f35e195]:
+            - generic [ref=f35e196]:
+              - generic [ref=f35e197]: Warning
+              - strong [ref=f35e198]: WS0002
+            - paragraph [ref=f35e199]: "Msbuild failed when processing the file 'C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Infrastructure\\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q"
+          - article [ref=f35e200]:
+            - generic [ref=f35e201]:
+              - generic [ref=f35e202]: Warning
+              - strong [ref=f35e203]: WS0002
+            - paragraph [ref=f35e204]: "Msbuild failed when processing the file 'C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Web\\Fixture.Shop.Web.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q"
+```

@@ -1,0 +1,17 @@
+﻿Command: see bundle://proof/SB04/manifest.md Transcript Index for exact command
+reference\compatibility-matrix.md:11:| Repo-managed Codex assets | `codex/README.md`, skill pack, optional `.codex/agents` | Ship only lightweight placeholders now. Avoid host-specific skill/runtime assumptions. | Add repo-managed skills or agents only if the host integration needs them. |
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\ContextLab.razor:43:                <input type="text" name="projectFilter" value="@ProjectFilter" placeholder="Optional comma-separated project names" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\ContextLab.razor:49:                <textarea name="queryText" rows="4" placeholder="Exception text, compile error, method name, class name, or a short trouble description">@QueryText</textarea>
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\ContextLab.razor:57:                <input type="text" name="tags" value="@Tags" placeholder="Optional tags such as Db, Ui, Service" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\ContextLab.razor:63:                <input type="text" name="relationHints" value="@RelationHints" placeholder="Optional related classes, methods, components, projects, or paths" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Home.razor:43:                <input type="text" name="scopeProjectNames" placeholder="Optional comma-separated project names" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Types.razor:19:                <input type="text" name="search" value="@Search" placeholder="Filter types, namespaces, or summaries" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Types.razor:27:                <input type="text" name="memberSearch" value="@MemberSearch" placeholder="Optional function/member search" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Symbols.razor:19:                <input type="text" name="search" value="@Search" placeholder="Search exact symbols, helpers, interfaces, or methods" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Services.razor:19:                <input type="text" name="search" value="@Search" placeholder="Filter services" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Persistence.razor:19:                <input type="text" name="search" value="@Search" placeholder="Filter entities" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Findings.razor:19:                <input type="text" name="search" value="@Search" placeholder="Filter findings" />
+src\CanDoItAll.CodeAnalytics.Web\Components\Pages\Snapshots\Dependencies.razor:19:                <input type="text" name="search" value="@Search" placeholder="Filter modules" />
+ExitCode: 0
+Invariant ID: SB04-INV-001
+

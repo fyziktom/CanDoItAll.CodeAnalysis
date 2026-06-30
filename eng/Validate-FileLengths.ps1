@@ -16,6 +16,25 @@ $extensions = @(".cs", ".razor", ".css", ".ps1")
 $violations = [System.Collections.Generic.List[string]]::new()
 $warnings = [System.Collections.Generic.List[string]]::new()
 
+function Get-RepoRelativePath {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$RootPath,
+
+        [Parameter(Mandatory = $true)]
+        [string]$TargetPath
+    )
+
+    $normalizedRoot = (Resolve-Path -LiteralPath $RootPath).Path.TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+    $normalizedTarget = (Resolve-Path -LiteralPath $TargetPath).Path
+
+    if ($normalizedTarget.StartsWith($normalizedRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+        return $normalizedTarget.Substring($normalizedRoot.Length).TrimStart([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+    }
+
+    return $normalizedTarget
+}
+
 $files = foreach ($root in $scanRoots) {
     if (Test-Path -LiteralPath $root) {
         Get-ChildItem -Path $root -Recurse -File |
@@ -28,7 +47,7 @@ $files = foreach ($root in $scanRoots) {
 
 foreach ($file in $files | Sort-Object FullName) {
     $lineCount = (Get-Content -LiteralPath $file.FullName).Count
-    $relativePath = [System.IO.Path]::GetRelativePath($repoRoot, $file.FullName)
+    $relativePath = Get-RepoRelativePath -RootPath $repoRoot -TargetPath $file.FullName
 
     if ($lineCount -gt $MaxLines) {
         $violations.Add("$relativePath has $lineCount lines and exceeds the hard limit of $MaxLines.")
@@ -46,7 +65,7 @@ foreach ($warning in $warnings) {
 
 if ($violations.Count -gt 0) {
     foreach ($violation in $violations) {
-        Write-Error $violation
+        Write-Error $violation -ErrorAction Continue
     }
 
     throw "File-length validation failed."

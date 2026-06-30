@@ -7,6 +7,8 @@ using CanDoItAll.CodeAnalytics.Domain.Sources;
 namespace CanDoItAll.CodeAnalytics.Application.Services;
 
 public sealed partial class CodeAnalyticsApplicationService {
+    private const long MaxSourceReadBytes = 2 * 1024 * 1024;
+
     private async Task<FocusedContextFileBuildResult> BuildFocusedContextFilesAsync(
         ArchitectureSnapshot snapshot,
         TypeFact? seedType,
@@ -52,8 +54,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         var selectionReasons = new List<FocusedContextSelectionReason>();
 
         foreach (var fileGroup in fileCandidates) {
-            var absolutePath = ResolveAbsoluteSourcePath(workspaceRoot, fileGroup.Key);
-            if (!File.Exists(absolutePath)) {
+            var absolutePath = TryResolveReadableSourcePath(workspaceRoot, fileGroup.Key);
+            if (absolutePath is null) {
                 continue;
             }
 
@@ -299,8 +301,28 @@ public sealed partial class CodeAnalyticsApplicationService {
         return total;
     }
 
-    private static string ResolveAbsoluteSourcePath(string workspaceRoot, string relativePath) {
-        return Path.GetFullPath(Path.Combine(workspaceRoot, relativePath.Replace('/', Path.DirectorySeparatorChar)));
+    private static string? TryResolveReadableSourcePath(string workspaceRoot, string relativePath) {
+        var workspaceRootPath = Path.GetFullPath(workspaceRoot);
+        var absolutePath = Path.GetFullPath(
+            Path.Combine(workspaceRootPath, relativePath.Replace('/', Path.DirectorySeparatorChar)));
+        if (!IsPathWithinDirectory(absolutePath, workspaceRootPath) || !File.Exists(absolutePath)) {
+            return null;
+        }
+
+        return new FileInfo(absolutePath).Length <= MaxSourceReadBytes
+            ? absolutePath
+            : null;
+    }
+
+    private static bool IsPathWithinDirectory(string candidatePath, string directoryPath) {
+        var comparison = OperatingSystem.IsWindows()
+            ? StringComparison.OrdinalIgnoreCase
+            : StringComparison.Ordinal;
+        var directory = Path.TrimEndingDirectorySeparator(Path.GetFullPath(directoryPath));
+        var candidate = Path.GetFullPath(candidatePath);
+
+        return string.Equals(candidate, directory, comparison)
+            || candidate.StartsWith(directory + Path.DirectorySeparatorChar, comparison);
     }
 
     private sealed record ExcerptCandidate(

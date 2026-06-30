@@ -1,0 +1,10 @@
+Command: see bundle://proof/SB04/manifest.md Transcript Index for exact command
+reference\ef-analyzer-capabilities.md:14:The analyzer does not currently claim to detect or optimize runtime EF Core query behavior such as N+1 queries, missing `AsNoTracking`, split-query choices, compiled-query opportunities, generated SQL shape, database indexes, or client-evaluation warnings.
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\EfCoreFacts.cs:51:        Assert.DoesNotContain("N+1", diagnosticText, StringComparison.OrdinalIgnoreCase);
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\EfCoreFacts.cs:52:        Assert.DoesNotContain("AsNoTracking", diagnosticText, StringComparison.OrdinalIgnoreCase);
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\EfCoreFacts.cs:53:        Assert.DoesNotContain("split query", diagnosticText, StringComparison.OrdinalIgnoreCase);
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\EfCoreFacts.cs:54:        Assert.DoesNotContain("compiled query", diagnosticText, StringComparison.OrdinalIgnoreCase);
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\EfCoreFacts.cs:72:            item => item.Message.Contains("N+1", StringComparison.OrdinalIgnoreCase) ||
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\EfCoreFacts.cs:73:                item.Message.Contains("AsNoTracking", StringComparison.OrdinalIgnoreCase) ||
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\EfCoreFacts.cs:74:                item.Message.Contains("split query", StringComparison.OrdinalIgnoreCase));
+ExitCode: 0

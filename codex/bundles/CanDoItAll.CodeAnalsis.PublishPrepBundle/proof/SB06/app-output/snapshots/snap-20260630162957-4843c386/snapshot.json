@@ -1,0 +1,3819 @@
+﻿{
+  "schemaVersion": "1.1.0",
+  "generatorVersion": "0.1.0",
+  "snapshotId": "snap-20260630162957-4843c386",
+  "createdUtc": "2026-06-30T16:29:57.3139112+00:00",
+  "request": {
+    "solutionPath": "C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\Fixture.Shop.slnx",
+    "scopeProjectNames": [],
+    "scopeNamespacePrefixes": [],
+    "includeDi": true,
+    "includePersistence": true,
+    "includeRisks": true,
+    "includeXmlDocs": true,
+    "includeMermaidExports": true
+  },
+  "facts": {
+    "solution": {
+      "name": "Fixture.Shop",
+      "path": "C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\Fixture.Shop.slnx",
+      "projectCount": 4,
+      "documentCount": 34
+    },
+    "projects": [
+      {
+        "projectId": "proj-fixture-shop-application",
+        "name": "Fixture.Shop.Application",
+        "path": "src/Fixture.Shop.Application/Fixture.Shop.Application.csproj",
+        "targetFrameworks": [
+          "net10.0"
+        ],
+        "projectReferences": [
+          "proj-fixture-shop-contracts",
+          "proj-fixture-shop-infrastructure"
+        ],
+        "packageReferences": [],
+        "documentCount": 7
+      },
+      {
+        "projectId": "proj-fixture-shop-contracts",
+        "name": "Fixture.Shop.Contracts",
+        "path": "src/Fixture.Shop.Contracts/Fixture.Shop.Contracts.csproj",
+        "targetFrameworks": [
+          "net10.0"
+        ],
+        "projectReferences": [],
+        "packageReferences": [],
+        "documentCount": 11
+      },
+      {
+        "projectId": "proj-fixture-shop-infrastructure",
+        "name": "Fixture.Shop.Infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Fixture.Shop.Infrastructure.csproj",
+        "targetFrameworks": [
+          "net10.0"
+        ],
+        "projectReferences": [
+          "proj-fixture-shop-contracts"
+        ],
+        "packageReferences": [
+          "Microsoft.EntityFrameworkCore",
+          "Microsoft.EntityFrameworkCore.Sqlite"
+        ],
+        "documentCount": 12
+      },
+      {
+        "projectId": "proj-fixture-shop-web",
+        "name": "Fixture.Shop.Web",
+        "path": "src/Fixture.Shop.Web/Fixture.Shop.Web.csproj",
+        "targetFrameworks": [
+          "net10.0"
+        ],
+        "projectReferences": [
+          "proj-fixture-shop-application",
+          "proj-fixture-shop-contracts",
+          "proj-fixture-shop-infrastructure"
+        ],
+        "packageReferences": [],
+        "documentCount": 4
+      }
+    ],
+    "documents": [
+      {
+        "documentId": "doc-src-fixture-shop-application-notifications-orderrec-1b24fbcc8dd1",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+        "name": "OrderReceiptComposer.cs",
+        "lineCount": 19
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-obj-debug-net10-0-netc-afdef88d7791",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "name": ".NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "lineCount": 4
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-obj-debug-net10-0-fixt-d409b11f8817",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/obj/Debug/net10.0/Fixture.Shop.Application.AssemblyInfo.cs",
+        "name": "Fixture.Shop.Application.AssemblyInfo.cs",
+        "lineCount": 22
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-obj-debug-net10-0-fixt-d8d62580ae72",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/obj/Debug/net10.0/Fixture.Shop.Application.GlobalUsings.g.cs",
+        "name": "Fixture.Shop.Application.GlobalUsings.g.cs",
+        "lineCount": 8
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-orders-ordernumberformatter-cs",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/Orders/OrderNumberFormatter.cs",
+        "name": "OrderNumberFormatter.cs",
+        "lineCount": 9
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-orders-orderservice-cs",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+        "name": "OrderService.cs",
+        "lineCount": 51
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-orders-orderservice-partial-cs",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/Orders/OrderService.Partial.cs",
+        "name": "OrderService.Partial.cs",
+        "lineCount": 28
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-notifications-inotificationsender-cs",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/Notifications/INotificationSender.cs",
+        "name": "INotificationSender.cs",
+        "lineCount": 9
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-obj-debug-net10-0-netcor-69f76a606019",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "name": ".NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "lineCount": 4
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-obj-debug-net10-0-fixtur-5e2ea1c20347",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/obj/Debug/net10.0/Fixture.Shop.Contracts.AssemblyInfo.cs",
+        "name": "Fixture.Shop.Contracts.AssemblyInfo.cs",
+        "lineCount": 22
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-obj-debug-net10-0-fixtur-e01e787ad63c",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/obj/Debug/net10.0/Fixture.Shop.Contracts.GlobalUsings.g.cs",
+        "name": "Fixture.Shop.Contracts.GlobalUsings.g.cs",
+        "lineCount": 8
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-orders-iorderservice-cs",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/Orders/IOrderService.cs",
+        "name": "IOrderService.cs",
+        "lineCount": 9
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-orders-orderreceipt-cs",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/Orders/OrderReceipt.cs",
+        "name": "OrderReceipt.cs",
+        "lineCount": 6
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-orders-placeordercommand-cs",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderCommand.cs",
+        "name": "PlaceOrderCommand.cs",
+        "lineCount": 5
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-orders-placeorderlinecommand-cs",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderLineCommand.cs",
+        "name": "PlaceOrderLineCommand.cs",
+        "lineCount": 6
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-persistence-irepository-cs",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/Persistence/IRepository.cs",
+        "name": "IRepository.cs",
+        "lineCount": 7
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-shared-pagedresult-cs",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/Shared/PagedResult.cs",
+        "name": "PagedResult.cs",
+        "lineCount": 5
+      },
+      {
+        "documentId": "doc-src-fixture-shop-contracts-shared-pagedresult-metadata-cs",
+        "projectId": "proj-fixture-shop-contracts",
+        "path": "src/Fixture.Shop.Contracts/Shared/PagedResult.Metadata.cs",
+        "name": "PagedResult.Metadata.cs",
+        "lineCount": 12
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-notifications-email-e9ac1f35c287",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Notifications/EmailNotificationSender.cs",
+        "name": "EmailNotificationSender.cs",
+        "lineCount": 18
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-obj-debug-net10-0-n-2bf3d114a5d7",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "name": ".NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "lineCount": 4
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-obj-debug-net10-0-f-57f5301a78f2",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/obj/Debug/net10.0/Fixture.Shop.Infrastructure.AssemblyInfo.cs",
+        "name": "Fixture.Shop.Infrastructure.AssemblyInfo.cs",
+        "lineCount": 22
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-obj-debug-net10-0-f-79497436c598",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/obj/Debug/net10.0/Fixture.Shop.Infrastructure.GlobalUsings.g.cs",
+        "name": "Fixture.Shop.Infrastructure.GlobalUsings.g.cs",
+        "lineCount": 8
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-persistence-efrepository-cs",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/EfRepository.cs",
+        "name": "EfRepository.cs",
+        "lineCount": 20
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-persistence-entities-customer-cs",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+        "name": "Customer.cs",
+        "lineCount": 15
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-persistence-entitie-efc86d638a69",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/CustomerPreferences.cs",
+        "name": "CustomerPreferences.cs",
+        "lineCount": 6
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-persistence-entities-order-cs",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+        "name": "Order.cs",
+        "lineCount": 16
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-persistence-entitie-f71fddbe830b",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+        "name": "OrderLine.cs",
+        "lineCount": 16
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-persistence-entitie-4f6e8ffd8c1a",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderStatus.cs",
+        "name": "OrderStatus.cs",
+        "lineCount": 8
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-persistence-reporti-5b5aee8ffbb1",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+        "name": "ReportingDbContext.cs",
+        "lineCount": 38
+      },
+      {
+        "documentId": "doc-src-fixture-shop-infrastructure-persistence-shopdbcontext-cs",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+        "name": "ShopDbContext.cs",
+        "lineCount": 49
+      },
+      {
+        "documentId": "doc-src-fixture-shop-web-obj-debug-net10-0-netcoreapp-v-8f1c7844131b",
+        "projectId": "proj-fixture-shop-web",
+        "path": "src/Fixture.Shop.Web/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "name": ".NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "lineCount": 4
+      },
+      {
+        "documentId": "doc-src-fixture-shop-web-obj-debug-net10-0-fixture-shop-88333809b8ac",
+        "projectId": "proj-fixture-shop-web",
+        "path": "src/Fixture.Shop.Web/obj/Debug/net10.0/Fixture.Shop.Web.AssemblyInfo.cs",
+        "name": "Fixture.Shop.Web.AssemblyInfo.cs",
+        "lineCount": 22
+      },
+      {
+        "documentId": "doc-src-fixture-shop-web-obj-debug-net10-0-fixture-shop-e797b12ef009",
+        "projectId": "proj-fixture-shop-web",
+        "path": "src/Fixture.Shop.Web/obj/Debug/net10.0/Fixture.Shop.Web.GlobalUsings.g.cs",
+        "name": "Fixture.Shop.Web.GlobalUsings.g.cs",
+        "lineCount": 17
+      },
+      {
+        "documentId": "doc-src-fixture-shop-web-program-cs",
+        "projectId": "proj-fixture-shop-web",
+        "path": "src/Fixture.Shop.Web/Program.cs",
+        "name": "Program.cs",
+        "lineCount": 25
+      }
+    ],
+    "modules": [
+      {
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "projectId": "proj-fixture-shop-application",
+        "name": "Fixture.Shop.Application.Notifications",
+        "namespacePrefix": "Fixture.Shop.Application.Notifications",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "projectId": "proj-fixture-shop-application",
+        "name": "Fixture.Shop.Application.Orders",
+        "namespacePrefix": "Fixture.Shop.Application.Orders",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-application-fixture-shop-application-orders"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+          "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "projectId": "proj-fixture-shop-contracts",
+        "name": "Fixture.Shop.Contracts.Notifications",
+        "namespacePrefix": "Fixture.Shop.Contracts.Notifications",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-contracts-fixture-shop-contracts-notifications"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "projectId": "proj-fixture-shop-contracts",
+        "name": "Fixture.Shop.Contracts.Orders",
+        "namespacePrefix": "Fixture.Shop.Contracts.Orders",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-contracts-fixture-shop-contracts-orders"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-persistence",
+        "projectId": "proj-fixture-shop-contracts",
+        "name": "Fixture.Shop.Contracts.Persistence",
+        "namespacePrefix": "Fixture.Shop.Contracts.Persistence",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-contracts-fixture-shop-contracts-persistence"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-b8f5a836fcc2"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-shared",
+        "projectId": "proj-fixture-shop-contracts",
+        "name": "Fixture.Shop.Contracts.Shared",
+        "namespacePrefix": "Fixture.Shop.Contracts.Shared",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-contracts-fixture-shop-contracts-shared"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-bdbd606dbb10"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-b0930a5e0c1f",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "name": "Fixture.Shop.Infrastructure.Notifications",
+        "namespacePrefix": "Fixture.Shop.Infrastructure.Notifications",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-b0930a5e0c1f"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-102f742dec3d"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "name": "Fixture.Shop.Infrastructure.Persistence",
+        "namespacePrefix": "Fixture.Shop.Infrastructure.Persistence",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+          "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-4b85f739fbc2",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-5198d4af7b85",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-599de842b207",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "projectId": "proj-fixture-shop-web",
+        "name": "Fixture.Shop.Web",
+        "namespacePrefix": "Fixture.Shop.Web",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-web-fixture-shop-web"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-web-program"
+        ]
+      }
+    ],
+    "namespaces": [
+      {
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "name": "Fixture.Shop.Application.Notifications",
+        "typeIds": [
+          "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "name": "Fixture.Shop.Application.Orders",
+        "typeIds": [
+          "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+          "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "name": "Fixture.Shop.Contracts.Notifications",
+        "typeIds": [
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "name": "Fixture.Shop.Contracts.Orders",
+        "typeIds": [
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-persistence",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-persistence",
+        "name": "Fixture.Shop.Contracts.Persistence",
+        "typeIds": [
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-b8f5a836fcc2"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-shared",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-shared",
+        "name": "Fixture.Shop.Contracts.Shared",
+        "typeIds": [
+          "type-proj-fixture-shop-contracts-fixture-shop-contracts-bdbd606dbb10"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-b0930a5e0c1f",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-b0930a5e0c1f",
+        "name": "Fixture.Shop.Infrastructure.Notifications",
+        "typeIds": [
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-102f742dec3d"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "name": "Fixture.Shop.Infrastructure.Persistence",
+        "typeIds": [
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-4b85f739fbc2",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-599de842b207",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "name": "Fixture.Shop.Infrastructure.Persistence.Entities",
+        "typeIds": [
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-5198d4af7b85",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-web-fixture-shop-web",
+        "projectId": "proj-fixture-shop-web",
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "name": "Fixture.Shop.Web",
+        "typeIds": [
+          "type-proj-fixture-shop-web-program"
+        ]
+      }
+    ],
+    "types": [
+      {
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "displayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-application-fixture-shop-app-68c01556e18f",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-800962d63e9d",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-d94bef3db1d4"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 19,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "displayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-application-fixture-shop-app-3c05774db81d"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderNumberFormatter.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 9,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "Fixture.Shop.Contracts.Orders.IOrderService"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-application-fixture-shop-app-4e65d395feec",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-5cfea12a2f97",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-007c5b3c0453",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-aa3cdf1b8245",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-4fa05d92b05e",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-30c2c67bd8f4"
+        ],
+        "xmlSummary": "Places orders against the primary shop database.",
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 12,
+          "column": 1,
+          "endLine": 51,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "displayName": "Fixture.Shop.Contracts.Notifications.INotificationSender",
+        "kind": "interface",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-01431b680759"
+        ],
+        "xmlSummary": "Sends customer notifications after an order is accepted.",
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Notifications/INotificationSender.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 9,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "displayName": "Fixture.Shop.Contracts.Orders.IOrderService",
+        "kind": "interface",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-b95db9d0b3bf"
+        ],
+        "xmlSummary": "Coordinates order creation and confirmation work.",
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/IOrderService.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 9,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "displayName": "Fixture.Shop.Contracts.Orders.OrderReceipt",
+        "kind": "record",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "System.IEquatable\u003CFixture.Shop.Contracts.Orders.OrderReceipt\u003E"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-134e61f32dcd",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-1b5fce30892f",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-58a7b53f1c64",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-f3adf027c8f8"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/OrderReceipt.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 6,
+          "endColumn": 26
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderCommand",
+        "kind": "record",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "System.IEquatable\u003CFixture.Shop.Contracts.Orders.PlaceOrderCommand\u003E"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-19f9ccce63de",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-bd705d25bd11",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-5fc51c0eb536"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderCommand.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 5,
+          "endColumn": 49
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderLineCommand",
+        "kind": "record",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "System.IEquatable\u003CFixture.Shop.Contracts.Orders.PlaceOrderLineCommand\u003E"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-9ba1441773ed",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-ce088f034cbe",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-f2fcd789feb6",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-f5810c16c371"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderLineCommand.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 6,
+          "endColumn": 24
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-b8f5a836fcc2",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-persistence",
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-persistence",
+        "displayName": "Fixture.Shop.Contracts.Persistence.IRepository\u003CTEntity\u003E",
+        "kind": "interface",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-6d60b5e9bfc2"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Persistence/IRepository.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 7,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-bdbd606dbb10",
+        "projectId": "proj-fixture-shop-contracts",
+        "moduleId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-shared",
+        "namespaceId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-shared",
+        "displayName": "Fixture.Shop.Contracts.Shared.PagedResult\u003CTItem\u003E",
+        "kind": "record",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "System.IEquatable\u003CFixture.Shop.Contracts.Shared.PagedResult\u003CTItem\u003E\u003E"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-79cd540d0b86",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-86f46c22c971",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-ed4d18b63b0b",
+          "member-type-proj-fixture-shop-contracts-fixture-shop-contr-8b25f0c862b7"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Shared/PagedResult.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 5,
+          "endColumn": 21
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-102f742dec3d",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-b0930a5e0c1f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-b0930a5e0c1f",
+        "displayName": "Fixture.Shop.Infrastructure.Notifications.EmailNotificationSender",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "Fixture.Shop.Contracts.Notifications.INotificationSender"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-a3cc9954f0fa",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-5da3f421fa61",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-8804872c3d24"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Notifications/EmailNotificationSender.cs",
+          "line": 5,
+          "column": 1,
+          "endLine": 18,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.EfRepository\u003CTEntity\u003E",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "Fixture.Shop.Contracts.Persistence.IRepository\u003CTEntity\u003E"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-54fb2ddfbaca",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-019f7ad67590",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-ceaddc5352f6"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/EfRepository.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 20,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Customer",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-df823ecb587b",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-79d818bd8f78",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-72623dcd78e6",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-af69ec02dfa0"
+        ],
+        "xmlSummary": "Represents a customer that can place orders.",
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 15,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-5198d4af7b85",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.CustomerPreferences",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-ca6949c0923c"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/CustomerPreferences.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 6,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-c5d16cb5d3ca",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-e35c61843e84",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-5f7eada8ffd6",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-30ade16dc5c6",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-108e8553dff7",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-6357809b409c"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 16,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderLine",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-8c956907ab4e",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-31a4d3647752",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-2b013e4b7a75",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-6d764146bc22",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-79959696efbb",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-8c9a1b384053"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 16,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus",
+        "kind": "enum",
+        "baseTypeDisplayName": "System.Enum",
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-0df1a0437862",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-d821a4eaaae4",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-d78db4d172d3"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderStatus.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 8,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-4b85f739fbc2",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingDbContext",
+        "kind": "class",
+        "baseTypeDisplayName": "Microsoft.EntityFrameworkCore.DbContext",
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-d9a09c93f3b3",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-670815bdaa14"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 19,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingSnapshot",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-b0a023b96e9b",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-7db9c9cb1d20",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-b27d22bb9dd1"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 21,
+          "column": 1,
+          "endLine": 28,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-599de842b207",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingSnapshotConfiguration",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "Microsoft.EntityFrameworkCore.IEntityTypeConfiguration\u003CFixture.Shop.Infrastructure.Persistence.ReportingSnapshot\u003E"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-89b5bd6b7156"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 30,
+          "column": 1,
+          "endLine": 38,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "namespaceId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext",
+        "kind": "class",
+        "baseTypeDisplayName": "Microsoft.EntityFrameworkCore.DbContext",
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-4a06a2c9ccf4",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-e6584cf9c658",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-fdf9e4bcb834",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-da3a1f290102",
+          "member-type-proj-fixture-shop-infrastructure-fixture-shop-eb647ea38e74"
+        ],
+        "xmlSummary": "Stores customers, orders, and order lines for the fixture shop.",
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 9,
+          "column": 1,
+          "endLine": 49,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-web-program",
+        "projectId": "proj-fixture-shop-web",
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "namespaceId": "ns-proj-fixture-shop-web-fixture-shop-web",
+        "displayName": "Program",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-web-program-top-level-statem-410df90f86be"
+        ],
+        "xmlSummary": "Auto-generated public partial Program class for top-level statement apps.",
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 1,
+          "column": 1,
+          "endLine": 26,
+          "endColumn": 1
+        }
+      }
+    ],
+    "members": [
+      {
+        "memberId": "member-type-proj-fixture-shop-web-program-top-level-statem-410df90f86be",
+        "typeId": "type-proj-fixture-shop-web-program",
+        "displayName": "\u003Ctop-level-statements-entry-point\u003E",
+        "kind": "method",
+        "returnTypeDisplayName": "void",
+        "parameterDisplayNames": [
+          "string[]"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 1,
+          "column": 1,
+          "endLine": 26,
+          "endColumn": 1
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-68c01556e18f",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "displayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer.Compose(Fixture.Shop.Infrastructure.Persistence.Entities.Order)",
+        "kind": "method",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Infrastructure.Persistence.Entities.Order"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 15,
+          "column": 5,
+          "endLine": 18,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-800962d63e9d",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "displayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer.OrderReceiptComposer(Fixture.Shop.Application.Orders.OrderNumberFormatter)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "OrderReceiptComposer",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Application.Orders.OrderNumberFormatter"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 10,
+          "column": 5,
+          "endLine": 13,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-d94bef3db1d4",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "displayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer._orderNumberFormatter",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 8,
+          "column": 43,
+          "endLine": 8,
+          "endColumn": 64
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-3c05774db81d",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "displayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter.Format(int)",
+        "kind": "method",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [
+          "int"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderNumberFormatter.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 8,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-4e65d395feec",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService.CreateOrder(Fixture.Shop.Contracts.Orders.PlaceOrderCommand, Fixture.Shop.Infrastructure.Persistence.Entities.Customer)",
+        "kind": "method",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Contracts.Orders.PlaceOrderCommand",
+          "Fixture.Shop.Infrastructure.Persistence.Entities.Customer"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.Partial.cs",
+          "line": 8,
+          "column": 5,
+          "endLine": 27,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-5cfea12a2f97",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService.OrderService(Fixture.Shop.Infrastructure.Persistence.ShopDbContext, Fixture.Shop.Contracts.Notifications.INotificationSender, Fixture.Shop.Application.Notifications.OrderReceiptComposer, Fixture.Shop.Application.Orders.OrderNumberFormatter)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "OrderService",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Infrastructure.Persistence.ShopDbContext",
+          "Fixture.Shop.Contracts.Notifications.INotificationSender",
+          "Fixture.Shop.Application.Notifications.OrderReceiptComposer",
+          "Fixture.Shop.Application.Orders.OrderNumberFormatter"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 19,
+          "column": 5,
+          "endLine": 29,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService.PlaceOrderAsync(Fixture.Shop.Contracts.Orders.PlaceOrderCommand, System.Threading.CancellationToken)",
+        "kind": "method",
+        "returnTypeDisplayName": "System.Threading.Tasks.Task\u003CFixture.Shop.Contracts.Orders.OrderReceipt\u003E",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Contracts.Orders.PlaceOrderCommand",
+          "System.Threading.CancellationToken"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 31,
+          "column": 5,
+          "endLine": 50,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-007c5b3c0453",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService._dbContext",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 14,
+          "column": 36,
+          "endLine": 14,
+          "endColumn": 46
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-aa3cdf1b8245",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService._notificationSender",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Contracts.Notifications.INotificationSender",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 15,
+          "column": 42,
+          "endLine": 15,
+          "endColumn": 61
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-4fa05d92b05e",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService._orderNumberFormatter",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 17,
+          "column": 43,
+          "endLine": 17,
+          "endColumn": 64
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-30c2c67bd8f4",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService._receiptComposer",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 16,
+          "column": 43,
+          "endLine": 16,
+          "endColumn": 59
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-01431b680759",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567",
+        "displayName": "Fixture.Shop.Contracts.Notifications.INotificationSender.SendAsync(string, string, System.Threading.CancellationToken)",
+        "kind": "method",
+        "returnTypeDisplayName": "System.Threading.Tasks.Task",
+        "parameterDisplayNames": [
+          "string",
+          "string",
+          "System.Threading.CancellationToken"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Notifications/INotificationSender.cs",
+          "line": 8,
+          "column": 5,
+          "endLine": 8,
+          "endColumn": 104
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-b95db9d0b3bf",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+        "displayName": "Fixture.Shop.Contracts.Orders.IOrderService.PlaceOrderAsync(Fixture.Shop.Contracts.Orders.PlaceOrderCommand, System.Threading.CancellationToken)",
+        "kind": "method",
+        "returnTypeDisplayName": "System.Threading.Tasks.Task\u003CFixture.Shop.Contracts.Orders.OrderReceipt\u003E",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Contracts.Orders.PlaceOrderCommand",
+          "System.Threading.CancellationToken"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/IOrderService.cs",
+          "line": 8,
+          "column": 5,
+          "endLine": 8,
+          "endColumn": 114
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-134e61f32dcd",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "displayName": "Fixture.Shop.Contracts.Orders.OrderReceipt.OrderId",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/OrderReceipt.cs",
+          "line": 4,
+          "column": 5,
+          "endLine": 4,
+          "endColumn": 16
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-1b5fce30892f",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "displayName": "Fixture.Shop.Contracts.Orders.OrderReceipt.OrderNumber",
+        "kind": "property",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/OrderReceipt.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 5,
+          "endColumn": 23
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-58a7b53f1c64",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "displayName": "Fixture.Shop.Contracts.Orders.OrderReceipt.OrderReceipt(int, string, decimal)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "OrderReceipt",
+        "parameterDisplayNames": [
+          "int",
+          "string",
+          "decimal"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/OrderReceipt.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 6,
+          "endColumn": 26
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-f3adf027c8f8",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "displayName": "Fixture.Shop.Contracts.Orders.OrderReceipt.TotalAmount",
+        "kind": "property",
+        "returnTypeDisplayName": "decimal",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/OrderReceipt.cs",
+          "line": 6,
+          "column": 5,
+          "endLine": 6,
+          "endColumn": 24
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-19f9ccce63de",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderCommand.CustomerEmail",
+        "kind": "property",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderCommand.cs",
+          "line": 4,
+          "column": 5,
+          "endLine": 4,
+          "endColumn": 25
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-bd705d25bd11",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderCommand.Lines",
+        "kind": "property",
+        "returnTypeDisplayName": "System.Collections.Generic.IReadOnlyList\u003CFixture.Shop.Contracts.Orders.PlaceOrderLineCommand\u003E",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderCommand.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 5,
+          "endColumn": 47
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-5fc51c0eb536",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderCommand.PlaceOrderCommand(string, System.Collections.Generic.IReadOnlyList\u003CFixture.Shop.Contracts.Orders.PlaceOrderLineCommand\u003E)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "PlaceOrderCommand",
+        "parameterDisplayNames": [
+          "string",
+          "System.Collections.Generic.IReadOnlyList\u003CFixture.Shop.Contracts.Orders.PlaceOrderLineCommand\u003E"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderCommand.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 5,
+          "endColumn": 49
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-9ba1441773ed",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderLineCommand.PlaceOrderLineCommand(string, int, decimal)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "PlaceOrderLineCommand",
+        "parameterDisplayNames": [
+          "string",
+          "int",
+          "decimal"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderLineCommand.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 6,
+          "endColumn": 24
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-ce088f034cbe",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderLineCommand.Quantity",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderLineCommand.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 5,
+          "endColumn": 17
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-f2fcd789feb6",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderLineCommand.Sku",
+        "kind": "property",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderLineCommand.cs",
+          "line": 4,
+          "column": 5,
+          "endLine": 4,
+          "endColumn": 15
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-f5810c16c371",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "displayName": "Fixture.Shop.Contracts.Orders.PlaceOrderLineCommand.UnitPrice",
+        "kind": "property",
+        "returnTypeDisplayName": "decimal",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderLineCommand.cs",
+          "line": 6,
+          "column": 5,
+          "endLine": 6,
+          "endColumn": 22
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-6d60b5e9bfc2",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-b8f5a836fcc2",
+        "displayName": "Fixture.Shop.Contracts.Persistence.IRepository\u003CTEntity\u003E.FindAsync(int, System.Threading.CancellationToken)",
+        "kind": "method",
+        "returnTypeDisplayName": "System.Threading.Tasks.Task\u003CTEntity?\u003E",
+        "parameterDisplayNames": [
+          "int",
+          "System.Threading.CancellationToken"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Persistence/IRepository.cs",
+          "line": 6,
+          "column": 5,
+          "endLine": 6,
+          "endColumn": 85
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-79cd540d0b86",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-bdbd606dbb10",
+        "displayName": "Fixture.Shop.Contracts.Shared.PagedResult\u003CTItem\u003E.HasItems",
+        "kind": "property",
+        "returnTypeDisplayName": "bool",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Shared/PagedResult.Metadata.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 11,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-86f46c22c971",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-bdbd606dbb10",
+        "displayName": "Fixture.Shop.Contracts.Shared.PagedResult\u003CTItem\u003E.Items",
+        "kind": "property",
+        "returnTypeDisplayName": "System.Collections.Generic.IReadOnlyList\u003CTItem\u003E",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Shared/PagedResult.cs",
+          "line": 4,
+          "column": 5,
+          "endLine": 4,
+          "endColumn": 31
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-ed4d18b63b0b",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-bdbd606dbb10",
+        "displayName": "Fixture.Shop.Contracts.Shared.PagedResult\u003CTItem\u003E.PagedResult(System.Collections.Generic.IReadOnlyList\u003CTItem\u003E, int)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "PagedResult",
+        "parameterDisplayNames": [
+          "System.Collections.Generic.IReadOnlyList\u003CTItem\u003E",
+          "int"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Shared/PagedResult.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 5,
+          "endColumn": 21
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-8b25f0c862b7",
+        "typeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-bdbd606dbb10",
+        "displayName": "Fixture.Shop.Contracts.Shared.PagedResult\u003CTItem\u003E.TotalCount",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Shared/PagedResult.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 5,
+          "endColumn": 19
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-a3cc9954f0fa",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-102f742dec3d",
+        "displayName": "Fixture.Shop.Infrastructure.Notifications.EmailNotificationSender.EmailNotificationSender(string)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "EmailNotificationSender",
+        "parameterDisplayNames": [
+          "string"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Notifications/EmailNotificationSender.cs",
+          "line": 9,
+          "column": 5,
+          "endLine": 12,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-5da3f421fa61",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-102f742dec3d",
+        "displayName": "Fixture.Shop.Infrastructure.Notifications.EmailNotificationSender.SendAsync(string, string, System.Threading.CancellationToken)",
+        "kind": "method",
+        "returnTypeDisplayName": "System.Threading.Tasks.Task",
+        "parameterDisplayNames": [
+          "string",
+          "string",
+          "System.Threading.CancellationToken"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Notifications/EmailNotificationSender.cs",
+          "line": 14,
+          "column": 5,
+          "endLine": 17,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-8804872c3d24",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-102f742dec3d",
+        "displayName": "Fixture.Shop.Infrastructure.Notifications.EmailNotificationSender._smtpEndpoint",
+        "kind": "field",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Notifications/EmailNotificationSender.cs",
+          "line": 7,
+          "column": 29,
+          "endLine": 7,
+          "endColumn": 42
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-54fb2ddfbaca",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.EfRepository\u003CTEntity\u003E.EfRepository(Fixture.Shop.Infrastructure.Persistence.ShopDbContext)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "EfRepository",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Infrastructure.Persistence.ShopDbContext"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/EfRepository.cs",
+          "line": 11,
+          "column": 5,
+          "endLine": 14,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-019f7ad67590",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.EfRepository\u003CTEntity\u003E.FindAsync(int, System.Threading.CancellationToken)",
+        "kind": "method",
+        "returnTypeDisplayName": "System.Threading.Tasks.Task\u003CTEntity?\u003E",
+        "parameterDisplayNames": [
+          "int",
+          "System.Threading.CancellationToken"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/EfRepository.cs",
+          "line": 16,
+          "column": 5,
+          "endLine": 19,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-ceaddc5352f6",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.EfRepository\u003CTEntity\u003E._dbContext",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/EfRepository.cs",
+          "line": 9,
+          "column": 36,
+          "endLine": 9,
+          "endColumn": 46
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-df823ecb587b",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Customer.Email",
+        "kind": "property",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 10,
+          "column": 5,
+          "endLine": 10,
+          "endColumn": 54
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-79d818bd8f78",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Customer.Id",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 8,
+          "column": 5,
+          "endLine": 8,
+          "endColumn": 32
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-72623dcd78e6",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Customer.Orders",
+        "kind": "property",
+        "returnTypeDisplayName": "System.Collections.Generic.List\u003CFixture.Shop.Infrastructure.Persistence.Entities.Order\u003E",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 14,
+          "column": 5,
+          "endLine": 14,
+          "endColumn": 50
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-af69ec02dfa0",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Customer.Preferences",
+        "kind": "property",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.CustomerPreferences",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 12,
+          "column": 5,
+          "endLine": 12,
+          "endColumn": 66
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-ca6949c0923c",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-5198d4af7b85",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.CustomerPreferences.MarketingOptIn",
+        "kind": "property",
+        "returnTypeDisplayName": "bool",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/CustomerPreferences.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 5,
+          "endColumn": 45
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-c5d16cb5d3ca",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order.Customer",
+        "kind": "property",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Customer",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 9,
+          "column": 5,
+          "endLine": 9,
+          "endColumn": 52
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-e35c61843e84",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order.CustomerId",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 7,
+          "column": 5,
+          "endLine": 7,
+          "endColumn": 40
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-5f7eada8ffd6",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order.Id",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 5,
+          "endColumn": 32
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-30ade16dc5c6",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order.Lines",
+        "kind": "property",
+        "returnTypeDisplayName": "System.Collections.Generic.List\u003CFixture.Shop.Infrastructure.Persistence.Entities.OrderLine\u003E",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 15,
+          "column": 5,
+          "endLine": 15,
+          "endColumn": 53
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-108e8553dff7",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order.Status",
+        "kind": "property",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 13,
+          "column": 5,
+          "endLine": 13,
+          "endColumn": 44
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-6357809b409c",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order.TotalAmount",
+        "kind": "property",
+        "returnTypeDisplayName": "decimal",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 11,
+          "column": 5,
+          "endLine": 11,
+          "endColumn": 45
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-8c956907ab4e",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderLine.Id",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 5,
+          "endColumn": 32
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-31a4d3647752",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderLine.Order",
+        "kind": "property",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 9,
+          "column": 5,
+          "endLine": 9,
+          "endColumn": 46
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-2b013e4b7a75",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderLine.OrderId",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 7,
+          "column": 5,
+          "endLine": 7,
+          "endColumn": 37
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-6d764146bc22",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderLine.Quantity",
+        "kind": "property",
+        "returnTypeDisplayName": "int",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 13,
+          "column": 5,
+          "endLine": 13,
+          "endColumn": 38
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-79959696efbb",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderLine.Sku",
+        "kind": "property",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 11,
+          "column": 5,
+          "endLine": 11,
+          "endColumn": 52
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-8c9a1b384053",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderLine.UnitPrice",
+        "kind": "property",
+        "returnTypeDisplayName": "decimal",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 15,
+          "column": 5,
+          "endLine": 15,
+          "endColumn": 43
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-0df1a0437862",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus.Cancelled",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderStatus.cs",
+          "line": 7,
+          "column": 5,
+          "endLine": 7,
+          "endColumn": 14
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-d821a4eaaae4",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus.Confirmed",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderStatus.cs",
+          "line": 6,
+          "column": 5,
+          "endLine": 6,
+          "endColumn": 14
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-d78db4d172d3",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus.Pending",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderStatus.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 5,
+          "endColumn": 12
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-d9a09c93f3b3",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-4b85f739fbc2",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)",
+        "kind": "method",
+        "returnTypeDisplayName": "void",
+        "parameterDisplayNames": [
+          "Microsoft.EntityFrameworkCore.ModelBuilder"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 13,
+          "column": 5,
+          "endLine": 18,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-670815bdaa14",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-4b85f739fbc2",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingDbContext.ReportingDbContext(Microsoft.EntityFrameworkCore.DbContextOptions\u003CFixture.Shop.Infrastructure.Persistence.ReportingDbContext\u003E)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "ReportingDbContext",
+        "parameterDisplayNames": [
+          "Microsoft.EntityFrameworkCore.DbContextOptions\u003CFixture.Shop.Infrastructure.Persistence.ReportingDbContext\u003E"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 8,
+          "column": 5,
+          "endLine": 11,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-b0a023b96e9b",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingSnapshot.CreatedUtc",
+        "kind": "property",
+        "returnTypeDisplayName": "System.DateTimeOffset",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 25,
+          "column": 5,
+          "endLine": 25,
+          "endColumn": 51
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-7db9c9cb1d20",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingSnapshot.Id",
+        "kind": "property",
+        "returnTypeDisplayName": "System.Guid",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 23,
+          "column": 5,
+          "endLine": 23,
+          "endColumn": 33
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-b27d22bb9dd1",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingSnapshot.Label",
+        "kind": "property",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 27,
+          "column": 5,
+          "endLine": 27,
+          "endColumn": 54
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-89b5bd6b7156",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-599de842b207",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ReportingSnapshotConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder\u003CFixture.Shop.Infrastructure.Persistence.ReportingSnapshot\u003E)",
+        "kind": "method",
+        "returnTypeDisplayName": "void",
+        "parameterDisplayNames": [
+          "Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder\u003CFixture.Shop.Infrastructure.Persistence.ReportingSnapshot\u003E"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 32,
+          "column": 5,
+          "endLine": 37,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-4a06a2c9ccf4",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext.Customers",
+        "kind": "property",
+        "returnTypeDisplayName": "Microsoft.EntityFrameworkCore.DbSet\u003CFixture.Shop.Infrastructure.Persistence.Entities.Customer\u003E",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 16,
+          "column": 5,
+          "endLine": 16,
+          "endColumn": 57
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-e6584cf9c658",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)",
+        "kind": "method",
+        "returnTypeDisplayName": "void",
+        "parameterDisplayNames": [
+          "Microsoft.EntityFrameworkCore.ModelBuilder"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 22,
+          "column": 5,
+          "endLine": 48,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-fdf9e4bcb834",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext.OrderLines",
+        "kind": "property",
+        "returnTypeDisplayName": "Microsoft.EntityFrameworkCore.DbSet\u003CFixture.Shop.Infrastructure.Persistence.Entities.OrderLine\u003E",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 20,
+          "column": 5,
+          "endLine": 20,
+          "endColumn": 60
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-da3a1f290102",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext.Orders",
+        "kind": "property",
+        "returnTypeDisplayName": "Microsoft.EntityFrameworkCore.DbSet\u003CFixture.Shop.Infrastructure.Persistence.Entities.Order\u003E",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 18,
+          "column": 5,
+          "endLine": 18,
+          "endColumn": 48
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-infrastructure-fixture-shop-eb647ea38e74",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "displayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext.ShopDbContext(Microsoft.EntityFrameworkCore.DbContextOptions\u003CFixture.Shop.Infrastructure.Persistence.ShopDbContext\u003E)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "ShopDbContext",
+        "parameterDisplayNames": [
+          "Microsoft.EntityFrameworkCore.DbContextOptions\u003CFixture.Shop.Infrastructure.Persistence.ShopDbContext\u003E"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 11,
+          "column": 5,
+          "endLine": 14,
+          "endColumn": 6
+        }
+      }
+    ],
+    "memberRelationships": [
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-c45e6934294c",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "toMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-3c05774db81d",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 49,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-306317ce31cd",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "toMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-4e65d395feec",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 38,
+          "column": 21
+        }
+      },
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-46372a5f3dc9",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "toMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-68c01556e18f",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 46,
+          "column": 13
+        }
+      },
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-38839863e872",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "toMemberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-01431b680759",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 44,
+          "column": 15
+        }
+      },
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-b7a92dcff569",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-68c01556e18f",
+        "toMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-3c05774db81d",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 17,
+          "column": 25
+        }
+      },
+      {
+        "relationshipId": "memberrel-objectcreation-member-type-proj-fixture-shop-applic-5f4cb846460d",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "toMemberId": "member-type-proj-fixture-shop-contracts-fixture-shop-contr-58a7b53f1c64",
+        "kind": "objectCreation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 49,
+          "column": 16
+        }
+      }
+    ],
+    "typeRelationships": [
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-application-fixture-sh-5dd5ad004698",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "field",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 8,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-application-fixture-sh-501fe874e796",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "kind": "field",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 16,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-application-fixture-sh-c3275d7c437f",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "field",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 17,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-application-fixture-sh-f6019376595d",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567",
+        "kind": "field",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 15,
+          "column": 42
+        }
+      },
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-application-fixture-sh-3f8a891d3c47",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "kind": "field",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 14,
+          "column": 36
+        }
+      },
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-infrastructure-fixture-cc2d033bc207",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "kind": "field",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/EfRepository.cs",
+          "line": 9,
+          "column": 36
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-contracts-fixture-s-c0021712aa3e",
+        "fromTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "toTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "kind": "property",
+        "weight": 4,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderCommand.cs",
+          "line": 5,
+          "column": 42
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-db9998b34ee0",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 9,
+          "column": 18
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-a1108f532cc6",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 15,
+          "column": 28
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-ff74fb0ad0fd",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 9,
+          "column": 21
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-e338f24ab0bf",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 13,
+          "column": 24
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-42f6b152fc79",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-5198d4af7b85",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 12,
+          "column": 32
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-0390a3c7b474",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 14,
+          "column": 24
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-ecb425814b1e",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 20,
+          "column": 29
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-f5e661976cf9",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 18,
+          "column": 25
+        }
+      },
+      {
+        "relationshipId": "typerel-property-type-proj-fixture-shop-infrastructure-fixt-529742f3a9a3",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "kind": "property",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 16,
+          "column": 28
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-applica-486f449562c8",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "constructorParameter",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 10,
+          "column": 54
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-applica-405b9e1e5cc8",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "kind": "constructorParameter",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 22,
+          "column": 30
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-applica-c1ddaff5d6eb",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "constructorParameter",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 23,
+          "column": 30
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-applica-eb5df9e33acd",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567",
+        "kind": "constructorParameter",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 21,
+          "column": 29
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-applica-bf2d567ce297",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "kind": "constructorParameter",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 20,
+          "column": 23
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-contrac-77c43299115a",
+        "fromTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "toTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "kind": "constructorParameter",
+        "weight": 4,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/PlaceOrderCommand.cs",
+          "line": 5,
+          "column": 42
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-infrast-5c531dc90917",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "kind": "constructorParameter",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/EfRepository.cs",
+          "line": 11,
+          "column": 39
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-application-c2308be2dbd0",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "methodParameter",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 15,
+          "column": 33
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-application-8fabf1ce5433",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "kind": "methodParameter",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 31,
+          "column": 71
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-application-90cf8f372272",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "kind": "methodParameter",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.Partial.cs",
+          "line": 8,
+          "column": 74
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-contracts-fi-d0dc58600a61",
+        "fromTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+        "toTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "kind": "methodParameter",
+        "weight": 4,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/IOrderService.cs",
+          "line": 8,
+          "column": 58
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-infrastructu-4a221aa8fe67",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "methodParameter",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 9,
+          "column": 31
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-infrastructu-3285cd79c8ba",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-599de842b207",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "kind": "methodParameter",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 32,
+          "column": 64
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-infrastructu-0a98eed9e4d0",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "kind": "methodParameter",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 15,
+          "column": 41
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-infrastructu-7ade4119c2a8",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "kind": "methodParameter",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 9,
+          "column": 37
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-infrastructu-ec7466af623e",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a",
+        "kind": "methodParameter",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 13,
+          "column": 38
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-infrastructu-e85423f613bc",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-5198d4af7b85",
+        "kind": "methodParameter",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 12,
+          "column": 51
+        }
+      },
+      {
+        "relationshipId": "typerel-methodparameter-type-proj-fixture-shop-infrastructu-2e9da8c7cabc",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "methodParameter",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 14,
+          "column": 38
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-application-fix-8a14003cbb00",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "kind": "methodReturn",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 31,
+          "column": 37
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-application-fix-5491ac88d307",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "methodReturn",
+        "weight": 2,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.Partial.cs",
+          "line": 8,
+          "column": 26
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-contracts-fixtu-7df88ec910b1",
+        "fromTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+        "toTypeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "kind": "methodReturn",
+        "weight": 4,
+        "source": {
+          "path": "src/Fixture.Shop.Contracts/Orders/IOrderService.cs",
+          "line": 8,
+          "column": 24
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-e33db059c869",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 9,
+          "column": 26
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-4b6efa514377",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 15,
+          "column": 36
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-10709f69e4a4",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 9,
+          "column": 32
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-ecf1d11d887f",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 13,
+          "column": 33
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-3cb46eb20e0b",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-5198d4af7b85",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 12,
+          "column": 46
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-f276ed418cfd",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 14,
+          "column": 33
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-60f757dc49de",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 20,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-890bbae69546",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 18,
+          "column": 35
+        }
+      },
+      {
+        "relationshipId": "typerel-methodreturn-type-proj-fixture-shop-infrastructure-8ad8b7f48df1",
+        "fromTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toTypeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "kind": "methodReturn",
+        "weight": 3,
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 16,
+          "column": 41
+        }
+      }
+    ],
+    "serviceRegistrations": [
+      {
+        "serviceRegistrationId": "svc-addscoped-fixture-shop-application-notifications-or-b189a8eb6e98",
+        "projectId": "proj-fixture-shop-web",
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "lifetime": "scoped",
+        "serviceTypeDisplayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer",
+        "implementationTypeDisplayName": null,
+        "registrationMethod": "AddScoped",
+        "usesFactory": false,
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 16,
+          "column": 1
+        }
+      },
+      {
+        "serviceRegistrationId": "svc-addscoped-fixture-shop-application-orders-ordernumb-47a20e666c44",
+        "projectId": "proj-fixture-shop-web",
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "lifetime": "scoped",
+        "serviceTypeDisplayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter",
+        "implementationTypeDisplayName": null,
+        "registrationMethod": "AddScoped",
+        "usesFactory": false,
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 15,
+          "column": 1
+        }
+      },
+      {
+        "serviceRegistrationId": "svc-addtransient-fixture-shop-contracts-notifications-i-8e2dd9edd0ce",
+        "projectId": "proj-fixture-shop-web",
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "lifetime": "transient",
+        "serviceTypeDisplayName": "Fixture.Shop.Contracts.Notifications.INotificationSender",
+        "implementationTypeDisplayName": null,
+        "registrationMethod": "AddTransient",
+        "usesFactory": true,
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 19,
+          "column": 1
+        }
+      },
+      {
+        "serviceRegistrationId": "svc-addscoped-fixture-shop-contracts-orders-iorderservi-4491d7092f45",
+        "projectId": "proj-fixture-shop-web",
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "lifetime": "scoped",
+        "serviceTypeDisplayName": "Fixture.Shop.Contracts.Orders.IOrderService",
+        "implementationTypeDisplayName": "Fixture.Shop.Application.Orders.OrderService",
+        "registrationMethod": "AddScoped",
+        "usesFactory": false,
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 14,
+          "column": 1
+        }
+      },
+      {
+        "serviceRegistrationId": "svc-addscoped-fixture-shop-contracts-persistence-irepos-9d7e393a5691",
+        "projectId": "proj-fixture-shop-web",
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "lifetime": "scoped",
+        "serviceTypeDisplayName": "Fixture.Shop.Contracts.Persistence.IRepository\u003C\u003E",
+        "implementationTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.EfRepository\u003C\u003E",
+        "registrationMethod": "AddScoped",
+        "usesFactory": false,
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 17,
+          "column": 1
+        }
+      },
+      {
+        "serviceRegistrationId": "svc-addsingleton-system-timeprovider-src-fixture-shop-w-bdd984dd3731",
+        "projectId": "proj-fixture-shop-web",
+        "moduleId": "mod-proj-fixture-shop-web-fixture-shop-web",
+        "lifetime": "singleton",
+        "serviceTypeDisplayName": "System.TimeProvider",
+        "implementationTypeDisplayName": null,
+        "registrationMethod": "AddSingleton",
+        "usesFactory": true,
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 18,
+          "column": 1
+        }
+      }
+    ],
+    "dbContexts": [
+      {
+        "dbContextId": "dbctx-proj-fixture-shop-infrastructure-fixture-shop-infra-4b85f739fbc2",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-4b85f739fbc2",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "ReportingDbContext",
+        "entityTypeIds": [
+          "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 19,
+          "endColumn": 2
+        }
+      },
+      {
+        "dbContextId": "dbctx-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "ShopDbContext",
+        "entityTypeIds": [
+          "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+          "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+          "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 9,
+          "column": 1,
+          "endLine": 49,
+          "endColumn": 2
+        }
+      }
+    ],
+    "entities": [
+      {
+        "entityId": "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "Customer",
+        "tableName": "Customers",
+        "schema": "sales",
+        "keyPropertyNames": [
+          "Id"
+        ],
+        "relationshipTargets": [
+          "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 15,
+          "endColumn": 2
+        }
+      },
+      {
+        "entityId": "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "Order",
+        "tableName": "Orders",
+        "schema": "sales",
+        "keyPropertyNames": [
+          "Id"
+        ],
+        "relationshipTargets": [
+          "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+          "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 16,
+          "endColumn": 2
+        }
+      },
+      {
+        "entityId": "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "OrderLine",
+        "tableName": "OrderLines",
+        "schema": "sales",
+        "keyPropertyNames": [
+          "Id"
+        ],
+        "relationshipTargets": [
+          "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/OrderLine.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 16,
+          "endColumn": 2
+        }
+      },
+      {
+        "entityId": "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "typeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "projectId": "proj-fixture-shop-infrastructure",
+        "moduleId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "displayName": "ReportingSnapshot",
+        "tableName": "ReportingSnapshots",
+        "schema": "reporting",
+        "keyPropertyNames": [
+          "Id"
+        ],
+        "relationshipTargets": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ReportingDbContext.cs",
+          "line": 21,
+          "column": 1,
+          "endLine": 28,
+          "endColumn": 2
+        }
+      }
+    ],
+    "entityRelationships": [
+      {
+        "relationshipId": "entrel-onetomany-ent-proj-fixture-shop-infrastructure-fixt-3c9d7ea024f7",
+        "fromEntityId": "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toEntityId": "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "kind": "oneToMany",
+        "navigationPropertyNames": [
+          "Lines",
+          "Order"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Order.cs",
+          "line": 15,
+          "column": 28
+        }
+      },
+      {
+        "relationshipId": "entrel-onetomany-ent-proj-fixture-shop-infrastructure-fixt-363c6ceea0ad",
+        "fromEntityId": "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toEntityId": "ent-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "oneToMany",
+        "navigationPropertyNames": [
+          "Customer",
+          "Orders"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/Entities/Customer.cs",
+          "line": 14,
+          "column": 24
+        }
+      }
+    ],
+    "dependencies": [
+      {
+        "edgeId": "dep-projectreference-proj-fixture-shop-application-proj-b2b4bd54b04d",
+        "kind": "projectReference",
+        "fromId": "proj-fixture-shop-application",
+        "toId": "proj-fixture-shop-contracts",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-projectreference-proj-fixture-shop-application-proj-ab43c0f9603f",
+        "kind": "projectReference",
+        "fromId": "proj-fixture-shop-application",
+        "toId": "proj-fixture-shop-infrastructure",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-projectreference-proj-fixture-shop-infrastructure-p-5ab926e565f7",
+        "kind": "projectReference",
+        "fromId": "proj-fixture-shop-infrastructure",
+        "toId": "proj-fixture-shop-contracts",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-projectreference-proj-fixture-shop-web-proj-fixture-1644651ff83f",
+        "kind": "projectReference",
+        "fromId": "proj-fixture-shop-web",
+        "toId": "proj-fixture-shop-application",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-projectreference-proj-fixture-shop-web-proj-fixture-926075e7c740",
+        "kind": "projectReference",
+        "fromId": "proj-fixture-shop-web",
+        "toId": "proj-fixture-shop-contracts",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-projectreference-proj-fixture-shop-web-proj-fixture-7cb3ff9cb094",
+        "kind": "projectReference",
+        "fromId": "proj-fixture-shop-web",
+        "toId": "proj-fixture-shop-infrastructure",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-application-710011bd784b",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "toId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-application-b9dfc907b15b",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "toId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-application-f080762b7e20",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-application-36a5e0edec11",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-application-42907a7e130e",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "weight": 6,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-application-0bbb3cb8ff16",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "weight": 6,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-infrastructu-150f02a6d5f0",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-b0930a5e0c1f",
+        "toId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-infrastructu-da259c78b73e",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "toId": "mod-proj-fixture-shop-contracts-fixture-shop-contracts-persistence",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-d885e6fcfa99",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "toId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-d835781f3d52",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "toId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-a3f9e6a6f090",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-c2f23d419b6f",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-9e58201f1477",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-orders",
+        "weight": 6,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-20848d36ea90",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "weight": 4,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-1f8e4a692789",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-infrastruc-f7ba8288823d",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-b0930a5e0c1f",
+        "toId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-notifications",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-infrastruc-69054fafab67",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "toId": "ns-proj-fixture-shop-contracts-fixture-shop-contracts-persistence",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-infrastruc-1bd002ed06a1",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-f7c07050f57f",
+        "toId": "ns-proj-fixture-shop-infrastructure-fixture-shop-infra-bf550fc26caf",
+        "weight": 9,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-dcacafe1cfcc",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "toId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-66d163d1d847",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-4b6c14a48aab",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-bae85eaf8512",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-807e51a17caf",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-a519daa37404",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-3ad3d794bdf6",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-586d6c449408",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-10e52590776d",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-d8658f0a308f",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-65580787f552",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "weight": 2,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-contracts-fix-c1ce572a6916",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "weight": 4,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-contracts-fix-699ebccf4555",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "weight": 4,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-contracts-fix-3cd190c60bdb",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "weight": 4,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-3762927f72c0",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-57b1fa85fd4d",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-102f742dec3d",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-df12670f5841",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-599de842b207",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-cbaab4d8d0f6",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-e0d60e49a2db",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-b0ad32839cc8",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d2c1923a007a",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-d1e10c8d4ccb",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-5198d4af7b85",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-6f73551a476d",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-3c8c5379b754",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+        "toId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-b8f5a836fcc2",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-874b3027276c",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-b20212b509b0",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-9e83c21b3d0d",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-725fef1f4dc1",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "weight": 3,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-infrastructur-5bc4a65b627b",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "toId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "weight": 3,
+        "source": null
+      }
+    ]
+  },
+  "insights": {
+    "summary": {
+      "projectCount": 4,
+      "typeCount": 22,
+      "memberCount": 67,
+      "serviceRegistrationCount": 6,
+      "entityCount": 4,
+      "findingCount": 3,
+      "openQuestionCount": 4,
+      "diagnosticCount": 7
+    },
+    "cycles": [
+      {
+        "level": "Module",
+        "nodeIds": [
+          "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+          "mod-proj-fixture-shop-application-fixture-shop-application-orders"
+        ]
+      },
+      {
+        "level": "Type",
+        "nodeIds": [
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183"
+        ]
+      }
+    ],
+    "hotspots": [
+      {
+        "nodeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+        "kind": "Type",
+        "score": 0.64,
+        "reason": "fan-in=13, members=6"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183",
+        "kind": "Type",
+        "score": 0.4,
+        "reason": "fan-in=8, members=4"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+        "kind": "Type",
+        "score": 0.36,
+        "reason": "fan-in=6, members=6"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-e73047987664",
+        "kind": "Type",
+        "score": 0.32,
+        "reason": "fan-in=6, members=4"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-3695a2149552",
+        "kind": "Type",
+        "score": 0.3,
+        "reason": "fan-in=6, members=3"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-d029d6bcf677",
+        "kind": "Type",
+        "score": 0.3,
+        "reason": "fan-in=5, members=5"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-c1852a937d77",
+        "kind": "Type",
+        "score": 0.24,
+        "reason": "fan-in=4, members=4"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-contracts-fixture-shop-contracts-262033fd8567",
+        "kind": "Type",
+        "score": 0.22,
+        "reason": "fan-in=5, members=1"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "Type",
+        "score": 0.18,
+        "reason": "fan-in=4, members=1"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-infrastructure-fixture-shop-infra-6a51cdef9a6e",
+        "kind": "Type",
+        "score": 0.18,
+        "reason": "fan-in=3, members=3"
+      }
+    ],
+    "findings": [
+      {
+        "findingId": "finding-cycle-module-mod-proj-fixture-shop-application-fixt-6993e965c348",
+        "ruleId": "DEPENDENCY-001",
+        "severity": "warning",
+        "category": "dependency",
+        "title": "Module cycle detected",
+        "description": "The module graph contains a strongly connected component.",
+        "rationale": "Strongly connected components make architectural direction harder to reason about.",
+        "confidence": 0.95,
+        "relatedIds": [
+          "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+          "mod-proj-fixture-shop-application-fixture-shop-application-orders"
+        ],
+        "source": null
+      },
+      {
+        "findingId": "finding-cycle-type-type-proj-fixture-shop-infrastructure-fi-f45eb239d567",
+        "ruleId": "DEPENDENCY-001",
+        "severity": "warning",
+        "category": "dependency",
+        "title": "Type cycle detected",
+        "description": "The type graph contains a strongly connected component.",
+        "rationale": "Strongly connected components make architectural direction harder to reason about.",
+        "confidence": 0.95,
+        "relatedIds": [
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-098c9aa0b242",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-91cef36e7fcb",
+          "type-proj-fixture-shop-infrastructure-fixture-shop-infra-aa3a1da0d183"
+        ],
+        "source": null
+      },
+      {
+        "findingId": "finding-layering-proj-fixture-shop-application",
+        "ruleId": "LAYERING-001",
+        "severity": "warning",
+        "category": "layering",
+        "title": "Application depends on Infrastructure",
+        "description": "Fixture.Shop.Application directly references an Infrastructure project.",
+        "rationale": "This couples business orchestration to persistence details.",
+        "confidence": 0.92,
+        "relatedIds": [
+          "proj-fixture-shop-application",
+          "proj-fixture-shop-contracts",
+          "proj-fixture-shop-infrastructure"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Fixture.Shop.Application.csproj",
+          "line": null,
+          "column": null
+        }
+      }
+    ],
+    "openQuestions": [
+      {
+        "questionId": "finding-question-di0001-factory-based-registration-at-src-f-5e4f8ac970cc",
+        "title": "Collector ambiguity remains",
+        "description": "Factory-based registration at src/Fixture.Shop.Web/Program.cs is only partially interpreted.",
+        "confidence": 0.55,
+        "relatedIds": [],
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 18,
+          "column": 1
+        }
+      },
+      {
+        "questionId": "finding-question-di0001-factory-based-registration-at-src-f-5e4f8ac970cc",
+        "title": "Collector ambiguity remains",
+        "description": "Factory-based registration at src/Fixture.Shop.Web/Program.cs is only partially interpreted.",
+        "confidence": 0.55,
+        "relatedIds": [],
+        "source": {
+          "path": "src/Fixture.Shop.Web/Program.cs",
+          "line": 19,
+          "column": 1
+        }
+      },
+      {
+        "questionId": "finding-question-ef0003-persistence-pattern-hasconversion-i-77b0c3edc3f8",
+        "title": "Collector ambiguity remains",
+        "description": "Persistence pattern HasConversion is only partially interpreted.",
+        "confidence": 0.55,
+        "relatedIds": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 28,
+          "column": 9
+        }
+      },
+      {
+        "questionId": "finding-question-ef0003-persistence-pattern-ownsone-is-only-37ec10503a67",
+        "title": "Collector ambiguity remains",
+        "description": "Persistence pattern OwnsOne is only partially interpreted.",
+        "confidence": 0.55,
+        "relatedIds": [],
+        "source": {
+          "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+          "line": 42,
+          "column": 9
+        }
+      }
+    ]
+  },
+  "exports": {
+    "artifacts": [
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-application-notifications.mmd",
+        "title": "Class diagram - Fixture.Shop.Application.Notifications",
+        "description": "Type relationships within module Fixture.Shop.Application.Notifications.",
+        "sizeInBytes": 94
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-application-orders.mmd",
+        "title": "Class diagram - Fixture.Shop.Application.Orders",
+        "description": "Type relationships within module Fixture.Shop.Application.Orders.",
+        "sizeInBytes": 209
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-contracts-notifications.mmd",
+        "title": "Class diagram - Fixture.Shop.Contracts.Notifications",
+        "description": "Type relationships within module Fixture.Shop.Contracts.Notifications.",
+        "sizeInBytes": 91
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-contracts-orders.mmd",
+        "title": "Class diagram - Fixture.Shop.Contracts.Orders",
+        "description": "Type relationships within module Fixture.Shop.Contracts.Orders.",
+        "sizeInBytes": 401
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-contracts-persistence.mmd",
+        "title": "Class diagram - Fixture.Shop.Contracts.Persistence",
+        "description": "Type relationships within module Fixture.Shop.Contracts.Persistence.",
+        "sizeInBytes": 96
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-contracts-shared.mmd",
+        "title": "Class diagram - Fixture.Shop.Contracts.Shared",
+        "description": "Type relationships within module Fixture.Shop.Contracts.Shared.",
+        "sizeInBytes": 89
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-infrastructure-notifications.mmd",
+        "title": "Class diagram - Fixture.Shop.Infrastructure.Notifications",
+        "description": "Type relationships within module Fixture.Shop.Infrastructure.Notifications.",
+        "sizeInBytes": 100
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-infrastructure-persistence.mmd",
+        "title": "Class diagram - Fixture.Shop.Infrastructure.Persistence",
+        "description": "Type relationships within module Fixture.Shop.Infrastructure.Persistence.",
+        "sizeInBytes": 1515
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-web.mmd",
+        "title": "Class diagram - Fixture.Shop.Web",
+        "description": "Type relationships within module Fixture.Shop.Web.",
+        "sizeInBytes": 42
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/project-fixture-shop-application.mmd",
+        "title": "Class diagram - Fixture.Shop.Application",
+        "description": "Type relationships within Fixture.Shop.Application.",
+        "sizeInBytes": 403
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/project-fixture-shop-contracts.mmd",
+        "title": "Class diagram - Fixture.Shop.Contracts",
+        "description": "Type relationships within Fixture.Shop.Contracts.",
+        "sizeInBytes": 635
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/project-fixture-shop-infrastructure.mmd",
+        "title": "Class diagram - Fixture.Shop.Infrastructure",
+        "description": "Type relationships within Fixture.Shop.Infrastructure.",
+        "sizeInBytes": 1601
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/project-fixture-shop-web.mmd",
+        "title": "Class diagram - Fixture.Shop.Web",
+        "description": "Type relationships within Fixture.Shop.Web.",
+        "sizeInBytes": 42
+      },
+      {
+        "kind": "mermaidErDiagram",
+        "relativePath": "exports/er-diagrams/module-fixture-shop-infrastructure-persistence.mmd",
+        "title": "ER diagram - Fixture.Shop.Infrastructure.Persistence",
+        "description": "Entity relationships within module Fixture.Shop.Infrastructure.Persistence.",
+        "sizeInBytes": 285
+      },
+      {
+        "kind": "mermaidErDiagram",
+        "relativePath": "exports/er-diagrams/project-fixture-shop-infrastructure.mmd",
+        "title": "ER diagram - Fixture.Shop.Infrastructure",
+        "description": "Entity relationships within Fixture.Shop.Infrastructure.",
+        "sizeInBytes": 285
+      },
+      {
+        "kind": "mermaidProjectGraph",
+        "relativePath": "exports/project-graph.mmd",
+        "title": "Project graph",
+        "description": "Project dependency diagram.",
+        "sizeInBytes": 645
+      },
+      {
+        "kind": "markdownSummary",
+        "relativePath": "exports/summary.md",
+        "title": "Markdown summary",
+        "description": "High-level architecture summary.",
+        "sizeInBytes": 2507
+      },
+      {
+        "kind": "snapshotJson",
+        "relativePath": "snapshot.json",
+        "title": "Snapshot JSON",
+        "description": "Canonical architecture snapshot.",
+        "sizeInBytes": null
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "code": "DI0001",
+      "severity": "info",
+      "message": "Factory-based registration at src/Fixture.Shop.Web/Program.cs is only partially interpreted.",
+      "source": {
+        "path": "src/Fixture.Shop.Web/Program.cs",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "code": "DI0001",
+      "severity": "info",
+      "message": "Factory-based registration at src/Fixture.Shop.Web/Program.cs is only partially interpreted.",
+      "source": {
+        "path": "src/Fixture.Shop.Web/Program.cs",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "code": "EF0003",
+      "severity": "info",
+      "message": "Persistence pattern HasConversion is only partially interpreted.",
+      "source": {
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+        "line": 28,
+        "column": 9
+      }
+    },
+    {
+      "code": "EF0003",
+      "severity": "info",
+      "message": "Persistence pattern OwnsOne is only partially interpreted.",
+      "source": {
+        "path": "src/Fixture.Shop.Infrastructure/Persistence/ShopDbContext.cs",
+        "line": 42,
+        "column": 9
+      }
+    },
+    {
+      "code": "WS0002",
+      "severity": "warning",
+      "message": "Msbuild failed when processing the file \u0027C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Application\\Fixture.Shop.Application.csproj\u0027 with message: Package \u0027SQLitePCLRaw.lib.e_sqlite3\u0027 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "source": null
+    },
+    {
+      "code": "WS0002",
+      "severity": "warning",
+      "message": "Msbuild failed when processing the file \u0027C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Infrastructure\\Fixture.Shop.Infrastructure.csproj\u0027 with message: Package \u0027SQLitePCLRaw.lib.e_sqlite3\u0027 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "source": null
+    },
+    {
+      "code": "WS0002",
+      "severity": "warning",
+      "message": "Msbuild failed when processing the file \u0027C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Web\\Fixture.Shop.Web.csproj\u0027 with message: Package \u0027SQLitePCLRaw.lib.e_sqlite3\u0027 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "source": null
+    }
+  ]
+}

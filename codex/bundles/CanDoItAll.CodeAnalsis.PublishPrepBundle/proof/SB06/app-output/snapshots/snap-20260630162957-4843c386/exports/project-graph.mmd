@@ -1,0 +1,11 @@
+﻿flowchart LR
+    proj-fixture-shop-application["Fixture.Shop.Application"]
+    proj-fixture-shop-contracts["Fixture.Shop.Contracts"]
+    proj-fixture-shop-infrastructure["Fixture.Shop.Infrastructure"]
+    proj-fixture-shop-web["Fixture.Shop.Web"]
+    proj-fixture-shop-application --> proj-fixture-shop-contracts
+    proj-fixture-shop-application --> proj-fixture-shop-infrastructure
+    proj-fixture-shop-infrastructure --> proj-fixture-shop-contracts
+    proj-fixture-shop-web --> proj-fixture-shop-application
+    proj-fixture-shop-web --> proj-fixture-shop-contracts
+    proj-fixture-shop-web --> proj-fixture-shop-infrastructure

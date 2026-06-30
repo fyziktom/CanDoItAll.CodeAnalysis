@@ -1,0 +1,3 @@
+Command: see bundle://proof/SB04/manifest.md Transcript Index for exact command
+Bundle is valid for stage 'prepared': C:\repositories\CanDoItAll.CodeAnalsis\codex\bundles\CanDoItAll.CodeAnalsis.PublishPrepBundle
+ExitCode: 0

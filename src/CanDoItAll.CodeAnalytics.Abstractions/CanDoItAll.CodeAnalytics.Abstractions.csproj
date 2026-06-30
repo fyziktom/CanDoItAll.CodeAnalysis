@@ -4,6 +4,8 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+    <Description>Public commands, queries, responses, enums, and service contracts for the CanDoItAll CodeAnalytics engine.</Description>
   </PropertyGroup>
 
   <ItemGroup>

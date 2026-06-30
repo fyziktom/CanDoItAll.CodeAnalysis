@@ -1,0 +1,28 @@
+﻿Command: dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Architecture\CanDoItAll.CodeAnalytics.Tests.Architecture.csproj --no-build --logger "console;verbosity=normal"
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T10:56:07.5262199-04:00
+EndTime: 2026-06-30T10:56:17.1221269-04:00
+ExitCode: 0
+Output:
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Architecture\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Architecture.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.48]   Discovering: CanDoItAll.CodeAnalytics.Tests.Architecture
+[xUnit.net 00:00:00.62]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Architecture
+[xUnit.net 00:00:00.70]   Starting:    CanDoItAll.CodeAnalytics.Tests.Architecture
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.FutureMcpFacts.FutureMcp_tool_surface_and_settings_keep_the_driver_thin [29 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.CompatibilityContractFacts.Compatibility_naming_map_stays_frozen [65 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.CompatibilityContractFacts.Compatibility_reference_artifacts_exist [2 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.CompatibilityContractFacts.Compatibility_tool_surface_uses_the_code_analytics_prefix [11 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Source_projects_do_not_reference_host_mcp_core [116 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Canonical_solution_contains_the_expected_project_set [54 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.FutureMcpFacts.FutureMcp_standalone_source_tree_does_not_clone_host_runtime_projects [129 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Desktop_sandbox_is_the_only_web_sdk_source_project [36 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Production_project_reference_graph_is_acyclic [40 ms]
+[xUnit.net 00:00:01.19]   Finished:    CanDoItAll.CodeAnalytics.Tests.Architecture
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Reusable_source_projects_do_not_reference_sandbox_or_nonshipping_boundaries [68 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Production_projects_follow_the_bootstrap_reference_map [25 ms]
+Test Run Successful.
+Total tests: 11
+     Passed: 11
+ Total time: 3.5500 Seconds

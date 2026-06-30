@@ -1,0 +1,30 @@
+﻿Command: powershell -NoProfile -Command "Get-ChildItem src\CanDoItAll.CodeAnalytics.Application\Services -File | ForEach-Object { $count = (Get-Content -LiteralPath $_.FullName).Count; \"{0,4} {1}\" -f $count, $_.Name } | Sort-Object"
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T11:46:31.9657688-04:00
+EndTime: 2026-06-30T11:46:34.1344815-04:00
+ExitCode: 0
+Output:
+  24 CodeAnalyticsApplicationService.Symbols.Models.cs
+  68 CodeAnalyticsApplicationService.Context.Strategy.Models.cs
+  78 CodeAnalyticsApplicationService.Symbols.Context.cs
+  84 CodeAnalyticsApplicationService.Helpers.cs
+ 114 CodeAnalyticsApplicationService.Symbols.Search.cs
+ 119 CodeAnalyticsApplicationService.Documents.cs
+ 124 CodeAnalyticsApplicationService.Execution.cs
+ 145 CodeAnalyticsApplicationService.Context.FocusTags.cs
+ 145 CodeAnalyticsApplicationService.Context.Selection.Filters.cs
+ 151 CodeAnalyticsApplicationService.Build.cs
+ 161 CodeAnalyticsApplicationService.Inventory.cs
+ 186 CodeAnalyticsApplicationService.BuildPipeline.cs
+ 195 CodeAnalyticsApplicationService.Context.Selection.Reasons.cs
+ 216 CodeAnalyticsApplicationService.Symbols.References.cs
+ 226 CodeAnalyticsApplicationService.Symbols.Source.cs
+ 243 CodeAnalyticsApplicationService.Context.Selection.Members.cs
+ 244 CodeAnalyticsApplicationService.Context.cs
+ 271 CodeAnalyticsApplicationService.Symbols.cs
+ 286 CodeAnalyticsApplicationService.Queries.cs
+ 289 CodeAnalyticsApplicationService.Context.Strategy.Usage.cs
+ 294 CodeAnalyticsApplicationService.Context.Selection.Types.cs
+ 317 CodeAnalyticsApplicationService.Context.Excerpts.cs
+ 362 CodeAnalyticsApplicationService.Context.Strategy.cs
+ 429 CodeAnalyticsApplicationService.Context.SeedResolution.cs

@@ -1,0 +1,145 @@
+﻿{
+    "snapshotId":  "snap-20260630162957-4843c386",
+    "operationId":  "op-20260630162901-bc271945",
+    "viewport":  {
+                     "height":  1000,
+                     "width":  1600
+                 },
+    "routes":  [
+                   {
+                       "name":  "01-home",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\01-home.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/",
+                                       "title":  "CanDoItAll Code Analytics",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  1409,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  7
+                                   }
+                   },
+                   {
+                       "name":  "02-operation-details",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\02-operation-details.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/operations/op-20260630162901-bc271945",
+                                       "title":  "Analysis Operation",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  4130,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  3
+                                   }
+                   },
+                   {
+                       "name":  "03-dashboard",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\03-dashboard.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/snapshots/snap-20260630162957-4843c386",
+                                       "title":  "Snapshot Dashboard",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  1273,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  10
+                                   }
+                   },
+                   {
+                       "name":  "04-context-lab",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\04-context-lab.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/context-lab?workspacePath=C%3A%5Crepositories%5CCanDoItAll.CodeAnalsis%5Ctests%5Cfixtures%5CFixture.Shop%5CFixture.Shop.slnx\u0026projectFilter=Fixture.Shop.Application\u0026queryText=PlaceOrderAsync\u0026tags=EntityFramework\u0026relationHints=OrderService\u0026depth=2\u0026intent=Auto\u0026precision=Auto",
+                                       "title":  "Focused Context Lab",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  4492,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  5
+                                   }
+                   },
+                   {
+                       "name":  "05-focused-context",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\05-focused-context.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/snapshots/snap-20260630162957-4843c386/context?serviceId=svc-addscoped-fixture-shop-application-notifications-or-b189a8eb6e98",
+                                       "title":  "Focused Context",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  7471,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  21
+                                   }
+                   },
+                   {
+                       "name":  "06-symbols-search",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\06-symbols-search.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/snapshots/snap-20260630162957-4843c386/symbols?search=IOrderService\u0026mode=Exact",
+                                       "title":  "Symbols",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  1000,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  13
+                                   }
+                   },
+                   {
+                       "name":  "07-symbols-detail",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\07-symbols-detail.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/snapshots/snap-20260630162957-4843c386/symbols?search=IOrderService\u0026mode=Exact\u0026typeId=type-proj-fixture-shop-contracts-fixture-shop-contracts-0f4d55ea8a95",
+                                       "title":  "Symbols",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  2559,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  17
+                                   }
+                   },
+                   {
+                       "name":  "08-exports",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\08-exports.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/snapshots/snap-20260630162957-4843c386/exports",
+                                       "title":  "Exports",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  1071,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  28
+                                   }
+                   },
+                   {
+                       "name":  "09-persistence",
+                       "screenshot":  "codex\\bundles\\CanDoItAll.CodeAnalsis.PublishPrepBundle\\proof\\SB06\\browser\\09-persistence.png",
+                       "metrics":  {
+                                       "url":  "http://127.0.0.1:5294/snapshots/snap-20260630162957-4843c386/persistence",
+                                       "title":  "Persistence",
+                                       "viewportWidth":  1600,
+                                       "viewportHeight":  1000,
+                                       "scrollWidth":  1600,
+                                       "scrollHeight":  1585,
+                                       "horizontalOverflow":  false,
+                                       "emptyMain":  false,
+                                       "visibleActions":  11
+                                   }
+                   }
+               ]
+}

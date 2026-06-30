@@ -1,0 +1,22 @@
+﻿Command: dotnet test .\CanDoItAll.CodeAnalsis.slnx --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=minimal"
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T10:43:40.4555200-04:00
+EndTime: 2026-06-30T10:48:41.3179807-04:00
+ExitCode: 0
+Output:
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Architecture\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Architecture.dll (.NETCoreApp,Version=v10.0)
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Integration\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Integration.dll (.NETCoreApp,Version=v10.0)
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Unit\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Unit.dll (.NETCoreApp,Version=v10.0)
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Web.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+Passed!  - Failed:     0, Passed:     8, Skipped:     0, Total:     8, Duration: 1 s - CanDoItAll.CodeAnalytics.Tests.Architecture.dll (net10.0)
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+Passed!  - Failed:     0, Passed:     9, Skipped:     0, Total:     9, Duration: 2 m 53 s - CanDoItAll.CodeAnalytics.Tests.Web.dll (net10.0)
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+Passed!  - Failed:     0, Passed:    10, Skipped:     0, Total:    10, Duration: 3 m 40 s - CanDoItAll.CodeAnalytics.Tests.Integration.dll (net10.0)
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+Passed!  - Failed:     0, Passed:    43, Skipped:     0, Total:    43, Duration: 4 m 41 s - CanDoItAll.CodeAnalytics.Tests.Unit.dll (net10.0)

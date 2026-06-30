@@ -1,0 +1,57 @@
+@if (UsageSummary is not null)
+{
+    <section class="panel">
+        <div class="panel-heading">
+            <h2>Usage Summary</h2>
+            <p>Helper callers are grouped by project or module so breadth stays visible without dragging every consumer into the excerpt set.</p>
+        </div>
+
+        <div class="summary-grid">
+            <div class="stat-card">
+                <span class="stat-label">Total callers</span>
+                <span class="stat-value-sm">@UsageSummary.TotalCallerCount</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Clusters</span>
+                <span class="stat-value-sm">@UsageSummary.Clusters.Count / @UsageSummary.TotalClusterCount</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Omitted callers</span>
+                <span class="stat-value-sm">@UsageSummary.OmittedCallerCount</span>
+            </div>
+        </div>
+
+        <div class="accordion-list">
+            @foreach (var cluster in UsageSummary.Clusters)
+            {
+                <details class="file-accordion">
+                    <summary class="file-summary">
+                        <strong>@cluster.ProjectName</strong>
+                        @if (!string.IsNullOrWhiteSpace(cluster.ModuleName))
+                        {
+                            <span>@cluster.ModuleName</span>
+                        }
+                        <span>@cluster.CallerCount caller(s)</span>
+                    </summary>
+
+                    <ul class="detail-list">
+                        @foreach (var sample in cluster.Samples)
+                        {
+                            <li>
+                                <strong>@sample.TypeDisplayName</strong>
+                                <span>@sample.MemberDisplayName</span>
+                                <span>@sample.Path:@sample.Line</span>
+                                <span>@sample.Reason</span>
+                            </li>
+                        }
+                    </ul>
+                </details>
+            }
+        </div>
+    </section>
+}
+
+@code {
+    [Parameter]
+    public FocusedContextUsageSummary? UsageSummary { get; set; }
+}

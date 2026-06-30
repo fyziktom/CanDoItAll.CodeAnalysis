@@ -1,0 +1,7 @@
+﻿Command: .\eng\Validate-SolutionStructure.ps1
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T10:32:05.3602536-04:00
+EndTime: 2026-06-30T10:32:07.5157456-04:00
+ExitCode: 0
+Output:
+Solution-structure validation passed.

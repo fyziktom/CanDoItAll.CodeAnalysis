@@ -1,0 +1,234 @@
+﻿Command: dotnet test .\CanDoItAll.CodeAnalsis.slnx --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=minimal"
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T11:22:19.4921996-04:00
+EndTime: 2026-06-30T11:32:55.2332018-04:00
+ExitCode: 1
+Output:
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Architecture\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Architecture.dll (.NETCoreApp,Version=v10.0)
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Integration\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Integration.dll (.NETCoreApp,Version=v10.0)
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Unit\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Unit.dll (.NETCoreApp,Version=v10.0)
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Web.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+Passed!  - Failed:     0, Passed:    11, Skipped:     0, Total:    11, Duration: 3 s - CanDoItAll.CodeAnalytics.Tests.Architecture.dll (net10.0)
+  Failed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Project_path_analysis_renders_project_dashboard [1 m 13 s]
+  Error Message:
+   System.InvalidOperationException : Operation did not complete in time. Last page:
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    
+    <link rel="stylesheet" href="app.m3j5hrrm3u.css" />
+    <link rel="stylesheet" href="CanDoItAll.CodeAnalytics.Web.jh1l44i27e.styles.css" />
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.server.js": "./_framework/blazor.server.2tj1sjhksk.js",
+    "./_framework/blazor.web.js": "./_framework/blazor.web.b9228eflpl.js",
+    "./workspace-picker.js": "./workspace-picker.ncvkl94v4s.js"
+  }
+}</script>
+    <title>Analysis Operation</title></head>
+<body><div class="app-shell" b-sg09eqwg98><header class="app-header" b-sg09eqwg98><a class="brand-link" href="/" b-sg09eqwg98>CanDoItAll Code Analytics</a>
+        <nav class="top-nav" aria-label="Primary navigation" b-sg09eqwg98><a class="top-nav-link" href="/context-lab" b-sg09eqwg98>Focused Context Lab</a></nav></header>
+    <main class="app-main" b-sg09eqwg98><div class="page-shell"><section class="panel"><div class="panel-heading"><h1>Analysis operation</h1>
+                <p>Progress and diagnostics stay visible even when the run finishes with partial errors.</p></div>
+            <div class="summary-grid"><div class="stat-card"><span class="stat-label">Status</span>
+                    <span class="status-badge status-running">Running</span></div>
+                <div class="stat-card"><span class="stat-label">Workspace</span>
+                    <strong class="path-text">C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj</strong></div>
+                <div class="stat-card"><span class="stat-label">Started</span>
+                    <span class="stat-value-sm">2026-06-30 15:23:32Z</span></div>
+                <div class="stat-card"><span class="stat-label">Finished</span>
+                    <span class="stat-value-sm">Not finished yet</span></div></div><p class="message-banner info-banner">This page refreshes automatically while the analysis is still running.</p>
+                <script>window.setTimeout(function () { window.location.reload(); }, 1500);</script></section>
+        <section class="panel"><div class="panel-heading"><h2>Progress</h2>
+                <p>Each collector stage reports explicit started, completed, and failed events.</p></div><div class="progress-list"><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>build</strong>
+                                <span>11:23:32</span></div>
+                            <p>Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>cache</strong>
+                                <span>11:23:32</span></div>
+                            <p>Checking the deterministic file cache.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-info">Info</span>
+                                <strong>cache</strong>
+                                <span>11:23:32</span></div>
+                            <p>No cached snapshot matched the current request.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>workspace</strong>
+                                <span>11:23:32</span></div>
+                            <p>Loading the MSBuild workspace.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-completed">Completed</span>
+                                <strong>workspace</strong>
+                                <span>11:23:54</span></div>
+                            <p>Workspace load completed with 1 source projects.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>symbols</strong>
+                                <span>11:23:54</span></div>
+                            <p>Collecting source symbols and XML documentation.</p></article></div></section>
+        <section class="panel"><div class="panel-heading"><h2>Diagnostics</h2>
+                <p>Errors and warnings are preserved instead of being swallowed behind generic fallback behavior.</p></div><p class="empty-state">No diagnostics were reported.</p></section></div></main></div>
+        <blazor-focus-on-navigate selector="h1"></blazor-focus-on-navigate>
+    <script src="workspace-picker.ncvkl94v4s.js"></script>
+    <script src="_framework/blazor.web.b9228eflpl.js"></script></body></html>
+  Stack Trace:
+     at CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.WaitForSnapshotPathAsync(HttpClient client, String operationPath) in C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\WebUiFacts.cs:line 217
+   at CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Project_path_analysis_renders_project_dashboard() in C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\WebUiFacts.cs:line 50
+--- End of stack trace from previous location ---
+  Failed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Symbol_explorer_route_renders_selected_symbol_details [43 s]
+  Error Message:
+   System.InvalidOperationException : Operation did not complete in time. Last page:
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    
+    <link rel="stylesheet" href="app.m3j5hrrm3u.css" />
+    <link rel="stylesheet" href="CanDoItAll.CodeAnalytics.Web.jh1l44i27e.styles.css" />
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.server.js": "./_framework/blazor.server.2tj1sjhksk.js",
+    "./_framework/blazor.web.js": "./_framework/blazor.web.b9228eflpl.js",
+    "./workspace-picker.js": "./workspace-picker.ncvkl94v4s.js"
+  }
+}</script>
+    <title>Analysis Operation</title></head>
+<body><div class="app-shell" b-sg09eqwg98><header class="app-header" b-sg09eqwg98><a class="brand-link" href="/" b-sg09eqwg98>CanDoItAll Code Analytics</a>
+        <nav class="top-nav" aria-label="Primary navigation" b-sg09eqwg98><a class="top-nav-link" href="/context-lab" b-sg09eqwg98>Focused Context Lab</a></nav></header>
+    <main class="app-main" b-sg09eqwg98><div class="page-shell"><section class="panel"><div class="panel-heading"><h1>Analysis operation</h1>
+                <p>Progress and diagnostics stay visible even when the run finishes with partial errors.</p></div>
+            <div class="summary-grid"><div class="stat-card"><span class="stat-label">Status</span>
+                    <span class="status-badge status-running">Running</span></div>
+                <div class="stat-card"><span class="stat-label">Workspace</span>
+                    <strong class="path-text">C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx</strong></div>
+                <div class="stat-card"><span class="stat-label">Started</span>
+                    <span class="stat-value-sm">2026-06-30 15:24:13Z</span></div>
+                <div class="stat-card"><span class="stat-label">Finished</span>
+                    <span class="stat-value-sm">Not finished yet</span></div></div><p class="message-banner info-banner">This page refreshes automatically while the analysis is still running.</p>
+                <script>window.setTimeout(function () { window.location.reload(); }, 1500);</script></section>
+        <section class="panel"><div class="panel-heading"><h2>Progress</h2>
+                <p>Each collector stage reports explicit started, completed, and failed events.</p></div><div class="progress-list"><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>build</strong>
+                                <span>11:24:13</span></div>
+                            <p>Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>cache</strong>
+                                <span>11:24:13</span></div>
+                            <p>Checking the deterministic file cache.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-info">Info</span>
+                                <strong>cache</strong>
+                                <span>11:24:13</span></div>
+                            <p>No cached snapshot matched the current request.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>workspace</strong>
+                                <span>11:24:13</span></div>
+                            <p>Loading the MSBuild workspace.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-completed">Completed</span>
+                                <strong>workspace</strong>
+                                <span>11:24:39</span></div>
+                            <p>Workspace load completed with 4 source projects.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>symbols</strong>
+                                <span>11:24:39</span></div>
+                            <p>Collecting source symbols and XML documentation.</p></article></div></section>
+        <section class="panel"><div class="panel-heading"><h2>Diagnostics</h2>
+                <p>Errors and warnings are preserved instead of being swallowed behind generic fallback behavior.</p></div><p class="empty-state">No diagnostics were reported.</p></section></div></main></div>
+        <blazor-focus-on-navigate selector="h1"></blazor-focus-on-navigate>
+    <script src="workspace-picker.ncvkl94v4s.js"></script>
+    <script src="_framework/blazor.web.b9228eflpl.js"></script></body></html>
+  Stack Trace:
+     at CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.WaitForSnapshotPathAsync(HttpClient client, String operationPath) in C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\WebUiFacts.cs:line 217
+   at CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Symbol_explorer_route_renders_selected_symbol_details() in C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\WebUiFacts.cs:line 170
+--- End of stack trace from previous location ---
+  Failed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Export_route_serves_generated_summary [51 s]
+  Error Message:
+   System.InvalidOperationException : Operation did not complete in time. Last page:
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    
+    <link rel="stylesheet" href="app.m3j5hrrm3u.css" />
+    <link rel="stylesheet" href="CanDoItAll.CodeAnalytics.Web.jh1l44i27e.styles.css" />
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.server.js": "./_framework/blazor.server.2tj1sjhksk.js",
+    "./_framework/blazor.web.js": "./_framework/blazor.web.b9228eflpl.js",
+    "./workspace-picker.js": "./workspace-picker.ncvkl94v4s.js"
+  }
+}</script>
+    <title>Analysis Operation</title></head>
+<body><div class="app-shell" b-sg09eqwg98><header class="app-header" b-sg09eqwg98><a class="brand-link" href="/" b-sg09eqwg98>CanDoItAll Code Analytics</a>
+        <nav class="top-nav" aria-label="Primary navigation" b-sg09eqwg98><a class="top-nav-link" href="/context-lab" b-sg09eqwg98>Focused Context Lab</a></nav></header>
+    <main class="app-main" b-sg09eqwg98><div class="page-shell"><section class="panel"><div class="panel-heading"><h1>Analysis operation</h1>
+                <p>Progress and diagnostics stay visible even when the run finishes with partial errors.</p></div>
+            <div class="summary-grid"><div class="stat-card"><span class="stat-label">Status</span>
+                    <span class="status-badge status-running">Running</span></div>
+                <div class="stat-card"><span class="stat-label">Workspace</span>
+                    <strong class="path-text">C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx</strong></div>
+                <div class="stat-card"><span class="stat-label">Started</span>
+                    <span class="stat-value-sm">2026-06-30 15:24:57Z</span></div>
+                <div class="stat-card"><span class="stat-label">Finished</span>
+                    <span class="stat-value-sm">Not finished yet</span></div></div><p class="message-banner info-banner">This page refreshes automatically while the analysis is still running.</p>
+                <script>window.setTimeout(function () { window.location.reload(); }, 1500);</script></section>
+        <section class="panel"><div class="panel-heading"><h2>Progress</h2>
+                <p>Each collector stage reports explicit started, completed, and failed events.</p></div><div class="progress-list"><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>build</strong>
+                                <span>11:24:57</span></div>
+                            <p>Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>cache</strong>
+                                <span>11:24:57</span></div>
+                            <p>Checking the deterministic file cache.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-info">Info</span>
+                                <strong>cache</strong>
+                                <span>11:24:57</span></div>
+                            <p>No cached snapshot matched the current request.</p></article><article class="progress-item"><div class="progress-meta"><span class="severity-pill severity-started">Started</span>
+                                <strong>workspace</strong>
+                                <span>11:24:57</span></div>
+                            <p>Loading the MSBuild workspace.</p></article></div></section>
+        <section class="panel"><div class="panel-heading"><h2>Diagnostics</h2>
+                <p>Errors and warnings are preserved instead of being swallowed behind generic fallback behavior.</p></div><p class="empty-state">No diagnostics were reported.</p></section></div></main></div>
+        <blazor-focus-on-navigate selector="h1"></blazor-focus-on-navigate>
+    <script src="workspace-picker.ncvkl94v4s.js"></script>
+    <script src="_framework/blazor.web.b9228eflpl.js"></script></body></html>
+  Stack Trace:
+     at CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.WaitForSnapshotPathAsync(HttpClient client, String operationPath) in C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\WebUiFacts.cs:line 217
+   at CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Export_route_serves_generated_summary() in C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\WebUiFacts.cs:line 92
+--- End of stack trace from previous location ---
+  Failed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Focused_context_lab_route_renders_outline_mode_without_code_excerpts [1 m 45 s]
+  Error Message:
+   System.Threading.Tasks.TaskCanceledException : The operation was canceled.
+---- System.Net.Http.HttpRequestException : Error while copying content to a stream.
+-------- System.IO.IOException : 
+------------ System.IO.IOException : The client aborted the request.
+  Stack Trace:
+     at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+   at System.Net.Http.HttpClient.GetStringAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Focused_context_lab_route_renders_outline_mode_without_code_excerpts() in C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\WebUiFacts.cs:line 155
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at System.Net.Http.HttpClient.GetStringAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext()
+   at System.Threading.Tasks.AwaitTaskContinuation.RunOrScheduleAction(IAsyncStateMachineBox box, Boolean allowInlining)
+   at System.Threading.Tasks.Task.RunContinuations(Object continuationObject)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetResult(TResult result)
+   at Microsoft.AspNetCore.Mvc.Testing.Handlers.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.ExecutionContextCallback(Object s)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext(Thread threadPoolThread)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.AsyncStateMachineBox`1.MoveNext()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+   at System.Threading.Thread.StartCallback()
+--- End of stack trace from previous location ---
+   at System.Net.Http.HttpClient.GetStringAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+----- Inner Stack Trace -----
+   at Microsoft.AspNetCore.TestHost.ResponseBodyReaderStream.ReadAsync(Memory`1 buffer, CancellationToken cancellationToken)
+   at System.IO.Stream.<CopyToAsync>g__Core|30_0(Stream source, Stream destination, Int32 bufferSize, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.GetStringAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+----- Inner Stack Trace -----
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+Passed!  - Failed:     0, Passed:    10, Skipped:     0, Total:    10, Duration: 5 m 38 s - CanDoItAll.CodeAnalytics.Tests.Integration.dll (net10.0)
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+Failed!  - Failed:     4, Passed:     5, Skipped:     0, Total:     9, Duration: 6 m 25 s - CanDoItAll.CodeAnalytics.Tests.Web.dll (net10.0)
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+Passed!  - Failed:     0, Passed:    43, Skipped:     0, Total:    43, Duration: 10 m 3 s - CanDoItAll.CodeAnalytics.Tests.Unit.dll (net10.0)
+ErrorOutput:
+[xUnit.net 00:01:17.74]     CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Project_path_analysis_renders_project_dashboard [FAIL]
+[xUnit.net 00:02:01.41]     CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Symbol_explorer_route_renders_selected_symbol_details [FAIL]
+[xUnit.net 00:02:53.33]     CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Export_route_serves_generated_summary [FAIL]
+[xUnit.net 00:04:57.13]     CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Focused_context_lab_route_renders_outline_mode_without_code_excerpts [FAIL]

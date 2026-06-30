@@ -1,0 +1,708 @@
+﻿{
+  "schemaVersion": "1.1.0",
+  "generatorVersion": "0.1.0",
+  "snapshotId": "snap-20260630163204-6c78a2c1",
+  "createdUtc": "2026-06-30T16:32:04.667394+00:00",
+  "request": {
+    "solutionPath": "C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\Fixture.Shop.slnx",
+    "scopeProjectNames": [
+      "Fixture.Shop.Application"
+    ],
+    "scopeNamespacePrefixes": [],
+    "includeDi": true,
+    "includePersistence": true,
+    "includeRisks": true,
+    "includeXmlDocs": true,
+    "includeMermaidExports": true
+  },
+  "facts": {
+    "solution": {
+      "name": "Fixture.Shop",
+      "path": "C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\Fixture.Shop.slnx",
+      "projectCount": 1,
+      "documentCount": 7
+    },
+    "projects": [
+      {
+        "projectId": "proj-fixture-shop-application",
+        "name": "Fixture.Shop.Application",
+        "path": "src/Fixture.Shop.Application/Fixture.Shop.Application.csproj",
+        "targetFrameworks": [
+          "net10.0"
+        ],
+        "projectReferences": [],
+        "packageReferences": [],
+        "documentCount": 7
+      }
+    ],
+    "documents": [
+      {
+        "documentId": "doc-src-fixture-shop-application-notifications-orderrec-1b24fbcc8dd1",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+        "name": "OrderReceiptComposer.cs",
+        "lineCount": 19
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-obj-debug-net10-0-netc-afdef88d7791",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "name": ".NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
+        "lineCount": 4
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-obj-debug-net10-0-fixt-d409b11f8817",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/obj/Debug/net10.0/Fixture.Shop.Application.AssemblyInfo.cs",
+        "name": "Fixture.Shop.Application.AssemblyInfo.cs",
+        "lineCount": 22
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-obj-debug-net10-0-fixt-d8d62580ae72",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/obj/Debug/net10.0/Fixture.Shop.Application.GlobalUsings.g.cs",
+        "name": "Fixture.Shop.Application.GlobalUsings.g.cs",
+        "lineCount": 8
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-orders-ordernumberformatter-cs",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/Orders/OrderNumberFormatter.cs",
+        "name": "OrderNumberFormatter.cs",
+        "lineCount": 9
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-orders-orderservice-cs",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+        "name": "OrderService.cs",
+        "lineCount": 51
+      },
+      {
+        "documentId": "doc-src-fixture-shop-application-orders-orderservice-partial-cs",
+        "projectId": "proj-fixture-shop-application",
+        "path": "src/Fixture.Shop.Application/Orders/OrderService.Partial.cs",
+        "name": "OrderService.Partial.cs",
+        "lineCount": 28
+      }
+    ],
+    "modules": [
+      {
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "projectId": "proj-fixture-shop-application",
+        "name": "Fixture.Shop.Application.Notifications",
+        "namespacePrefix": "Fixture.Shop.Application.Notifications",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd"
+        ]
+      },
+      {
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "projectId": "proj-fixture-shop-application",
+        "name": "Fixture.Shop.Application.Orders",
+        "namespacePrefix": "Fixture.Shop.Application.Orders",
+        "namespaceIds": [
+          "ns-proj-fixture-shop-application-fixture-shop-application-orders"
+        ],
+        "typeIds": [
+          "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+          "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac"
+        ]
+      }
+    ],
+    "namespaces": [
+      {
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "name": "Fixture.Shop.Application.Notifications",
+        "typeIds": [
+          "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd"
+        ]
+      },
+      {
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "name": "Fixture.Shop.Application.Orders",
+        "typeIds": [
+          "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+          "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac"
+        ]
+      }
+    ],
+    "types": [
+      {
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "displayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-application-fixture-shop-app-68c01556e18f",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-800962d63e9d",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-d94bef3db1d4"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 6,
+          "column": 1,
+          "endLine": 19,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "displayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [],
+        "memberIds": [
+          "member-type-proj-fixture-shop-application-fixture-shop-app-3c05774db81d"
+        ],
+        "xmlSummary": null,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderNumberFormatter.cs",
+          "line": 3,
+          "column": 1,
+          "endLine": 9,
+          "endColumn": 2
+        }
+      },
+      {
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "projectId": "proj-fixture-shop-application",
+        "moduleId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "namespaceId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService",
+        "kind": "class",
+        "baseTypeDisplayName": null,
+        "interfaceDisplayNames": [
+          "Fixture.Shop.Contracts.Orders.IOrderService"
+        ],
+        "memberIds": [
+          "member-type-proj-fixture-shop-application-fixture-shop-app-4e65d395feec",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-5cfea12a2f97",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-007c5b3c0453",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-aa3cdf1b8245",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-4fa05d92b05e",
+          "member-type-proj-fixture-shop-application-fixture-shop-app-30c2c67bd8f4"
+        ],
+        "xmlSummary": "Places orders against the primary shop database.",
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 12,
+          "column": 1,
+          "endLine": 51,
+          "endColumn": 2
+        }
+      }
+    ],
+    "members": [
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-68c01556e18f",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "displayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer.Compose(Fixture.Shop.Infrastructure.Persistence.Entities.Order)",
+        "kind": "method",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Infrastructure.Persistence.Entities.Order"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 15,
+          "column": 5,
+          "endLine": 18,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-800962d63e9d",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "displayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer.OrderReceiptComposer(Fixture.Shop.Application.Orders.OrderNumberFormatter)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "OrderReceiptComposer",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Application.Orders.OrderNumberFormatter"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 10,
+          "column": 5,
+          "endLine": 13,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-d94bef3db1d4",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "displayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer._orderNumberFormatter",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 8,
+          "column": 43,
+          "endLine": 8,
+          "endColumn": 64
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-3c05774db81d",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "displayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter.Format(int)",
+        "kind": "method",
+        "returnTypeDisplayName": "string",
+        "parameterDisplayNames": [
+          "int"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderNumberFormatter.cs",
+          "line": 5,
+          "column": 5,
+          "endLine": 8,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-4e65d395feec",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService.CreateOrder(Fixture.Shop.Contracts.Orders.PlaceOrderCommand, Fixture.Shop.Infrastructure.Persistence.Entities.Customer)",
+        "kind": "method",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.Entities.Order",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Contracts.Orders.PlaceOrderCommand",
+          "Fixture.Shop.Infrastructure.Persistence.Entities.Customer"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.Partial.cs",
+          "line": 8,
+          "column": 5,
+          "endLine": 27,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-5cfea12a2f97",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService.OrderService(Fixture.Shop.Infrastructure.Persistence.ShopDbContext, Fixture.Shop.Contracts.Notifications.INotificationSender, Fixture.Shop.Application.Notifications.OrderReceiptComposer, Fixture.Shop.Application.Orders.OrderNumberFormatter)",
+        "kind": "constructor",
+        "returnTypeDisplayName": "OrderService",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Infrastructure.Persistence.ShopDbContext",
+          "Fixture.Shop.Contracts.Notifications.INotificationSender",
+          "Fixture.Shop.Application.Notifications.OrderReceiptComposer",
+          "Fixture.Shop.Application.Orders.OrderNumberFormatter"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 19,
+          "column": 5,
+          "endLine": 29,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService.PlaceOrderAsync(Fixture.Shop.Contracts.Orders.PlaceOrderCommand, System.Threading.CancellationToken)",
+        "kind": "method",
+        "returnTypeDisplayName": "System.Threading.Tasks.Task\u003CFixture.Shop.Contracts.Orders.OrderReceipt\u003E",
+        "parameterDisplayNames": [
+          "Fixture.Shop.Contracts.Orders.PlaceOrderCommand",
+          "System.Threading.CancellationToken"
+        ],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 31,
+          "column": 5,
+          "endLine": 50,
+          "endColumn": 6
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-007c5b3c0453",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService._dbContext",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Infrastructure.Persistence.ShopDbContext",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 14,
+          "column": 36,
+          "endLine": 14,
+          "endColumn": 46
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-aa3cdf1b8245",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService._notificationSender",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Contracts.Notifications.INotificationSender",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 15,
+          "column": 42,
+          "endLine": 15,
+          "endColumn": 61
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-4fa05d92b05e",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService._orderNumberFormatter",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Application.Orders.OrderNumberFormatter",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 17,
+          "column": 43,
+          "endLine": 17,
+          "endColumn": 64
+        }
+      },
+      {
+        "memberId": "member-type-proj-fixture-shop-application-fixture-shop-app-30c2c67bd8f4",
+        "typeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "displayName": "Fixture.Shop.Application.Orders.OrderService._receiptComposer",
+        "kind": "field",
+        "returnTypeDisplayName": "Fixture.Shop.Application.Notifications.OrderReceiptComposer",
+        "parameterDisplayNames": [],
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 16,
+          "column": 43,
+          "endLine": 16,
+          "endColumn": 59
+        }
+      }
+    ],
+    "memberRelationships": [
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-c45e6934294c",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "toMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-3c05774db81d",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 49,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-306317ce31cd",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "toMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-4e65d395feec",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 38,
+          "column": 21
+        }
+      },
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-46372a5f3dc9",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-200a603d70f2",
+        "toMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-68c01556e18f",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 46,
+          "column": 13
+        }
+      },
+      {
+        "relationshipId": "memberrel-invocation-member-type-proj-fixture-shop-applicatio-b7a92dcff569",
+        "fromMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-68c01556e18f",
+        "toMemberId": "member-type-proj-fixture-shop-application-fixture-shop-app-3c05774db81d",
+        "kind": "invocation",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 17,
+          "column": 25
+        }
+      }
+    ],
+    "typeRelationships": [
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-application-fixture-sh-5dd5ad004698",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "field",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 8,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-application-fixture-sh-501fe874e796",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "kind": "field",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 16,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "typerel-field-type-proj-fixture-shop-application-fixture-sh-c3275d7c437f",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "field",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 17,
+          "column": 43
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-applica-486f449562c8",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "constructorParameter",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Notifications/OrderReceiptComposer.cs",
+          "line": 10,
+          "column": 54
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-applica-405b9e1e5cc8",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "kind": "constructorParameter",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 22,
+          "column": 30
+        }
+      },
+      {
+        "relationshipId": "typerel-constructorparameter-type-proj-fixture-shop-applica-c1ddaff5d6eb",
+        "fromTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toTypeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "constructorParameter",
+        "weight": 1,
+        "source": {
+          "path": "src/Fixture.Shop.Application/Orders/OrderService.cs",
+          "line": 23,
+          "column": 30
+        }
+      }
+    ],
+    "serviceRegistrations": [],
+    "dbContexts": [],
+    "entities": [],
+    "entityRelationships": [],
+    "dependencies": [
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-application-710011bd784b",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "toId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-moduledependency-mod-proj-fixture-shop-application-f080762b7e20",
+        "kind": "moduleDependency",
+        "fromId": "mod-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-d885e6fcfa99",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "toId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-namespacedependency-ns-proj-fixture-shop-applicatio-a3f9e6a6f090",
+        "kind": "namespaceDependency",
+        "fromId": "ns-proj-fixture-shop-application-fixture-shop-application-orders",
+        "toId": "ns-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-dcacafe1cfcc",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "toId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-4b6c14a48aab",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "weight": 1,
+        "source": null
+      },
+      {
+        "edgeId": "dep-typedependency-type-proj-fixture-shop-application-f-bae85eaf8512",
+        "kind": "typeDependency",
+        "fromId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "toId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "weight": 1,
+        "source": null
+      }
+    ]
+  },
+  "insights": {
+    "summary": {
+      "projectCount": 1,
+      "typeCount": 3,
+      "memberCount": 11,
+      "serviceRegistrationCount": 0,
+      "entityCount": 0,
+      "findingCount": 1,
+      "openQuestionCount": 0,
+      "diagnosticCount": 3
+    },
+    "cycles": [
+      {
+        "level": "Module",
+        "nodeIds": [
+          "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+          "mod-proj-fixture-shop-application-fixture-shop-application-orders"
+        ]
+      }
+    ],
+    "hotspots": [
+      {
+        "nodeId": "type-proj-fixture-shop-application-fixture-shop-applicat-f47cda0b5276",
+        "kind": "Type",
+        "score": 0.14,
+        "reason": "fan-in=0, members=7"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-application-fixture-shop-applicat-33985daa1bfd",
+        "kind": "Type",
+        "score": 0.1,
+        "reason": "fan-in=1, members=3"
+      },
+      {
+        "nodeId": "type-proj-fixture-shop-application-fixture-shop-applicat-fae1257d0cac",
+        "kind": "Type",
+        "score": 0.1,
+        "reason": "fan-in=2, members=1"
+      }
+    ],
+    "findings": [
+      {
+        "findingId": "finding-cycle-module-mod-proj-fixture-shop-application-fixt-6993e965c348",
+        "ruleId": "DEPENDENCY-001",
+        "severity": "warning",
+        "category": "dependency",
+        "title": "Module cycle detected",
+        "description": "The module graph contains a strongly connected component.",
+        "rationale": "Strongly connected components make architectural direction harder to reason about.",
+        "confidence": 0.95,
+        "relatedIds": [
+          "mod-proj-fixture-shop-application-fixture-shop-applicat-82283becb4fb",
+          "mod-proj-fixture-shop-application-fixture-shop-application-orders"
+        ],
+        "source": null
+      }
+    ],
+    "openQuestions": []
+  },
+  "exports": {
+    "artifacts": [
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-application-notifications.mmd",
+        "title": "Class diagram - Fixture.Shop.Application.Notifications",
+        "description": "Type relationships within module Fixture.Shop.Application.Notifications.",
+        "sizeInBytes": 94
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/module-fixture-shop-application-orders.mmd",
+        "title": "Class diagram - Fixture.Shop.Application.Orders",
+        "description": "Type relationships within module Fixture.Shop.Application.Orders.",
+        "sizeInBytes": 209
+      },
+      {
+        "kind": "mermaidClassDiagram",
+        "relativePath": "exports/class-diagrams/project-fixture-shop-application.mmd",
+        "title": "Class diagram - Fixture.Shop.Application",
+        "description": "Type relationships within Fixture.Shop.Application.",
+        "sizeInBytes": 403
+      },
+      {
+        "kind": "mermaidProjectGraph",
+        "relativePath": "exports/project-graph.mmd",
+        "title": "Project graph",
+        "description": "Project dependency diagram.",
+        "sizeInBytes": 77
+      },
+      {
+        "kind": "markdownSummary",
+        "relativePath": "exports/summary.md",
+        "title": "Markdown summary",
+        "description": "High-level architecture summary.",
+        "sizeInBytes": 1512
+      },
+      {
+        "kind": "snapshotJson",
+        "relativePath": "snapshot.json",
+        "title": "Snapshot JSON",
+        "description": "Canonical architecture snapshot.",
+        "sizeInBytes": null
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "code": "WS0002",
+      "severity": "warning",
+      "message": "Msbuild failed when processing the file \u0027C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Application\\Fixture.Shop.Application.csproj\u0027 with message: Package \u0027SQLitePCLRaw.lib.e_sqlite3\u0027 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "source": null
+    },
+    {
+      "code": "WS0002",
+      "severity": "warning",
+      "message": "Msbuild failed when processing the file \u0027C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Infrastructure\\Fixture.Shop.Infrastructure.csproj\u0027 with message: Package \u0027SQLitePCLRaw.lib.e_sqlite3\u0027 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "source": null
+    },
+    {
+      "code": "WS0002",
+      "severity": "warning",
+      "message": "Msbuild failed when processing the file \u0027C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\src\\Fixture.Shop.Web\\Fixture.Shop.Web.csproj\u0027 with message: Package \u0027SQLitePCLRaw.lib.e_sqlite3\u0027 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "source": null
+    }
+  ]
+}

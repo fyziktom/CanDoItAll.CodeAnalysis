@@ -1,0 +1,39 @@
+Command: see bundle://proof/SB04/manifest.md Transcript Index for exact command
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Queries.cs:76:            snapshot.Facts.DbContexts,
+src\CanDoItAll.CodeAnalytics.Rendering\Markdown\MarkdownSummaryWriter.cs:59:        foreach (var dbContext in snapshot.Facts.DbContexts) {
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Selection.Reasons.cs:115:            || memberName.Contains("CreateDbContext", StringComparison.Ordinal)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Selection.Reasons.cs:117:            || member.ReturnTypeDisplayName.Contains("DbContext", StringComparison.Ordinal)) {
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.BuildPipeline.cs:127:            persistence.DbContexts,
+src\CanDoItAll.CodeAnalytics.Abstractions\Responses\PersistenceViewResponse.cs:9:    IReadOnlyList<DbContextFact> DbContexts,
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ProjectAnalysis.cs:69:        DbContextModelDiscovery dbContextModel,
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ProjectAnalysis.cs:83:                    $"DbContext {dbContextDisplayName} applies configurations from external assemblies. The collector interpreted that call broadly across discovered configuration types."));
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ProjectAnalysis.cs:85:                "DbContext {DbContextDisplayName} applies configurations from external assemblies. The collector interpreted that call broadly.",
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ProjectAnalysis.cs:100:        DbContextModelDiscovery dbContextModel) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ProjectAnalysis.cs:123:        DbContextModelDiscovery dbContextModel) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ModelSnapshots.cs:41:            .GroupBy(item => item.DbContextDisplayName, StringComparer.Ordinal)
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ModelSnapshots.cs:47:                    $"Multiple model snapshots were discovered for DbContext {duplicate.Key}. Their metadata was merged."));
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ModelSnapshots.cs:51:            .OrderBy(item => item.DbContextDisplayName, StringComparer.Ordinal)
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.ModelSnapshots.cs:60:            .Where(item => string.Equals(item.DbContextDisplayName, dbContextDisplayName, StringComparison.Ordinal))
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.ConfigurationDiscovery.cs:53:                    string.Equals(@interface.OriginalDefinition.ContainingNamespace.ToDisplayString(), "Microsoft.EntityFrameworkCore", StringComparison.Ordinal))
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceCollectionResult.cs:7:    IReadOnlyList<DbContextFact> DbContexts,
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.cs:28:        var dbContexts = new List<DbContextFact>();
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.cs:56:                .Where(IsDbContext)) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.cs:62:                var dbContextModel = PersistenceSyntaxExplorer.DiscoverDbContextModel(
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.cs:216:                    new DbContextFact(
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.cs:217:                        StableId.ForDbContext($"{dbContextType.ProjectId}:{dbContextDisplayName}"),
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.SymbolTraversal.cs:45:            !string.Equals(namedType.ContainingNamespace.ToDisplayString(), "Microsoft.EntityFrameworkCore", StringComparison.Ordinal)) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.SymbolResolution.cs:43:    private static bool IsDbContext(INamedTypeSymbol symbol) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceFactCollector.SymbolResolution.cs:46:            if (string.Equals(current.ToDisplayString(), "Microsoft.EntityFrameworkCore.DbContext", StringComparison.Ordinal)) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.cs:12:    public static DbContextModelDiscovery DiscoverDbContextModel(
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.cs:96:        return new DbContextModelDiscovery(
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.cs:196:internal sealed record DbContextModelDiscovery(
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.ModelSnapshots.cs:16:        if (!IsModelSnapshot(symbol) || !TryGetDbContextDisplayName(symbol, out var dbContextDisplayName)) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.ModelSnapshots.cs:184:            if (string.Equals(current.ToDisplayString(), "Microsoft.EntityFrameworkCore.Infrastructure.ModelSnapshot", StringComparison.Ordinal)) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.ModelSnapshots.cs:194:    private static bool TryGetDbContextDisplayName(INamedTypeSymbol symbol, out string dbContextDisplayName) {
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.ModelSnapshots.cs:197:                candidate => string.Equals(candidate.AttributeClass?.Name, "DbContextAttribute", StringComparison.Ordinal) &&
+src\CanDoItAll.CodeAnalytics.Facts\Persistence\PersistenceSyntaxExplorer.ModelSnapshots.cs:255:    string DbContextDisplayName,
+src\CanDoItAll.CodeAnalytics.Domain\Facts\DbContextFact.cs:5:public sealed record DbContextFact(
+src\CanDoItAll.CodeAnalytics.Domain\Facts\DbContextFact.cs:6:    string DbContextId,
+src\CanDoItAll.CodeAnalytics.Domain\Facts\ArchitectureFacts.cs:14:    IReadOnlyList<DbContextFact> DbContexts,
+src\CanDoItAll.CodeAnalytics.Domain\Identifiers\StableId.cs:56:    public static string ForDbContext(string value) {
+ExitCode: 0

@@ -14,6 +14,7 @@ public sealed partial class CodeAnalyticsApplicationService {
     private const int SymbolContextPaddingLines = 1;
     private const int SymbolContextMaxLines = 5;
     private const int SymbolTypeHeaderLines = 10;
+    private static readonly TimeSpan SymbolRegexTimeout = TimeSpan.FromMilliseconds(100);
 
     private static bool TryCreateSymbolMatcher(
         string searchText,
@@ -27,7 +28,10 @@ public sealed partial class CodeAnalyticsApplicationService {
                     trimmedSearchText,
                     NormalizeSearchToken(trimmedSearchText),
                     searchMode,
-                    new Regex(trimmedSearchText, RegexOptions.Compiled | RegexOptions.IgnoreCase));
+                    new Regex(
+                        trimmedSearchText,
+                        RegexOptions.IgnoreCase | RegexOptions.CultureInvariant,
+                        SymbolRegexTimeout));
                 validationError = null;
                 return true;
             }
@@ -84,7 +88,7 @@ public sealed partial class CodeAnalyticsApplicationService {
 
         return matcher.SearchMode switch {
             SymbolSearchMode.Exact => MatchesExactSearch(matcher, value),
-            SymbolSearchMode.Regex => matcher.Pattern!.IsMatch(value),
+            SymbolSearchMode.Regex => matcher.IsRegexMatch(value),
             _ => MatchesContainsSearch(matcher, value),
         };
     }
@@ -191,8 +195,8 @@ public sealed partial class CodeAnalyticsApplicationService {
         CancellationToken cancellationToken) {
         var workspaceRoot = Path.GetDirectoryName(snapshot.Request.SolutionPath)!;
         var relativePath = NormalizePath(source.Path);
-        var absolutePath = ResolveAbsoluteSourcePath(workspaceRoot, relativePath);
-        if (!File.Exists(absolutePath)) {
+        var absolutePath = TryResolveReadableSourcePath(workspaceRoot, relativePath);
+        if (absolutePath is null) {
             return null;
         }
 
@@ -218,9 +222,40 @@ public sealed partial class CodeAnalyticsApplicationService {
             isTruncated);
     }
 
-    private sealed record SymbolMatcher(
-        string SearchText,
-        string NormalizedSearchText,
-        SymbolSearchMode SearchMode,
-        Regex? Pattern);
+    private sealed class SymbolMatcher {
+        public SymbolMatcher(
+            string searchText,
+            string normalizedSearchText,
+            SymbolSearchMode searchMode,
+            Regex? pattern) {
+            SearchText = searchText;
+            NormalizedSearchText = normalizedSearchText;
+            SearchMode = searchMode;
+            Pattern = pattern;
+        }
+
+        public string SearchText { get; }
+
+        public string NormalizedSearchText { get; }
+
+        public SymbolSearchMode SearchMode { get; }
+
+        public Regex? Pattern { get; }
+
+        private bool RegexTimedOut { get; set; }
+
+        public bool IsRegexMatch(string value) {
+            if (Pattern is null || RegexTimedOut) {
+                return false;
+            }
+
+            try {
+                return Pattern.IsMatch(value);
+            }
+            catch (RegexMatchTimeoutException) {
+                RegexTimedOut = true;
+                return false;
+            }
+        }
+    }
 }

@@ -98,8 +98,8 @@ public sealed partial class CodeAnalyticsApplicationService {
             return null;
         }
 
-        var absolutePath = ResolveAbsoluteSourcePath(workspaceRoot, NormalizePath(document.Path));
-        return File.Exists(absolutePath)
+        var absolutePath = TryResolveReadableSourcePath(workspaceRoot, NormalizePath(document.Path));
+        return absolutePath is not null
             ? new ResolvedDocument(document, project, absolutePath)
             : null;
     }

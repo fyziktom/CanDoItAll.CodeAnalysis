@@ -1,0 +1,20 @@
+﻿{
+  "entries": [
+    {
+      "snapshotId": "snap-20260630163204-6c78a2c1",
+      "solutionName": "Fixture.Shop",
+      "solutionPath": "C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\Fixture.Shop.slnx",
+      "createdUtc": "2026-06-30T16:32:04.667394+00:00",
+      "findingCount": 1,
+      "diagnosticCount": 3
+    },
+    {
+      "snapshotId": "snap-20260630162957-4843c386",
+      "solutionName": "Fixture.Shop",
+      "solutionPath": "C:\\repositories\\CanDoItAll.CodeAnalsis\\tests\\fixtures\\Fixture.Shop\\Fixture.Shop.slnx",
+      "createdUtc": "2026-06-30T16:29:57.3139112+00:00",
+      "findingCount": 3,
+      "diagnosticCount": 7
+    }
+  ]
+}

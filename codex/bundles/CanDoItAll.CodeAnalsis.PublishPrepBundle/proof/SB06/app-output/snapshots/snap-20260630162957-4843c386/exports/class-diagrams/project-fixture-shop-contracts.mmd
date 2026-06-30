@@ -1,0 +1,12 @@
+﻿classDiagram
+    class T0001["Fixture.Shop.Contracts.Orders.PlaceOrderCommand"]
+    class T0002["Fixture.Shop.Contracts.Orders.PlaceOrderLineCommand"]
+    class T0003["Fixture.Shop.Contracts.Orders.IOrderService"]
+    class T0004["Fixture.Shop.Contracts.Orders.OrderReceipt"]
+    class T0005["Fixture.Shop.Contracts.Shared.PagedResult&lt;TItem&gt;"]
+    class T0006["Fixture.Shop.Contracts.Notifications.INotificationSender"]
+    class T0007["Fixture.Shop.Contracts.Persistence.IRepository&lt;TEntity&gt;"]
+    T0003 ..> T0001 : param
+    T0003 ..> T0004 : returns
+    T0001 --> T0002 : property
+    T0001 ..> T0002 : ctor

@@ -1,0 +1,126 @@
+﻿Command: rg -n "ProjectReference|Sdk=|<Project Path=" src tests tools CanDoItAll.CodeAnalsis.slnx
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T10:56:19.6710591-04:00
+EndTime: 2026-06-30T10:56:19.7799212-04:00
+ExitCode: 0
+Output:
+CanDoItAll.CodeAnalsis.slnx:3:    <Project Path="src/CanDoItAll.CodeAnalytics.Abstractions/CanDoItAll.CodeAnalytics.Abstractions.csproj" />
+CanDoItAll.CodeAnalsis.slnx:4:    <Project Path="src/CanDoItAll.CodeAnalytics.Analysis/CanDoItAll.CodeAnalytics.Analysis.csproj" />
+CanDoItAll.CodeAnalsis.slnx:5:    <Project Path="src/CanDoItAll.CodeAnalytics.Application/CanDoItAll.CodeAnalytics.Application.csproj" />
+CanDoItAll.CodeAnalsis.slnx:6:    <Project Path="src/CanDoItAll.CodeAnalytics.Domain/CanDoItAll.CodeAnalytics.Domain.csproj" />
+CanDoItAll.CodeAnalsis.slnx:7:    <Project Path="src/CanDoItAll.CodeAnalytics.Facts/CanDoItAll.CodeAnalytics.Facts.csproj" />
+CanDoItAll.CodeAnalsis.slnx:8:    <Project Path="src/CanDoItAll.CodeAnalytics.Rendering/CanDoItAll.CodeAnalytics.Rendering.csproj" />
+CanDoItAll.CodeAnalsis.slnx:9:    <Project Path="src/CanDoItAll.CodeAnalytics.Storage/CanDoItAll.CodeAnalytics.Storage.csproj" />
+CanDoItAll.CodeAnalsis.slnx:10:    <Project Path="src/CanDoItAll.CodeAnalytics.Web/CanDoItAll.CodeAnalytics.Web.csproj" />
+CanDoItAll.CodeAnalsis.slnx:11:    <Project Path="src/CanDoItAll.CodeAnalytics.Workspace/CanDoItAll.CodeAnalytics.Workspace.csproj" />
+CanDoItAll.CodeAnalsis.slnx:14:    <Project Path="tests/CanDoItAll.CodeAnalytics.Tests.Architecture/CanDoItAll.CodeAnalytics.Tests.Architecture.csproj" />
+CanDoItAll.CodeAnalsis.slnx:15:    <Project Path="tests/CanDoItAll.CodeAnalytics.Tests.Integration/CanDoItAll.CodeAnalytics.Tests.Integration.csproj" />
+CanDoItAll.CodeAnalsis.slnx:16:    <Project Path="tests/CanDoItAll.CodeAnalytics.Tests.Support/CanDoItAll.CodeAnalytics.Tests.Support.csproj" />
+CanDoItAll.CodeAnalsis.slnx:17:    <Project Path="tests/CanDoItAll.CodeAnalytics.Tests.Unit/CanDoItAll.CodeAnalytics.Tests.Unit.csproj" />
+CanDoItAll.CodeAnalsis.slnx:18:    <Project Path="tests/CanDoItAll.CodeAnalytics.Tests.Web/CanDoItAll.CodeAnalytics.Tests.Web.csproj" />
+CanDoItAll.CodeAnalsis.slnx:21:    <Project Path="tools/ScenarioEvaluationHarness/ScenarioEvaluationHarness.csproj" />
+tools\ScenarioEvaluationHarness\ScenarioEvaluationHarness.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tools\ScenarioEvaluationHarness\ScenarioEvaluationHarness.csproj:11:    <ProjectReference Include="..\..\tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj" />
+tools\ComparisonHarness\ComparisonHarness.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tools\ComparisonHarness\ComparisonHarness.csproj:11:    <ProjectReference Include="..\..\tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:11:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Abstractions\CanDoItAll.CodeAnalytics.Abstractions.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:12:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Analysis\CanDoItAll.CodeAnalytics.Analysis.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:13:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:14:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:15:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:16:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Rendering\CanDoItAll.CodeAnalytics.Rendering.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:17:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Storage\CanDoItAll.CodeAnalytics.Storage.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj:18:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Workspace\CanDoItAll.CodeAnalytics.Workspace.csproj" />
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ProjectGraphMermaidRenderer.cs:16:            .Where(edge => edge.Kind == DependencyKind.ProjectReference)
+tests\CanDoItAll.CodeAnalytics.Tests.Support\SampleSnapshotFactory.cs:88:            new DependencyEdgeFact("dep-project", DependencyKind.ProjectReference, "proj-app", "proj-infra", 1),
+tests\CanDoItAll.CodeAnalytics.Tests.Web\CanDoItAll.CodeAnalytics.Tests.Web.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tests\CanDoItAll.CodeAnalytics.Tests.Web\CanDoItAll.CodeAnalytics.Tests.Web.csproj:23:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Web\CanDoItAll.CodeAnalytics.Tests.Web.csproj:24:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Web\CanDoItAll.CodeAnalytics.Web.csproj" />
+src\CanDoItAll.CodeAnalytics.Rendering\CanDoItAll.CodeAnalytics.Rendering.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+src\CanDoItAll.CodeAnalytics.Rendering\CanDoItAll.CodeAnalytics.Rendering.csproj:10:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj:1:<Project Sdk="Microsoft.NET.Sdk.Web">
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj:4:    <ProjectReference Include="..\Fixture.Shop.Contracts\Fixture.Shop.Contracts.csproj" />
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj:5:    <ProjectReference Include="..\Fixture.Shop.Application\Fixture.Shop.Application.csproj" />
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj:6:    <ProjectReference Include="..\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj" />
+src\CanDoItAll.CodeAnalytics.Workspace\Loading\MsBuildWorkspaceLoader.cs:114:                        ProjectReferences = project.ProjectReferences
+src\CanDoItAll.CodeAnalytics.Workspace\Loading\MsBuildWorkspaceLoader.cs:266:        var projectReferenceIds = inventory.ProjectReferencePaths
+src\CanDoItAll.CodeAnalytics.Workspace\Inventory\ProjectFileInventoryReader.cs:22:        var projectReferences = document.Descendants("ProjectReference")
+src\CanDoItAll.CodeAnalytics.Workspace\Inventory\ProjectFileInventory.cs:5:    IReadOnlyList<string> ProjectReferencePaths,
+src\CanDoItAll.CodeAnalytics.Workspace\CanDoItAll.CodeAnalytics.Workspace.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+src\CanDoItAll.CodeAnalytics.Workspace\CanDoItAll.CodeAnalytics.Workspace.csproj:10:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:22:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:23:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Abstractions\CanDoItAll.CodeAnalytics.Abstractions.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:24:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Analysis\CanDoItAll.CodeAnalytics.Analysis.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:25:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:26:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:27:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:28:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Rendering\CanDoItAll.CodeAnalytics.Rendering.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:29:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Storage\CanDoItAll.CodeAnalytics.Storage.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj:30:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Workspace\CanDoItAll.CodeAnalytics.Workspace.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\ApplicationFacts.cs:223:        Assert.Empty(contractsProject.DirectProjectReferences);
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\ApplicationFacts.cs:251:        Assert.Equal(2, response.Project.DirectProjectReferences.Count);
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\ApplicationFacts.cs:253:            response.Project.DirectProjectReferences,
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\ApplicationFacts.cs:256:            response.Project.DirectProjectReferences,
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\ApplicationFacts.cs:279:        Assert.Single(response.Project.DirectProjectReferences);
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\ApplicationFacts.cs:280:        Assert.Equal(ProjectRoleKind.Product, response.Project.DirectProjectReferences[0].ProjectRole);
+tests\CanDoItAll.CodeAnalytics.Tests.Unit\ApplicationFacts.cs:281:        Assert.Empty(response.Project.SupportingDirectProjectReferences);
+tests\fixtures\Fixture.Shop\Fixture.Shop.slnx:3:    <Project Path="src/Fixture.Shop.Application/Fixture.Shop.Application.csproj" />
+tests\fixtures\Fixture.Shop\Fixture.Shop.slnx:4:    <Project Path="src/Fixture.Shop.Contracts/Fixture.Shop.Contracts.csproj" />
+tests\fixtures\Fixture.Shop\Fixture.Shop.slnx:5:    <Project Path="src/Fixture.Shop.Infrastructure/Fixture.Shop.Infrastructure.csproj" />
+tests\fixtures\Fixture.Shop\Fixture.Shop.slnx:6:    <Project Path="src/Fixture.Shop.Web/Fixture.Shop.Web.csproj" />
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj:4:    <ProjectReference Include="..\Fixture.Shop.Contracts\Fixture.Shop.Contracts.csproj" />
+src\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj:4:    <ProjectReference Include="..\Fixture.Shop.Contracts\Fixture.Shop.Contracts.csproj" />
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj:5:    <ProjectReference Include="..\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Integration\CanDoItAll.CodeAnalytics.Tests.Integration.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tests\CanDoItAll.CodeAnalytics.Tests.Integration\CanDoItAll.CodeAnalytics.Tests.Integration.csproj:22:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Integration\CanDoItAll.CodeAnalytics.Tests.Integration.csproj:23:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Integration\CanDoItAll.CodeAnalytics.Tests.Integration.csproj:24:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Integration\CanDoItAll.CodeAnalytics.Tests.Integration.csproj:25:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Storage\CanDoItAll.CodeAnalytics.Storage.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Integration\CanDoItAll.CodeAnalytics.Tests.Integration.csproj:26:    <ProjectReference Include="..\..\src\CanDoItAll.CodeAnalytics.Workspace\CanDoItAll.CodeAnalytics.Workspace.csproj" />
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Inventory.cs:57:            foreach (var referencedProjectId in project.ProjectReferences) {
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Inventory.cs:77:            var directProjectReferences = project.ProjectReferences
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Inventory.cs:89:            var productDirectProjectReferences = directProjectReferences
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Inventory.cs:92:            var supportingDirectProjectReferences = directProjectReferences
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Inventory.cs:104:                productDirectProjectReferences,
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Inventory.cs:105:                supportingDirectProjectReferences,
+src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj:11:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Abstractions\CanDoItAll.CodeAnalytics.Abstractions.csproj" />
+src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj:12:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Analysis\CanDoItAll.CodeAnalytics.Analysis.csproj" />
+src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj:13:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj:14:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj" />
+src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj:15:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Rendering\CanDoItAll.CodeAnalytics.Rendering.csproj" />
+src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj:16:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Storage\CanDoItAll.CodeAnalytics.Storage.csproj" />
+src\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj:17:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Workspace\CanDoItAll.CodeAnalytics.Workspace.csproj" />
+tests\CanDoItAll.CodeAnalytics.Tests.Architecture\SolutionStructureFacts.cs:33:            var references = ReadProjectReferences(projectPath);
+tests\CanDoItAll.CodeAnalytics.Tests.Architecture\SolutionStructureFacts.cs:161:    private static string[] ReadProjectReferences(string projectPath) {
+tests\CanDoItAll.CodeAnalytics.Tests.Architecture\SolutionStructureFacts.cs:165:            .Descendants("ProjectReference")
+tests\CanDoItAll.CodeAnalytics.Tests.Architecture\SolutionStructureFacts.cs:177:                ReadProjectReferences,
+tests\CanDoItAll.CodeAnalytics.Tests.Architecture\CanDoItAll.CodeAnalytics.Tests.Architecture.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+tests\CanDoItAll.CodeAnalytics.Tests.Architecture\CanDoItAll.CodeAnalytics.Tests.Architecture.csproj:22:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Tests.Support\CanDoItAll.CodeAnalytics.Tests.Support.csproj" />
+src\CanDoItAll.CodeAnalytics.Analysis\Rules\ArchitectureInsightBuilder.cs:44:        var projectCycles = CreateCycles(facts.Dependencies, DependencyKind.ProjectReference, "Project");
+src\CanDoItAll.CodeAnalytics.Analysis\Rules\ArchitectureInsightBuilder.cs:104:                project.ProjectReferences.Any(reference => facts.Projects.Any(candidate =>
+src\CanDoItAll.CodeAnalytics.Analysis\Rules\ArchitectureInsightBuilder.cs:117:                        project.ProjectReferences.Append(project.ProjectId).OrderBy(value => value, StringComparer.Ordinal).ToArray(),
+src\CanDoItAll.CodeAnalytics.Storage\CanDoItAll.CodeAnalytics.Storage.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+src\CanDoItAll.CodeAnalytics.Storage\CanDoItAll.CodeAnalytics.Storage.csproj:10:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+src\CanDoItAll.CodeAnalytics.Analysis\CanDoItAll.CodeAnalytics.Analysis.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+src\CanDoItAll.CodeAnalytics.Analysis\CanDoItAll.CodeAnalytics.Analysis.csproj:10:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+src\CanDoItAll.CodeAnalytics.Analysis\CanDoItAll.CodeAnalytics.Analysis.csproj:11:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj" />
+src\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+src\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj:10:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+src\CanDoItAll.CodeAnalytics.Facts\CanDoItAll.CodeAnalytics.Facts.csproj:11:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Workspace\CanDoItAll.CodeAnalytics.Workspace.csproj" />
+tests\fixtures\Fixture.Shop\src\Fixture.Shop.Contracts\Fixture.Shop.Contracts.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+src\CanDoItAll.CodeAnalytics.Web\CanDoItAll.CodeAnalytics.Web.csproj:1:<Project Sdk="Microsoft.NET.Sdk.Web">
+src\CanDoItAll.CodeAnalytics.Web\CanDoItAll.CodeAnalytics.Web.csproj:11:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj" />
+src\CanDoItAll.CodeAnalytics.Abstractions\CanDoItAll.CodeAnalytics.Abstractions.csproj:1:<Project Sdk="Microsoft.NET.Sdk">
+src\CanDoItAll.CodeAnalytics.Abstractions\CanDoItAll.CodeAnalytics.Abstractions.csproj:10:    <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Domain\CanDoItAll.CodeAnalytics.Domain.csproj" />
+src\CanDoItAll.CodeAnalytics.Domain\Facts\DependencyKind.cs:4:    ProjectReference,
+src\CanDoItAll.CodeAnalytics.Domain\Facts\ProjectFact.cs:8:    IReadOnlyList<string> ProjectReferences,
+src\CanDoItAll.CodeAnalytics.Facts\Dependencies\DependencyFactCollector.cs:28:            foreach (var referenceId in project.ProjectReferences) {
+src\CanDoItAll.CodeAnalytics.Facts\Dependencies\DependencyFactCollector.cs:29:                AddEdge(edges, DependencyKind.ProjectReference, project.ProjectId, referenceId);
+src\CanDoItAll.CodeAnalytics.Abstractions\Responses\ProjectInventoryItem.cs:8:    IReadOnlyList<ProjectLinkItem> DirectProjectReferences,
+src\CanDoItAll.CodeAnalytics.Abstractions\Responses\ProjectInventoryItem.cs:9:    IReadOnlyList<ProjectLinkItem> SupportingDirectProjectReferences,

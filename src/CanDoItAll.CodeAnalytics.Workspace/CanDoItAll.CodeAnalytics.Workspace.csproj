@@ -4,6 +4,8 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+    <Description>MSBuildWorkspace and Roslyn loading helpers for CanDoItAll CodeAnalytics snapshot collection.</Description>
 </PropertyGroup>
 
   <ItemGroup>

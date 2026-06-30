@@ -1,0 +1,18 @@
+Command: see bundle://proof/SB04/manifest.md Transcript Index for exact command
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Unit\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Unit.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.94]   Discovering: CanDoItAll.CodeAnalytics.Tests.Unit
+[xUnit.net 00:00:02.10]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Unit
+[xUnit.net 00:00:02.51]   Starting:    CanDoItAll.CodeAnalytics.Tests.Unit
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.EfCoreFacts.EfCore_persistence_view_filters_metadata_without_query_tuning_advice [1 m 7 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.EfCoreFacts.EfCore_collects_entities_and_reports_partially_supported_patterns [24 s]
+[xUnit.net 00:02:03.51]   Finished:    CanDoItAll.CodeAnalytics.Tests.Unit
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.EfCoreFacts.EfCore_collects_store_objects_contexts_and_relationships_without_runtime_query_claims [27 s]
+
+Test Run Successful.
+Total tests: 3
+     Passed: 3
+ Total time: 2.1435 Minutes
+ExitCode: 0

@@ -1,0 +1,318 @@
+<section class="panel">
+    <div class="panel-heading">
+        <h2>Supporting Context</h2>
+        <p>These sections explain why the focused neighborhood was selected and where to widen next.</p>
+    </div>
+
+    @if (Response.SelectionReasons.Count > 0)
+    {
+        <div class="panel-heading">
+            <h2>Selection Reasons</h2>
+            <p>Structured reasons make it easier to see whether the scorer chose the right targets or only got lucky.</p>
+        </div>
+
+        <ul class="detail-list">
+            @foreach (var reason in GetSelectionReasonsForDisplay())
+            {
+                <li>
+                    <strong>@GetSelectionTargetLabel(reason)</strong>
+                    <span>@GetReasonLabel(reason.ReasonKind)</span>
+                    @if (reason.RoleKind != FocusedContextReferenceRoleKind.None)
+                    {
+                        <span>@GetRoleLabel(reason.RoleKind)</span>
+                    }
+                </li>
+            }
+        </ul>
+    }
+
+    @if (Response.ImplementationTypes.Count > 0)
+    {
+        <div class="panel-heading">
+            <h2>Implementations</h2>
+            <p>These concrete types are treated as definition-adjacent context for helper-like seeds.</p>
+        </div>
+
+        <ul class="detail-list">
+            @foreach (var type in Response.ImplementationTypes)
+            {
+                <li><strong>@type.DisplayName</strong> <span>@type.Source.Path:@type.Source.Line</span></li>
+            }
+        </ul>
+    }
+
+    @if (ShowReferenceHelpers)
+    {
+        <div class="panel-heading">
+            <h2>Reference Helpers</h2>
+            <p>These are reusable collaborators the graph considered useful even if they did not land in the main excerpt set.</p>
+        </div>
+
+        @if (Response.ReferenceTypes.Count == 0)
+        {
+            <p class="empty-state">No reference helpers were identified for the current scope.</p>
+        }
+        else
+        {
+            <ul class="detail-list">
+                @foreach (var type in Response.ReferenceTypes)
+                {
+                    <li>
+                        @if (LinkTypes)
+                        {
+                            <a href="@GetTypeContextHref(type.TypeId)">@type.DisplayName</a>
+                        }
+                        else
+                        {
+                            <strong>@type.DisplayName</strong>
+                        }
+                        <span>@type.Source.Path:@type.Source.Line</span>
+                    </li>
+                }
+            </ul>
+        }
+    }
+
+    <div class="panel-heading">
+        <h2>Types</h2>
+        <p>Summaries and source anchors for the classes currently inside the focused neighborhood.</p>
+    </div>
+
+    <div class="type-browser-grid">
+        @foreach (var type in Response.Types)
+        {
+            <article class="type-browser-card">
+                <div class="type-browser-header">
+                    <div>
+                        <h3>@type.DisplayName</h3>
+                        <p class="field-help">@type.Source.Path:@type.Source.Line</p>
+                    </div>
+                    <span class="severity-pill severity-info">@type.Kind</span>
+                </div>
+                @if (!string.IsNullOrWhiteSpace(type.XmlSummary))
+                {
+                    <p>@type.XmlSummary</p>
+                }
+                @if (LinkTypes)
+                {
+                    <div class="action-links">
+                        <a href="@GetTypeContextHref(type.TypeId)">Recenter on this type</a>
+                    </div>
+                }
+            </article>
+        }
+    </div>
+
+    @if (ShowMembers)
+    {
+        <div class="panel-heading">
+            <h2>Members</h2>
+            <p>These functions and members sit inside the selected neighborhood.</p>
+        </div>
+
+        <div class="member-list">
+            @foreach (var member in Response.Members)
+            {
+                <article class="member-card">
+                    <div class="progress-meta">
+                        <span class="severity-pill severity-info">@member.Kind</span>
+                        <strong>@member.DisplayName</strong>
+                    </div>
+                    <p>@member.ReturnTypeDisplayName</p>
+                    @if (member.ParameterDisplayNames.Count > 0)
+                    {
+                        <p>Parameters: @string.Join(", ", member.ParameterDisplayNames)</p>
+                    }
+                    <p class="field-help">@member.Source.Path:@member.Source.Line</p>
+                    @{
+                        var memberReasonSummary = GetReasonSummary(FocusedContextSelectionTargetKind.Member, member.MemberId);
+                    }
+                    @if (!string.IsNullOrWhiteSpace(memberReasonSummary))
+                    {
+                        <p class="field-help">Selection: @memberReasonSummary</p>
+                    }
+                </article>
+            }
+        </div>
+    }
+
+    @if (ShowRelations)
+    {
+        <div class="panel-heading">
+            <h2>Member relations</h2>
+            <p>Edges are grouped from the canonical member graph, with a representative source anchor.</p>
+        </div>
+        @if (Response.MemberRelationships.Count == 0)
+        {
+            <p class="empty-state">No member-level relations were found in the selected neighborhood.</p>
+        }
+        else
+        {
+            <ul class="detail-list">
+                @foreach (var relationship in Response.MemberRelationships)
+                {
+                    <li>
+                        <strong>@GetMemberName(relationship.FromMemberId)</strong>
+                        <span> @relationship.Kind </span>
+                        <strong>@GetMemberName(relationship.ToMemberId)</strong>
+                        @if (relationship.Source is not null)
+                        {
+                            <span> (@relationship.Source.Path:@relationship.Source.Line)</span>
+                        }
+                    </li>
+                }
+            </ul>
+        }
+
+        <div class="panel-heading">
+            <h2>Type relations</h2>
+            <p>These type edges keep the class neighborhood visible without falling back to a whole-solution graph.</p>
+        </div>
+        @if (Response.TypeRelationships.Count == 0)
+        {
+            <p class="empty-state">No type-level relations were found in the selected neighborhood.</p>
+        }
+        else
+        {
+            <ul class="detail-list">
+                @foreach (var relationship in Response.TypeRelationships)
+                {
+                    <li>
+                        <strong>@GetTypeName(relationship.FromTypeId)</strong>
+                        <span> @relationship.Kind </span>
+                        <strong>@GetTypeName(relationship.ToTypeId)</strong>
+                        @if (relationship.Source is not null)
+                        {
+                            <span> (@relationship.Source.Path:@relationship.Source.Line)</span>
+                        }
+                    </li>
+                }
+            </ul>
+        }
+    }
+
+    @if (ShowRelatedServices)
+    {
+        <div class="panel-heading">
+            <h2>Related services</h2>
+            <p>Service registrations that map onto the current neighborhood.</p>
+        </div>
+        @if (Response.RelatedServices.Count == 0)
+        {
+            <p class="empty-state">No related services were found.</p>
+        }
+        else
+        {
+            <ul class="detail-list">
+                @foreach (var service in Response.RelatedServices)
+                {
+                    <li><strong>@service.ServiceTypeDisplayName</strong> -> @service.ImplementationTypeDisplayName (@service.Lifetime)</li>
+                }
+            </ul>
+        }
+    }
+</section>
+
+@code {
+    [Parameter]
+    public FocusedContextResponse Response { get; set; } = null!;
+
+    [Parameter]
+    public string SnapshotId { get; set; } = string.Empty;
+
+    [Parameter]
+    public bool LinkTypes { get; set; }
+
+    [Parameter]
+    public bool ShowMembers { get; set; } = true;
+
+    [Parameter]
+    public bool ShowRelations { get; set; } = true;
+
+    [Parameter]
+    public bool ShowRelatedServices { get; set; } = true;
+
+    [Parameter]
+    public bool ShowReferenceHelpers { get; set; } = true;
+
+    private string GetTypeContextHref(string typeId)
+    {
+        return $"/snapshots/{SnapshotId}/context?typeId={Uri.EscapeDataString(typeId)}";
+    }
+
+    private string GetTypeName(string typeId)
+    {
+        return Response.Types.FirstOrDefault(item => string.Equals(item.TypeId, typeId, StringComparison.Ordinal))?.DisplayName ?? typeId;
+    }
+
+    private string GetMemberName(string memberId)
+    {
+        return Response.Members.FirstOrDefault(item => string.Equals(item.MemberId, memberId, StringComparison.Ordinal))?.DisplayName ?? memberId;
+    }
+
+    private IEnumerable<FocusedContextSelectionReason> GetSelectionReasonsForDisplay()
+    {
+        return Response.SelectionReasons
+            .OrderBy(item => item.TargetKind)
+            .ThenBy(item => item.TargetId, StringComparer.OrdinalIgnoreCase)
+            .ThenBy(item => item.ReasonKind)
+            .ThenBy(item => item.RoleKind)
+            .ToArray();
+    }
+
+    private string GetSelectionTargetLabel(FocusedContextSelectionReason reason)
+    {
+        if (reason.TargetKind == FocusedContextSelectionTargetKind.File) {
+            return reason.TargetId;
+        }
+
+        return Response.Members.FirstOrDefault(item => string.Equals(item.MemberId, reason.TargetId, StringComparison.Ordinal))?.DisplayName
+            ?? reason.TargetId;
+    }
+
+    private string GetReasonSummary(FocusedContextSelectionTargetKind targetKind, string targetId)
+    {
+        var comparer = targetKind == FocusedContextSelectionTargetKind.File
+            ? StringComparison.OrdinalIgnoreCase
+            : StringComparison.Ordinal;
+        return string.Join(
+            ", ",
+            Response.SelectionReasons
+                .Where(item => item.TargetKind == targetKind && string.Equals(item.TargetId, targetId, comparer))
+                .Select(FormatSelectionReason)
+                .Distinct(StringComparer.Ordinal));
+    }
+
+    private static string FormatSelectionReason(FocusedContextSelectionReason reason)
+    {
+        return reason.RoleKind == FocusedContextReferenceRoleKind.None
+            ? GetReasonLabel(reason.ReasonKind)
+            : $"{GetReasonLabel(reason.ReasonKind)} / {GetRoleLabel(reason.RoleKind)}";
+    }
+
+    private static string GetReasonLabel(FocusedContextSelectionReasonKind reasonKind)
+    {
+        return reasonKind switch
+        {
+            FocusedContextSelectionReasonKind.Seed => "Seed",
+            FocusedContextSelectionReasonKind.SeedContext => "Seed context",
+            FocusedContextSelectionReasonKind.Implementation => "Implementation",
+            FocusedContextSelectionReasonKind.RepresentativeConsumer => "Representative consumer",
+            FocusedContextSelectionReasonKind.ServiceRegistration => "Service registration",
+            _ => "Related context",
+        };
+    }
+
+    private static string GetRoleLabel(FocusedContextReferenceRoleKind roleKind)
+    {
+        return roleKind switch
+        {
+            FocusedContextReferenceRoleKind.Registration => "Registration",
+            FocusedContextReferenceRoleKind.Factory => "Factory",
+            FocusedContextReferenceRoleKind.SchemaBootstrap => "Schema bootstrap",
+            FocusedContextReferenceRoleKind.ConsumerService => "Consumer service",
+            FocusedContextReferenceRoleKind.PreviewLifecycle => "Preview lifecycle",
+            _ => "None",
+        };
+    }
+}

@@ -1,0 +1,65 @@
+﻿Command: dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=minimal"
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Unit\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Unit.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.54]   Discovering: CanDoItAll.CodeAnalytics.Tests.Unit
+[xUnit.net 00:00:00.99]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Unit
+[xUnit.net 00:00:01.12]   Starting:    CanDoItAll.CodeAnalytics.Tests.Unit
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.XmlDocumentationFacts.XmlDocumentation_reports_malformed_xml [73 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.XmlDocumentationFacts.XmlDocumentation_extracts_the_summary_text [32 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SerializationFacts.Serialization_preserves_the_minimal_snapshot_shape [573 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.MermaidFacts.Mermaid_renders_the_expected_er_diagram [113 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.RiskRulesFacts.RiskRules_emits_layering_findings_and_open_questions [92 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SerializationFacts.Serialization_round_trips_the_rich_snapshot [299 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.MermaidFacts.Mermaid_renders_class_diagram_with_safe_aliases_and_member_relations [151 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.MermaidFacts.Mermaid_renders_the_expected_project_graph [14 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.CanonicalModelFacts.CanonicalModel_snapshot_represents_the_required_sections [2 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.CanonicalModelFacts.CanonicalModel_keeps_facts_and_insights_separate [3 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SnapshotRepositoryFacts.SnapshotRepository_rejects_export_paths_outside_snapshot_directory [23 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SummaryWriterFacts.SummaryWriter_renders_the_expected_markdown_summary [16 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.DependencyGraphFacts.DependencyGraph_detects_a_cycle [55 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ToolSurfaceFacts.ToolSurface_reference_artifact_matches_the_expected_driver_shape [14 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SnapshotRepositoryFacts.SnapshotRepository_stores_and_reloads_a_snapshot [102 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationSafetyFacts.Application_regex_symbol_search_handles_adversarial_patterns_without_throwing [1 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationSafetyFacts.Application_document_source_rejects_files_above_public_read_limit [164 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationSafetyFacts.Application_document_source_rejects_paths_outside_workspace_root [181 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ServiceRegistrationFacts.ServiceRegistration_captures_conventional_and_factory_patterns [52 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_lists_symbol_implementations_for_a_contract [52 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.EfCoreFacts.EfCore_persistence_view_filters_metadata_without_query_tuning_advice [53 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.EfCoreFacts.EfCore_collects_entities_and_reports_partially_supported_patterns [18 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_references_for_member_invocations [20 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.EfCoreFacts.EfCore_collects_store_objects_contexts_and_relationships_without_runtime_query_claims [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_searches_symbols_by_exact_type_name [17 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_document_queries_tolerate_duplicate_document_ids [114 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_merges_duplicate_document_paths_when_building_focused_context_files [353 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_switches_high_fan_in_helpers_into_surgical_definition_mode [612 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_prefers_behavioral_seed_members_for_type_name_queries [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_filters_high_fan_in_helper_usage_summary_by_relation_hints [194 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_filters_types_by_project_and_can_expand_methods [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_solution_inventory_with_direct_and_reverse_project_references [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_builds_and_queries_a_fixture_snapshot [10 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_resolves_focused_context_from_diagnostic_text_when_source_is_available [44 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_project_inventory_with_documents [11 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_can_render_usage_summary_without_pulling_consumer_members_into_main_selection [112 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_does_not_fall_back_to_broad_helper_usage_when_relation_hints_do_not_match [150 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_focused_context_for_a_service_seed [10 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_structured_selection_reasons_for_members_and_files [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_builds_a_project_scoped_snapshot_from_a_csproj_path [7 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_separates_product_and_supporting_projects_in_inventory [49 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_references_for_type_dependencies [10 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_document_source_for_snapshot_document_path [14 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_maps_behavior_intent_to_trouble_path_for_focused_context [11 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_resolves_focused_context_from_prompt_text_and_returns_file_excerpts [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_definition_for_a_member_target [11 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_document_symbols_for_snapshot_document_path [9 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_lists_symbol_members_for_a_type [10 s]
+[xUnit.net 00:04:28.15]   Finished:    CanDoItAll.CodeAnalytics.Tests.Unit
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_supports_outline_precision_without_code_excerpts [382 ms]
+
+Test Run Successful.
+Total tests: 49
+     Passed: 49
+ Total time: 4.5337 Minutes
+ExitCode: 0
+

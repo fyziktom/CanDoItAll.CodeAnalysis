@@ -95,7 +95,7 @@ public sealed class FileSnapshotRepository {
         Directory.CreateDirectory(snapshotDirectory);
 
         foreach (var export in exports.OrderBy(item => item.RelativePath, StringComparer.Ordinal)) {
-            var filePath = Path.Combine(snapshotDirectory, export.RelativePath.Replace('/', Path.DirectorySeparatorChar));
+            var filePath = ResolveExportPath(snapshotDirectory, export.RelativePath);
             var directory = Path.GetDirectoryName(filePath);
             if (!string.IsNullOrWhiteSpace(directory)) {
                 Directory.CreateDirectory(directory);
@@ -180,5 +180,31 @@ public sealed class FileSnapshotRepository {
         var path = pathResolver.GetRecentIndexPath();
         Directory.CreateDirectory(Path.GetDirectoryName(path)!);
         await File.WriteAllTextAsync(path, _serializer.Serialize(index), Encoding.UTF8, cancellationToken);
+    }
+
+    private static string ResolveExportPath(string snapshotDirectory, string relativePath) {
+        if (string.IsNullOrWhiteSpace(relativePath)) {
+            throw new InvalidOperationException("Export relative path cannot be empty.");
+        }
+
+        var snapshotRoot = Path.GetFullPath(snapshotDirectory);
+        var exportPath = Path.GetFullPath(
+            Path.Combine(snapshotRoot, relativePath.Replace('/', Path.DirectorySeparatorChar)));
+        if (!IsPathWithinDirectory(exportPath, snapshotRoot)) {
+            throw new InvalidOperationException($"Export path '{relativePath}' resolves outside the snapshot directory.");
+        }
+
+        return exportPath;
+    }
+
+    private static bool IsPathWithinDirectory(string candidatePath, string directoryPath) {
+        var comparison = OperatingSystem.IsWindows()
+            ? StringComparison.OrdinalIgnoreCase
+            : StringComparison.Ordinal;
+        var directory = Path.TrimEndingDirectorySeparator(Path.GetFullPath(directoryPath));
+        var candidate = Path.GetFullPath(candidatePath);
+
+        return string.Equals(candidate, directory, comparison)
+            || candidate.StartsWith(directory + Path.DirectorySeparatorChar, comparison);
     }
 }

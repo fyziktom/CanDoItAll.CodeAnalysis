@@ -1,0 +1,16 @@
+Command: see bundle://proof/SB04/manifest.md Transcript Index for exact command
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Integration\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Integration.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.02] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.54]   Discovering: CanDoItAll.CodeAnalytics.Tests.Integration
+[xUnit.net 00:00:01.06]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Integration
+[xUnit.net 00:00:01.25]   Starting:    CanDoItAll.CodeAnalytics.Tests.Integration
+[xUnit.net 00:01:03.52]   Finished:    CanDoItAll.CodeAnalytics.Tests.Integration
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.PersistenceFacts.Persistence_snapshot_contains_er_ready_facts [1 m 1 s]
+
+Test Run Successful.
+Total tests: 1
+     Passed: 1
+ Total time: 1.1544 Minutes
+ExitCode: 0

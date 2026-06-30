@@ -1,0 +1,141 @@
+@if (Response.Files.Count == 0)
+{
+    <section class="panel">
+        <div class="panel-heading">
+            <h2>Selected Files</h2>
+            <p>Each accordion shows only the code the analyzer decided was worth carrying into working memory.</p>
+        </div>
+        <p class="empty-state">@GetSelectedFilesEmptyState()</p>
+    </section>
+}
+else
+{
+    <section class="panel">
+        <div class="panel-heading">
+            <h2>Selected Files</h2>
+            <p>Each accordion shows only the code the analyzer decided was worth carrying into working memory.</p>
+        </div>
+
+        <div class="accordion-list">
+            @foreach (var file in Response.Files)
+            {
+                <details class="file-accordion" open="@IsSeedFile(file.Path)">
+                    <summary class="file-summary">
+                        <strong>@file.Path</strong>
+                        <span>@file.SelectedLineCount selected / @file.TotalLineCount total lines</span>
+                        <span>@file.Blocks.Count block(s)</span>
+                        @if (IsBroadFile(file))
+                        {
+                            <span class="severity-pill severity-warning">Broad excerpt</span>
+                        }
+                    </summary>
+
+                    @if (file.TypeDisplayNames.Count > 0)
+                    {
+                        <p class="field-help">Types: @string.Join(", ", file.TypeDisplayNames)</p>
+                    }
+
+                    @{
+                        var fileReasonSummary = GetReasonSummary(FocusedContextSelectionTargetKind.File, file.Path);
+                    }
+                    @if (!string.IsNullOrWhiteSpace(fileReasonSummary))
+                    {
+                        <p class="field-help">Selection: @fileReasonSummary</p>
+                    }
+
+                    <div class="code-block-list">
+                        @foreach (var block in file.Blocks)
+                        {
+                            <article class="code-block">
+                                <div class="progress-meta">
+                                    <span class="severity-pill severity-info">@block.Kind</span>
+                                    <strong>@block.Title</strong>
+                                    <span>Lines @block.StartLine-@block.EndLine</span>
+                                </div>
+                                <pre class="code-snippet"><code>@block.Code</code></pre>
+                            </article>
+                        }
+                    </div>
+                </details>
+            }
+        </div>
+    </section>
+}
+
+@code {
+    [Parameter]
+    public FocusedContextResponse Response { get; set; } = null!;
+
+    private bool IsSeedFile(string path)
+    {
+        var seedPath = Response.SeedMember?.Source.Path
+            ?? Response.SeedType?.Source.Path
+            ?? Response.SeedService?.Source.Path;
+        return !string.IsNullOrWhiteSpace(seedPath)
+            && string.Equals(seedPath, path, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private string GetSelectedFilesEmptyState()
+    {
+        return Response.ResolvedPrecision == FocusedContextPrecision.Outline
+            ? "Outline precision intentionally suppresses code excerpts. Use the selected symbols, paths, and usage summary to decide whether you need a deeper follow-up pass."
+            : "No file excerpts were selected for the current focused-context run.";
+    }
+
+    private static bool IsBroadFile(FocusedContextFileExcerpt file)
+    {
+        if (file.TotalLineCount <= 0) {
+            return false;
+        }
+
+        var selectedRatio = (double)file.SelectedLineCount / file.TotalLineCount;
+        return file.SelectedLineCount >= 140
+            || (file.TotalLineCount >= 120 && selectedRatio >= 0.5);
+    }
+
+    private string GetReasonSummary(FocusedContextSelectionTargetKind targetKind, string targetId)
+    {
+        var comparer = targetKind == FocusedContextSelectionTargetKind.File
+            ? StringComparison.OrdinalIgnoreCase
+            : StringComparison.Ordinal;
+        return string.Join(
+            ", ",
+            Response.SelectionReasons
+                .Where(item => item.TargetKind == targetKind && string.Equals(item.TargetId, targetId, comparer))
+                .Select(FormatSelectionReason)
+                .Distinct(StringComparer.Ordinal));
+    }
+
+    private static string FormatSelectionReason(FocusedContextSelectionReason reason)
+    {
+        return reason.RoleKind == FocusedContextReferenceRoleKind.None
+            ? GetReasonLabel(reason.ReasonKind)
+            : $"{GetReasonLabel(reason.ReasonKind)} / {GetRoleLabel(reason.RoleKind)}";
+    }
+
+    private static string GetReasonLabel(FocusedContextSelectionReasonKind reasonKind)
+    {
+        return reasonKind switch
+        {
+            FocusedContextSelectionReasonKind.Seed => "Seed",
+            FocusedContextSelectionReasonKind.SeedContext => "Seed context",
+            FocusedContextSelectionReasonKind.Implementation => "Implementation",
+            FocusedContextSelectionReasonKind.RepresentativeConsumer => "Representative consumer",
+            FocusedContextSelectionReasonKind.ServiceRegistration => "Service registration",
+            _ => "Related context",
+        };
+    }
+
+    private static string GetRoleLabel(FocusedContextReferenceRoleKind roleKind)
+    {
+        return roleKind switch
+        {
+            FocusedContextReferenceRoleKind.Registration => "Registration",
+            FocusedContextReferenceRoleKind.Factory => "Factory",
+            FocusedContextReferenceRoleKind.SchemaBootstrap => "Schema bootstrap",
+            FocusedContextReferenceRoleKind.ConsumerService => "Consumer service",
+            FocusedContextReferenceRoleKind.PreviewLifecycle => "Preview lifecycle",
+            _ => "None",
+        };
+    }
+}

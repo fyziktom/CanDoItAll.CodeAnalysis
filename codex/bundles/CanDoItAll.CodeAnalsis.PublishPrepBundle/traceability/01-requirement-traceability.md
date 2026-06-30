@@ -1,0 +1,13 @@
+# Requirement Traceability
+
+| Input or requirement | Bundle location | Owning subbundle | Planned proof | Notes |
+| --- | --- | --- | --- | --- |
+| `IN-001`, `REQ-001` | `bundle://README.md`, `bundle://plan/01-phase-plan.md` | `subbundles/01-validation-baseline-and-release-guardrails` | Prepared-stage validator plus execution report status rows. | Preparation only in this turn. |
+| `IN-002`, `REQ-002` | `bundle://analysis/01-current-state.md` | `subbundles/01-validation-baseline-and-release-guardrails` | Build, test, file-length, and structure transcripts under `bundle://proof/SB01/transcripts/`. | Full test hang must be solved or segmented. |
+| `IN-003`, `REQ-003` | `bundle://inventories/01-scope-inventory.md` | `subbundles/03-application-service-and-focused-context-refactor`, `subbundles/06-desktop-sandbox-ui-decomposition` | File length script plus targeted tests/browser proof. | Production hard-limit files are explicitly enumerated. |
+| `IN-004`, `REQ-011` | `bundle://outputs/publishing-prep-checklist.xlsx` | `subbundles/01-validation-baseline-and-release-guardrails` | Workbook exists, is visually verified, and is linked from final response. | Prepared artifact, not implementation proof. |
+| `IN-005`, `REQ-004` | `bundle://architecture/01-target-solution.md` | `subbundles/02-architecture-seams-and-project-extraction` | ADR, project reference graph, build, architecture tests. | Avoid big-bang project moves. |
+| `IN-006`, `REQ-008` | `bundle://subbundles/06-desktop-sandbox-ui-decomposition/README.md` | `subbundles/06-desktop-sandbox-ui-decomposition` | Playwright/browser proof at large desktop viewport with screenshots. | Small/medium tuning intentionally out of scope. |
+| `IN-007`, `REQ-007` | `bundle://analysis/01-current-state.md` | `subbundles/03-application-service-and-focused-context-refactor`, `subbundles/05-storage-rendering-export-and-performance-hardening` | Scenario/benchmark transcripts and before/after measurements. | Static scan is triage, not proof of impact. |
+| `IN-008`, `REQ-006` | `bundle://analysis/01-current-state.md` | `subbundles/04-facts-collectors-and-ef-analyzer-hardening` | EF analyzer fixture tests, semantic invariant proof, and diagnostics coverage. | Runtime EF query tuning not currently applicable to production app. |
+| `IN-009`, `REQ-010` | `bundle://analysis/01-current-state.md`, `bundle://subbundles/08-documentation-overhaul-and-final-closure-audit/README.md` | `subbundles/08-documentation-overhaul-and-final-closure-audit` | Docs review, link check, command verification, final raw-note closure. | Docs must reflect shipped changes. |

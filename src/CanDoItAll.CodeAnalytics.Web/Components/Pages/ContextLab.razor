@@ -235,194 +235,13 @@
 
     @if (_response is not null)
     {
-        <section class="panel">
-            <div class="panel-heading">
-                <h2>Selected Files</h2>
-                <p>Each accordion shows only the code the analyzer decided was worth carrying into working memory.</p>
-            </div>
-
-            @if (_response.Files.Count == 0)
-            {
-                <p class="empty-state">@GetSelectedFilesEmptyState()</p>
-            }
-            else
-            {
-                <div class="accordion-list">
-                    @foreach (var file in _response.Files)
-                    {
-                        <details class="file-accordion" open="@IsSeedFile(file.Path)">
-                            <summary class="file-summary">
-                                <strong>@file.Path</strong>
-                                <span>@file.SelectedLineCount selected / @file.TotalLineCount total lines</span>
-                                <span>@file.Blocks.Count block(s)</span>
-                                @if (IsBroadFile(file))
-                                {
-                                    <span class="severity-pill severity-warning">Broad excerpt</span>
-                                }
-                            </summary>
-
-                            @if (file.TypeDisplayNames.Count > 0)
-                            {
-                                <p class="field-help">Types: @string.Join(", ", file.TypeDisplayNames)</p>
-                            }
-
-                            @{
-                                var fileReasonSummary = GetReasonSummary(FocusedContextSelectionTargetKind.File, file.Path);
-                            }
-                            @if (!string.IsNullOrWhiteSpace(fileReasonSummary))
-                            {
-                                <p class="field-help">Selection: @fileReasonSummary</p>
-                            }
-
-                            <div class="code-block-list">
-                                @foreach (var block in file.Blocks)
-                                {
-                                    <article class="code-block">
-                                        <div class="progress-meta">
-                                            <span class="severity-pill severity-info">@block.Kind</span>
-                                            <strong>@block.Title</strong>
-                                            <span>Lines @block.StartLine-@block.EndLine</span>
-                                        </div>
-                                        <pre class="code-snippet"><code>@block.Code</code></pre>
-                                    </article>
-                                }
-                            </div>
-                        </details>
-                    }
-                </div>
-            }
-        </section>
-
-        @if (_response.UsageSummary is not null)
-        {
-            <section class="panel">
-                <div class="panel-heading">
-                    <h2>Usage Summary</h2>
-                    <p>Helper callers are grouped by project or module so breadth stays visible without dragging every consumer into the excerpt set.</p>
-                </div>
-
-                <div class="summary-grid">
-                    <div class="stat-card">
-                        <span class="stat-label">Total callers</span>
-                        <span class="stat-value-sm">@_response.UsageSummary.TotalCallerCount</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">Clusters</span>
-                        <span class="stat-value-sm">@_response.UsageSummary.Clusters.Count / @_response.UsageSummary.TotalClusterCount</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">Omitted callers</span>
-                        <span class="stat-value-sm">@_response.UsageSummary.OmittedCallerCount</span>
-                    </div>
-                </div>
-
-                <div class="accordion-list">
-                    @foreach (var cluster in _response.UsageSummary.Clusters)
-                    {
-                        <details class="file-accordion">
-                            <summary class="file-summary">
-                                <strong>@cluster.ProjectName</strong>
-                                @if (!string.IsNullOrWhiteSpace(cluster.ModuleName))
-                                {
-                                    <span>@cluster.ModuleName</span>
-                                }
-                                <span>@cluster.CallerCount caller(s)</span>
-                            </summary>
-
-                            <ul class="detail-list">
-                                @foreach (var sample in cluster.Samples)
-                                {
-                                    <li>
-                                        <strong>@sample.TypeDisplayName</strong>
-                                        <span>@sample.MemberDisplayName</span>
-                                        <span>@sample.Path:@sample.Line</span>
-                                        <span>@sample.Reason</span>
-                                    </li>
-                                }
-                            </ul>
-                        </details>
-                    }
-                </div>
-            </section>
-        }
-
-        <section class="panel">
-            <div class="panel-heading">
-                <h2>Supporting Context</h2>
-                <p>These sections help explain why the file excerpts were chosen and what you should tune next.</p>
-            </div>
-
-            @if (_response.SelectionReasons.Count > 0)
-            {
-                <div class="panel-heading">
-                    <h2>Selection Reasons</h2>
-                    <p>Structured reasons make it easier to see whether the scorer chose the right targets or only got lucky.</p>
-                </div>
-
-                <ul class="detail-list">
-                    @foreach (var reason in GetSelectionReasonsForDisplay())
-                    {
-                        <li>
-                            <strong>@GetSelectionTargetLabel(reason)</strong>
-                            <span>@GetReasonLabel(reason.ReasonKind)</span>
-                            @if (reason.RoleKind != FocusedContextReferenceRoleKind.None)
-                            {
-                                <span>@GetRoleLabel(reason.RoleKind)</span>
-                            }
-                        </li>
-                    }
-                </ul>
-            }
-
-            @if (_response.ImplementationTypes.Count > 0)
-            {
-                <div class="panel-heading">
-                    <h2>Implementations</h2>
-                    <p>These concrete types are treated as definition-adjacent context for helper-like seeds.</p>
-                </div>
-
-                <ul class="detail-list">
-                    @foreach (var type in _response.ImplementationTypes)
-                    {
-                        <li><strong>@type.DisplayName</strong> <span>@type.Source.Path:@type.Source.Line</span></li>
-                    }
-                </ul>
-            }
-
-            <div class="type-browser-grid">
-                @foreach (var type in _response.Types)
-                {
-                    <article class="type-browser-card">
-                        <div class="type-browser-header">
-                            <div>
-                                <h3>@type.DisplayName</h3>
-                                <p class="field-help">@type.Source.Path:@type.Source.Line</p>
-                            </div>
-                            <span class="severity-pill severity-info">@type.Kind</span>
-                        </div>
-                        @if (!string.IsNullOrWhiteSpace(type.XmlSummary))
-                        {
-                            <p>@type.XmlSummary</p>
-                        }
-                    </article>
-                }
-            </div>
-
-            @if (_response.ReferenceTypes.Count > 0)
-            {
-                <div class="panel-heading">
-                    <h2>Reference Helpers</h2>
-                    <p>These are reusable collaborators the graph considered useful even if they did not land in the main excerpt set.</p>
-                </div>
-
-                <ul class="detail-list">
-                    @foreach (var type in _response.ReferenceTypes)
-                    {
-                        <li><strong>@type.DisplayName</strong> <span>@type.Source.Path:@type.Source.Line</span></li>
-                    }
-                </ul>
-            }
-        </section>
+        <FocusedContextSelectedFilesPanel Response="_response" />
+        <FocusedContextUsageSummaryPanel UsageSummary="_response.UsageSummary" />
+        <FocusedContextDetailsPanel
+            Response="_response"
+            ShowMembers="@false"
+            ShowRelations="@false"
+            ShowRelatedServices="@false" />
     }
 </div>
 
@@ -548,15 +367,6 @@
             : fallback;
     }
 
-    private bool IsSeedFile(string path)
-    {
-        var seedPath = _response?.SeedMember?.Source.Path
-            ?? _response?.SeedType?.Source.Path
-            ?? _response?.SeedService?.Source.Path;
-        return !string.IsNullOrWhiteSpace(seedPath)
-            && string.Equals(seedPath, path, StringComparison.OrdinalIgnoreCase);
-    }
-
     private string GetSelectionQuality()
     {
         if (_response is null) {
@@ -578,15 +388,6 @@
     private bool HasBroadSelection()
     {
         return _response is not null && (_response.Files.Any(IsBroadFile) || string.Equals(GetSelectionQuality(), "Broad", StringComparison.Ordinal));
-    }
-
-    private string GetSelectedFilesEmptyState()
-    {
-        if (_response?.ResolvedPrecision == FocusedContextPrecision.Outline) {
-            return "Outline precision intentionally suppresses code excerpts. Use the selected symbols, paths, and usage summary to decide whether you need a deeper follow-up pass.";
-        }
-
-        return "No file excerpts were selected for the current focused-context run.";
     }
 
     private static bool IsBroadFile(FocusedContextFileExcerpt file)
@@ -623,81 +424,4 @@
         };
     }
 
-    private IEnumerable<FocusedContextSelectionReason> GetSelectionReasonsForDisplay()
-    {
-        if (_response is null) {
-            return [];
-        }
-
-        return _response.SelectionReasons
-            .OrderBy(item => item.TargetKind)
-            .ThenBy(item => item.TargetId, StringComparer.OrdinalIgnoreCase)
-            .ThenBy(item => item.ReasonKind)
-            .ThenBy(item => item.RoleKind)
-            .ToArray();
-    }
-
-    private string GetSelectionTargetLabel(FocusedContextSelectionReason reason)
-    {
-        if (_response is null) {
-            return reason.TargetId;
-        }
-
-        if (reason.TargetKind == FocusedContextSelectionTargetKind.File) {
-            return reason.TargetId;
-        }
-
-        return _response.Members.FirstOrDefault(item => string.Equals(item.MemberId, reason.TargetId, StringComparison.Ordinal))?.DisplayName
-            ?? reason.TargetId;
-    }
-
-    private string GetReasonSummary(FocusedContextSelectionTargetKind targetKind, string targetId)
-    {
-        if (_response is null) {
-            return string.Empty;
-        }
-
-        var comparer = targetKind == FocusedContextSelectionTargetKind.File
-            ? StringComparison.OrdinalIgnoreCase
-            : StringComparison.Ordinal;
-        return string.Join(
-            ", ",
-            _response.SelectionReasons
-                .Where(item => item.TargetKind == targetKind && string.Equals(item.TargetId, targetId, comparer))
-                .Select(FormatSelectionReason)
-                .Distinct(StringComparer.Ordinal));
-    }
-
-    private static string FormatSelectionReason(FocusedContextSelectionReason reason)
-    {
-        return reason.RoleKind == FocusedContextReferenceRoleKind.None
-            ? GetReasonLabel(reason.ReasonKind)
-            : $"{GetReasonLabel(reason.ReasonKind)} / {GetRoleLabel(reason.RoleKind)}";
-    }
-
-    private static string GetReasonLabel(FocusedContextSelectionReasonKind reasonKind)
-    {
-        return reasonKind switch
-        {
-            FocusedContextSelectionReasonKind.Seed => "Seed",
-            FocusedContextSelectionReasonKind.SeedContext => "Seed context",
-            FocusedContextSelectionReasonKind.Implementation => "Implementation",
-            FocusedContextSelectionReasonKind.RepresentativeConsumer => "Representative consumer",
-            FocusedContextSelectionReasonKind.ServiceRegistration => "Service registration",
-            _ => "Related context",
-        };
-    }
-
-    private static string GetRoleLabel(FocusedContextReferenceRoleKind roleKind)
-    {
-        return roleKind switch
-        {
-            FocusedContextReferenceRoleKind.Registration => "Registration",
-            FocusedContextReferenceRoleKind.Factory => "Factory",
-            FocusedContextReferenceRoleKind.SchemaBootstrap => "Schema bootstrap",
-            FocusedContextReferenceRoleKind.ConsumerService => "Consumer service",
-            FocusedContextReferenceRoleKind.PreviewLifecycle => "Preview lifecycle",
-            _ => "None",
-        };
-    }
 }

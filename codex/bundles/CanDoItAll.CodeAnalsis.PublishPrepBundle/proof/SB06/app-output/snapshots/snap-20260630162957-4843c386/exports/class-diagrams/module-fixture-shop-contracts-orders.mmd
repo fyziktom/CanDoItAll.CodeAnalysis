@@ -1,0 +1,9 @@
+﻿classDiagram
+    class T0001["Fixture.Shop.Contracts.Orders.PlaceOrderCommand"]
+    class T0002["Fixture.Shop.Contracts.Orders.PlaceOrderLineCommand"]
+    class T0003["Fixture.Shop.Contracts.Orders.IOrderService"]
+    class T0004["Fixture.Shop.Contracts.Orders.OrderReceipt"]
+    T0003 ..> T0001 : param
+    T0003 ..> T0004 : returns
+    T0001 --> T0002 : property
+    T0001 ..> T0002 : ctor

@@ -1,0 +1,8 @@
+﻿Command: rg -n "NotImplementedException|TODO|HACK|FIXME|STUB|throw new NotSupportedException|throw new PlatformNotSupportedException" src tests architecture reference codex\validation-matrix.md
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T10:56:19.7916005-04:00
+EndTime: 2026-06-30T10:56:19.9028832-04:00
+ExitCode: 1
+Output:
+Invariant ID: SB02-INV-001
+

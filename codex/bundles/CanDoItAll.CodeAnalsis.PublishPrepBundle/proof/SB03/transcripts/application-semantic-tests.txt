@@ -1,0 +1,45 @@
+﻿Command: dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj --no-build --filter "FullyQualifiedName~ApplicationFacts" --blame-hang --blame-hang-timeout 180s --logger "console;verbosity=normal"
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T11:16:56.2705808-04:00
+EndTime: 2026-06-30T11:22:19.4872045-04:00
+ExitCode: 0
+Output:
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Unit\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Unit.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.46]   Discovering: CanDoItAll.CodeAnalytics.Tests.Unit
+[xUnit.net 00:00:00.80]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Unit
+[xUnit.net 00:00:01.01]   Starting:    CanDoItAll.CodeAnalytics.Tests.Unit
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_lists_symbol_implementations_for_a_contract [51 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_references_for_member_invocations [26 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_searches_symbols_by_exact_type_name [20 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_document_queries_tolerate_duplicate_document_ids [114 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_merges_duplicate_document_paths_when_building_focused_context_files [337 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_switches_high_fan_in_helpers_into_surgical_definition_mode [886 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_prefers_behavioral_seed_members_for_type_name_queries [18 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_filters_high_fan_in_helper_usage_summary_by_relation_hints [553 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_filters_types_by_project_and_can_expand_methods [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_solution_inventory_with_direct_and_reverse_project_references [15 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_builds_and_queries_a_fixture_snapshot [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_resolves_focused_context_from_diagnostic_text_when_source_is_available [48 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_project_inventory_with_documents [11 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_can_render_usage_summary_without_pulling_consumer_members_into_main_selection [103 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_does_not_fall_back_to_broad_helper_usage_when_relation_hints_do_not_match [106 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_focused_context_for_a_service_seed [16 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_structured_selection_reasons_for_members_and_files [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_builds_a_project_scoped_snapshot_from_a_csproj_path [9 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_separates_product_and_supporting_projects_in_inventory [42 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_references_for_type_dependencies [10 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_document_source_for_snapshot_document_path [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_maps_behavior_intent_to_trouble_path_for_focused_context [19 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_resolves_focused_context_from_prompt_text_and_returns_file_excerpts [18 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_definition_for_a_member_target [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_document_symbols_for_snapshot_document_path [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_lists_symbol_members_for_a_type [14 s]
+[xUnit.net 00:05:11.76]   Finished:    CanDoItAll.CodeAnalytics.Tests.Unit
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_supports_outline_precision_without_code_excerpts [124 ms]
+Test Run Successful.
+Total tests: 27
+     Passed: 27
+ Total time: 5.2884 Minutes

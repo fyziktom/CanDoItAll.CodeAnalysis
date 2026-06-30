@@ -1,0 +1,15 @@
+﻿erDiagram
+    Order {
+        string Id PK
+    }
+    Customer {
+        string Id PK
+    }
+    OrderLine {
+        string Id PK
+    }
+    ReportingSnapshot {
+        string Id PK
+    }
+    Order ||--o{ OrderLine : Lines/Order
+    Customer ||--o{ Order : Customer/Orders

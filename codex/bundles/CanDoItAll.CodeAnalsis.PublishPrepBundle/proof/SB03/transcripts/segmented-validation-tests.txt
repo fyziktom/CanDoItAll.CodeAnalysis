@@ -1,0 +1,452 @@
+﻿Command: segmented dotnet test release gate from codex/validation-matrix.md
+WorkingDirectory: C:\repositories\CanDoItAll.CodeAnalsis
+StartTime: 2026-06-30T11:34:49.8621099-04:00
+---
+Command: dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Architecture\CanDoItAll.CodeAnalytics.Tests.Architecture.csproj --no-build --blame-hang --blame-hang-timeout 60s --logger "console;verbosity=normal"
+StartTime: 2026-06-30T11:34:49.8818237-04:00
+EndTime: 2026-06-30T11:35:02.3469333-04:00
+ExitCode: 0
+Output:
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Architecture\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Architecture.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.68]   Discovering: CanDoItAll.CodeAnalytics.Tests.Architecture
+[xUnit.net 00:00:01.13]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Architecture
+[xUnit.net 00:00:01.34]   Starting:    CanDoItAll.CodeAnalytics.Tests.Architecture
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.FutureMcpFacts.FutureMcp_tool_surface_and_settings_keep_the_driver_thin [74 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.CompatibilityContractFacts.Compatibility_naming_map_stays_frozen [140 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.CompatibilityContractFacts.Compatibility_reference_artifacts_exist [4 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.CompatibilityContractFacts.Compatibility_tool_surface_uses_the_code_analytics_prefix [14 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Source_projects_do_not_reference_host_mcp_core [199 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Canonical_solution_contains_the_expected_project_set [60 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Desktop_sandbox_is_the_only_web_sdk_source_project [45 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.FutureMcpFacts.FutureMcp_standalone_source_tree_does_not_clone_host_runtime_projects [219 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Production_project_reference_graph_is_acyclic [53 ms]
+[xUnit.net 00:00:02.15]   Finished:    CanDoItAll.CodeAnalytics.Tests.Architecture
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Reusable_source_projects_do_not_reference_sandbox_or_nonshipping_boundaries [48 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Architecture.SolutionStructureFacts.Production_projects_follow_the_bootstrap_reference_map [16 ms]
+Test Run Successful.
+Total tests: 11
+     Passed: 11
+ Total time: 7.0174 Seconds
+---
+Command: dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=normal"
+StartTime: 2026-06-30T11:35:02.3660872-04:00
+EndTime: 2026-06-30T11:40:01.0300650-04:00
+ExitCode: 0
+Output:
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Unit\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Unit.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.02] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.35]   Discovering: CanDoItAll.CodeAnalytics.Tests.Unit
+[xUnit.net 00:00:00.53]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Unit
+[xUnit.net 00:00:00.64]   Starting:    CanDoItAll.CodeAnalytics.Tests.Unit
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ToolSurfaceFacts.ToolSurface_reference_artifact_matches_the_expected_driver_shape [40 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.RiskRulesFacts.RiskRules_emits_layering_findings_and_open_questions [141 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.XmlDocumentationFacts.XmlDocumentation_reports_malformed_xml [11 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.XmlDocumentationFacts.XmlDocumentation_extracts_the_summary_text [10 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SummaryWriterFacts.SummaryWriter_renders_the_expected_markdown_summary [33 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.DependencyGraphFacts.DependencyGraph_detects_a_cycle [39 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.MermaidFacts.Mermaid_renders_the_expected_er_diagram [39 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.MermaidFacts.Mermaid_renders_class_diagram_with_safe_aliases_and_member_relations [69 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.MermaidFacts.Mermaid_renders_the_expected_project_graph [11 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.CanonicalModelFacts.CanonicalModel_snapshot_represents_the_required_sections [2 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.CanonicalModelFacts.CanonicalModel_keeps_facts_and_insights_separate [3 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SerializationFacts.Serialization_preserves_the_minimal_snapshot_shape [581 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SerializationFacts.Serialization_round_trips_the_rich_snapshot [206 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.SnapshotRepositoryFacts.SnapshotRepository_stores_and_reloads_a_snapshot [801 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.EfCoreFacts.EfCore_collects_entities_and_reports_partially_supported_patterns [51 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ServiceRegistrationFacts.ServiceRegistration_captures_conventional_and_factory_patterns [51 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_lists_symbol_implementations_for_a_contract [51 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_references_for_member_invocations [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_searches_symbols_by_exact_type_name [14 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_document_queries_tolerate_duplicate_document_ids [68 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_merges_duplicate_document_paths_when_building_focused_context_files [182 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_switches_high_fan_in_helpers_into_surgical_definition_mode [152 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_prefers_behavioral_seed_members_for_type_name_queries [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_filters_high_fan_in_helper_usage_summary_by_relation_hints [197 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_filters_types_by_project_and_can_expand_methods [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_solution_inventory_with_direct_and_reverse_project_references [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_builds_and_queries_a_fixture_snapshot [16 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_resolves_focused_context_from_diagnostic_text_when_source_is_available [53 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_project_inventory_with_documents [11 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_can_render_usage_summary_without_pulling_consumer_members_into_main_selection [100 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_does_not_fall_back_to_broad_helper_usage_when_relation_hints_do_not_match [150 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_focused_context_for_a_service_seed [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_structured_selection_reasons_for_members_and_files [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_builds_a_project_scoped_snapshot_from_a_csproj_path [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_separates_product_and_supporting_projects_in_inventory [232 ms]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_references_for_type_dependencies [19 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_document_source_for_snapshot_document_path [20 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_maps_behavior_intent_to_trouble_path_for_focused_context [13 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_resolves_focused_context_from_prompt_text_and_returns_file_excerpts [12 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_symbol_definition_for_a_member_target [14 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_returns_document_symbols_for_snapshot_document_path [11 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_lists_symbol_members_for_a_type [10 s]
+[xUnit.net 00:04:49.16]   Finished:    CanDoItAll.CodeAnalytics.Tests.Unit
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+  Passed CanDoItAll.CodeAnalytics.Tests.Unit.ApplicationFacts.Application_supports_outline_precision_without_code_excerpts [180 ms]
+Test Run Successful.
+Total tests: 43
+     Passed: 43
+ Total time: 4.8840 Minutes
+---
+Command: dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Integration\CanDoItAll.CodeAnalytics.Tests.Integration.csproj --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=normal"
+StartTime: 2026-06-30T11:40:01.0310637-04:00
+EndTime: 2026-06-30T11:42:48.1305706-04:00
+ExitCode: 0
+Output:
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Integration\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Integration.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.03] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.51]   Discovering: CanDoItAll.CodeAnalytics.Tests.Integration
+[xUnit.net 00:00:00.77]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Integration
+[xUnit.net 00:00:00.93]   Starting:    CanDoItAll.CodeAnalytics.Tests.Integration
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.WorkspaceFacts.Workspace_loads_a_fixture_project_and_applies_project_scope [2 m 1 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.WorkspaceFacts.Workspace_loads_the_fixture_solution [14 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.SolutionInventoryFacts.SolutionInventory_is_deterministic_and_reports_invalid_paths [2 m 18 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.SymbolFacts.Symbol_collector_reads_types_members_and_xml_summaries [2 m 27 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.ModuleViewFacts.ModuleView_captures_module_dependencies [2 m 28 s]
+[xUnit.net 00:02:37.18]   Finished:    CanDoItAll.CodeAnalytics.Tests.Integration
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.SnapshotAssemblyFacts.SnapshotAssembly_writes_snapshot_and_export_files [2 m 27 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.PersistenceFacts.Persistence_snapshot_contains_er_ready_facts [2 m 35 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.FindingsFacts.Findings_include_layering_and_collector_uncertainty [2 m 35 s]
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.OrchestratorFacts.Orchestrator_reuses_cached_snapshots_and_updates_recent_history [2 m]
+  Passed CanDoItAll.CodeAnalytics.Tests.Integration.DiRegistrationFacts.DiRegistration_snapshot_contains_service_lifetimes_and_factory_diagnostics [19 s]
+Test Run Successful.
+Total tests: 10
+     Passed: 10
+ Total time: 2.7031 Minutes
+---
+Command: dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Web\CanDoItAll.CodeAnalytics.Tests.Web.csproj --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=normal"
+StartTime: 2026-06-30T11:42:48.1305706-04:00
+EndTime: 2026-06-30T11:45:49.5898428-04:00
+ExitCode: 0
+Output:
+Test run for C:\repositories\CanDoItAll.CodeAnalsis\tests\CanDoItAll.CodeAnalytics.Tests.Web\bin\Debug\net10.0\CanDoItAll.CodeAnalytics.Tests.Web.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.8)
+[xUnit.net 00:00:00.65]   Discovering: CanDoItAll.CodeAnalytics.Tests.Web
+[xUnit.net 00:00:00.98]   Discovered:  CanDoItAll.CodeAnalytics.Tests.Web
+[xUnit.net 00:00:01.10]   Starting:    CanDoItAll.CodeAnalytics.Tests.Web
+[11:43:13] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:43:13] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:43:13] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:43:13] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Started analysis operation op-20260630154313-e1e21af8 for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj
+[11:43:13] info: CanDoItAll.CodeAnalytics.Web.Program[0] Queued analysis operation op-20260630154313-e1e21af8 for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj
+[11:43:14] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj.
+[11:43:14] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: Checking the deterministic file cache.
+[11:43:14] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Snapshot cache miss for request hash 514dceb8e91ba7eb7629a1d7b79ece6082edfa2f0c5c7b4036921fe9f7cf725d
+[11:43:14] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: No cached snapshot matched the current request.
+[11:43:14] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Loading the MSBuild workspace.
+[11:43:25] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:43:28] info: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] Loaded workspace C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj as Project with 1 source projects and 12 source documents.
+[11:43:28] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Workspace load completed with 1 source projects.
+[11:43:28] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation.
+[11:43:44] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation. Completed in 15657 ms.
+[11:43:44] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships.
+[11:43:46] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships. Completed in 2671 ms.
+[11:43:46] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies.
+[11:43:47] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies. Completed in 445 ms.
+[11:43:47] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations.
+[11:43:47] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations. Completed in 49 ms.
+[11:43:47] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts.
+[11:43:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts. Completed in 625 ms.
+[11:43:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights.
+[11:43:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights. Completed in 65 ms.
+[11:43:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports.
+[11:43:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports. Completed in 163 ms.
+[11:43:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisting snapshot snap-20260630154348-514dceb8.
+[11:43:48] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Storing snapshot snap-20260630154348-514dceb8 with 7 exports.
+[11:43:49] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Stored snapshot snap-20260630154348-514dceb8 in C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\c3dcb4f221584b469bcf85d60ce1a38c\snapshots\snap-20260630154348-514dceb8
+[11:43:49] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisted snapshot snap-20260630154348-514dceb8.
+[11:43:49] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Snapshot snap-20260630154348-514dceb8 completed.
+[11:43:49] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Analysis operation op-20260630154313-e1e21af8 completed for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj. Snapshot snap-20260630154348-514dceb8
+[11:43:49] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154348-514dceb8 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\c3dcb4f221584b469bcf85d60ce1a38c\snapshots\snap-20260630154348-514dceb8\snapshot.json
+[11:43:49] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Project_path_analysis_renders_project_dashboard [51 s]
+[11:43:50] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:43:50] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:43:50] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:43:50] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Started analysis operation op-20260630154350-b77071c0 for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:43:50] info: CanDoItAll.CodeAnalytics.Web.Program[0] Queued analysis operation op-20260630154350-b77071c0 for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:43:50] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.
+[11:43:50] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: Checking the deterministic file cache.
+[11:43:50] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Snapshot cache miss for request hash 4843c3865fc9c9515f972295aa890488d6254ea0d2a902ec2d4006940353b1a4
+[11:43:50] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: No cached snapshot matched the current request.
+[11:43:50] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Loading the MSBuild workspace.
+[11:44:00] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:04] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:06] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:07] info: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] Loaded workspace C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx as Solution with 4 source projects and 34 source documents.
+[11:44:07] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Workspace load completed with 4 source projects.
+[11:44:07] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation.
+[11:44:13] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation. Completed in 6127 ms.
+[11:44:13] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships.
+[11:44:14] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships. Completed in 1423 ms.
+[11:44:14] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies.
+[11:44:15] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies. Completed in 388 ms.
+[11:44:15] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations.
+[11:44:15] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations. Completed in 168 ms.
+[11:44:15] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts. Completed in 1024 ms.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights. Completed in 12 ms.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports. Completed in 6 ms.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisting snapshot snap-20260630154416-4843c386.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Storing snapshot snap-20260630154416-4843c386 with 17 exports.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Stored snapshot snap-20260630154416-4843c386 in C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d0898f7681fd48cf96c84355c61845bb\snapshots\snap-20260630154416-4843c386
+[11:44:16] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisted snapshot snap-20260630154416-4843c386.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Snapshot snap-20260630154416-4843c386 completed.
+[11:44:16] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Analysis operation op-20260630154350-b77071c0 completed for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx. Snapshot snap-20260630154416-4843c386
+[11:44:16] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154416-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d0898f7681fd48cf96c84355c61845bb\snapshots\snap-20260630154416-4843c386\snapshot.json
+[11:44:17] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154416-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d0898f7681fd48cf96c84355c61845bb\snapshots\snap-20260630154416-4843c386\snapshot.json
+[11:44:17] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154416-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d0898f7681fd48cf96c84355c61845bb\snapshots\snap-20260630154416-4843c386\snapshot.json
+[11:44:17] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154416-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d0898f7681fd48cf96c84355c61845bb\snapshots\snap-20260630154416-4843c386\snapshot.json
+[11:44:17] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154416-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d0898f7681fd48cf96c84355c61845bb\snapshots\snap-20260630154416-4843c386\snapshot.json
+[11:44:17] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Symbol_explorer_route_renders_selected_symbol_details [27 s]
+[11:44:17] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:44:17] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:44:17] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:44:17] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Started analysis operation op-20260630154417-4386e5e3 for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:44:17] info: CanDoItAll.CodeAnalytics.Web.Program[0] Queued analysis operation op-20260630154417-4386e5e3 for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:44:17] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.
+[11:44:17] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: Checking the deterministic file cache.
+[11:44:17] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Snapshot cache miss for request hash 4843c3865fc9c9515f972295aa890488d6254ea0d2a902ec2d4006940353b1a4
+[11:44:17] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: No cached snapshot matched the current request.
+[11:44:17] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Loading the MSBuild workspace.
+[11:44:28] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:31] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:33] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:34] info: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] Loaded workspace C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx as Solution with 4 source projects and 34 source documents.
+[11:44:34] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Workspace load completed with 4 source projects.
+[11:44:34] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation.
+[11:44:37] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation. Completed in 2896 ms.
+[11:44:37] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships.
+[11:44:37] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships. Completed in 523 ms.
+[11:44:37] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies.
+[11:44:37] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies. Completed in 248 ms.
+[11:44:37] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations.
+[11:44:37] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations. Completed in 115 ms.
+[11:44:37] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts. Completed in 617 ms.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights. Completed in 0 ms.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports. Completed in 4 ms.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisting snapshot snap-20260630154438-4843c386.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Storing snapshot snap-20260630154438-4843c386 with 17 exports.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Stored snapshot snap-20260630154438-4843c386 in C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\b4ab2cf183a746e98fad14bf72004413\snapshots\snap-20260630154438-4843c386
+[11:44:38] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisted snapshot snap-20260630154438-4843c386.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Snapshot snap-20260630154438-4843c386 completed.
+[11:44:38] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Analysis operation op-20260630154417-4386e5e3 completed for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx. Snapshot snap-20260630154438-4843c386
+[11:44:38] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Export_route_serves_generated_summary [21 s]
+[11:44:39] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:44:39] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:44:39] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:44:39] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+[11:44:39] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:44:39] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:44:39] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:44:39] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.
+[11:44:39] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: Checking the deterministic file cache.
+[11:44:39] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Snapshot cache miss for request hash 6c78a2c1ea92c5fcf2c6d7a5d041f353c573403f3a4e5bf6cdf4e94a5f5778c5
+[11:44:39] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: No cached snapshot matched the current request.
+[11:44:39] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Loading the MSBuild workspace.
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Home_route_renders_workspace_picker_controls [170 ms]
+[11:44:49] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:51] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:53] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:44:54] info: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] Loaded workspace C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx as Solution with 1 source projects and 7 source documents.
+[11:44:54] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Workspace load completed with 1 source projects.
+[11:44:54] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation. Completed in 873 ms.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships. Completed in 233 ms.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies. Completed in 12 ms.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations. Completed in 1 ms.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts. Completed in 56 ms.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights. Completed in 0 ms.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports. Completed in 1 ms.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisting snapshot snap-20260630154455-6c78a2c1.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Storing snapshot snap-20260630154455-6c78a2c1 with 5 exports.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Stored snapshot snap-20260630154455-6c78a2c1 in C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\cf902886333941089058e3935f40db2e\snapshots\snap-20260630154455-6c78a2c1
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisted snapshot snap-20260630154455-6c78a2c1.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Snapshot snap-20260630154455-6c78a2c1 completed.
+[11:44:55] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154455-6c78a2c1 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\cf902886333941089058e3935f40db2e\snapshots\snap-20260630154455-6c78a2c1\snapshot.json
+[11:44:55] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Focused_context_lab_route_renders_outline_mode_without_code_excerpts [16 s]
+[11:44:55] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:44:55] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:44:55] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:44:56] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Started analysis operation op-20260630154456-1f0ed9ff for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:44:56] info: CanDoItAll.CodeAnalytics.Web.Program[0] Queued analysis operation op-20260630154456-1f0ed9ff for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:44:56] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.
+[11:44:56] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: Checking the deterministic file cache.
+[11:44:56] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Snapshot cache miss for request hash 4843c3865fc9c9515f972295aa890488d6254ea0d2a902ec2d4006940353b1a4
+[11:44:56] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: No cached snapshot matched the current request.
+[11:44:56] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Loading the MSBuild workspace.
+[11:45:04] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:07] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:08] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:08] info: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] Loaded workspace C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx as Solution with 4 source projects and 34 source documents.
+[11:45:08] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Workspace load completed with 4 source projects.
+[11:45:08] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation.
+[11:45:09] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation. Completed in 1115 ms.
+[11:45:09] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships.
+[11:45:09] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships. Completed in 179 ms.
+[11:45:09] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies.
+[11:45:09] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies. Completed in 148 ms.
+[11:45:09] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations.
+[11:45:09] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations. Completed in 42 ms.
+[11:45:09] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts. Completed in 211 ms.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights. Completed in 0 ms.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports. Completed in 2 ms.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisting snapshot snap-20260630154510-4843c386.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Storing snapshot snap-20260630154510-4843c386 with 17 exports.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Stored snapshot snap-20260630154510-4843c386 in C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\1c7fd6a6b3ca4bbaa39293ec517028a2\snapshots\snap-20260630154510-4843c386
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisted snapshot snap-20260630154510-4843c386.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Snapshot snap-20260630154510-4843c386 completed.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Analysis operation op-20260630154456-1f0ed9ff completed for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx. Snapshot snap-20260630154510-4843c386
+[11:45:10] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154510-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\1c7fd6a6b3ca4bbaa39293ec517028a2\snapshots\snap-20260630154510-4843c386\snapshot.json
+[11:45:10] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Dashboard_route_renders_after_analysis [14 s]
+[11:45:10] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:45:10] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:45:10] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:45:10] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Started analysis operation op-20260630154510-d47cae17 for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:45:10] info: CanDoItAll.CodeAnalytics.Web.Program[0] Queued analysis operation op-20260630154510-d47cae17 for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: Checking the deterministic file cache.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Snapshot cache miss for request hash 4843c3865fc9c9515f972295aa890488d6254ea0d2a902ec2d4006940353b1a4
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: No cached snapshot matched the current request.
+[11:45:10] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Loading the MSBuild workspace.
+[11:45:17] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:19] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:21] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:21] info: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] Loaded workspace C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx as Solution with 4 source projects and 34 source documents.
+[11:45:21] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Workspace load completed with 4 source projects.
+[11:45:21] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation.
+[11:45:22] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation. Completed in 733 ms.
+[11:45:22] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships.
+[11:45:22] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships. Completed in 201 ms.
+[11:45:22] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies.
+[11:45:22] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies. Completed in 142 ms.
+[11:45:22] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations. Completed in 136 ms.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts. Completed in 555 ms.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights. Completed in 0 ms.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports. Completed in 1 ms.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisting snapshot snap-20260630154523-4843c386.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Storing snapshot snap-20260630154523-4843c386 with 17 exports.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Stored snapshot snap-20260630154523-4843c386 in C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d338460aa188450686f0247784704569\snapshots\snap-20260630154523-4843c386
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisted snapshot snap-20260630154523-4843c386.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Snapshot snap-20260630154523-4843c386 completed.
+[11:45:23] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Analysis operation op-20260630154510-d47cae17 completed for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx. Snapshot snap-20260630154523-4843c386
+[11:45:23] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154523-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d338460aa188450686f0247784704569\snapshots\snap-20260630154523-4843c386\snapshot.json
+[11:45:23] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154523-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d338460aa188450686f0247784704569\snapshots\snap-20260630154523-4843c386\snapshot.json
+[11:45:23] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154523-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d338460aa188450686f0247784704569\snapshots\snap-20260630154523-4843c386\snapshot.json
+[11:45:24] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154523-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d338460aa188450686f0247784704569\snapshots\snap-20260630154523-4843c386\snapshot.json
+[11:45:24] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154523-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d338460aa188450686f0247784704569\snapshots\snap-20260630154523-4843c386\snapshot.json
+[11:45:24] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154523-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\d338460aa188450686f0247784704569\snapshots\snap-20260630154523-4843c386\snapshot.json
+[11:45:24] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Drilldown_routes_render_after_analysis [13 s]
+[11:45:24] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:45:24] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:45:24] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:45:24] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.
+[11:45:24] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: Checking the deterministic file cache.
+[11:45:24] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Snapshot cache miss for request hash 6c78a2c1ea92c5fcf2c6d7a5d041f353c573403f3a4e5bf6cdf4e94a5f5778c5
+[11:45:24] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: No cached snapshot matched the current request.
+[11:45:24] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Loading the MSBuild workspace.
+[11:45:31] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:33] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:35] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:35] info: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] Loaded workspace C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx as Solution with 1 source projects and 7 source documents.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Workspace load completed with 1 source projects.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation. Completed in 321 ms.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships. Completed in 93 ms.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies. Completed in 11 ms.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations. Completed in 0 ms.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts. Completed in 66 ms.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights. Completed in 0 ms.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports. Completed in 0 ms.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisting snapshot snap-20260630154535-6c78a2c1.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Storing snapshot snap-20260630154535-6c78a2c1 with 5 exports.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Stored snapshot snap-20260630154535-6c78a2c1 in C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\e127f57c168e4e7499d6130eb92e8e71\snapshots\snap-20260630154535-6c78a2c1
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisted snapshot snap-20260630154535-6c78a2c1.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Snapshot snap-20260630154535-6c78a2c1 completed.
+[11:45:35] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154535-6c78a2c1 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\e127f57c168e4e7499d6130eb92e8e71\snapshots\snap-20260630154535-6c78a2c1\snapshot.json
+[11:45:36] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Focused_context_lab_route_renders_grouped_file_excerpts [11 s]
+[11:45:36] info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut down.
+[11:45:36] info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
+[11:45:36] info: Microsoft.Hosting.Lifetime[0] Content root path: C:\repositories\CanDoItAll.CodeAnalsis\src\CanDoItAll.CodeAnalytics.Web
+[11:45:36] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Started analysis operation op-20260630154536-5784ccdf for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:45:36] info: CanDoItAll.CodeAnalytics.Web.Program[0] Queued analysis operation op-20260630154536-5784ccdf for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx
+[11:45:36] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Building snapshot for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx.
+[11:45:36] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: Checking the deterministic file cache.
+[11:45:36] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Snapshot cache miss for request hash 4843c3865fc9c9515f972295aa890488d6254ea0d2a902ec2d4006940353b1a4
+[11:45:36] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] cache: No cached snapshot matched the current request.
+[11:45:36] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Loading the MSBuild workspace.
+[11:45:42] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Application\Fixture.Shop.Application.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:45] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Infrastructure\Fixture.Shop.Infrastructure.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:47] warn: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] MSBuild workspace diagnostic Failure: Msbuild failed when processing the file 'C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\src\Fixture.Shop.Web\Fixture.Shop.Web.csproj' with message: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
+[11:45:47] info: CanDoItAll.CodeAnalytics.Workspace.Loading.MsBuildWorkspaceLoader[0] Loaded workspace C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx as Solution with 4 source projects and 34 source documents.
+[11:45:47] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] workspace: Workspace load completed with 4 source projects.
+[11:45:47] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] symbols: Collecting source symbols and XML documentation. Completed in 813 ms.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] member-context: Collecting member-level invocation and construction relationships. Completed in 91 ms.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] dependencies: Collecting project, module, namespace, and type dependencies. Completed in 124 ms.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] services: Collecting dependency-injection registrations. Completed in 22 ms.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persistence: Collecting EF Core persistence facts. Completed in 244 ms.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] insights: Deriving architectural findings and summary insights. Completed in 0 ms.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] exports: Rendering Markdown and Mermaid exports. Completed in 1 ms.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisting snapshot snap-20260630154548-4843c386.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Storing snapshot snap-20260630154548-4843c386 with 17 exports.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Stored snapshot snap-20260630154548-4843c386 in C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\60472656f72d46dcbef86ab2b8e3d46e\snapshots\snap-20260630154548-4843c386
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] persist: Persisted snapshot snap-20260630154548-4843c386.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Application.Services.CodeAnalyticsApplicationService[0] build: Snapshot snap-20260630154548-4843c386 completed.
+[11:45:48] info: CanDoItAll.CodeAnalytics.Web.Operations.AnalysisOperationCoordinator[0] Analysis operation op-20260630154536-5784ccdf completed for C:\repositories\CanDoItAll.CodeAnalsis\tests\fixtures\Fixture.Shop\Fixture.Shop.slnx. Snapshot snap-20260630154548-4843c386
+[11:45:48] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154548-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\60472656f72d46dcbef86ab2b8e3d46e\snapshots\snap-20260630154548-4843c386\snapshot.json
+[11:45:48] info: CanDoItAll.CodeAnalytics.Storage.Snapshots.FileSnapshotRepository[0] Loaded snapshot snap-20260630154548-4843c386 from C:\Users\dell\AppData\Local\Temp\CanDoItAll.CodeAnalytics.Tests\60472656f72d46dcbef86ab2b8e3d46e\snapshots\snap-20260630154548-4843c386\snapshot.json
+[11:45:48] info: Microsoft.Hosting.Lifetime[0] Application is shutting down...
+[xUnit.net 00:02:52.24]   Finished:    CanDoItAll.CodeAnalytics.Tests.Web
+Data collector 'Blame' message: All tests finished running, Sequence file will not be generated.
+  Passed CanDoItAll.CodeAnalytics.Tests.Web.WebUiFacts.Focused_context_route_renders_after_analysis [12 s]
+Test Run Successful.
+Total tests: 9
+     Passed: 9
+ Total time: 2.9460 Minutes
+---
+EndTime: 2026-06-30T11:45:49.5949403-04:00
+ExitCode: 0

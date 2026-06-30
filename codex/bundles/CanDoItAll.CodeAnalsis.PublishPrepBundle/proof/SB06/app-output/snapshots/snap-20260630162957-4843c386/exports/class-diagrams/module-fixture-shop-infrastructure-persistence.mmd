@@ -1,0 +1,32 @@
+﻿classDiagram
+    class T0001["Fixture.Shop.Infrastructure.Persistence.Entities.Order"]
+    class T0002["Fixture.Shop.Infrastructure.Persistence.Entities.Customer"]
+    class T0003["Fixture.Shop.Infrastructure.Persistence.ShopDbContext"]
+    class T0004["Fixture.Shop.Infrastructure.Persistence.Entities.OrderLine"]
+    class T0005["Fixture.Shop.Infrastructure.Persistence.Entities.OrderStatus"]
+    class T0006["Fixture.Shop.Infrastructure.Persistence.EfRepository&lt;TEntity&gt;"]
+    class T0007["Fixture.Shop.Infrastructure.Persistence.Entities.CustomerPreferences"]
+    class T0008["Fixture.Shop.Infrastructure.Persistence.ReportingSnapshotConfiguration"]
+    class T0009["Fixture.Shop.Infrastructure.Persistence.ReportingDbContext"]
+    class T0010["Fixture.Shop.Infrastructure.Persistence.ReportingSnapshot"]
+    T0004 --> T0001 : property
+    T0004 ..> T0001 : param/returns
+    T0008 ..> T0010 : param
+    T0001 --> T0004 : property
+    T0001 ..> T0004 : param/returns
+    T0001 --> T0002 : property
+    T0001 ..> T0002 : param/returns
+    T0001 --> T0005 : property
+    T0001 ..> T0005 : param/returns
+    T0002 --> T0007 : property
+    T0002 ..> T0007 : param/returns
+    T0002 --> T0001 : property
+    T0002 ..> T0001 : param/returns
+    T0006 --> T0003 : field
+    T0006 ..> T0003 : ctor
+    T0003 --> T0004 : property
+    T0003 ..> T0004 : returns
+    T0003 --> T0001 : property
+    T0003 ..> T0001 : returns
+    T0003 --> T0002 : property
+    T0003 ..> T0002 : returns

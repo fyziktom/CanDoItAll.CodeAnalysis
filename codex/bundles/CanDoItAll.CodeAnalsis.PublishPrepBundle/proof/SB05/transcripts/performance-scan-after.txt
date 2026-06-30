@@ -1,0 +1,124 @@
+﻿# SB05 performance scan after changes
+
+## async void: 0
+
+## sync-over-async candidates: 0
+
+## .IndexOf(" literal: 0
+
+## .Substring(: 0
+
+## StartsWith/EndsWith literal without StringComparison: 0
+
+## Contains literal without StringComparison candidate: 0
+
+## ToLower/ToUpper no culture: 0
+
+## 3+ chained Replace: 0
+
+## params signatures: 1
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Symbols.Source.cs:56:        params (string? Value, SymbolMatchFieldKind Field)[] candidates) {
+
+## LINQ char All/Any: 0
+
+## static readonly Dictionary: 0
+
+## static readonly FrozenDictionary: 0
+
+## new List: 8
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Symbols.Source.cs:124:        var dependencies = new List<string>();
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:27:        var diagnostics = new List<AnalysisDiagnostic>();
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:28:        var exports = new List<PreparedExport> {
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:58:        var exports = new List<PreparedExport>();
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:124:        var exports = new List<PreparedExport>();
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:53:        var files = new List<FocusedContextFileExcerpt>();
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:54:        var selectionReasons = new List<FocusedContextSelectionReason>();
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:126:        var candidates = new List<ExcerptCandidate>();
+
+## new Dictionary: 2
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ErDiagramMermaidRenderer.cs:56:        var counts = new Dictionary<string, int>(StringComparer.Ordinal);
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ErDiagramMermaidRenderer.cs:57:        var identifiers = new Dictionary<string, string>(StringComparer.Ordinal);
+
+## StringComparer.CurrentCulture: 0
+
+## LINQ chain candidates: 49
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Symbols.Source.cs:58:            .Where(candidate => MatchesSearch(matcher, candidate.Value))
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Symbols.Source.cs:59:            .Select(candidate => candidate.Field)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Symbols.Source.cs:221:            string.Join(Environment.NewLine, lines.Skip(startLine - 1).Take(endLine - startLine + 1)),
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:83:            .Take(take)
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:147:            .Where(entry => !string.Equals(entry.RequestHash, requestHash, StringComparison.Ordinal))
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:172:            .Where(item => !string.Equals(item.SnapshotId, snapshot.SnapshotId, StringComparison.Ordinal))
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:176:            .Take(50)
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ClassDiagramMermaidRenderer.cs:12:        var selectedTypeIds = selectedTypes.Select(type => type.TypeId).ToHashSet(StringComparer.Ordinal);
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ClassDiagramMermaidRenderer.cs:14:            .Where(item => selectedTypeIds.Contains(item.FromTypeId) && selectedTypeIds.Contains(item.ToTypeId))
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ClassDiagramMermaidRenderer.cs:17:            .Select((type, index) => new { type.TypeId, Alias = $"T{index + 1:D4}" })
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ClassDiagramMermaidRenderer.cs:59:            var label = BuildRelationshipLabel(relationshipGroup.Select(item => item.Kind));
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ClassDiagramMermaidRenderer.cs:81:            .Select(group => group.First())
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ClassDiagramMermaidRenderer.cs:87:            .Take(maxNodes)
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ClassDiagramMermaidRenderer.cs:116:            .Select(
+src\CanDoItAll.CodeAnalytics.Rendering\Markdown\MarkdownSummaryWriter.cs:29:            foreach (var finding in snapshot.Insights.Findings.Take(10)) {
+src\CanDoItAll.CodeAnalytics.Rendering\Markdown\MarkdownSummaryWriter.cs:43:            foreach (var diagnostic in snapshot.Diagnostics.Take(10)) {
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:31:            .Take(MaxFocusedFiles)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:50:                    .Select(item => item.DisplayName)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:66:                .Take(MaxExcerptBlocksPerFile)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:67:                .Select(candidate => CreateExcerptBlock(candidate, lines))
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:68:                .Where(item => item is not null)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:89:                    .Select(
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:102:            .Take(MaxFocusedFiles)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:128:            .Where(item => !string.Equals(item.TypeId, seedType?.TypeId, StringComparison.Ordinal))
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:129:            .Select(item => item.TypeId)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:132:        foreach (var memberContext in selectedMemberContexts.Take(MaxExcerptBlocks)) {
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:144:            .Select(item => NormalizePath(item.Member.Source.Path))
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:146:        foreach (var type in selectedTypes.Where(item => !representedPaths.Contains(NormalizePath(item.Source.Path))).Take(MaxExcerptBlocks)) {
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:148:                foreach (var member in RankRepresentativeMembers(type, members, focusTags).Take(MaxRepresentativeMembersPerType)) {
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:175:            foreach (var service in relatedServices.Take(2)) {
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:189:            .Select(group => group.First())
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:219:            .Where(item => item.Kind is MemberKind.Method or MemberKind.Property or MemberKind.Constructor)
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:253:        var excerpt = string.Join(Environment.NewLine, lines.Skip(startLine - 1).Take(endLine - startLine + 1));
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ErDiagramMermaidRenderer.cs:12:        var entityIds = selectedEntities.Select(entity => entity.EntityId).ToHashSet(StringComparer.Ordinal);
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ErDiagramMermaidRenderer.cs:28:            .Where(item => entityIds.Contains(item.FromEntityId) && entityIds.Contains(item.ToEntityId))
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ErDiagramMermaidRenderer.cs:51:            .Take(maxNodes)
+src\CanDoItAll.CodeAnalytics.Rendering\Mermaid\ErDiagramMermaidRenderer.cs:101:            return string.Join("/", relationship.NavigationPropertyNames.Take(2));
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:60:            .Where(type => IsDefaultClassDiagramCandidate(type, snapshot))
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:67:                    eligibleTypes.Where(type => string.Equals(type.ProjectId, project.ProjectId, StringComparison.Ordinal)).ToArray(),
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:79:                    eligibleTypes.Where(type => string.Equals(type.ModuleId, module.ModuleId, StringComparison.Ordinal)).ToArray(),
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:130:                    snapshot.Facts.Entities.Where(entity => string.Equals(entity.ProjectId, project.ProjectId, StringComparison.Ordinal)).ToArray(),
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:142:                    snapshot.Facts.Entities.Where(entity => string.Equals(entity.ModuleId, module.ModuleId, StringComparison.Ordinal)).ToArray(),
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:186:        var typeIds = scopedTypes.Select(type => type.TypeId).ToHashSet(StringComparer.Ordinal);
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:188:            .Where(item => typeIds.Contains(item.FromTypeId) && typeIds.Contains(item.ToTypeId))
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:195:        var entityIds = scopedEntities.Select(entity => entity.EntityId).ToHashSet(StringComparer.Ordinal);
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:197:            .Where(item => entityIds.Contains(item.FromEntityId) && entityIds.Contains(item.ToEntityId))
+src\CanDoItAll.CodeAnalytics.Rendering\Exports\ExportBundleBuilder.cs:222:            .Select(character => char.IsLetterOrDigit(character) ? char.ToLowerInvariant(character) : '-')
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Documents.cs:56:            .Where(type => string.Equals(NormalizePath(type.Source.Path), documentPath, StringComparison.OrdinalIgnoreCase))
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Documents.cs:59:            .Select(
+
+## RegexOptions.Compiled: 0
+
+## GeneratedRegex: 0
+
+## new Regex: 1
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Symbols.Source.cs:31:                    new Regex(
+
+## new HttpClient: 0
+
+## new JsonSerializerOptions: 1
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\SnapshotJsonSerializer.cs:25:        var options = new JsonSerializerOptions(JsonSerializerDefaults.Web) {
+
+## JsonSerializer Serialize/Deserialize: 3
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\SnapshotJsonSerializer.cs:11:        return JsonSerializer.Deserialize<ArchitectureSnapshot>(json, Options)
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\SnapshotJsonSerializer.cs:16:        return JsonSerializer.Deserialize<T>(json, Options)
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\SnapshotJsonSerializer.cs:21:        return JsonSerializer.Serialize(value, Options);
+
+## File ReadAll/WriteAll async: 11
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Symbols.Source.cs:203:        var lines = await File.ReadAllLinesAsync(absolutePath, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Documents.cs:22:        var sourceCode = await File.ReadAllTextAsync(resolvedDocument.AbsolutePath, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:54:        var json = await File.ReadAllTextAsync(snapshotPath, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:70:        var json = await File.ReadAllTextAsync(snapshotPath, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:104:            await File.WriteAllTextAsync(filePath, export.Content, Encoding.UTF8, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:109:        await File.WriteAllTextAsync(snapshotPath, snapshotJson, Encoding.UTF8, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:124:        var json = await File.ReadAllTextAsync(path, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:136:        var json = await File.ReadAllTextAsync(path, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:155:        await File.WriteAllTextAsync(path, _serializer.Serialize(index), Encoding.UTF8, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Storage\Snapshots\FileSnapshotRepository.cs:182:        await File.WriteAllTextAsync(path, _serializer.Serialize(index), Encoding.UTF8, cancellationToken);
+src\CanDoItAll.CodeAnalytics.Application\Services\CodeAnalyticsApplicationService.Context.Excerpts.cs:62:            var lines = await File.ReadAllLinesAsync(absolutePath, cancellationToken);
+

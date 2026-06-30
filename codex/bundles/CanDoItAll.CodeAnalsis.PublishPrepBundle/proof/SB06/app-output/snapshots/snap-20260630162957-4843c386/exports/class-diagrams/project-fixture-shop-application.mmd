@@ -1,0 +1,10 @@
+﻿classDiagram
+    class T0001["Fixture.Shop.Application.Orders.OrderService"]
+    class T0002["Fixture.Shop.Application.Notifications.OrderReceiptComposer"]
+    class T0003["Fixture.Shop.Application.Orders.OrderNumberFormatter"]
+    T0002 --> T0003 : field
+    T0002 ..> T0003 : ctor
+    T0001 --> T0002 : field
+    T0001 ..> T0002 : ctor
+    T0001 --> T0003 : field
+    T0001 ..> T0003 : ctor

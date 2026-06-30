@@ -18,12 +18,22 @@ $requiredFiles = @(
     ".editorconfig",
     "Directory.Build.props",
     "global.json",
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
     "README.md",
     "codex\\README.md",
     "architecture\\adrs\\README.md",
+    "architecture\\adrs\\0001-publishing-boundaries.md",
+    "architecture\\adrs\\0002-static-ef-and-performance-hardening.md",
+    "architecture\\adrs\\0003-open-source-packaging-and-sandbox-scope.md",
     "eng\\Validate-FileLengths.ps1",
     "eng\\Validate-SolutionStructure.ps1",
+    "eng\\Pack-ReleaseProjects.ps1",
     "reference\\compatibility-matrix.md",
+    "reference\\publishing-readiness.md",
+    "reference\\public-api.md",
+    "reference\\desktop-sandbox.md",
     "reference\\reuse-later-vs-do-not-duplicate-now.md",
     "reference\\current-candoitall-mcp-context.md",
     "reference\\current-candoitall-mcp-context.json",
@@ -49,6 +59,25 @@ $requiredProjects = @(
     "tests/CanDoItAll.CodeAnalytics.Tests.Architecture/CanDoItAll.CodeAnalytics.Tests.Architecture.csproj"
 )
 $forbiddenFolders = @("Helpers", "Misc", "Stuff", "CommonStuff")
+
+function Get-RepoRelativePath {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$RootPath,
+
+        [Parameter(Mandatory = $true)]
+        [string]$TargetPath
+    )
+
+    $normalizedRoot = (Resolve-Path -LiteralPath $RootPath).Path.TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+    $normalizedTarget = (Resolve-Path -LiteralPath $TargetPath).Path
+
+    if ($normalizedTarget.StartsWith($normalizedRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+        return $normalizedTarget.Substring($normalizedRoot.Length).TrimStart([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar)
+    }
+
+    return $normalizedTarget
+}
 
 foreach ($directory in $requiredDirectories) {
     $path = Join-Path $repoRoot $directory
@@ -99,7 +128,7 @@ $forbiddenMatches = Get-ChildItem -Path (Join-Path $repoRoot "src"), (Join-Path 
     Sort-Object FullName
 
 if ($forbiddenMatches.Count -gt 0) {
-    $paths = $forbiddenMatches | ForEach-Object { [System.IO.Path]::GetRelativePath($repoRoot, $_.FullName) }
+    $paths = $forbiddenMatches | ForEach-Object { Get-RepoRelativePath -RootPath $repoRoot -TargetPath $_.FullName }
     throw "Forbidden catch-all folders were found: $($paths -join ', ')"
 }
 
