@@ -1,13 +1,29 @@
-# CanDoItAll.CodeAnalsis
+# CanDoItAll.CodeAnalysis
 
-`CanDoItAll.CodeAnalsis` is a .NET 10 code-analysis engine plus a desktop-large sandbox UI. It loads C# solutions with Roslyn/MSBuild, builds deterministic architecture snapshots, derives dependency/service/symbol/persistence facts, renders Markdown and Mermaid exports, and stores snapshots on disk.
+[![CI](https://github.com/fyziktom/CanDoItAll.CodeAnalysis/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/fyziktom/CanDoItAll.CodeAnalysis/actions/workflows/ci.yml)
+[![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/download/dotnet/10.0)
+[![License](https://img.shields.io/badge/license-MIT--derived%20with%20website%20link-blue.svg)](LICENSE)
 
-The repository root and canonical solution intentionally keep the `CodeAnalsis` typo for compatibility with the transfer shape:
+`CanDoItAll.CodeAnalysis` is a .NET 10 code-analysis engine plus a desktop-large
+sandbox. It loads C# solutions with Roslyn/MSBuild, builds deterministic architecture
+snapshots, derives dependency/service/symbol/persistence facts, renders Markdown and
+Mermaid exports, and stores snapshots on disk.
 
-- Repository root: `CanDoItAll.CodeAnalsis`
+The canonical solution retains the historical `CodeAnalsis` typo as a documented
+compatibility exception:
+
+- Repository and source URL: `CanDoItAll.CodeAnalysis`
 - Canonical solution: `CanDoItAll.CodeAnalsis.slnx`
 - Project and namespace family: `CanDoItAll.CodeAnalytics.*`
 - Future host driver: `CanDoItAll.Mcp.CodeAnalytics`
+
+## Ownership
+
+This repository owns the reusable CodeAnalytics engine, its public NuGet packages, tests,
+local analysis tools, release adapter, and non-packable desktop sandbox.
+
+It does not own the future MCP host driver or `CanDoItAll.Components`; the sandbox
+consumes the published component package from nuget.org.
 
 ## Packages
 
@@ -60,39 +76,56 @@ Optional environment variables:
 
 The sandbox is intentionally designed for desktop-large workflows. Small and medium responsive tuning is out of scope for this publishing wave. See `reference/desktop-sandbox.md`.
 
+The sandbox references `CanDoItAll.Components.BaseLib` `0.1.15` from nuget.org through
+the root `NuGet.config`. It uses the shared theme, viewport layout, side menu, page
+scaffolds, navigation, sections, forms, metrics, feedback, and overlay hosts.
+
 ## Validation
 
 Run the segmented release gate from the repository root:
 
 ```powershell
-dotnet restore
-dotnet build .\CanDoItAll.CodeAnalsis.slnx -warnaserror
-dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Architecture\CanDoItAll.CodeAnalytics.Tests.Architecture.csproj --no-build --blame-hang --blame-hang-timeout 60s --logger "console;verbosity=normal"
-dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Unit\CanDoItAll.CodeAnalytics.Tests.Unit.csproj --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=normal"
-dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Integration\CanDoItAll.CodeAnalytics.Tests.Integration.csproj --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=normal"
-dotnet test .\tests\CanDoItAll.CodeAnalytics.Tests.Web\CanDoItAll.CodeAnalytics.Tests.Web.csproj --no-build --blame-hang --blame-hang-timeout 600s --logger "console;verbosity=normal"
-.\eng\Validate-FileLengths.ps1
-.\eng\Validate-SolutionStructure.ps1
+dotnet restore .\CanDoItAll.CodeAnalsis.slnx --configfile .\NuGet.config
+dotnet build .\CanDoItAll.CodeAnalsis.slnx --configuration Release --no-restore -warnaserror
+.\tools\deployment\nugets\Build-NuGets.ps1 -Configuration Release -NoRestore
 ```
 
-The Roslyn-backed Unit, Integration, and Web tests are intentionally slower than architecture tests. Use `codex/validation-matrix.md` for the release matrix and optional commands.
+The canonical adapter runs the Architecture, Unit, Integration, and Web projects
+sequentially, validates repository structure and file lengths, then packs all eight
+shipping libraries. The Roslyn-backed suites are intentionally slower than architecture
+tests. Use `codex/validation-matrix.md` for the expanded matrix.
 
 ## Packaging
 
-Build first, then pack the release projects:
+Preview or execute the repository-owned package adapter:
 
 ```powershell
-dotnet build .\CanDoItAll.CodeAnalsis.slnx -warnaserror
-.\eng\Pack-ReleaseProjects.ps1 -Configuration Debug -OutputPath .\.artifacts\packages -NoBuild
+.\tools\deployment\nugets\Build-NuGets.ps1 -WhatIf
+.\tools\deployment\nugets\Build-NuGets.ps1 -Configuration Release -OutputDirectory .\artifacts\packages
 ```
 
-Inspect package contents before publishing. The package set must not contain Web assets, tests, fixtures, Codex bundle proof, local snapshot output, `.artifacts` content, or machine-local paths.
+This command builds packages but never publishes them. Inspect the `.nuspec`, embedded
+`LICENSE`, README, repository metadata, and archive contents before pushing a package.
+The package set must not contain Web assets, tests, fixtures, Codex bundle proof, local
+snapshot output, artifacts, or machine-local paths.
 
 ## Repository Docs
 
-- `LICENSE` - MIT license.
+- `LICENSE` - MIT-derived license with the CanDoItAll website-link requirement.
 - `SECURITY.md` - vulnerability reporting policy.
 - `CONTRIBUTING.md` - contribution and validation guide.
+- `docs/repository-standards.md` - shared-standard adoption and compatibility exceptions.
 - `architecture/adrs/` - accepted publishing-prep decisions.
 - `reference/` - package, API, sandbox, EF, performance, and future-driver reference docs.
 - `codex/bundles/CanDoItAll.CodeAnalsis.PublishPrepBundle` - execution bundle and proof artifacts for this publishing-prep wave.
+
+## License And Contributions
+
+This repository uses the
+[MIT-Derived License with CanDoItAll Website Link Requirement](LICENSE). Redistributing
+the software or a substantial portion of it requires at least one link to
+[aicandoitall.com](https://aicandoitall.com).
+
+Code contributions are limited to partners approved by the maintainer. See
+[CONTRIBUTING.md](CONTRIBUTING.md) and contact the `fyziktom` account on LinkedIn before
+preparing or opening a pull request.

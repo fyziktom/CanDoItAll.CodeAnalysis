@@ -24,12 +24,14 @@ public static class FixtureSolutionHost {
 
             using var process = Process.Start(startInfo)
                 ?? throw new InvalidOperationException("Could not start dotnet restore for the fixture solution.");
+            var outputTask = process.StandardOutput.ReadToEndAsync();
+            var errorTask = process.StandardError.ReadToEndAsync();
             process.WaitForExit();
+            Task.WaitAll(outputTask, errorTask);
 
             if (process.ExitCode != 0) {
-                var output = process.StandardOutput.ReadToEnd();
-                var error = process.StandardError.ReadToEnd();
-                throw new InvalidOperationException($"Fixture restore failed.{Environment.NewLine}{output}{Environment.NewLine}{error}");
+                throw new InvalidOperationException(
+                    $"Fixture restore failed.{Environment.NewLine}{outputTask.Result}{Environment.NewLine}{errorTask.Result}");
             }
 
             _isPrepared = true;

@@ -1,13 +1,95 @@
 @inherits LayoutComponentBase
+@inject NavigationManager Navigation
+@inject SideMenuService SideMenus
+@implements IDisposable
 
-<div class="app-shell">
-    <header class="app-header">
-        <a class="brand-link" href="/">CanDoItAll Code Analytics</a>
-        <nav class="top-nav" aria-label="Primary navigation">
-            <a class="top-nav-link" href="/context-lab">Focused Context Lab</a>
-        </nav>
-    </header>
-    <main class="app-main">
-        @Body
-    </main>
-</div>
+<ThemeHost ThemeKey="@CadThemes.Light">
+    <Layout FitViewport="true" LockOverflow="true">
+        <SideMenu MenuId="@MenuId"
+                  Title="Code Analytics"
+                  Subtitle="Sandbox"
+                  Icon="analytics"
+                  FillHeight="true"
+                  @bind-Expanded="menuExpanded"
+                  ItemSelected="NavigateAsync">
+            <MenuItems>
+                <SideMenuItem Id="analysis"
+                              Text="Analysis"
+                              Description="Build and inspect architecture snapshots."
+                              Icon="analytics"
+                              OverflowBehavior="@SideMenuOverflowBehavior.PreferVisible" />
+                <SideMenuItem Id="context"
+                              Text="Context lab"
+                              Description="Explore focused source context."
+                              Icon="account_tree"
+                              OverflowBehavior="@SideMenuOverflowBehavior.PreferVisible" />
+            </MenuItems>
+        </SideMenu>
+
+        <Body FillHeight="true" Scrollable="true">
+            @Body
+        </Body>
+    </Layout>
+
+    <DialogHost />
+    <Tooltip />
+    <Notification />
+</ThemeHost>
+
+@code {
+    private const string MenuId = "code-analytics-primary";
+    private bool menuExpanded = true;
+
+    protected override void OnInitialized()
+    {
+        Navigation.LocationChanged += HandleLocationChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await SynchronizeSelectionAsync();
+        }
+    }
+
+    private Task NavigateAsync(SideMenuSelection selection)
+    {
+        var route = selection.ItemId switch
+        {
+            "analysis" => "/",
+            "context" => "/context-lab",
+            _ => null
+        };
+
+        if (route is not null && !IsCurrentRoute(route))
+        {
+            Navigation.NavigateTo(route);
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private void HandleLocationChanged(object? sender, LocationChangedEventArgs args)
+    {
+        _ = InvokeAsync(SynchronizeSelectionAsync);
+    }
+
+    private async Task SynchronizeSelectionAsync()
+    {
+        var itemId = IsCurrentRoute("/context-lab") ? "context" : "analysis";
+        await SideMenus.SelectAsync(MenuId, itemId);
+    }
+
+    private bool IsCurrentRoute(string route)
+    {
+        var relative = Navigation.ToBaseRelativePath(Navigation.Uri);
+        var path = $"/{relative.Split('?', '#')[0].Trim('/')}";
+        return string.Equals(path, route, StringComparison.OrdinalIgnoreCase);
+    }
+
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= HandleLocationChanged;
+    }
+}

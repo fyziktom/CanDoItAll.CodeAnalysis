@@ -29,6 +29,10 @@ project.fragment.lock.json
 artifacts/
 .artifacts/
 .vs/
+.vscode/*.user
+*.suo
+*.user
+*.userosscache
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -58,17 +62,39 @@ nunit-*.xml
 
 # Node
 node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
 
 
 output
 .mcp-state/
 .playwright
 .playwright-cli
+.playwright-mcp/
 
 .codex-obj
+.codex/live-targets/
+.codex/live-runner/
+.codex/runlogs/
+.codex/run-logs/
+.codex/long-runs/
+.codex/tmp/
+.codex/temp/
+.codex-artifacts/
+.codex-tmp/
+.codex-temp/
 CanDoItAll.Mcp.ProjectStructure.settings.local.json
 playwright-report/
 test-results/
 TestResults/
 coverage/
 screenshots/
+
+# Logs, secrets, and local overrides
+*.log
+*.local.json
+.env
+.env.*
+!.env.example
+.secrets/

@@ -4,24 +4,24 @@
 
 @if (_response is null)
 {
-    <div class="panel">
+    <SectionCard>
         <h1>Persistence</h1>
         <p class="empty-state">The requested snapshot could not be loaded.</p>
-    </div>
+    </SectionCard>
 }
 else
 {
     <div class="page-shell">
-        <header class="panel">
+        <SectionCard>
             <h1>Persistence</h1>
             <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="persistence" />
             <form method="get" class="search-form">
                 <input type="text" name="search" value="@Search" placeholder="Filter entities" />
                 <button type="submit">Filter</button>
             </form>
-        </header>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <h2>DbContexts</h2>
             @if (_response.DbContexts.Count == 0)
             {
@@ -48,9 +48,9 @@ else
                     }
                 </div>
             }
-        </section>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <h2>Entities</h2>
             @if (_response.Entities.Count == 0)
             {
@@ -76,9 +76,9 @@ else
                     }
                 </div>
             }
-        </section>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <h2>Collector diagnostics</h2>
             @if (_response.Diagnostics.Count == 0)
             {
@@ -93,7 +93,7 @@ else
                     }
                 </ul>
             }
-        </section>
+        </SectionCard>
     </div>
 }
 

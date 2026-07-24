@@ -36,7 +36,6 @@ textarea {
 }
 
 .path-picker,
-.action-row,
 .progress-meta {
     display: flex;
     gap: 0.75rem;
@@ -47,15 +46,17 @@ textarea {
     flex: 1 1 auto;
 }
 
-.toggle-grid,
-.stats-grid,
+.path-picker-action {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
 .summary-grid {
     display: grid;
     gap: 0.75rem;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
-.toggle-grid label,
 .search-toggle {
     display: flex;
     gap: 0.55rem;
@@ -66,9 +67,6 @@ textarea {
     min-height: 100%;
 }
 
-.primary-button,
-.secondary-button,
-.secondary-link-button,
 .search-form button {
     width: fit-content;
     padding: 0.8rem 1.2rem;
@@ -78,33 +76,13 @@ textarea {
     font-weight: 700;
 }
 
-.primary-button,
 .search-form button {
-    background: var(--button-bg);
+    background: var(--accent);
     color: white;
 }
 
-.primary-button:hover,
 .search-form button:hover {
-    background: var(--button-bg-hover);
-}
-
-.secondary-button {
-    background: var(--button-secondary);
-    color: var(--text-main);
-}
-
-.secondary-link-button {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    background: var(--button-secondary);
-    color: var(--text-main);
-}
-
-.secondary-button:disabled {
-    opacity: 0.7;
-    cursor: wait;
+    filter: brightness(0.9);
 }
 
 .picker-status {

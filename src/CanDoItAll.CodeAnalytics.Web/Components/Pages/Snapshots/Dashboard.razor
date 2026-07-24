@@ -4,69 +4,68 @@
 
 @if (_dashboard is null)
 {
-    <div class="panel">
-        <h1>Snapshot not found</h1>
-        <p class="empty-state">The requested snapshot could not be loaded.</p>
-    </div>
+    <EmptyState Eyebrow="Snapshot"
+                Title="Snapshot not found"
+                Description="The requested snapshot could not be loaded." />
 }
 else
 {
-    <div class="page-shell">
-        <header class="hero">
-            <span class="eyebrow">Snapshot dashboard</span>
-            <h1>@_dashboard.Snapshot.Facts.Solution.Name</h1>
-            <p>@_dashboard.Snapshot.Request.SolutionPath</p>
-        </header>
+    <PageScaffold>
+        <Header>
+            <PageHeader Eyebrow="Snapshot dashboard"
+                        Title="@_dashboard.Snapshot.Facts.Solution.Name"
+                        Description="@_dashboard.Snapshot.Request.SolutionPath" />
+        </Header>
 
-        <SnapshotTabs SnapshotId="@SnapshotId" />
+        <ChildContent>
+            <SnapshotTabs SnapshotId="@SnapshotId" />
 
-        <section class="stats-grid">
-            <StatCard Label="Projects" Value="@_dashboard.Snapshot.Insights.Summary.ProjectCount.ToString()" />
-            <StatCard Label="Types" Value="@_dashboard.Snapshot.Insights.Summary.TypeCount.ToString()" />
-            <StatCard Label="Services" Value="@_dashboard.Snapshot.Insights.Summary.ServiceRegistrationCount.ToString()" />
-            <StatCard Label="Entities" Value="@_dashboard.Snapshot.Insights.Summary.EntityCount.ToString()" />
-            <StatCard Label="Findings" Value="@_dashboard.Snapshot.Insights.Summary.FindingCount.ToString()" />
-            <StatCard Label="Diagnostics" Value="@_dashboard.Snapshot.Diagnostics.Count.ToString()" />
-        </section>
+            <StatsGrid>
+                <StatCard Label="Projects" Value="@_dashboard.Snapshot.Insights.Summary.ProjectCount.ToString()" />
+                <StatCard Label="Types" Value="@_dashboard.Snapshot.Insights.Summary.TypeCount.ToString()" />
+                <StatCard Label="Services" Value="@_dashboard.Snapshot.Insights.Summary.ServiceRegistrationCount.ToString()" />
+                <StatCard Label="Entities" Value="@_dashboard.Snapshot.Insights.Summary.EntityCount.ToString()" />
+                <StatCard Label="Findings" Value="@_dashboard.Snapshot.Insights.Summary.FindingCount.ToString()" />
+                <StatCard Label="Diagnostics" Value="@_dashboard.Snapshot.Diagnostics.Count.ToString()" />
+            </StatsGrid>
 
-        <section class="panel">
-            <div class="panel-heading">
-                <h2>Top Findings</h2>
-            </div>
-            @if (_dashboard.TopFindings.Count == 0)
-            {
-                <p class="empty-state">No findings were produced.</p>
-            }
-            else
-            {
-                <ul class="detail-list">
-                    @foreach (var finding in _dashboard.TopFindings)
-                    {
-                        <li><strong>@finding.RuleId</strong> @finding.Title: @finding.Description</li>
-                    }
-                </ul>
-            }
-        </section>
+            <SectionCard Title="Top findings">
+                @if (_dashboard.TopFindings.Count == 0)
+                {
+                    <EmptyState Eyebrow="Findings"
+                                Title="No findings"
+                                Description="This snapshot did not produce architecture findings." />
+                }
+                else
+                {
+                    <ul class="detail-list">
+                        @foreach (var finding in _dashboard.TopFindings)
+                        {
+                            <li><strong>@finding.RuleId</strong> @finding.Title: @finding.Description</li>
+                        }
+                    </ul>
+                }
+            </SectionCard>
 
-        <section class="panel">
-            <div class="panel-heading">
-                <h2>Diagnostics</h2>
-            </div>
-            @if (_dashboard.TopDiagnostics.Count == 0)
-            {
-                <p class="empty-state">No diagnostics were produced.</p>
-            }
-            else
-            {
-                <ul class="detail-list">
-                    @foreach (var diagnostic in _dashboard.TopDiagnostics)
-                    {
-                        <li><strong>@diagnostic.Code</strong> @diagnostic.Message</li>
-                    }
-                </ul>
-            }
-        </section>
-    </div>
+            <SectionCard Title="Diagnostics">
+                @if (_dashboard.TopDiagnostics.Count == 0)
+                {
+                    <EmptyState Eyebrow="Diagnostics"
+                                Title="No diagnostics"
+                                Description="The workspace loaded without reported diagnostics." />
+                }
+                else
+                {
+                    <ul class="detail-list">
+                        @foreach (var diagnostic in _dashboard.TopDiagnostics)
+                        {
+                            <li><strong>@diagnostic.Code</strong> @diagnostic.Message</li>
+                        }
+                    </ul>
+                }
+            </SectionCard>
+        </ChildContent>
+    </PageScaffold>
 }
 
 @code {

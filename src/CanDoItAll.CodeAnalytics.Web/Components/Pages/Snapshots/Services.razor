@@ -4,24 +4,24 @@
 
 @if (_response is null)
 {
-    <div class="panel">
+    <SectionCard>
         <h1>Services</h1>
         <p class="empty-state">The requested snapshot could not be loaded.</p>
-    </div>
+    </SectionCard>
 }
 else
 {
     <div class="page-shell">
-        <header class="panel">
+        <SectionCard>
             <h1>Services</h1>
             <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="services" />
             <form method="get" class="search-form">
                 <input type="text" name="search" value="@Search" placeholder="Filter services" />
                 <button type="submit">Filter</button>
             </form>
-        </header>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <ul class="detail-list">
                 @foreach (var service in _response.Services)
                 {
@@ -31,9 +31,9 @@ else
                     </li>
                 }
             </ul>
-        </section>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <h2>Collector diagnostics</h2>
             @if (_response.Diagnostics.Count == 0)
             {
@@ -48,7 +48,7 @@ else
                     }
                 </ul>
             }
-        </section>
+        </SectionCard>
     </div>
 }
 

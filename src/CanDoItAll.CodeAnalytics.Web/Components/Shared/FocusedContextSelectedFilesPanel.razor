@@ -1,16 +1,16 @@
 @if (Response.Files.Count == 0)
 {
-    <section class="panel">
+    <SectionCard>
         <div class="panel-heading">
             <h2>Selected Files</h2>
             <p>Each accordion shows only the code the analyzer decided was worth carrying into working memory.</p>
         </div>
         <p class="empty-state">@GetSelectedFilesEmptyState()</p>
-    </section>
+    </SectionCard>
 }
 else
 {
-    <section class="panel">
+    <SectionCard>
         <div class="panel-heading">
             <h2>Selected Files</h2>
             <p>Each accordion shows only the code the analyzer decided was worth carrying into working memory.</p>
@@ -59,7 +59,7 @@ else
                 </details>
             }
         </div>
-    </section>
+    </SectionCard>
 }
 
 @code {

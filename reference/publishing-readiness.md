@@ -20,20 +20,22 @@ This repository publishes reusable CodeAnalytics libraries and keeps the desktop
 
 ## Package Metadata
 
-All packable projects inherit common metadata from `Directory.Build.props`: MIT license expression, repository URL, project URL, authors, package tags, version prefix, and root README packaging. Each packable production project declares an explicit description in its `.csproj`.
+All packable projects inherit common metadata from `Directory.Build.props` and
+`Directory.Build.targets`: the MIT-derived repository license file, the
+`https://aicandoitall.com` project URL, canonical source repository URL, authors, package
+tags, version prefix, SourceLink repository metadata, and root README packaging. Each
+packable production project declares an explicit description in its `.csproj`.
 
 ## Pack Commands
 
 ```powershell
-dotnet restore
-dotnet build .\CanDoItAll.CodeAnalsis.slnx -warnaserror
-.\eng\Pack-ReleaseProjects.ps1 -Configuration Debug -OutputPath .\.artifacts\packages -NoBuild
+.\tools\deployment\nugets\Build-NuGets.ps1 -Configuration Release -OutputDirectory .\artifacts\packages
 ```
 
 Inspect package contents before publishing:
 
 ```powershell
-Get-ChildItem .\.artifacts\packages -Filter *.nupkg | ForEach-Object {
+Get-ChildItem .\artifacts\packages -Filter *.nupkg | ForEach-Object {
     tar -tf $_.FullName
 }
 ```

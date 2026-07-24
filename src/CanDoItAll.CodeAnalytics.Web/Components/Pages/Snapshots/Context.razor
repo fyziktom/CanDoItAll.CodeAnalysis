@@ -4,16 +4,16 @@
 
 @if (_response is null)
 {
-    <div class="panel">
+    <SectionCard>
         <h1>Focused Context</h1>
         <SnapshotTabs SnapshotId="@SnapshotId" />
         <p class="empty-state">Select a type, function, or service from the snapshot drilldown pages to open a bounded code neighborhood.</p>
-    </div>
+    </SectionCard>
 }
 else
 {
     <div class="page-shell">
-        <header class="panel">
+        <SectionCard>
             <span class="eyebrow">Focused context</span>
             <h1>Focused Context</h1>
             <SnapshotTabs SnapshotId="@SnapshotId" />
@@ -39,9 +39,9 @@ else
                 </select>
                 <button type="submit">Update depth</button>
             </form>
-        </header>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <div class="metadata-row">
                 @if (_response.SeedService is not null)
                 {
@@ -66,7 +66,7 @@ else
             {
                 <p class="field-help">@_response.StrategyExplanation</p>
             }
-        </section>
+        </SectionCard>
 
         <FocusedContextUsageSummaryPanel UsageSummary="_response.UsageSummary" />
         <FocusedContextDetailsPanel

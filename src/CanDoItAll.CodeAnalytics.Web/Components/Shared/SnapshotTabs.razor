@@ -1,13 +1,10 @@
-<nav class="snapshot-tabs" aria-label="Snapshot navigation">
-    <a class="@GetClass("")" href="@BasePath">Dashboard</a>
-    <a class="@GetClass("dependencies")" href="@($"{BasePath}/dependencies")">Dependencies</a>
-    <a class="@GetClass("services")" href="@($"{BasePath}/services")">Services</a>
-    <a class="@GetClass("persistence")" href="@($"{BasePath}/persistence")">Persistence</a>
-    <a class="@GetClass("types")" href="@($"{BasePath}/types")">Types</a>
-    <a class="@GetClass("symbols")" href="@($"{BasePath}/symbols")">Symbols</a>
-    <a class="@GetClass("findings")" href="@($"{BasePath}/findings")">Findings</a>
-    <a class="@GetClass("exports")" href="@($"{BasePath}/exports")">Exports</a>
-</nav>
+@inject NavigationManager Navigation
+
+<SecondaryTabs Items="@Items"
+               SelectedKey="@SelectedKey"
+               SelectedKeyChanged="NavigateAsync"
+               Dense="true"
+               ShowActiveDescription="false" />
 
 @code {
     [Parameter, EditorRequired]
@@ -16,12 +13,30 @@
     [Parameter]
     public string ActiveTab { get; set; } = string.Empty;
 
+    private static readonly IReadOnlyList<SecondaryTabItem> Items =
+    [
+        new("dashboard", "Dashboard"),
+        new("dependencies", "Dependencies"),
+        new("services", "Services"),
+        new("persistence", "Persistence"),
+        new("types", "Types"),
+        new("symbols", "Symbols"),
+        new("findings", "Findings"),
+        new("exports", "Exports")
+    ];
+
     private string BasePath => $"/snapshots/{SnapshotId}";
 
-    private string GetClass(string tab)
+    private string SelectedKey => string.IsNullOrWhiteSpace(ActiveTab)
+        ? "dashboard"
+        : ActiveTab;
+
+    private Task NavigateAsync(string key)
     {
-        return string.Equals(tab, ActiveTab, StringComparison.OrdinalIgnoreCase)
-            ? "tab-link is-active"
-            : "tab-link";
+        var route = string.Equals(key, "dashboard", StringComparison.Ordinal)
+            ? BasePath
+            : $"{BasePath}/{key}";
+        Navigation.NavigateTo(route);
+        return Task.CompletedTask;
     }
 }

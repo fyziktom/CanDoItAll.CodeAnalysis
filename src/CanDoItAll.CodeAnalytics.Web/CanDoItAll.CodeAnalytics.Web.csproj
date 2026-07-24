@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CanDoItAll.Components.BaseLib" Version="0.1.15" />
     <ProjectReference Include="..\CanDoItAll.CodeAnalytics.Application\CanDoItAll.CodeAnalytics.Application.csproj" />
   </ItemGroup>
 

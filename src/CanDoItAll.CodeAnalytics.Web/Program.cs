@@ -21,6 +21,7 @@ using CanDoItAll.CodeAnalytics.Web.WorkspacePicker;
 using CanDoItAll.CodeAnalytics.Workspace.Inventory;
 using CanDoItAll.CodeAnalytics.Workspace.Loading;
 using CanDoItAll.CodeAnalytics.Workspace.Normalization;
+using CanDoItAll.Components.BaseLib;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace CanDoItAll.CodeAnalytics.Web;
@@ -34,7 +35,10 @@ public class Program {
             options.SingleLine = true;
         });
 
-        builder.Services.AddRazorComponents();
+        builder.Services
+            .AddRazorComponents()
+            .AddInteractiveServerComponents();
+        builder.Services.AddCanDoItAllBaseLib();
         RegisterServices(builder.Services, builder.Environment.ContentRootPath);
 
         var app = builder.Build();
@@ -56,7 +60,8 @@ public class Program {
         app.MapGet("/exports/{snapshotId}/{**relativePath}", HandleExportAsync);
         app.MapGet("/favicon.ico", static () => Results.NoContent());
         app.MapStaticAssets();
-        app.MapRazorComponents<App>();
+        app.MapRazorComponents<App>()
+            .AddInteractiveServerRenderMode();
 
         app.Run();
     }

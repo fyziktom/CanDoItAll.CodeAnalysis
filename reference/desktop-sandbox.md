@@ -2,6 +2,11 @@
 
 `CanDoItAll.CodeAnalytics.Web` is a local inspection app for large desktop screens. It is not a reusable package and is not tuned for small or medium responsive layouts in this publishing wave.
 
+The app consumes `CanDoItAll.Components.BaseLib` `0.1.15` from nuget.org. Its interactive
+shell uses `ThemeHost`, `Layout`, `SideMenu`, and a scrollable `Body`; routed content uses
+BaseLib page, section, navigation, form, metric, and feedback components. App-local CSS
+is limited to code-analysis result shapes that BaseLib does not model.
+
 ## Run
 
 ```powershell

@@ -2,92 +2,90 @@
 
 <PageTitle>CanDoItAll Code Analytics</PageTitle>
 
-<div class="page-shell">
-    <header class="hero">
-        <span class="eyebrow">Standalone analysis workspace</span>
-        <h1>CanDoItAll Code Analytics</h1>
-        <p>
-            Roslyn-first architecture snapshots, explicit collectors, deterministic storage,
-            and a deliberately thin future seam for <code>CanDoItAll.Mcp.CodeAnalytics</code>.
-        </p>
-    </header>
+<PageScaffold>
+    <Header>
+        <PageHeader Eyebrow="Analysis workspace"
+                    Title="CanDoItAll Code Analytics"
+                    Description="Build deterministic architecture snapshots from a C# solution or project." />
+    </Header>
 
-    <section class="panel">
-        <div class="panel-heading">
-            <h2>Run Analysis</h2>
-            <p>Pick a solution or a single project, then follow the live operation page while the collectors run.</p>
-        </div>
+    <ChildContent>
+        <SectionCard Title="Run analysis"
+                     Description="Pick a solution or project, then follow the live operation while collectors run.">
 
-        <form class="analysis-form" method="post" action="/analyze">
-            <label class="field">
-                <span>Solution or project path</span>
-                <div class="path-picker">
-                    <input id="workspacePathInput" type="text" name="solutionPath" value="@_defaultSolutionPath" />
-                    <button
-                        class="secondary-button"
-                        type="button"
-                        data-workspace-picker
-                        data-target-id="workspacePathInput"
-                        data-status-id="pickerStatus">
-                        Browse
-                    </button>
+            <form class="analysis-form" method="post" action="/analyze">
+                <FormField Text="Solution or project path">
+                    <div class="path-picker">
+                        <input id="workspacePathInput" type="text" name="solutionPath" value="@_defaultSolutionPath" />
+                        <Button Text="Browse"
+                                Type="button"
+                                ButtonStyle="@ButtonStyle.Secondary"
+                                Variant="@Variant.Outlined"
+                                class="path-picker-action"
+                                data-workspace-picker
+                                data-target-id="workspacePathInput"
+                                data-status-id="pickerStatus" />
+                    </div>
+                    <small class="field-help">
+                        Choose a <code>.sln</code>, <code>.slnx</code>, or <code>.csproj</code>. A project file runs scoped project analysis automatically.
+                    </small>
+                    <output class="picker-status" id="pickerStatus" aria-live="polite"></output>
+                </FormField>
+
+                <FormField Text="Project filter">
+                    <input type="text" name="scopeProjectNames" placeholder="Optional comma-separated project names" />
+                    <small class="field-help">
+                        Leave this empty to analyze the full solution, or use it to narrow a solution run to specific projects.
+                    </small>
+                </FormField>
+
+                <Grid Columns="2" ColumnsLg="3" Gap="@LayoutGap.Small">
+                    <label><input type="checkbox" name="includeDi" checked /> Include DI</label>
+                    <label><input type="checkbox" name="includePersistence" checked /> Include persistence</label>
+                    <label><input type="checkbox" name="includeRisks" checked /> Include risk rules</label>
+                    <label><input type="checkbox" name="includeXmlDocs" checked /> Include XML docs</label>
+                    <label><input type="checkbox" name="includeMermaidExports" checked /> Include Mermaid exports</label>
+                    <label><input type="checkbox" name="forceRefresh" /> Force refresh</label>
+                </Grid>
+
+                <Stack Orientation="@Orientation.Horizontal"
+                       AlignItems="@AlignItems.Center"
+                       Wrap="@FlexWrap.Wrap"
+                       GapScale="@LayoutGap.Small">
+                    <Button Text="Start analysis" Type="submit" Icon="play_arrow" />
+                    <Button Text="Open context lab"
+                            Href="/context-lab"
+                            Icon="account_tree"
+                            ButtonStyle="@ButtonStyle.Secondary"
+                            Variant="@Variant.Outlined" />
+                    <span class="form-note">The status page refreshes automatically while analysis is running.</span>
+                </Stack>
+            </form>
+        </SectionCard>
+
+        <SectionCard Title="Recent snapshots" Description="The recent index is file-based and deterministic.">
+            @if (_recentSnapshots.Count == 0)
+            {
+                <EmptyState Eyebrow="Snapshots"
+                            Title="No snapshots yet"
+                            Description="Run an analysis to create the first stored snapshot." />
+            }
+            else
+            {
+                <div class="recent-list">
+                    @foreach (var item in _recentSnapshots)
+                    {
+                        <a class="recent-card" href="@($"/snapshots/{item.SnapshotId}")">
+                            <strong>@item.SolutionName</strong>
+                            <span>@item.CreatedUtc.ToString("u")</span>
+                            <span>@item.FindingCount findings / @item.DiagnosticCount diagnostics</span>
+                        </a>
+                    }
                 </div>
-                <small class="field-help">
-                    Choose a <code>.sln</code>, <code>.slnx</code>, or <code>.csproj</code>. A project file runs scoped project analysis automatically.
-                </small>
-                <output class="picker-status" id="pickerStatus" aria-live="polite"></output>
-            </label>
-
-            <label class="field">
-                <span>Project filter</span>
-                <input type="text" name="scopeProjectNames" placeholder="Optional comma-separated project names" />
-                <small class="field-help">
-                    Leave this empty to analyze the full solution, or use it to narrow a solution run to specific projects.
-                </small>
-            </label>
-
-            <div class="toggle-grid">
-                <label><input type="checkbox" name="includeDi" checked /> Include DI</label>
-                <label><input type="checkbox" name="includePersistence" checked /> Include persistence</label>
-                <label><input type="checkbox" name="includeRisks" checked /> Include risk rules</label>
-                <label><input type="checkbox" name="includeXmlDocs" checked /> Include XML docs</label>
-                <label><input type="checkbox" name="includeMermaidExports" checked /> Include Mermaid exports</label>
-                <label><input type="checkbox" name="forceRefresh" /> Force refresh</label>
-            </div>
-
-            <div class="action-row">
-                <button class="primary-button" type="submit">Start analysis</button>
-                <a class="secondary-link-button" href="/context-lab">Open focused context lab</a>
-                <span class="form-note">The status page refreshes automatically while analysis is running.</span>
-            </div>
-        </form>
-    </section>
-
-    <section class="panel">
-        <div class="panel-heading">
-            <h2>Recent Snapshots</h2>
-            <p>The recent index is file-based and deterministic.</p>
-        </div>
-
-        @if (_recentSnapshots.Count == 0)
-        {
-            <p class="empty-state">No snapshots have been stored yet.</p>
-        }
-        else
-        {
-            <div class="recent-list">
-                @foreach (var item in _recentSnapshots)
-                {
-                    <a class="recent-card" href="@($"/snapshots/{item.SnapshotId}")">
-                        <strong>@item.SolutionName</strong>
-                        <span>@item.CreatedUtc.ToString("u")</span>
-                        <span>@item.FindingCount findings / @item.DiagnosticCount diagnostics</span>
-                    </a>
-                }
-            </div>
-        }
-    </section>
-</div>
+            }
+        </SectionCard>
+    </ChildContent>
+</PageScaffold>
 
 @code {
     [Inject]

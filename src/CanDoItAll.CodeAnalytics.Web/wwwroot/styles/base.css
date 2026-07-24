@@ -1,16 +1,9 @@
 :root {
     color-scheme: light;
-    --page-bg: #f2efe7;
-    --panel-bg: rgba(255, 255, 255, 0.84);
-    --panel-border: rgba(36, 42, 56, 0.12);
     --text-main: #1f2433;
     --text-muted: #596173;
     --accent: #145a74;
     --accent-soft: #d6ecf2;
-    --shadow-soft: 0 24px 60px rgba(24, 37, 56, 0.12);
-    --button-bg: #0f5469;
-    --button-bg-hover: #0c4254;
-    --button-secondary: #e6edf0;
     --success: #1e6c46;
     --success-soft: #dff4e7;
     --warning: #8f5a11;
@@ -24,11 +17,6 @@ html,
 body {
     margin: 0;
     min-height: 100%;
-    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-    background:
-        radial-gradient(circle at top left, rgba(20, 90, 116, 0.16), transparent 32%),
-        linear-gradient(180deg, #fcfaf5 0%, var(--page-bg) 100%);
-    color: var(--text-main);
 }
 
 * {
@@ -39,25 +27,6 @@ code {
     font-family: Consolas, "Courier New", monospace;
 }
 
-a {
-    color: var(--accent);
-}
-
-.app-shell {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 1.5rem;
-}
-
-.app-header {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.6rem 0 1.2rem;
-}
-
-.app-main,
 .page-shell,
 .analysis-form,
 .search-form,
@@ -71,56 +40,6 @@ a {
     gap: 1rem;
 }
 
-.brand-link {
-    color: var(--text-main);
-    text-decoration: none;
-    font-weight: 800;
-    letter-spacing: 0.03em;
-}
-
-.top-nav {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-}
-
-.top-nav-link {
-    padding: 0.45rem 0.8rem;
-    border-radius: 999px;
-    background: rgba(214, 236, 242, 0.55);
-    color: var(--accent);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.hero,
-.panel {
-    border: 1px solid var(--panel-border);
-    border-radius: 24px;
-    background: var(--panel-bg);
-    box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(14px);
-}
-
-.hero {
-    padding: 2.4rem;
-}
-
-.panel {
-    padding: 1.5rem;
-}
-
-.hero h1 {
-    margin: 0.35rem 0 0.9rem;
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
-    line-height: 0.95;
-}
-
-.hero h1:focus {
-    outline: none;
-}
-
-.hero p,
 .panel-heading p,
 .empty-state,
 .field-help,
@@ -128,20 +47,12 @@ a {
     color: var(--text-muted);
 }
 
-.hero p {
-    max-width: 44rem;
-    margin: 0;
-    line-height: 1.7;
-}
-
 .panel-heading {
     margin-bottom: 1rem;
 }
 
 .panel-heading h1,
-.panel-heading h2,
-.panel h1,
-.panel h2 {
+.panel-heading h2 {
     margin-top: 0;
 }
 

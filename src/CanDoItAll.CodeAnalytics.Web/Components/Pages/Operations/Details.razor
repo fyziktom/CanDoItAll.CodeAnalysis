@@ -4,15 +4,15 @@
 
 @if (_operation is null)
 {
-    <section class="panel">
+    <SectionCard>
         <h1>Analysis operation not found</h1>
         <p class="empty-state">The requested operation is not available anymore.</p>
-    </section>
+    </SectionCard>
 }
 else
 {
     <div class="page-shell">
-        <section class="panel">
+        <SectionCard>
             <div class="panel-heading">
                 <h1>Analysis operation</h1>
                 <p>Progress and diagnostics stay visible even when the run finishes with partial errors.</p>
@@ -63,9 +63,9 @@ else
             {
                 <p class="message-banner error-banner">@_operation.ErrorMessage</p>
             }
-        </section>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <div class="panel-heading">
                 <h2>Progress</h2>
                 <p>Each collector stage reports explicit started, completed, and failed events.</p>
@@ -91,9 +91,9 @@ else
                     }
                 </div>
             }
-        </section>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <div class="panel-heading">
                 <h2>Diagnostics</h2>
                 <p>Errors and warnings are preserved instead of being swallowed behind generic fallback behavior.</p>
@@ -122,7 +122,7 @@ else
                     }
                 </div>
             }
-        </section>
+        </SectionCard>
     </div>
 }
 

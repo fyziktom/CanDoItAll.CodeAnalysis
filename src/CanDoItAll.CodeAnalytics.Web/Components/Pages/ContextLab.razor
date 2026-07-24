@@ -3,16 +3,11 @@
 <PageTitle>Focused Context Lab</PageTitle>
 
 <div class="page-shell">
-    <header class="hero">
-        <span class="eyebrow">Focused context tuning</span>
-        <h1>Focused Context Lab</h1>
-        <p>
-            Run a bounded focused-context pass from plain prompt text, optional project scope, and explicit tags.
-            The goal is to judge whether the selected excerpts are precise enough before an agent starts reading whole files.
-        </p>
-    </header>
+    <PageHeader Eyebrow="Focused context tuning"
+                Title="Focused Context Lab"
+                Description="Run a bounded source-context pass from prompt text, optional project scope, relation hints, and explicit tags." />
 
-    <section class="panel">
+    <SectionCard>
         <div class="panel-heading">
             <h2>Run Lab</h2>
             <p>Snapshots are reused when possible, so repeated tuning runs stay fast unless you force a refresh.</p>
@@ -23,14 +18,14 @@
                 <span>Solution or project path</span>
                 <div class="path-picker">
                     <input id="labWorkspacePathInput" type="text" name="workspacePath" value="@GetWorkspacePath()" />
-                    <button
-                        class="secondary-button"
-                        type="button"
-                        data-workspace-picker
-                        data-target-id="labWorkspacePathInput"
-                        data-status-id="labPickerStatus">
-                        Browse
-                    </button>
+                    <Button Text="Browse"
+                            Type="button"
+                            ButtonStyle="@ButtonStyle.Secondary"
+                            Variant="@Variant.Outlined"
+                            class="path-picker-action"
+                            data-workspace-picker
+                            data-target-id="labWorkspacePathInput"
+                            data-status-id="labPickerStatus" />
                 </div>
                 <small class="field-help">
                     Choose a <code>.sln</code>, <code>.slnx</code>, or <code>.csproj</code>. Use the project filter only when the workspace is a solution.
@@ -101,29 +96,35 @@
                 </label>
             </div>
 
-            <div class="action-row">
-                <button class="primary-button" type="submit">Run focused context</button>
-                <a class="secondary-link-button" href="/">Back to analysis home</a>
-            </div>
+            <Stack Orientation="@Orientation.Horizontal"
+                   AlignItems="@AlignItems.Center"
+                   Wrap="@FlexWrap.Wrap"
+                   GapScale="@LayoutGap.Small">
+                <Button Text="Run focused context" Type="submit" Icon="search" />
+                <Button Text="Back to analysis"
+                        Href="/"
+                        ButtonStyle="@ButtonStyle.Secondary"
+                        Variant="@Variant.Outlined" />
+            </Stack>
         </form>
-    </section>
+    </SectionCard>
 
     @if (!string.IsNullOrWhiteSpace(_errorMessage))
     {
-        <section class="panel">
+        <SectionCard>
             <p class="message-banner error-banner">@_errorMessage</p>
-        </section>
+        </SectionCard>
     }
     else if (_buildResponse is not null && _response is null)
     {
-        <section class="panel">
+        <SectionCard>
             <p class="message-banner warning-banner">A snapshot was built, but the prompt did not resolve to a bounded seed.</p>
-        </section>
+        </SectionCard>
     }
 
     @if (_buildResponse is not null)
     {
-        <section class="panel">
+        <SectionCard>
             <div class="panel-heading">
                 <h2>Run Summary</h2>
                 <p>Use this to judge whether the heuristic picked the right neighborhood before opening whole files.</p>
@@ -230,7 +231,7 @@
                     </p>
                 }
             }
-        </section>
+        </SectionCard>
     }
 
     @if (_response is not null)

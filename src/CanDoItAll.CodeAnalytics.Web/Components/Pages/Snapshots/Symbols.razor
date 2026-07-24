@@ -4,15 +4,15 @@
 
 @if (_searchResponse is null)
 {
-    <div class="panel">
+    <SectionCard>
         <h1>Symbols</h1>
         <p class="empty-state">The requested snapshot could not be loaded.</p>
-    </div>
+    </SectionCard>
 }
 else
 {
     <div class="page-shell">
-        <header class="panel">
+        <SectionCard>
             <h1>Symbols</h1>
             <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="symbols" />
             <form method="get" class="search-form type-search-form">
@@ -40,9 +40,9 @@ else
                 }
                 <button type="submit">Search</button>
             </form>
-        </header>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <div class="panel-heading">
                 <h2>Definition Search</h2>
                 <p>Use this route for precise symbol starts, definition inspection, implementation discovery, and reference tracing without forcing a broader focused-context bundle first.</p>
@@ -90,11 +90,11 @@ else
                     }
                 </div>
             }
-        </section>
+        </SectionCard>
 
         @if (_definitionResponse is not null)
         {
-            <section class="panel">
+            <SectionCard>
                 <div class="panel-heading">
                     <h2>Definition</h2>
                     <p>@_definitionResponse.Declaration</p>
@@ -140,9 +140,9 @@ else
                     }
                     <pre class="code-snippet"><code>@_definitionResponse.Definition.Code</code></pre>
                 </div>
-            </section>
+            </SectionCard>
 
-            <section class="panel">
+            <SectionCard>
                 <div class="panel-heading">
                     <h2>Symbol Neighbors</h2>
                     <p>These sections keep exact symbol drilldowns separate so you can widen only where it helps.</p>
@@ -162,9 +162,9 @@ else
                         <strong class="stat-value">@(_referencesResponse?.TotalCount ?? 0)</strong>
                     </article>
                 </div>
-            </section>
+            </SectionCard>
 
-            <section class="panel">
+            <SectionCard>
                 <div class="panel-heading">
                     <h2>Members</h2>
                     <p>Exact members for the selected type.</p>
@@ -193,9 +193,9 @@ else
                         }
                     </div>
                 }
-            </section>
+            </SectionCard>
 
-            <section class="panel">
+            <SectionCard>
                 <div class="panel-heading">
                     <h2>Implementations</h2>
                     <p>Implementing or derived types for the selected symbol’s type.</p>
@@ -224,9 +224,9 @@ else
                         }
                     </div>
                 }
-            </section>
+            </SectionCard>
 
-            <section class="panel">
+            <SectionCard>
                 <div class="panel-heading">
                     <h2>References</h2>
                     <p>Ordered references for the selected type or member.</p>
@@ -258,7 +258,7 @@ else
                         }
                     </div>
                 }
-            </section>
+            </SectionCard>
         }
     </div>
 }

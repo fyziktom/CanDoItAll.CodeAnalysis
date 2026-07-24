@@ -4,20 +4,20 @@
 
 @if (_response is null)
 {
-    <div class="panel">
+    <SectionCard>
         <h1>Exports</h1>
         <p class="empty-state">The requested snapshot could not be loaded.</p>
-    </div>
+    </SectionCard>
 }
 else
 {
     <div class="page-shell">
-        <header class="panel">
+        <SectionCard>
             <h1>Exports</h1>
             <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="exports" />
-        </header>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <ul class="detail-list">
                 @foreach (var artifact in _response.Artifacts)
                 {
@@ -27,7 +27,7 @@ else
                     </li>
                 }
             </ul>
-        </section>
+        </SectionCard>
     </div>
 }
 

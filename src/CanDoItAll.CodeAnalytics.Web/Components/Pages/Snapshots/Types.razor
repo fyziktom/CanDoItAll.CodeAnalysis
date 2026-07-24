@@ -4,15 +4,15 @@
 
 @if (_response is null)
 {
-    <div class="panel">
+    <SectionCard>
         <h1>Types</h1>
         <p class="empty-state">The requested snapshot could not be loaded.</p>
-    </div>
+    </SectionCard>
 }
 else
 {
     <div class="page-shell">
-        <header class="panel">
+        <SectionCard>
             <h1>Types</h1>
             <SnapshotTabs SnapshotId="@SnapshotId" ActiveTab="types" />
             <form method="get" class="search-form type-search-form">
@@ -35,9 +35,9 @@ else
                 </label>
                 <button type="submit">Filter</button>
             </form>
-        </header>
+        </SectionCard>
 
-        <section class="panel">
+        <SectionCard>
             <div class="panel-heading">
                 <h2>Type Explorer</h2>
                 <p>Search the snapshot by project, type name, namespace, and optional function/member signature text.</p>
@@ -114,7 +114,7 @@ else
                     }
                 </div>
             }
-        </section>
+        </SectionCard>
     </div>
 }
 
