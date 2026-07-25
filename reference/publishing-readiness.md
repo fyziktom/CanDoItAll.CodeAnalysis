@@ -23,19 +23,24 @@ This repository publishes reusable CodeAnalytics libraries and keeps the desktop
 All packable projects inherit common metadata from `Directory.Build.props` and
 `Directory.Build.targets`: the MIT-derived repository license file, the
 `https://aicandoitall.com` project URL, canonical source repository URL, authors, package
-tags, version prefix, SourceLink repository metadata, and root README packaging. Each
+tags, package base version, SourceLink repository metadata, and root README packaging. Each
 packable production project declares an explicit description in its `.csproj`.
 
 ## Pack Commands
 
 ```powershell
+.\tools\deployment\nugets\Build-NuGets.ps1 -Version 0.1.5
 .\tools\deployment\nugets\Build-NuGets.ps1 -Configuration Release -OutputDirectory .\artifacts\packages
 ```
+
+Without `-OutputDirectory`, packages are isolated under
+`artifacts/packages/<version>_<timestamp>`. Explicit output paths are used directly
+unless `-CreateRunDirectory` is supplied.
 
 Inspect package contents before publishing:
 
 ```powershell
-Get-ChildItem .\artifacts\packages -Filter *.nupkg | ForEach-Object {
+Get-ChildItem .\artifacts\packages -Filter *.nupkg -Recurse | ForEach-Object {
     tar -tf $_.FullName
 }
 ```

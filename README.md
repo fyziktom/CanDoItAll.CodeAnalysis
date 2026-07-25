@@ -101,8 +101,15 @@ Preview or execute the repository-owned package adapter:
 
 ```powershell
 .\tools\deployment\nugets\Build-NuGets.ps1 -WhatIf
+.\tools\deployment\nugets\Build-NuGets.ps1 -Version 0.1.5
+.\tools\deployment\nugets\Build-NuGets.ps1 -Version 0.2.0 -PrereleaseSuffix '-preview.1'
 .\tools\deployment\nugets\Build-NuGets.ps1 -Configuration Release -OutputDirectory .\artifacts\packages
 ```
+
+When `-OutputDirectory` is omitted, the adapter creates
+`artifacts/packages/<version>_<timestamp>`. An explicit output directory remains exact
+for CI and cross-repository orchestration; add `-CreateRunDirectory` to create the same
+versioned child beneath an explicit output root.
 
 This command builds packages but never publishes them. Inspect the `.nuspec`, embedded
 `LICENSE`, README, repository metadata, and archive contents before pushing a package.

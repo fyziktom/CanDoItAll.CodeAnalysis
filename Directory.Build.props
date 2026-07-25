@@ -14,7 +14,10 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>code-analysis;roslyn;architecture;dependency-analysis;mermaid</PackageTags>
-    <VersionPrefix>0.1.0</VersionPrefix>
+    <CanDoItAllPackageBaseVersion Condition="'$(CanDoItAllPackageBaseVersion)' == ''">0.1.0</CanDoItAllPackageBaseVersion>
+    <CanDoItAllPackageProofSuffix Condition="'$(CanDoItAllPackageProofSuffix)' == ''"></CanDoItAllPackageProofSuffix>
+    <Version>$(CanDoItAllPackageBaseVersion)$(CanDoItAllPackageProofSuffix)</Version>
+    <PackageVersion>$(Version)</PackageVersion>
     <DefaultItemExcludes>
       $(DefaultItemExcludes);
       .artifacts/**;

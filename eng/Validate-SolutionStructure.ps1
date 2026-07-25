@@ -68,7 +68,8 @@ $requiredProjects = @(
     "tests/CanDoItAll.CodeAnalytics.Tests.Unit/CanDoItAll.CodeAnalytics.Tests.Unit.csproj",
     "tests/CanDoItAll.CodeAnalytics.Tests.Integration/CanDoItAll.CodeAnalytics.Tests.Integration.csproj",
     "tests/CanDoItAll.CodeAnalytics.Tests.Web/CanDoItAll.CodeAnalytics.Tests.Web.csproj",
-    "tests/CanDoItAll.CodeAnalytics.Tests.Architecture/CanDoItAll.CodeAnalytics.Tests.Architecture.csproj"
+    "tests/CanDoItAll.CodeAnalytics.Tests.Architecture/CanDoItAll.CodeAnalytics.Tests.Architecture.csproj",
+    "tools/ScenarioEvaluationHarness/ScenarioEvaluationHarness.csproj"
 )
 $forbiddenFolders = @("Helpers", "Misc", "Stuff", "CommonStuff")
 
@@ -117,14 +118,21 @@ foreach ($project in $requiredProjects) {
 }
 
 $solutionXml = [xml](Get-Content -LiteralPath $solutionPath -Raw)
-$solutionProjects = $solutionXml.SelectNodes("//Project") |
-    ForEach-Object { $_.Attributes["Path"].Value.Replace("\", "/") } |
-    Sort-Object
-$expectedProjects = $requiredProjects | Sort-Object
+$solutionProjects = @(
+    $solutionXml.SelectNodes("//Project") |
+        ForEach-Object { $_.Attributes["Path"].Value.Replace("\", "/") } |
+        Sort-Object
+)
+$expectedProjects = @($requiredProjects | Sort-Object)
+$projectDifferences = @(
+    Compare-Object `
+        -ReferenceObject $expectedProjects `
+        -DifferenceObject $solutionProjects
+)
 
-if ((Compare-Object -ReferenceObject $expectedProjects -DifferenceObject $solutionProjects).Count -gt 0) {
-    $missing = $expectedProjects | Where-Object { $_ -notin $solutionProjects }
-    $extra = $solutionProjects | Where-Object { $_ -notin $expectedProjects }
+if ($projectDifferences.Count -gt 0) {
+    $missing = @($expectedProjects | Where-Object { $_ -notin $solutionProjects })
+    $extra = @($solutionProjects | Where-Object { $_ -notin $expectedProjects })
 
     if ($missing.Count -gt 0) {
         throw "Solution is missing required project entries: $($missing -join ', ')"
@@ -135,9 +143,11 @@ if ((Compare-Object -ReferenceObject $expectedProjects -DifferenceObject $soluti
     }
 }
 
-$forbiddenMatches = Get-ChildItem -Path (Join-Path $repoRoot "src"), (Join-Path $repoRoot "tests") -Directory -Recurse |
-    Where-Object { $forbiddenFolders -contains $_.Name } |
-    Sort-Object FullName
+$forbiddenMatches = @(
+    Get-ChildItem -Path (Join-Path $repoRoot "src"), (Join-Path $repoRoot "tests") -Directory -Recurse |
+        Where-Object { $forbiddenFolders -contains $_.Name } |
+        Sort-Object FullName
+)
 
 if ($forbiddenMatches.Count -gt 0) {
     $paths = $forbiddenMatches | ForEach-Object { Get-RepoRelativePath -RootPath $repoRoot -TargetPath $_.FullName }
