@@ -1,6 +1,10 @@
 # CanDoItAll.CodeAnalysis
 
 [![CI](https://github.com/fyziktom/CanDoItAll.CodeAnalysis/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/fyziktom/CanDoItAll.CodeAnalysis/actions/workflows/ci.yml)
+[![Analysis version](https://img.shields.io/nuget/v/CanDoItAll.CodeAnalytics.Analysis.svg?logo=nuget&label=Analysis)](https://www.nuget.org/packages/CanDoItAll.CodeAnalytics.Analysis)
+[![Analysis downloads](https://img.shields.io/nuget/dt/CanDoItAll.CodeAnalytics.Analysis.svg?logo=nuget&label=Analysis%20downloads)](https://www.nuget.org/packages/CanDoItAll.CodeAnalytics.Analysis)
+[![Rendering version](https://img.shields.io/nuget/v/CanDoItAll.CodeAnalytics.Rendering.svg?logo=nuget&label=Rendering)](https://www.nuget.org/packages/CanDoItAll.CodeAnalytics.Rendering)
+[![Rendering downloads](https://img.shields.io/nuget/dt/CanDoItAll.CodeAnalytics.Rendering.svg?logo=nuget&label=Rendering%20downloads)](https://www.nuget.org/packages/CanDoItAll.CodeAnalytics.Rendering)
 [![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/download/dotnet/10.0)
 [![License](https://img.shields.io/badge/license-MIT--derived%20with%20website%20link-blue.svg)](LICENSE)
 
