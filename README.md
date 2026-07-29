@@ -6,7 +6,7 @@
 [![Rendering version](https://img.shields.io/nuget/v/CanDoItAll.CodeAnalytics.Rendering.svg?logo=nuget&label=Rendering)](https://www.nuget.org/packages/CanDoItAll.CodeAnalytics.Rendering)
 [![Rendering downloads](https://img.shields.io/nuget/dt/CanDoItAll.CodeAnalytics.Rendering.svg?logo=nuget&label=Rendering%20downloads)](https://www.nuget.org/packages/CanDoItAll.CodeAnalytics.Rendering)
 [![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/download/dotnet/10.0)
-[![License](https://img.shields.io/badge/license-MIT--derived%20with%20website%20link-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 `CanDoItAll.CodeAnalysis` is a .NET 10 code-analysis engine plus a desktop-large
 sandbox. It loads C# solutions with Roslyn/MSBuild, builds deterministic architecture
@@ -122,7 +122,7 @@ snapshot output, artifacts, or machine-local paths.
 
 ## Repository Docs
 
-- `LICENSE` - MIT-derived license with the CanDoItAll website-link requirement.
+- `LICENSE` - unmodified MIT License.
 - `SECURITY.md` - vulnerability reporting policy.
 - `CONTRIBUTING.md` - contribution and validation guide.
 - `docs/repository-standards.md` - shared-standard adoption and compatibility exceptions.
@@ -132,10 +132,7 @@ snapshot output, artifacts, or machine-local paths.
 
 ## License And Contributions
 
-This repository uses the
-[MIT-Derived License with CanDoItAll Website Link Requirement](LICENSE). Redistributing
-the software or a substantial portion of it requires at least one link to
-[aicandoitall.com](https://aicandoitall.com).
+This repository uses the [MIT License](LICENSE).
 
 Code contributions are limited to partners approved by the maintainer. See
 [CONTRIBUTING.md](CONTRIBUTING.md) and contact the `fyziktom` account on LinkedIn before

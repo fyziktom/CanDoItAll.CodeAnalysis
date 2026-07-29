@@ -28,13 +28,12 @@ jobs:
         run: >
           ./tools/deployment/nugets/Build-NuGets.ps1
           -Configuration Release
-          -OutputDirectory artifacts/packages
 
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
           name: nuget-packages
           path: |
-            artifacts/packages/*.nupkg
-            artifacts/packages/*.snupkg
+            artifacts/packages/**/*.nupkg
+            artifacts/packages/**/*.snupkg
           if-no-files-found: error

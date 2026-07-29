@@ -21,7 +21,7 @@ This repository publishes reusable CodeAnalytics libraries and keeps the desktop
 ## Package Metadata
 
 All packable projects inherit common metadata from `Directory.Build.props` and
-`Directory.Build.targets`: the MIT-derived repository license file, the
+`Directory.Build.targets`: the SPDX MIT license expression, the approved package icon, the
 `https://aicandoitall.com` project URL, canonical source repository URL, authors, package
 tags, package base version, SourceLink repository metadata, and root README packaging. Each
 packable production project declares an explicit description in its `.csproj`.
