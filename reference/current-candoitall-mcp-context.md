@@ -3,7 +3,7 @@
 ## Host repo facts
 
 - Host solution file: `CanDoItAll.slnx`
-- SDK pin: `10.0.200` with `latestPatch`
+- SDK pin: `10.0.302` with `latestPatch`
 - Current MCP project family:
   - `CanDoItAll.Mcp.Components`
   - `CanDoItAll.Mcp.Core`

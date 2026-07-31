@@ -71,9 +71,14 @@ $ErrorActionPreference = 'Stop'
 $repositoryRoot = [System.IO.Path]::GetFullPath(
     (Join-Path $PSScriptRoot '..\..\..')
 )
+$globalJsonPath = Join-Path $repositoryRoot 'global.json'
 $solutionPath = Join-Path $repositoryRoot 'CanDoItAll.CodeAnalsis.slnx'
 $directoryBuildPropsPath = Join-Path $repositoryRoot 'Directory.Build.props'
 $nugetConfigPath = Join-Path $repositoryRoot 'NuGet.config'
+
+if (-not (Test-Path -LiteralPath $globalJsonPath -PathType Leaf)) {
+    throw "global.json was not found at '$globalJsonPath'."
+}
 
 if (-not (Test-Path -LiteralPath $solutionPath -PathType Leaf)) {
     throw "Canonical solution not found at '$solutionPath'."
@@ -235,9 +240,15 @@ function Invoke-DotNet {
         [string]$FailureMessage
     )
 
-    & dotnet @Arguments
-    if ($LASTEXITCODE -ne 0) {
-        throw "$FailureMessage Exit code: $LASTEXITCODE."
+    Push-Location -LiteralPath $repositoryRoot
+    try {
+        & dotnet @Arguments
+        if ($LASTEXITCODE -ne 0) {
+            throw "$FailureMessage Exit code: $LASTEXITCODE."
+        }
+    }
+    finally {
+        Pop-Location
     }
 }
 

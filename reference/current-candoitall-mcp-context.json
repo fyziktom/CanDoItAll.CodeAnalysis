@@ -1,6 +1,6 @@
 {
   "hostRepoName": "CanDoItAll",
-  "sdkVersion": "10.0.200",
+  "sdkVersion": "10.0.302",
   "rollForward": "latestPatch",
   "solutionFile": "CanDoItAll.slnx",
   "targetFramework": "net10.0",
